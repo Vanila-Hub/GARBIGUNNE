@@ -29,7 +29,7 @@ public class Garbigunne_ControlAcesso extends HttpServlet {
 		String correo = (String) request.getParameter("correo");
 		System.out.println(correo);
 		if (correo.equalsIgnoreCase("admin@ee")) {
-			request.getRequestDispatcher("/Paneles_control/Admin/");
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
 		} else {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/productos");
 		}
