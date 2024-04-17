@@ -26,8 +26,19 @@ public class Garbigunne_Admin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String peticion = (String) request.getParameter("peticion");
+		
+		switch (peticion) {
+		case "proveedores":
+			request.getRequestDispatcher("Paneles_control/Admin/index.jsp").forward(request, response);
+			break;
+		case "planta":
+			request.getRequestDispatcher("Paneles_control/Admin/planta.jsp").forward(request, response);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	/**

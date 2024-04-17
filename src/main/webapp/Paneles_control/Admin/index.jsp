@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/logo_garbigunne.png" type="image/x-icon">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="Paneles_control/Admin/img/logo_garbigunne.png" type="image/x-icon">
+    <link rel="stylesheet" href="Paneles_control/Admin/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -25,9 +25,9 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="http://localhost:8080/Garbigune_reto/home">
                     <div class="imgDiv">
-                        <img src="./img/logo_garbigunne.png" alt="logo" class="logo">
+                        <img src="Paneles_control/Admin/img/logo_garbigunne.png" alt="logo" class="logo">
                     </div>
                 </a>
             </div>
@@ -44,42 +44,42 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">
+                        <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link active" aria-current="page">
                             PROVEEDORES
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta" class="nav-link">
                             PLANTAS
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
                             SUMINISTROS
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="Paneles_control/Admin/materiales.jsp" class="nav-link disabled">
                             MATERIALES
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link disabled">
                             PRODUCTOS
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="#" class="nav-link disabled">
                             EMISIONES_PRODUCTOS
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="#" class="nav-link disabled">
                             CLIENTES
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link ">
+                        <a href="#" class="nav-link disabled">
                             VENTAS
                         </a>
                     </li>

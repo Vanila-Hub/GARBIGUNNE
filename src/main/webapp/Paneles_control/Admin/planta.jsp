@@ -33,75 +33,75 @@
             </div>
         </nav>
     </header>
-    <div class="contenedor">
+    <div class="contenedor d-flex flex-row">
         <div class="b-example-divider b-example-vr"></div>
         <main>
             <div class="b-example-divider b-example-vr"></div>
-            <div class="sidebar aside d-flex flex-column flex-shrink-0">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                    <strong class="fs-4">Gestores</strong>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="http://localhost:8080/Garbigune_reto/admin" class="nav-link" aria-current="page">
-                            PROVEEDORES
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:8080/Garbigune_reto/admin?opcion=planta" class="nav-link active">
-                            PLANTAS
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Paneles_control/Admin/suministro.jsp" class="nav-link ">
-                            SUMINISTROS
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Paneles_control/Admin/materiales.jsp" class="nav-link ">
-                            MATERIALES
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link ">
-                            PRODUCTOS
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link ">
-                            EMISIONES_PRODUCTOS
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link ">
-                            CLIENTES
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link ">
-                            VENTAS
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                        <strong>granky</strong>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">Gestionar Roles</a></li>
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
-                    </ul>
-                </div>
-            </div>
         </main>
+        <div class="sidebar aside d-flex flex-column flex-shrink-0">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                <strong class="fs-4">Gestores</strong>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link" aria-current="page">
+                        PROVEEDORES
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta" class="nav-link active">
+                        PLANTAS
+                    </a>
+                </li>
+                <li>
+                    <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
+                        SUMINISTROS
+                    </a>
+                </li>
+                <li>
+                    <a href="Paneles_control/Admin/materiales.jsp" class="nav-link disabled">
+                        MATERIALES
+                    </a>
+                </li>
+                <li>
+                    <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link disabled">
+                        PRODUCTOS
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link disabled">
+                        EMISIONES_PRODUCTOS
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link disabled">
+                        CLIENTES
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link disabled">
+                        VENTAS
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>granky</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="#">Gestionar Roles</a></li>
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="b-example-divider b-example-vr"></div>
     </div>
 
