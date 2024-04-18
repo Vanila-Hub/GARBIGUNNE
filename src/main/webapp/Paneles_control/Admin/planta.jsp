@@ -141,31 +141,31 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nombre de Usuario</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form action="http://localhost:8080/Garbigune_reto/create" method="get">
+                                    <input type="text" class="form-control"   name="opcion" value="planta">
                                         <div class="mb-3">
                                             <label for="exampleInput" class="form-label">Nombre</label>
                                             <input type="text" class="form-control" id="exampleInput"
-                                                aria-describedby="emailHelp">
+                                                aria-describedby="emailHelp" name="nombre">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInput" class="form-label">Direccion</label>
-                                            <input type="text" class="form-control" id="exampleInput">
+                                            <input type="text" class="form-control" id="exampleInput" name="direccion">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                            <input type="tel" class="form-control" id="exampleInput">
+                                            <input type="tel" class="form-control" id="exampleInput" name="telefono">
                                         </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" id="liveToastBtn">Save
-                                                changes</button>
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
                                     </form>
                                 </div>
                             </div>
