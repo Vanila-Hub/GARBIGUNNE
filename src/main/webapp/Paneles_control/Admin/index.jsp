@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Paneles_control/Admin/materiales.jsp" class="nav-link ">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="nav-link ">
                         MATERIALES
                     </a>
                 </li>

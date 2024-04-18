@@ -30,7 +30,7 @@ public class Garbigunne_Admin extends HttpServlet {
 		
 		switch (peticion) {
 		case "materiales":
-			request.getRequestDispatcher("Paneles_control/Admin/materiales.jsp").forward(request, response);
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/materiales");
 			break;
 		case "planta":
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/plantas");
