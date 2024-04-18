@@ -1,16 +1,20 @@
 package modelo;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ModeloPlanta extends Conector{
+public class ModeloPlanta{
 
 	public ArrayList<Planta> getPlantas() {
+		
+		
 		ArrayList<Planta> plantas = new ArrayList<Planta>();
 		String sql = "SELECT * FROM PLANTAS";
 		try {
-			Statement st = conexion.createStatement();
+			Connection con = Conector.getConexion();
+			Statement st = con.createStatement();
 			ResultSet rst = st.executeQuery(sql);
 			while(rst.next()) {
 				Planta planta = new Planta();

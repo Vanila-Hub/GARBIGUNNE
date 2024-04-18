@@ -34,10 +34,10 @@ public class Garbigunne_Admin_ViewAll_plantas extends HttpServlet {
 		//pedir Plantas
 		ModeloPlanta modelo_planta = new ModeloPlanta();
 		ArrayList<Planta> plantas = modelo_planta.getPlantas();
-		System.out.println(plantas);
+		
 		//pedir arrayñlisy
 		//mandarlo al jsp de plantas
-		
+		request.setAttribute("plantas_id", plantas);
 		request.getRequestDispatcher("Paneles_control/Admin/planta.jsp").forward(request, response);
 	}
 
