@@ -29,11 +29,11 @@ public class Garbigunne_Admin extends HttpServlet {
 		String peticion = (String) request.getParameter("peticion");
 		
 		switch (peticion) {
-		case "proveedores":
-			request.getRequestDispatcher("Paneles_control/Admin/index.jsp").forward(request, response);
+		case "materiales":
+			request.getRequestDispatcher("Paneles_control/Admin/materiales.jsp").forward(request, response);
 			break;
 		case "planta":
-			request.getRequestDispatcher("Paneles_control/Admin/planta.jsp").forward(request, response);
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/plantas");
 			break;
 
 		default:
