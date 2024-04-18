@@ -31,12 +31,12 @@ public class Garbigunne_Admin_ViewAll_plantas extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//crear Planta
+		//pedir Plantas
 		ModeloPlanta modelo_planta = new ModeloPlanta();
 		ArrayList<Planta> plantas = modelo_planta.getPlantas();
 		System.out.println(plantas);
 		//pedir arrayñlisy
-		//mandarlo al jso
+		//mandarlo al jsp de plantas
 		
 		request.getRequestDispatcher("Paneles_control/Admin/planta.jsp").forward(request, response);
 	}

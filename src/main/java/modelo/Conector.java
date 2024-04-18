@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+//import oracle.jdbc.driver.OracleDriver;
 
 public class Conector {
 	protected Connection conexion;
@@ -19,22 +20,22 @@ public class Conector {
 //        }
         
       	//URL of Oracle database server
-        String url = "jdbc:oracle:thin:@" + Config.HOST + ":" + Config.PORT + ":xe";       
+
+        String url = "jdbc:oracle:thin:@192.168.2.20:49161:xe";       
         Properties props = new Properties();
-        props.setProperty("user", Config.USERNAME);
-        props.setProperty("password", Config.USERNAME);
+        props.setProperty("user", "system");
+        props.setProperty("password", "oracle");
       
         //creating connection to Oracle database 
       
         try {
-			this.conexion = DriverManager.getConnection(url,props);
+        	Class.forName("oracle.jdbc.driver.OracleDriver");
+        	this.conexion = DriverManager.getConnection(url,props);
+//			Statement st = conexion.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-        try {
-			Statement st = conexion.createStatement();
-		} catch (SQLException e) {
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
