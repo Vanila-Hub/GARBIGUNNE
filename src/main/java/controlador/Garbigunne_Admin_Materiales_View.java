@@ -1,11 +1,16 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.Material;
+import modelo.ModeloMaterial;
 
 /**
  * Servlet implementation class Garbigunne_Admin_Materiales_View
@@ -26,7 +31,13 @@ public class Garbigunne_Admin_Materiales_View extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// pedir materiales
+		ModeloMaterial modelo_material = new ModeloMaterial();
+		ArrayList<Material> materiales = modelo_material.getMateriales();
+		
+		System.out.println(materiales);
+		
+		request.setAttribute("materiales", materiales);
 		request.getRequestDispatcher("Paneles_control/Admin/materiales.jsp").forward(request, response);
 	}
 

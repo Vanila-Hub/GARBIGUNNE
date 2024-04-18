@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,19 +101,18 @@
                     data-bs-target="#exampleModal" ><i class="bi bi-plus-lg"> AÑADIR </i></button>
                     <thead>
                         <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">dirrecion</th>
-                            <th scope="col">telefono</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Emison/KG</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
+                    <c:forEach items = "${materiales}" var="material">
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">${material.id_material}</th>
+                            <td>${material.tipo}</td>
+                            <td>${material.emision_kg}</td>
                             <td class="d-flex flex-wrap justify-content-evenly w-2">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-flex" data-bs-toggle="modal"
@@ -128,27 +128,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td class="d-flex flex-wrap justify-content-evenly w-2">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"><i
-                                            class="bi bi-eye fs-5 text-light"></i></button>
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-flex trash">
-                                        <i class="bi bi-trash text-light fs-5 text-info"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                      
+                   </c:forEach>
                     </tbody>
                 </table>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
