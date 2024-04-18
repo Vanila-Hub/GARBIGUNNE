@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link active">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link ">
                         PLANTAS
                     </a>
                 </li>
@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Paneles_control/Admin/materiales.jsp" class="nav-link ">
+                    <a href="Paneles_control/Admin/materiales.jsp" class="nav-link active">
                         MATERIALES
                     </a>
                 </li>
