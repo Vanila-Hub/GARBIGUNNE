@@ -37,5 +37,6 @@ public class Garbigunne_Admin_Materiales_View extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 
 }
