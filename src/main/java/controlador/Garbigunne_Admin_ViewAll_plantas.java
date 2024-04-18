@@ -37,7 +37,7 @@ public class Garbigunne_Admin_ViewAll_plantas extends HttpServlet {
 		
 		//pedir arrayñlisy
 		//mandarlo al jsp de plantas
-		request.setAttribute("plantas_id", plantas);
+		request.setAttribute("plantas", plantas);
 		request.getRequestDispatcher("Paneles_control/Admin/planta.jsp").forward(request, response);
 	}
 

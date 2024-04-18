@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -108,11 +110,12 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
+                        <c:forEach items = "${plantas}" var="planta">
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th scope="row">${planta.id}</th>
+                                <td>${planta.nombre}</td>
+                                <td>${planta.direccion}</td>
+                                <td>${planta.telefono}</td>
                                 <td class="d-flex flex-wrap justify-content-evenly w-2">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-flex" data-bs-toggle="modal"
@@ -128,6 +131,8 @@
                                     </div>
                                 </td>
                             </tr>
+                        
+                        </c:forEach>
 
                         </tbody>
                     </table>
