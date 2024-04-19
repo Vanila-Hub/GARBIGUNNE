@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes" class="nav-link ">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link active">
                         CLIENTES
                     </a>
                 </li>

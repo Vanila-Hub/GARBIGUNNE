@@ -38,7 +38,7 @@ public class Garbigunne_Admin_Clientes_View extends HttpServlet {
 				ArrayList<Cliente> clientes = modelo_cliente.getClientes();
 				
 				request.setAttribute("clientes", clientes);
-				request.getRequestDispatcher("Paneles_control/Cliente/cliente.jsp").forward(request, response);
+				request.getRequestDispatcher("Paneles_control/Admin/cliente.jsp").forward(request, response);
 	}
 
 	/**
