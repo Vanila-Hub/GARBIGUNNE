@@ -98,7 +98,7 @@
             <div class="table-responsive">
                 <table class="table table-design">
                     <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" ><i class="bi bi-plus-lg"> AÑADIR </i></button>
+                    data-bs-target="#exampleModal" >CREAR<i class="bi bi-plus-lg"></i></button>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>

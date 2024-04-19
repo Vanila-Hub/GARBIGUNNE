@@ -150,6 +150,10 @@
                             <div class="modal-body">
                                 <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
                                  <input type="text" class="form-control d-none" name="opcion" value="cliente">
+                                 <div class="mb-3">
+                                      <label for="exampleInput" class="form-label">Nombre</label>
+                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="nombre">
+                                    </div>
                                     <div class="mb-3">
                                       <label for="exampleInput" class="form-label">Apellido</label>
                                       <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="apellido">
