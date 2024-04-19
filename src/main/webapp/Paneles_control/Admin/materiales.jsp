@@ -123,7 +123,10 @@
                                         <i class="bi bi-pencil-square fs-5 text-light"></i>
                                     </button>
                                     <button type="button" class="btn btn-flex trash">
-                                        <i class="bi bi-trash text-light fs-5 text-info"></i>
+                                        <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
+                                                    class="btn btn-flex trash">
+                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
+                                                </a>
                                     </button>
                                 </div>
                             </td>
@@ -141,25 +144,21 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
+                                 <input type="text" class="form-control d-none" name="opcion" value="material">
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Nombre</label>
-                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp">
+                                      <label for="exampleInput" class="form-label">Tipo</label>
+                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="tipo">
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Direccion</label>
-                                      <input type="text" class="form-control" id="exampleInput">
-                                    </div>
-                                    <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                      <input type="tel" class="form-control" id="exampleInput">
-                                    </div>
-                                  </form>
+                                      <label for="exampleInput" class="form-label">Emison/kg</label>
+                                      <input type="text" class="form-control" id="exampleInput" name="emision_kg">
+                                    </div> 
+                                    <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
                             </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" id="liveToastBtn">Save changes</button>
+                                  </form>
                             </div>
                         </div>
                     </div>

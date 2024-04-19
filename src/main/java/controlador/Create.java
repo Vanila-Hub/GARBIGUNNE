@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
 
 /**
@@ -50,10 +51,13 @@ public class Create extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
 		case "material":	
-			String id_material = (String) request.getParameter("opcion");
-			String tipo = (String) request.getParameter("opcion");
-			String emision_kg = (String) request.getParameter("opcion");
+			String tipo = (String) request.getParameter("tipo");
+			int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
 			
+			ModeloMaterial modelo_material = new ModeloMaterial();
+			modelo_material.crearMaterial(tipo, emision_kg);
+			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 		default:
 			break;
 		}
