@@ -136,7 +136,6 @@
                                             </div>
                                         </td>
                                     </tr>
-
                                 </c:forEach>
 
                             </tbody>
