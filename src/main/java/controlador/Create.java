@@ -43,12 +43,15 @@ public class Create extends HttpServlet {
 //lalam al modelo para inser
 			//volvera el /plantas
 			break;
-
+		case "material":	
+			String id_material = (String) request.getParameter("opcion");
+			String tipo = (String) request.getParameter("opcion");
+			String emision_kg = (String) request.getParameter("opcion");
+			
 		default:
 			break;
 		}
 		
-
 	}
 
 }
