@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="#" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
@@ -136,7 +136,6 @@
                                             </div>
                                         </td>
                                     </tr>
-
                                 </c:forEach>
 
                             </tbody>
