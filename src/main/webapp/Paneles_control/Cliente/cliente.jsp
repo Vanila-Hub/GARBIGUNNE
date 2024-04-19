@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="nav-link active">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="nav-link ">
                         MATERIALES
                     </a>
                 </li>
@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link ">
+                    <a href="http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes" class="nav-link ">
                         CLIENTES
                     </a>
                 </li>
@@ -102,17 +102,21 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Emison/KG</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Contraseña</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                    <c:forEach items = "${materiales}" var="material">
+                    <c:forEach items = "${clientes}" var="cliente">
                         <tr>
-                            <th scope="row">${material.id_material}</th>
-                            <td>${material.tipo}</td>
-                            <td>${material.emision_kg}</td>
+                            <th scope="row">${cliente.id_cliente}</th>
+                            <td>${cliente.nombre}</td>
+                            <td>${cliente.apellido}</td>
+                            <td>${cliente.usuario}</td>
+                            <td>${cliente.contrasena}</td>
                             <td class="d-flex flex-wrap justify-content-evenly w-2">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-flex" data-bs-toggle="modal"
@@ -123,7 +127,7 @@
                                         <i class="bi bi-pencil-square fs-5 text-light"></i>
                                     </button>
                                     <button type="button" class="btn btn-flex trash">
-                                        <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
+                                        <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=cliente&id=${cliente.id_cliente}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -139,20 +143,24 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nombre de Usuario</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nombre</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
-                                 <input type="text" class="form-control d-none" name="opcion" value="material">
+                                 <input type="text" class="form-control d-none" name="opcion" value="cliente">
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Tipo</label>
-                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="tipo">
+                                      <label for="exampleInput" class="form-label">Apellido</label>
+                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="apellido">
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Emison/kg</label>
-                                      <input type="text" class="form-control" id="exampleInput" name="emision_kg">
+                                      <label for="exampleInput" class="form-label">Usuario</label>
+                                      <input type="text" class="form-control" id="exampleInput" name="usuario">
+                                    </div> 
+                                    <div class="mb-3">
+                                      <label for="exampleInput" class="form-label">Contraseña</label>
+                                      <input type="text" class="form-control" id="exampleInput" name="contrasena">
                                     </div> 
                                     <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

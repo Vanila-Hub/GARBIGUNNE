@@ -35,8 +35,6 @@ public class Garbigunne_Admin_Materiales_View extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		ArrayList<Material> materiales = modelo_material.getMateriales();
 		
-		System.out.println(materiales);
-		
 		request.setAttribute("materiales", materiales);
 		request.getRequestDispatcher("Paneles_control/Admin/materiales.jsp").forward(request, response);
 	}
