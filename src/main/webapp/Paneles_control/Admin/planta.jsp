@@ -97,6 +97,7 @@
                             <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
                         </ul>
                     </div>
+                    
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
