@@ -174,3 +174,22 @@ div.table-responsive{
 .plus:active{
   transform: scale(0.7);
 }
+
+.modal-width{
+  width: 100% !important;
+  font-size: 20px;
+  height: 50%;
+  align-self: center;
+}
+.iframe{
+  height: 53vh;
+  width: 100%;
+}
+div.b-example-divider.b-example-vr{
+  height: 100vh !important;
+}
+button.btn.btn-secondary, button.btn.btn-secondary>a{
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #0aaf10;
+}

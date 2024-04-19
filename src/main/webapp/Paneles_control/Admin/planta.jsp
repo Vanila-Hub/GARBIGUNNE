@@ -123,11 +123,11 @@
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target="#vewOne"><i
+                                                    data-bs-target="#vewOne" ><i
                                                         class="bi bi-eye fs-5 text-light"></i></button>
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target=" #exampleModal">
-                                                    <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                                    data-bs-target=" #plantaEdit" id="${planta.id}">
+                                                    <a href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${planta.id}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
                                                 </button>
                                                 <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${planta.id}"
                                                     class="btn btn-flex trash">
@@ -175,6 +175,22 @@
                                                 <button type="submit" class="btn btn-primary"
                                                     id="liveToastBtn">Crear</button>
                                         </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="modal fade" id="plantaEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe class="iframe" src="Paneles_control/Admin/Edit_planta.jsp" frameborder="0" ></iframe>
                                     </div>
                                 </div>
                             </div>
