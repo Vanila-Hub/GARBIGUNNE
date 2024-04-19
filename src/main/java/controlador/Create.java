@@ -70,7 +70,7 @@ public class Create extends HttpServlet {
 			//modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes");
-			
+			break;
 		default:
 			break;
 		}
