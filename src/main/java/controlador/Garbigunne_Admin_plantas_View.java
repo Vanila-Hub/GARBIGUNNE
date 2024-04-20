@@ -16,13 +16,13 @@ import modelo.Planta;
  * Servlet implementation class Garbigunne_Admin_ViewAll
  */
 @WebServlet("/plantas")
-public class Garbigunne_Admin_ViewAll_plantas extends HttpServlet {
+public class Garbigunne_Admin_plantas_View extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigunne_Admin_ViewAll_plantas() {
+    public Garbigunne_Admin_plantas_View() {
         super();
         // TODO Auto-generated constructor stub
     }

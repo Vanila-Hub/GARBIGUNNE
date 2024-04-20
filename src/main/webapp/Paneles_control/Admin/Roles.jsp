@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+    
         <!DOCTYPE html>
         <html lang="en">
 
@@ -38,14 +38,13 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores"
-                                class="nav-link" aria-current="page">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
+                                aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta "
-                                class="nav-link active">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link ">
                                 PLANTAS
                             </a>
                         </li>
@@ -70,7 +69,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link">
                                 CLIENTES
                             </a>
                         </li>
@@ -80,7 +79,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link active">
                                 ROLES
                             </a>
                         </li>
@@ -92,35 +91,31 @@
                     <div class="table-responsive">
                         <table class="table table-design">
                             <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Crear  <i class="bi bi-plus-lg"></i></button>
+                                data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">dirrecion</th>
-                                    <th scope="col">telefono</th>
-                                    <th scope="col">Opciones</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Contraseï¿½a</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <c:forEach items="${plantas}" var="planta">
+                                <c:forEach items="${usuarios}" var="usuario">
                                     <tr>
-                                        <th scope="row">${planta.id}</th>
-                                        <td>${planta.nombre}</td>
-                                        <td>${planta.direccion}</td>
-                                        <td>${planta.telefono}</td>
+                                        <th scope="row">${usuario.id_cliente}</th>
+                                        <td>${usuario.usuario}</td>
+                                        <td>${usuario.contrasena}</td>
+                                        <td>${usuario.rol}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target="#vewOne" ><i
-                                                        class="bi bi-eye fs-5 text-light"></i></button>
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal">
-                                                    <a href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${planta.id}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
+                                                <button type="button" class="btn btn-flex">
+                                                    <a
+                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=rol&id_cliente=${usuario.id_cliente}">
+                                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                                    </a>
                                                 </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${planta.id}"
-                                                    class="btn btn-flex trash">
-                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
-                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -132,91 +127,54 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="http://localhost:8080/Garbigune_reto/create" method="post">
-                                            <input type="text" class="form-control d-none" name="opcion" value="planta">
+                                            <input type="text" class="form-control d-none" name="opcion"
+                                                value="cliente">
                                             <div class="mb-3">
                                                 <label for="exampleInput" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="exampleInput"
-                                                    aria-describedby="emailHelp" name="nombre">
+                                                <input type="text" class="form-control" id="exampleInput" name="nombre">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Direccion</label>
+                                                <label for="exampleInput" class="form-label">Apellido</label>
                                                 <input type="text" class="form-control" id="exampleInput"
-                                                    name="direccion">
+                                                    name="apellido">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                                <input type="tel" class="form-control" id="exampleInput"
-                                                    name="telefono">
+                                                <label for="exampleInput" class="form-label">Usuario</label>
+                                                <input type="email" class="form-control" id="exampleInput"
+                                                    name="usuario">
                                             </div>
-
+                                            <div class="mb-3">
+                                                <label for="exampleInput" class="form-label">Contraseña</label>
+                                                <input type="password" class="form-control" id="exampleInput"
+                                                    name="contrasena">
+                                            </div>
+                                            <div class="mb-3">
+                                            <label for="exampleInput" class="form-label">Rol</label>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Asignar Rol</option>
+                                                    <option value="1">AppUser</option>
+                                                    <option value="2">AppAdmin</option>
+                                                </select>
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary"
                                                     id="liveToastBtn">Crear</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                        <div class="modal fade" id="plantaEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <iframe class="iframe" src="Paneles_control/Admin/Edit_planta.jsp" frameborder="0" ></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="vewOne" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" disabled id="exampleInput"
-                                                aria-describedby="emailHelp" name="nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Direccion</label>
-                                            <input type="text" class="form-control" disabled id="exampleInput" name="direccion">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                            <input type="tel" class="form-control" disabled id="exampleInput"
-                                                name="telefono">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="b-example-divider b-example-vr"></div>
-                    </div>
+                </main>
             </div>
-            </main>
-             
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">

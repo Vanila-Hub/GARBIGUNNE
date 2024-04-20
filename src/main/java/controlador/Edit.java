@@ -80,6 +80,21 @@ public class Edit extends HttpServlet {
 	
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
 			break;
+		case "rol":
+			int id_usuario = Integer.parseInt(request.getParameter("id_cliente"));
+			//lalam al modelo para inser
+			ModeloCliente modeloCliente = new ModeloCliente();
+			
+			Cliente usuarioRol = modeloCliente.getClientelByID(id_usuario);
+			//volvera el /plantas y gfuardar sus atributos
+			request.setAttribute("nombre", usuarioRol.getNombre());
+			request.setAttribute("apellido", usuarioRol.getApellido());
+			request.setAttribute("usuario", usuarioRol.getUsuario());
+			request.setAttribute("contrasena", usuarioRol.getContrasena());
+			request.setAttribute("id_cliente", usuarioRol.getId_cliente());
+			
+			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
+			break;
 			
 		case "proveedor":
 			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
