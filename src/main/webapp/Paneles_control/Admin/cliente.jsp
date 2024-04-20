@@ -36,7 +36,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link disabled"
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
                         aria-current="page">
                         PROVEEDORES
                     </a>

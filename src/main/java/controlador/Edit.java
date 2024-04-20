@@ -12,7 +12,9 @@ import modelo.Material;
 import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
+import modelo.ModeloProveedor;
 import modelo.Planta;
+import modelo.Proveedor;
 
 /**
  * Servlet implementation class Edit
@@ -78,6 +80,21 @@ public class Edit extends HttpServlet {
 	
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
 			break;
+			
+		case "proveedor":
+			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+			//lalam al modelo para insert
+			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+			Proveedor proveedor =  modelo_proveedor.getProveedorByID(id_proveedor);
+			
+			request.setAttribute("id_proveedor", proveedor.getId_proveedor());
+			request.setAttribute("nombre", proveedor.getNombre());
+			request.setAttribute("correo", proveedor.getCorreo());
+			request.setAttribute("contrasena", proveedor.getContraseña());
+			
+			request.getRequestDispatcher("Paneles_control/Admin/Edit_proveedor.jsp").forward(request, response);
+			break;
+			
 		default:
 			break;
 		}
@@ -139,6 +156,26 @@ public class Edit extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
 
+			
+		case "proveedor":
+			
+			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+			
+			String nombreProveedor = (String) request.getParameter("nombre");
+			nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
+			
+			String correo = (String) request.getParameter("correo");
+			correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
+			
+			String contraseña = (String) request.getParameter("contrasena");
+			contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
+			
+			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+			
+			modelo_proveedor.actualizarProveedor(id_proveedor,nombreProveedor,correo,contraseña);
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+			break;
+			
 		default:
 			break;
 		}		

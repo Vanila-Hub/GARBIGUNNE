@@ -52,7 +52,7 @@
                             <a class="resalto"> productos reciclados</a> y unete a la
                             moda <a class="resalto">sostenible</a> hoy mismo.
                         </p>
-                        <button type="button" class="btn btn-primary btn-act"><a href="http://localhost:8080/Garbigune_reto/Login" id="juanitoboton">COMPRAR</a></button>
+                        <button type="button" class="btn btn-primary btn-act"><a href="http://localhost:8080/Garbigune_reto/registrarse" id="juanitoboton">COMPRAR</a></button>
                     </div>
                 </div>
             </section>

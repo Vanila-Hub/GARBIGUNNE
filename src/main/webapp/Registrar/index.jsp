@@ -46,6 +46,8 @@
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-secondary">Crear Usuario</button>
+            <button type="button" class="btn btn-primary"><a href="http://localhost:8080/Garbigune_reto/Login">Iniciar Sesion</a></button>
+            
           </form>
        </div>
     </main>

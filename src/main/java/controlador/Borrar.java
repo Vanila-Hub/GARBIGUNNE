@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.jdt.internal.compiler.IDebugRequestor;
+
 import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
+import modelo.ModeloProveedor;
 
 /**
  * Servlet implementation class Borrar
@@ -35,7 +38,6 @@ public class Borrar extends HttpServlet {
 		
 		switch (opcion) {
 		case "planta":	
-			
 			int id_planta = Integer.parseInt(request.getParameter("id"));
 			
 			//lalam al modelo para inser
@@ -52,6 +54,7 @@ public class Borrar extends HttpServlet {
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 			break;
+			
 		case "cliente":
 			int id_cliente = Integer.parseInt(request.getParameter("id"));
 			
@@ -60,6 +63,16 @@ public class Borrar extends HttpServlet {
 			modelo_cliente.borrarClienteByID(id_cliente);
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
+			break;
+			
+		case "proveedor":
+			int id_proveedor = Integer.parseInt(request.getParameter("id"));
+			
+			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+			
+			modelo_proveedor.borrarProveedorByID(id_proveedor);
+			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
 			break;
 			
 		default:

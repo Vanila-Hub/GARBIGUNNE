@@ -102,3 +102,7 @@ button.btn.btn-secondary:active{
   background-color: inherit;
   border-color: inherit !important;
 }
+a{
+	text-decoration:none !important;
+	color: white !important;
+}

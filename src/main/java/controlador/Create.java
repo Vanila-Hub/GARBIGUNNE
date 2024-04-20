@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
+import modelo.ModeloProveedor;
 
 /**
  * Servlet implementation class Create
@@ -40,17 +41,19 @@ public class Create extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String opcion = (String) request.getParameter("opcion");
 		switch (opcion) {
+		
 		case "planta":
 			String nombre = (String) request.getParameter("nombre");
 			String dirrecion = (String) request.getParameter("direccion");
 			String telefono = (String) request.getParameter("telefono");
 			System.out.println(nombre+dirrecion+telefono);
-//lalam al modelo para inser
+			//lalam al modelo para inser
 			ModeloPlanta modelo_planta = new ModeloPlanta();
 			modelo_planta.crearPlanta(nombre,dirrecion,telefono);
 			//volvera el /plantas
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
+			
 		case "material":	
 			String tipo_material = (String) request.getParameter("material");
 			int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
@@ -60,6 +63,7 @@ public class Create extends HttpServlet {
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 			break;
+			
 		case "cliente":
 			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
 			
@@ -81,6 +85,24 @@ public class Create extends HttpServlet {
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
+			
+		case "proveedor":
+			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
+			
+			String nombreProveedor = (String) request.getParameter("nombre");
+			nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
+			
+			String correo = (String) request.getParameter("correo");
+			correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
+			
+			String contraseña = (String) request.getParameter("contrasena");
+			contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
+			
+			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+			modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+			break;
+			
 		default:
 			break;
 		}
