@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
 
@@ -37,7 +38,7 @@ public class Borrar extends HttpServlet {
 			
 			int id_planta = Integer.parseInt(request.getParameter("id"));
 			
-//lalam al modelo para inser
+			//lalam al modelo para inser
 			ModeloPlanta modelo_planta = new ModeloPlanta();
 			modelo_planta.borrarPlantaByID(id_planta);
 			//volvera el /plantas
@@ -50,6 +51,15 @@ public class Borrar extends HttpServlet {
 			modelo_material.borrarMaterialByID (id_material);
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+			break;
+		case "cliente":
+			int id_cliente = Integer.parseInt(request.getParameter("id"));
+			
+			ModeloCliente modelo_cliente = new ModeloCliente();
+			
+			modelo_cliente.borrarClienteByID(id_cliente);
+			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
 			
 		default:

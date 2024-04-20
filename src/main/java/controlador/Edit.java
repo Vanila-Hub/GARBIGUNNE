@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Cliente;
 import modelo.Material;
+import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
 import modelo.Planta;
@@ -61,6 +63,21 @@ public class Edit extends HttpServlet {
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_material.jsp").forward(request, response);
 			break;
 
+		case "cliente":
+			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+			//lalam al modelo para inser
+			ModeloCliente modelo_cliente = new ModeloCliente();
+			
+			Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+			//volvera el /plantas y gfuardar sus atributos
+			request.setAttribute("nombre", cliente.getNombre());
+			request.setAttribute("apellido", cliente.getApellido());
+			request.setAttribute("usuario", cliente.getUsuario());
+			request.setAttribute("contrasena", cliente.getContrasena());
+			request.setAttribute("id_cliente", cliente.getId_cliente());
+	
+			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
+			break;
 		default:
 			break;
 		}
@@ -80,7 +97,7 @@ public class Edit extends HttpServlet {
 			String telefono = (String) request.getParameter("telefono");
 			int id_planta = Integer.parseInt(request.getParameter("id_planta"));
 			System.out.println(nombre+dirrecion+telefono+id_planta);
-//lalam al modelo para inser
+			//lalam al modelo para inser
 			ModeloPlanta modelo_planta = new ModeloPlanta();
 			modelo_planta.actualizar(nombre,dirrecion,telefono,id_planta);
 			//volvera el /plantas
@@ -94,11 +111,32 @@ public class Edit extends HttpServlet {
 			int emison_kg = Integer.parseInt(request.getParameter("emision_kg"));
 			
 			System.out.println(id_material+"nhhhoi"+tipo_material+emison_kg);
-//lalam al modelo para inser
+			//lalam al modelo para inser
 			ModeloMaterial modelo_material = new ModeloMaterial();
 			modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
 			//volvera el /plantas
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+			break;
+
+		case "cliente":
+			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+			String nombreCliente = (String) request.getParameter("nombre");
+			nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
+			
+			String apellido = (String) request.getParameter("apellido");
+			apellido = apellido.contains("+")?apellido.replaceAll("+", " "): apellido;
+			
+			String usuario = (String) request.getParameter("usuario");
+			usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
+			
+			
+			String contrasena = (String) request.getParameter("contrasena");
+			contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
+			
+			ModeloCliente modelo_cliente = new ModeloCliente();
+			modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_cliente);
+			//volvera el /plantas
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
 
 		default:

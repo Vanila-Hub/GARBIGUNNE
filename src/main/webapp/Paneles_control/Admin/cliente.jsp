@@ -36,7 +36,8 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link disabled" aria-current="page">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link disabled"
+                        aria-current="page">
                         PROVEEDORES
                     </a>
                 </li>
@@ -98,7 +99,7 @@
             <div class="table-responsive">
                 <table class="table table-design">
                     <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" >Crear<i class="bi bi-plus-lg"></i></button>
+                        data-bs-target="#exampleModal">Crear  <i class="bi bi-plus-lg"></i></button>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -106,36 +107,37 @@
                             <th scope="col">Apellido</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">Contraseña</th>
-                            <th scope="col"></th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                    <c:forEach items = "${clientes}" var="cliente">
-                        <tr>
-                            <th scope="row">${cliente.id_cliente}</th>
-                            <td>${cliente.nombre}</td>
-                            <td>${cliente.apellido}</td>
-                            <td>${cliente.usuario}</td>
-                            <td>${cliente.contrasena}</td>
-                            <td class="d-flex flex-wrap justify-content-evenly w-2">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"><i
-                                            class="bi bi-eye fs-5 text-light"></i></button>
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-flex trash">
+                        <c:forEach items="${clientes}" var="cliente">
+                            <tr>
+                                <th scope="row">${cliente.id_cliente}</th>
+                                <td>${cliente.nombre}</td>
+                                <td>${cliente.apellido}</td>
+                                <td>${cliente.usuario}</td>
+                                <td>${cliente.contrasena}</td>
+                                <td class="d-flex flex-wrap justify-content-evenly w-2">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-flex" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"><i
+                                                class="bi bi-eye fs-5 text-light"></i></button>
+                                        <button type="button" class="btn btn-flex">
+                                           <a href="http://localhost:8080/Garbigune_reto/edit?opcion=cliente&id_cliente=${cliente.id_cliente}">
+                                            <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                           </a>
+                                        </button>
+
                                         <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=cliente&id=${cliente.id_cliente}"
-                                                    class="btn btn-flex trash">
-                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
-                                                </a>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                   </c:forEach>
+                                            class="btn btn-flex trash">
+                                            <i class="bi bi-trash text-light fs-5 text-info"></i>
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -147,29 +149,30 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
-                                 <input type="text" class="form-control d-none" name="opcion" value="cliente">
+                                <form action="http://localhost:8080/Garbigune_reto/create" method="post">
+                                    <input type="text" class="form-control d-none" name="opcion" value="cliente">
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Nombre</label>
-                                      <input type="text" class="form-control" id="exampleInput"   name="nombre">
+                                        <label for="exampleInput" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="exampleInput" name="nombre">
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Apellido</label>
-                                      <input type="text" class="form-control" id="exampleInput"  name="apellido">
+                                        <label for="exampleInput" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" id="exampleInput" name="apellido">
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Usuario</label>
-                                      <input type="email" class="form-control" id="exampleInput" name="usuario">
-                                    </div> 
+                                        <label for="exampleInput" class="form-label">Usuario</label>
+                                        <input type="email" class="form-control" id="exampleInput" name="usuario">
+                                    </div>
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Contraseña</label>
-                                      <input type="password" class="form-control" id="exampleInput" name="contrasena">
-                                    </div> 
+                                        <label for="exampleInput" class="form-label">Contraseï¿½a</label>
+                                        <input type="password" class="form-control" id="exampleInput" name="contrasena">
+                                    </div>
                                     <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
-                            </div>
-                                  </form>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -199,4 +202,3 @@
 </body>
 
 </html>
- 

@@ -39,27 +39,27 @@
                         </div>
                         <div class="modal-body">
                             <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
-                                <input type="text" class="form-control d-none" name="opcion" value="planta">
-                                <input type="text" class="form-control d-none" name="id_planta" value="${id}">
+                                <input type="text" class="form-control d-none" name="id_cliente" value="${id_cliente}">
+                                <input type="text" class="form-control d-none" name="opcion" value="cliente">
                                 <div class="mb-3">
                                     <label for="exampleInput" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="exampleInput"
-                                        aria-describedby="emailHelp" name="nombre" value="${nombre}">
+                                    <input type="text" class="form-control"  name="nombre" value="${nombre}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Direccion</label>
-                                    <input type="text" class="form-control" id="exampleInput"
-                                        name="direccion" value="${direccion}">
+                                    <label for="exampleInput" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control"  name="apellido" value="${apellido}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                    <input type="tel" class="form-control" id="exampleInput"
-                                        name="telefono" value="${telefono}">
+                                    <label for="exampleInput" class="form-label">Usuario</label>
+                                    <input type="email" class="form-control" name="usuario" value="${usuario}">
                                 </div>
-
+                                <div class="mb-3">
+                                    <label for="exampleInput" class="form-label">Contraseña</label>
+                                    <input type="text" class="form-control" name="contrasena" value="${contrasena}">
+                                </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

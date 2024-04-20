@@ -61,16 +61,25 @@ public class Create extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 			break;
 		case "cliente":
-			String nombreCliente = (String) request.getParameter("nombre");
-			String apellido = (String) request.getParameter("apellido");
-			String usuario = (String) request.getParameter("usuario");
-			String contrasena = (String) request.getParameter("contrasena");
+			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
 			
+			String nombreCliente = (String) request.getParameter("nombre");
+			nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
+			
+			String apellido = (String) request.getParameter("apellido");
+			apellido = apellido.contains("+")?apellido.replaceAll("+", " "): apellido;
+			
+			String usuario = (String) request.getParameter("usuario");
+			usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
+			
+			
+			String contrasena = (String) request.getParameter("contrasena");
+			contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 			
 			ModeloCliente modelo_cliente = new ModeloCliente();
-			//modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes");
+			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
 			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
 		default:
 			break;
