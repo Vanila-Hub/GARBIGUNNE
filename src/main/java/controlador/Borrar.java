@@ -66,7 +66,7 @@ public class Borrar extends HttpServlet {
 			break;
 			
 		case "proveedor":
-			int id_proveedor = Integer.parseInt(request.getParameter("id"));
+			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
 			
 			ModeloProveedor modelo_proveedor = new ModeloProveedor();
 			

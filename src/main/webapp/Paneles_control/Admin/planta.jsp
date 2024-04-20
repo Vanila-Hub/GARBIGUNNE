@@ -81,22 +81,6 @@
                         </li>
                     </ul>
                     <hr>
-                    <div class="dropdown">
-                        <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                                class="rounded-circle me-2">
-                            <strong>granky</strong>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Gestionar Roles</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
-                        </ul>
-                    </div>
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>

@@ -6,7 +6,8 @@ body {
   margin: 0;
   font-family: monospace !important;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   justify-content: space-between;
 }
 img {
@@ -18,6 +19,7 @@ main {
   width: 90%;
   flex-direction: column;
   height: 100vh;
+  overflow-y: scroll;
   color: #013205;
 }
 .imgDiv {
@@ -117,13 +119,13 @@ a > strong {
   margin-left: 3rem;
 }
 table.table-design, th,td{
-  background-color: #efffea !important;
-  color: #013205;
-  border: 1px solid #5558571f;
-  background-color: #efffea !important;
-  color: #013205;
-  border: 1px solid #5558571f;
-  box-shadow: 0 9px 8px #01320505;
+    background-color: #efffea !important;
+    color: #013205;
+    border: 1px solid #5558571f;
+    background-color: #efffea !important;
+    color: #013205;
+    border: 1px solid #5558571f;
+    box-shadow: -3px 8px 10px 0px #8fcf9436;
 }
 .btn-flex{
   background-color: #1ec925 !important;
