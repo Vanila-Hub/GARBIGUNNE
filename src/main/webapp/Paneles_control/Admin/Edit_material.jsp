@@ -39,27 +39,50 @@
                         </div>
                         <div class="modal-body">
                             <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
-                                <input type="text" class="form-control d-none" name="id_planta" value="${id}">
-                                <input type="text" class="form-control d-none" name="id_planta" value="${id}">
+                                <input type="text" class="form-control d-none" name="id_material" value="${id}">
+                                <input type="text" class="form-control d-none" name="opcion" value="material">
+                            
                                 <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="exampleInput"
-                                        aria-describedby="emailHelp" name="nombre" value="${nombre}">
+                                    <label for="exampleInput" class="form-label">Tipo de material actual</label>
+                                    <select class="form-select" aria-label="Default select example" name="material">
+                                        <option selected>Materiales</option>
+                                        <c:choose>
+                                            <c:when test="${tipo_material == 'plastico'}">
+                                                <option value="plastico" selected>plastico</option>
+                                                <option value="papel">papel</option>
+                                                <option value="vidrio">vidrio</option>
+                                                <option value="carton">carton</option>
+                                            </c:when>
+                                            <c:when test="${tipo_material == 'papel'}">
+                                                <option value="plastico">plastico</option>
+                                                <option value="papel" selected>papel</option>
+                                                <option value="vidrio">vidrio</option>
+                                                <option value="carton">carton</option>
+                                            </c:when>
+                                            <c:when test="${tipo_material == 'vidrio'}">
+                                                <option value="plastico">plastico</option>
+                                                <option value="papel">papel</option>
+                                                <option value="vidrio" selected>vidrio</option>
+                                                <option value="carton">carton</option>
+                                            </c:when>
+                                            <c:when test="${tipo_material == 'carton'}">
+                                                <option value="plastico">plastico</option>
+                                                <option value="papel">papel</option>
+                                                <option value="vidrio">vidrio</option>
+                                                <option value="carton" selected>carton</option>
+                                            </c:when>
+                                        </c:choose>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Direccion</label>
+                                    <label for="exampleInput" class="form-label">Emision/KG</label>
                                     <input type="text" class="form-control" id="exampleInput"
-                                        name="direccion" value="${direccion}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                    <input type="tel" class="form-control" id="exampleInput"
-                                        name="telefono" value="${telefono}">
+                                        name="emision_kg" value="${emision_kg}">
                                 </div>
 
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?opcion=planta" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

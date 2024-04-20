@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes" class="nav-link ">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link active">
                         CLIENTES
                     </a>
                 </li>
@@ -98,7 +98,7 @@
             <div class="table-responsive">
                 <table class="table table-design">
                     <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" ><i class="bi bi-plus-lg"> AÑADIR </i></button>
+                    data-bs-target="#exampleModal" >Crear<i class="bi bi-plus-lg"></i></button>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -143,7 +143,6 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nombre</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -151,16 +150,20 @@
                                 <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
                                  <input type="text" class="form-control d-none" name="opcion" value="cliente">
                                     <div class="mb-3">
+                                      <label for="exampleInput" class="form-label">Nombre</label>
+                                      <input type="text" class="form-control" id="exampleInput"   name="nombre">
+                                    </div>
+                                    <div class="mb-3">
                                       <label for="exampleInput" class="form-label">Apellido</label>
-                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="apellido">
+                                      <input type="text" class="form-control" id="exampleInput"  name="apellido">
                                     </div>
                                     <div class="mb-3">
                                       <label for="exampleInput" class="form-label">Usuario</label>
-                                      <input type="text" class="form-control" id="exampleInput" name="usuario">
+                                      <input type="email" class="form-control" id="exampleInput" name="usuario">
                                     </div> 
                                     <div class="mb-3">
                                       <label for="exampleInput" class="form-label">Contraseña</label>
-                                      <input type="text" class="form-control" id="exampleInput" name="contrasena">
+                                      <input type="password" class="form-control" id="exampleInput" name="contrasena">
                                     </div> 
                                     <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -185,7 +188,7 @@
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
                 </ul>
-                <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+                <p class="text-center text-body-secondary">ï¿½ 2024 Company, Inc</p>
             </footer>
         </div>
     </footer>

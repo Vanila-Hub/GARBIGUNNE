@@ -36,7 +36,8 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link disabled" aria-current="page">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link disabled"
+                        aria-current="page">
                         PROVEEDORES
                     </a>
                 </li>
@@ -66,7 +67,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link ">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
                         CLIENTES
                     </a>
                 </li>
@@ -98,7 +99,7 @@
             <div class="table-responsive">
                 <table class="table table-design">
                     <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" ><i class="bi bi-plus-lg"> AÑADIR </i></button>
+                        data-bs-target="#exampleModal"> Crear <i class="bi bi-plus-lg"></i></button>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -108,30 +109,32 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                    <c:forEach items = "${materiales}" var="material">
-                        <tr>
-                            <th scope="row">${material.id_material}</th>
-                            <td>${material.tipo}</td>
-                            <td>${material.emision_kg}</td>
-                            <td class="d-flex flex-wrap justify-content-evenly w-2">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"><i
-                                            class="bi bi-eye fs-5 text-light"></i></button>
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-flex trash">
+                        <c:forEach items="${materiales}" var="material">
+                            <tr>
+                                <th scope="row">${material.id_material}</th>
+                                <td>${material.tipo}</td>
+                                <td>${material.emision_kg}</td>
+                                <td class="d-flex flex-wrap justify-content-evenly w-2">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-flex" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"><i
+                                                class="bi bi-eye fs-5 text-light"></i></button>
+                                        <button type="button" class="btn btn-flex">
+                                            <a
+                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=material&id_material=${material.id_material}">
+                                                <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                            </a>
+                                        </button>
+
                                         <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
-                                                    class="btn btn-flex trash">
-                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
-                                                </a>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                   </c:forEach>
+                                            class="btn btn-flex trash">
+                                            <i class="bi bi-trash text-light fs-5 text-info"></i>
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -144,21 +147,27 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
-                                 <input type="text" class="form-control d-none" name="opcion" value="material">
+                                <form action="http://localhost:8080/Garbigune_reto/create" method="post">
+                                    <input type="text" class="form-control d-none" name="opcion" value="material">
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Tipo</label>
-                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="tipo">
+                                        <select class="form-select" aria-label="Default select example" name="material">
+                                            <option selected>Tipo de material</option>
+                                            <option value="plastico">plastico</option>
+                                            <option value="papel">papel</option>
+                                            <option value="vidrio">vidrio</option>
+                                            <option value="carton">carton</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Emison/kg</label>
-                                      <input type="text" class="form-control" id="exampleInput" name="emision_kg">
-                                    </div> 
+                                        <label for="exampleInput" class="form-label">Emison/kg</label>
+                                        <input type="text" class="form-control" id="exampleInput" name="emision_kg">
+                                    </div>
                                     <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
-                            </div>
-                                  </form>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -177,7 +186,7 @@
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
                 </ul>
-                <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+                <p class="text-center text-body-secondary">ï¿½ 2024 Company, Inc</p>
             </footer>
         </div>
     </footer>
@@ -188,4 +197,3 @@
 </body>
 
 </html>
- 

@@ -52,13 +52,14 @@ public class Create extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
 		case "material":	
-			String tipo = (String) request.getParameter("tipo");
+			String tipo_material = (String) request.getParameter("material");
 			int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
 			
 			ModeloMaterial modelo_material = new ModeloMaterial();
-			modelo_material.crearMaterial(tipo, emision_kg);
+			modelo_material.crearMaterial(tipo_material, emision_kg);
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+			break;
 		case "cliente":
 			String nombreCliente = (String) request.getParameter("nombre");
 			String apellido = (String) request.getParameter("apellido");
@@ -68,8 +69,8 @@ public class Create extends HttpServlet {
 			
 			ModeloCliente modelo_cliente = new ModeloCliente();
 			//modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
-			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes");
+			
 			break;
 		default:
 			break;

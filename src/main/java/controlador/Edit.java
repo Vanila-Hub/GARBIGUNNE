@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Material;
+import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
 import modelo.Planta;
 
@@ -46,6 +48,18 @@ public class Edit extends HttpServlet {
 			
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_planta.jsp").forward(request, response);
 			break;
+		case "material":
+			int id_material = Integer.parseInt(request.getParameter("id_material"));
+			//lalam al modelo para inser
+			ModeloMaterial modeloMaterial = new ModeloMaterial();
+			Material material = modeloMaterial.getMaterialByID(id_material);
+			//volvera el /plantas y gfuardar sus atributos
+			request.setAttribute("tipo_material", material.getTipo());
+			request.setAttribute("emision_kg", material.getEmision_kg());
+			request.setAttribute("id", material.getId_material());
+			
+			request.getRequestDispatcher("Paneles_control/Admin/Edit_material.jsp").forward(request, response);
+			break;
 
 		default:
 			break;
@@ -56,6 +70,7 @@ public class Edit extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		String opcion = (String) request.getParameter("opcion");
 		System.out.println(opcion);
 		switch (opcion) {
@@ -71,12 +86,24 @@ public class Edit extends HttpServlet {
 			//volvera el /plantas
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
+			
+			
+		case "material":
+			int id_material = Integer.parseInt(request.getParameter("id_material"));
+			String tipo_material = (String) request.getParameter("material");
+			int emison_kg = Integer.parseInt(request.getParameter("emision_kg"));
+			
+			System.out.println(id_material+"nhhhoi"+tipo_material+emison_kg);
+//lalam al modelo para inser
+			ModeloMaterial modelo_material = new ModeloMaterial();
+			modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
+			//volvera el /plantas
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+			break;
 
 		default:
 			break;
-		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		}		
 	}
 
 }

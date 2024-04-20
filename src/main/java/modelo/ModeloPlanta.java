@@ -32,13 +32,12 @@ public class ModeloPlanta{
 	}
 
 	public void crearPlanta(String nombre, String dirrecion, String telefono) {
-		String sql = "INSERT INTO PLANTAS(ID_PLANTA,NOMBRE,DIRECCION,TELEFONO) values(?,?,?,?)";
+		String sql = "INSERT INTO PLANTAS(PLANTAS.DIRECCION,PLANTAS.NOMBRE,PLANTAS.TELEFONO) values(?,?,?)";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
-			prst.setInt(1, 2);
+			prst.setString(1, dirrecion);
 			prst.setString(2, nombre);
-			prst.setString(3, dirrecion);
-			prst.setString(4, telefono);
+			prst.setString(3, telefono);
 			prst.executeUpdate();
 			Conector.getConexion().close();
 		} catch (Exception e) {

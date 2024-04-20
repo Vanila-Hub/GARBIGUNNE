@@ -35,6 +35,9 @@ public class Garbigunne_Admin extends HttpServlet {
 		case "planta":
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/plantas");
 			break;
+		case "cliente":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/clientes");
+			break;
 
 		default:
 			break;

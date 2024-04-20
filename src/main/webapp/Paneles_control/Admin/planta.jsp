@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link ">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
@@ -137,7 +137,6 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
-
                             </tbody>
                         </table>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -225,12 +224,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="b-example-divider b-example-vr"></div>
                     </div>
             </div>
-            </div>
-            <div class="b-example-divider b-example-vr"></div>
             </main>
-            </div>
+             
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">
