@@ -60,12 +60,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
                                 PRODUCTOS
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="nav-link">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
@@ -77,6 +77,11 @@
                         <li>
                             <a href="#" class="nav-link disabled">
                                 VENTAS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
+                                HISTORICO
                             </a>
                         </li>
                         <li>

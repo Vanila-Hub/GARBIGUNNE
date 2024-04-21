@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jdt.internal.compiler.IDebugRequestor;
 
 import modelo.ModeloCliente;
+import modelo.ModeloEmisionProducto;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
+import modelo.ModeloProducto;
 import modelo.ModeloProveedor;
 import modelo.ModeloSuministro;
 
@@ -85,6 +87,28 @@ public class Borrar extends HttpServlet {
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
 			break;
+			
+		case "producto":
+		    int id_producto = Integer.parseInt(request.getParameter("id_producto"));
+		    
+		    ModeloProducto modelo_producto = new ModeloProducto();
+		    
+		    modelo_producto.borrarProductoByID(id_producto);
+		    
+		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
+		    break;
+		  
+		case "emision":
+		    int idEmision = Integer.parseInt(request.getParameter("id_emision"));
+		    
+		    ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
+		    
+		    modeloEmisionProducto.eliminarEmisionProducto(idEmision);
+		    
+		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
+		    break;
+
+
 			
 		default:
 			break;

@@ -10,13 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.Cliente;
+import modelo.EmisionProducto;
 import modelo.Material;
 import modelo.ModeloCliente;
+import modelo.ModeloEmisionProducto;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
+import modelo.ModeloProducto;
 import modelo.ModeloProveedor;
 import modelo.ModeloSuministro;
 import modelo.Planta;
+import modelo.Producto;
 import modelo.Proveedor;
 import modelo.Suministro;
 
@@ -149,6 +153,49 @@ public class Edit extends HttpServlet {
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_suministro.jsp").forward(request, response);
 			break;
 			
+		case "producto":
+		    int idProducto = Integer.parseInt(request.getParameter("id_producto"));
+		    // Llamada al modelo para obtener el producto por su ID
+		    ModeloProducto modeloProducto = new ModeloProducto();
+		    Producto producto = modeloProducto.getProductoByID(idProducto);
+
+		    /* TRAEMOS LAS PLANTAS */
+		    ModeloPlanta modelo_Planta = new ModeloPlanta();
+		    ArrayList<Planta> Plantas = modelo_Planta.getPlantas();
+
+		    request.setAttribute("plantas", Plantas);
+		    request.setAttribute("producto", producto);
+		    request.getRequestDispatcher("Paneles_control/Admin/Edit_producto.jsp").forward(request, response);
+		    break;
+		    
+		case "emision":
+			int idEmisionProducto = Integer.parseInt(request.getParameter("id_emision"));
+
+			ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
+			EmisionProducto emisionProducto = modeloEmisionProducto.getEmisionProductoByID(idEmisionProducto);
+
+			ModeloEmisionProducto modelo_emisiones = new ModeloEmisionProducto();
+			ArrayList<EmisionProducto> EmisionProductos = modelo_emisiones.getEmisionesProductos();
+
+			ModeloProducto modelo_productos = new ModeloProducto();
+			ArrayList<Producto> productos = modelo_productos.getProductos();
+
+			// pedir materiales
+			ModeloMaterial modelo_Material = new ModeloMaterial();
+			ArrayList<Material> materialEmision = modelo_Material.getMateriales();
+
+			// mandarlo al jsp de emisines plantas
+			request.setAttribute("id_emision", emisionProducto.getId_emision());
+			request.setAttribute("id_producto", emisionProducto.getId_producto());
+			request.setAttribute("id_material", emisionProducto.getId_material());
+			request.setAttribute("emision_generada", emisionProducto.getEmision_generada());
+			request.setAttribute("fecha", emisionProducto.getFecha());
+
+			request.setAttribute("materiales", materialEmision);
+			request.setAttribute("productos", productos);
+			
+			request.getRequestDispatcher("Paneles_control/Admin/Edit_emisionProducto.jsp").forward(request, response);
+			break;
 			
 		default:
 			break;
@@ -247,6 +294,30 @@ public class Edit extends HttpServlet {
 			modelo_suministro.actualizarSuministroByID(id_Material,id_Proveedor,id_Planta,id_suministro,mes,cantidad);
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
 			break;
+			
+		case "producto":
+			String carpetaHome = "/Garbigune_reto/ProductosIMG/";
+			String nombreProducto = request.getParameter("nombre");
+		    nombreProducto = nombreProducto.contains("+")? nombreProducto.replaceAll("+", " "):nombreProducto;
+		    
+		    double peso = Double.parseDouble(request.getParameter("peso_producto"));
+		    double precio = Double.parseDouble(request.getParameter("precio"));
+		    
+		    String descripcion = request.getParameter("descripcion");
+		    descripcion = descripcion.contains("+")? descripcion.replaceAll("+", " "): descripcion;
+		    
+		    int stock = Integer.parseInt(request.getParameter("stock"));
+		    int idPlanta = Integer.parseInt(request.getParameter("planta"));
+		    int id_producto = Integer.parseInt(request.getParameter("id_producto"));
+		    
+		    String rutaImagen = request.getParameter("imagen");
+		    carpetaHome= carpetaHome + rutaImagen;
+
+		    ModeloProducto modeloProducto = new ModeloProducto();
+		    modeloProducto.actualizarProductoByID(id_producto, nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome);
+
+		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
+		    break;
 			
 		default:
 			break;

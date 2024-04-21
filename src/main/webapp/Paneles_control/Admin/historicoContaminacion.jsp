@@ -38,14 +38,13 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores"
-                                class="nav-link active" aria-current="page">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
+                                aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta "
-                                class="nav-link">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
@@ -65,7 +64,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="nav-link">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones"
+                                class="nav-link ">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
@@ -74,13 +74,14 @@
                                 CLIENTES
                             </a>
                         </li>
+
                         <li>
                             <a href="#" class="nav-link disabled">
                                 VENTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link active">
                                 HISTORICO
                             </a>
                         </li>
@@ -89,43 +90,40 @@
                                 ROLES
                             </a>
                         </li>
-                        
+
                     </ul>
                     <hr>
-                    
+
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
                     <div class="table-responsive">
                         <table class="table table-design">
-                            <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Crear  <i class="bi bi-plus-lg"></i></button>
+                            <button type="button" class="btn btn-flex plus" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">contraseña</th>
+                                    <th scope="col">ID Historico</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">ID Planta</th>
+                                    <th scope="col">ID Material</th>
+                                    <th scope="col">Porcentaje de ContaminaciÃ³n</th>
                                     <th scope="col">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <c:forEach items="${proveedores}" var="proveedor">
+                                <c:forEach items="${historicoEmisiones}" var="historicoEmision">
                                     <tr>
-                                        <th scope="row">${proveedor.id_proveedor}</th>
-                                        <td>${proveedor.nombre}</td>
-                                        <td>${proveedor.correo}</td>
-                                        <td>${proveedor.contraseña}</td>
+                                        <th scope="row">${historicoEmision.idHistorico}</th>
+                                        <td>${historicoEmision.fecha}</td>
+                                        <td>${historicoEmision.idPlanta}</td>
+                                        <td>${historicoEmision.idMaterial}</td>
+                                        <td>${historicoEmision.porcentajeContaminacion}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target="#vewOne" ><i
-                                                        class="bi bi-eye fs-5 text-light"></i></button>
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal">
-                                                    <a href="http://localhost:8080/Garbigune_reto/edit?opcion=proveedor&id_proveedor=${proveedor.id_proveedor}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
-                                                </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=proveedor&id_proveedor=${proveedor.id_proveedor}"
-                                                    class="btn btn-flex trash">
+                                                <a href="http://localhost:8080/Garbigune_reto/edit?opcion=historico&idHistorico=${historicoEmision.idHistorico}" class="btn btn-flex">
+                                                    <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                                </a>
+                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=historico&idHistorico=${historicoEmision.idHistorico}" class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
                                             </div>
@@ -134,34 +132,56 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                        
+
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Emision</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post">
-                                            <input type="text" class="form-control d-none" name="opcion" value="proveedor">
+                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post"
+                                            class="d-flex flex-row flex-wrap justify-content-between">
+                                            <input type="text" class="form-control d-none" name="opcion"
+                                                value="emision">
+
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="exampleInput" name="nombre">
+                                                <label for="id_producto" class="form-label">Producto</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_producto">
+                                                    <option selected>Seleccionar Producto</option>
+                                                    <c:forEach items="${productos}" var="producto">
+                                                        <option value="${producto.id_producto}">${producto.nombre}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">correo</label>
-                                                <input type="email" class="form-control" id="exampleInput" name="correo">
+                                                <label for="id_material" class="form-label">Material</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_material">
+                                                    <option selected>Seleccionar Material</option>
+                                                    <c:forEach items="${materiales}" var="material">
+                                                        <option value="${material.id_material}">${material.tipo}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Contraseï¿½a</label>
-                                                <input type="text" class="form-control" id="exampleInput" name="contrasena">
+                                                <label for="fecha" class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" name="fecha">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
+                                                <button type="submit" class="btn btn-primary"
+                                                    id="liveToastBtn">Crear</button>
                                             </div>
                                         </form>
                                     </div>
@@ -169,47 +189,10 @@
                             </div>
                         </div>
                     </div>
-                      
-                    </div>
-
-                    <div class="modal fade" id="vewOne" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="http://localhost:8080/Garbigune_reto/create" method="post">
-                                    <input type="text d-none" class="form-control" name=opcion" value="proveedor">
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control"  name="nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">correo</label>
-                                            <input type="email" class="form-control" name="correo">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Contraseï¿½a</label>
-                                            <input type="password" class="form-control"  name="contrasena">
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="b-example-divider b-example-vr"></div>
-                    </div>
+            </div>
             </div>
             </main>
-             
+
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">

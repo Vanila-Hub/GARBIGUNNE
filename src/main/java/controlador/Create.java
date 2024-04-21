@@ -1,6 +1,9 @@
 package controlador;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloCliente;
+import modelo.ModeloEmisionProducto;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
+import modelo.ModeloProducto;
 import modelo.ModeloProveedor;
 import modelo.ModeloSuministro;
 
@@ -119,6 +124,47 @@ public class Create extends HttpServlet {
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
 			break;
+			
+		case "producto":
+			String carpetaHome = "http://localhost:8080/Garbigune_reto/ProductosIMG/";
+			
+		    String nombreProducto = request.getParameter("nombre");
+		    nombreProducto = nombreProducto.contains("+")? nombreProducto.replaceAll("+", " "):nombreProducto;
+		    
+		    String descripcion = request.getParameter("descripcion");
+		    descripcion = descripcion.contains("+")? descripcion.replaceAll("+", " "): descripcion;
+		    
+		    String rutaImagen = request.getParameter("imagen");
+		    carpetaHome= carpetaHome + rutaImagen;
+		    
+		    double peso = Double.parseDouble(request.getParameter("peso_producto"));
+		    double precio = Double.parseDouble(request.getParameter("precio"));
+		    
+		    
+		    int stock = Integer.parseInt(request.getParameter("stock"));
+		    int idPlanta = Integer.parseInt(request.getParameter("planta"));
+		    int id_material = Integer.parseInt(request.getParameter("material"));
+		    
+		    
+		    ModeloProducto modeloProducto = new ModeloProducto();
+		    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome);
+	
+		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
+		    break;
+		    
+		case "emision":
+		    int idProducto = Integer.parseInt(request.getParameter("id_producto"));
+		    int idMaterial = Integer.parseInt(request.getParameter("id_material"));
+		    Date fecha = Date.valueOf(request.getParameter("fecha"));
+		   
+		    
+		    ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
+		    
+		    modeloEmisionProducto.crearEmisionProducto(idProducto, idMaterial,fecha);
+		    
+		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
+		    break;
+
 			
 		default:
 			break;
