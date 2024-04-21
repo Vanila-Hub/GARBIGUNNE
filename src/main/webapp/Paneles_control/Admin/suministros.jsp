@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
+
         <!DOCTYPE html>
         <html lang="en">
 
@@ -44,12 +44,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link ">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
                         <li>
-                            <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros"
+                                class="nav-link active">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -69,7 +70,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
@@ -79,12 +80,14 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
                                 ROLES
                             </a>
                         </li>
+
                     </ul>
                     <hr>
+
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
@@ -94,28 +97,42 @@
                                 data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Contraseña</th>
-                                    <th scope="col">Rol</th>
-                                    <th scope="col">Acciones</th>
+                                    <th scope="col">ID_SUMINISTRO</th>
+                                    <th scope="col">ID_PROVEEDOR</th>
+                                    <th scope="col">ID_PLANTA</th>
+                                    <th scope="col">ID_MATERIAL</th>
+                                    <th scope="col">Mes</th>
+                                    <th scope="col">Cantidad (KG)</th>
+                                    <th scope="col">Emision esperada (%)</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <c:forEach items="${usuarios}" var="usuario">
+                                <c:forEach items="${suministros}" var="suministro">
                                     <tr>
-                                        <th scope="row">${usuario.id_cliente}</th>
-                                        <td>${usuario.usuario}</td>
-                                        <td>${usuario.contrasena}</td>
-                                        <td>${usuario.rol}</td>
+                                        <th scope="row">${suministro.id_suministro}</th>
+                                        <td><a
+                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=proveedor&id_proveedor=${suministro.id_proveedor}">${suministro.id_proveedor}</a>
+                                        </td>
+                                        <td><a
+                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${suministro.id_planta}">${suministro.id_planta}</a>
+                                        </td>
+                                        <td><a
+                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=material&id_material=${suministro.id_material}">${suministro.id_material}</a>
+                                        </td>
+                                        <td>${suministro.mes}</td>
+                                        <td>${suministro.cantidad_kg}</td>
+                                        <td>${suministro.emisiones_proyectadas}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-flex">
+                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal">
                                                     <a
-                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=rol&id_cliente=${usuario.id_cliente}">
-                                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
-                                                    </a>
+                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=suministro&id_suministro=${suministro.id_suministro}"><i
+                                                            class="bi bi-pencil-square fs-5 text-light"></i></a>
                                                 </button>
+                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=suministro&id_suministro=${suministro.id_suministro}"
+                                                    class="btn btn-flex trash">
+                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -127,39 +144,55 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="http://localhost:8080/Garbigune_reto/create" method="post">
                                             <input type="text" class="form-control d-none" name="opcion"
-                                                value="cliente">
+                                                value="suministro">
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="exampleInput" name="nombre">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Apellido</label>
-                                                <input type="text" class="form-control" id="exampleInput"
-                                                    name="apellido">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Usuario</label>
-                                                <input type="email" class="form-control" id="exampleInput"
-                                                    name="usuario">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Contraseña</label>
-                                                <input type="password" class="form-control" id="exampleInput"
-                                                    name="contrasena">
-                                            </div>
-                                            <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Rol</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Asignar Rol</option>
-                                                    <option value="1">AppUser</option>
-                                                    <option value="2">AppAdmin</option>
+                                                <label for="exampleInput" class="form-label">Proveedor</label>
+                                                <select class="form-select" aria-label="Default select example" name="id_proveedor">
+
+                                                    <option selected>Seleccionar Proveedor</option>
+                                                    <c:forEach items="${proveedores}" var="proveedor">
+                                                        <option value="${proveedor.id_proveedor}">${proveedor.nombre}
+                                                        </option>
+                                                    </c:forEach>
+
                                                 </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInput" class="form-label">Planta</label>
+                                                <select class="form-select" aria-label="Default select example" name="id_planta">
+
+                                                    <option selected>Seleccionar Plantas</option>
+                                                    <c:forEach items="${plantas}" var="planta">
+                                                        <option value="${planta.id}">${planta.nombre}</option>
+                                                    </c:forEach>
+
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInput" class="form-label">Material</label>
+
+                                                <select class="form-select" aria-label="Default select example" name="id_material">
+                                                    <option selected>Seleccionar Materiales</option>
+                                                    <c:forEach items="${materiales}" var="material">
+                                                        <option value="${material.id_material}">${material.tipo}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="month" class="form-label">Mes</label>
+                                                <input type="month" id="month" name="mes" class="form-control">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInput" class="form-label">Cantidad(Kg)</label>
+                                                <input type="text" class="form-control" name="cantidad" step="0.01">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -173,8 +206,10 @@
                             </div>
                         </div>
                     </div>
-                </main>
             </div>
+            </div>
+            </main>
+
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">

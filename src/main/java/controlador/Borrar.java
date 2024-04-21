@@ -13,6 +13,7 @@ import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
 import modelo.ModeloProveedor;
+import modelo.ModeloSuministro;
 
 /**
  * Servlet implementation class Borrar
@@ -73,6 +74,16 @@ public class Borrar extends HttpServlet {
 			modelo_proveedor.borrarProveedorByID(id_proveedor);
 			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+			break;
+
+		case "suministro":
+			int id_suminitro = Integer.parseInt(request.getParameter("id_suministro"));
+			
+			ModeloSuministro modelo_suministro = new ModeloSuministro();
+			
+			modelo_suministro.borrarSuministroByID(id_suminitro);
+			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
 			break;
 			
 		default:

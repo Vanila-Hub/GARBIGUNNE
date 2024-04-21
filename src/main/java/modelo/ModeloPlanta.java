@@ -8,11 +8,10 @@ import java.util.ArrayList;
 
 public class ModeloPlanta{
 
-	public ArrayList<Planta> getPlantas() {
+	public ArrayList<Planta> getPlantas() {		
 		
-		
-		ArrayList<Planta> plantas = new ArrayList<Planta>();
 		String sql = "SELECT * FROM PLANTAS";
+		ArrayList<Planta> plantas = new ArrayList<Planta>();
 		try {
 			Connection con = Conector.getConexion();
 			Statement st = con.createStatement();

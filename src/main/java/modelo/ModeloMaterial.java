@@ -11,8 +11,8 @@ import com.mysql.cj.xdevapi.PreparableStatement;
 public class ModeloMaterial {
 	public ArrayList<Material> getMateriales() {
 
-		ArrayList<Material> materiales = new ArrayList<Material>();
 		String sql = "SELECT * FROM MATERIALES";
+		ArrayList<Material> materiales = new ArrayList<Material>();
 		try {
 			Connection con = Conector.getConexion();
 			Statement st = con.createStatement();

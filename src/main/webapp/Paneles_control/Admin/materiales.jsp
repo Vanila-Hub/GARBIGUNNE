@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
+                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
                         SUMINISTROS
                     </a>
                 </li>

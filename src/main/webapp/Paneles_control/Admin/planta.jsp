@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
                                 ROLES
                             </a>
                         </li>
@@ -151,8 +151,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                                <input type="tel" class="form-control" id="exampleInput"
-                                                    name="telefono">
+                                                <input type="tel" class="form-control" id="phone" name="telefono" placeholder="611-445-678" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
                                             </div>
 
                                             <div class="modal-footer">

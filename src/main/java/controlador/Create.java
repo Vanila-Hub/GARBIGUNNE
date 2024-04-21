@@ -11,6 +11,7 @@ import modelo.ModeloCliente;
 import modelo.ModeloMaterial;
 import modelo.ModeloPlanta;
 import modelo.ModeloProveedor;
+import modelo.ModeloSuministro;
 
 /**
  * Servlet implementation class Create
@@ -100,7 +101,23 @@ public class Create extends HttpServlet {
 			
 			ModeloProveedor modelo_proveedor = new ModeloProveedor();
 			modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
+			
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+			break;
+
+		case "suministro":
+			
+			int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+			int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
+			int id_Material = Integer.parseInt(request.getParameter("id_material"));
+			double cantidad = Double.parseDouble(request.getParameter("cantidad"));
+			String mes = (String) request.getParameter("mes");
+			
+			System.out.println(cantidad);
+			ModeloSuministro modelo_suministro = new ModeloSuministro();
+			modelo_suministro.crearSuministro(id_Material,id_Proveedor,id_Planta,mes,cantidad);
+			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
 			break;
 			
 		default:
