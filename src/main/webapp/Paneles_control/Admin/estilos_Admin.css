@@ -6,7 +6,8 @@ body {
   margin: 0;
   font-family: monospace !important;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   justify-content: space-between;
 }
 img {
@@ -18,6 +19,7 @@ main {
   width: 90%;
   flex-direction: column;
   height: 100vh;
+  overflow-y: scroll;
   color: #013205;
 }
 .imgDiv {
@@ -103,7 +105,7 @@ a.dropdown-item:hover {
   justify-content: space-between;
   top: 4.7rem;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: relative;
 }
@@ -117,13 +119,13 @@ a > strong {
   margin-left: 3rem;
 }
 table.table-design, th,td{
-  background-color: #efffea !important;
-  color: #013205;
-  border: 1px solid #5558571f;
-  background-color: #efffea !important;
-  color: #013205;
-  border: 1px solid #5558571f;
-  box-shadow: 0 9px 8px #01320505;
+    background-color: #efffea !important;
+    color: #013205;
+    border: 1px solid #5558571f;
+    background-color: #efffea !important;
+    color: #013205;
+    border: 1px solid #5558571f;
+    box-shadow: -3px 8px 10px 0px #8fcf9436;
 }
 .btn-flex{
   background-color: #1ec925 !important;
@@ -173,4 +175,23 @@ div.table-responsive{
 }
 .plus:active{
   transform: scale(0.7);
+}
+
+.modal-width{
+  width: 100% !important;
+  font-size: 20px;
+  height: 50%;
+  align-self: center;
+}
+.iframe{
+  height: 53vh;
+  width: 100%;
+}
+div.b-example-divider.b-example-vr{
+  height: 100vh !important;
+}
+button.btn.btn-secondary, button.btn.btn-secondary>a{
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #0aaf10;
 }

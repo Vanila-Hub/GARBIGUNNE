@@ -38,14 +38,13 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores"
-                                class="nav-link" aria-current="page">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
+                                aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta "
-                                class="nav-link active">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
@@ -60,7 +59,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos"
+                                class="nav-link active">
                                 PRODUCTOS
                             </a>
                         </li>
@@ -74,12 +74,12 @@
                                 CLIENTES
                             </a>
                         </li>
+
                         <li>
                             <a href="#" class="nav-link disabled">
                                 VENTAS
                             </a>
                         </li>
-<<<<<<< HEAD
                         <li>
                             <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
                                 HISTORICO
@@ -90,62 +90,51 @@
                                 ROLES
                             </a>
                         </li>
+
                     </ul>
                     <hr>
-=======
-                        
-                    </ul>
-                    <hr>
-                    <div class="dropdown">
-                        <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                                class="rounded-circle me-2">
-                            <strong>granky</strong>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Gestionar Roles</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
-                        </ul>
-                    </div>
-                    
->>>>>>> dd16184f8c625e5ac71b0659a1555c83d635e920
+
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
                     <div class="table-responsive">
                         <table class="table table-design">
                             <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Crear  <i class="bi bi-plus-lg"></i></button>
+                                data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
+                                    <th scope="col">ID Producto</th>
+                                    <th scope="col">ID Planta</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">dirrecion</th>
-                                    <th scope="col">telefono</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Peso (Kg)</th>
                                     <th scope="col">Opciones</th>
+
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <c:forEach items="${plantas}" var="planta">
+                                <c:forEach items="${productos}" var="producto">
                                     <tr>
-                                        <th scope="row">${planta.id}</th>
-                                        <td>${planta.nombre}</td>
-                                        <td>${planta.direccion}</td>
-                                        <td>${planta.telefono}</td>
+                                        <th scope="row">${producto.id_producto}</th>
+                                        <td><a
+                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${producto.id_planta}">${producto.id_planta}</a>
+                                        </td>
+                                        <td>${producto.nombre}</td>
+                                        <td>${producto.precio}</td>
+                                        <td>${producto.descripcion}</td>
+                                        <td>${producto.stock}</td>
+                                        <td>${producto.peso_producto}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target="#vewOne" ><i
-                                                        class="bi bi-eye fs-5 text-light"></i></button>
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal">
-                                                    <a href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${planta.id}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
+                                                    <a
+                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=producto&id_producto=${producto.id_producto}">
+                                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                                    </a>
                                                 </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${planta.id}"
+                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=producto&id_producto=${producto.id_producto}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -153,6 +142,7 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
+
                             </tbody>
                         </table>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -160,90 +150,79 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Crear Producto</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post">
-                                            <input type="text" class="form-control d-none" name="opcion" value="planta">
+                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post" class="d-flex flex-row flex-wrap justify-content-between">
+                                            <input type="text" class="form-control d-none" name="opcion"
+                                                value="producto">
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="exampleInput"
-                                                    aria-describedby="emailHelp" name="nombre">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Direccion</label>
-                                                <input type="text" class="form-control" id="exampleInput"
-                                                    name="direccion">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                                <input type="tel" class="form-control" id="phone" name="telefono" placeholder="611-445-678" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
-                                            </div>
+                                                <label for="id_planta" class="form-label">Planta</label>
+                                                <select class="form-select" aria-label="Default select example" name="planta">
 
+                                                    <option selected >Seleccionar Planta</option>
+                                                    <c:forEach items="${plantas}" var="planta">
+                                                        <option value="${planta.id}">${planta.nombre}
+                                                        </option>
+                                                    </c:forEach>
+
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="id_planta" class="form-label">Material</label>
+                                                <select class="form-select" aria-label="Default select example" name="material">
+
+                                                    <option selected >Seleccionar Material</option>
+                                                    <c:forEach items="${materiales}" var="material">
+                                                        <option value="${material.id_material}">${material.tipo}
+                                                        </option>
+                                                    </c:forEach>
+
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="nombre" class="form-label">Nombre Del Producto</label>
+                                                <input type="text" class="form-control" name="nombre">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="precio" class="form-label">Precio</label>
+                                                <input type="number" class="form-control" name="precio">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="descripcion" class="form-label">Descripcion</label>
+                                                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="stock" class="form-label">Stock</label>
+                                                <input type="number" class="form-control" name="stock">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="peso_producto" class="form-label">Peso Producto</label>
+                                                <input type="number" class="form-control" name="peso_producto">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="imagen" class="form-label">Ruta de la Imagen</label>
+                                                <input type="file" class="form-control" name="imagen">
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary"
                                                     id="liveToastBtn">Crear</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                        <div class="modal fade" id="plantaEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <iframe class="iframe" src="Paneles_control/Admin/Edit_planta.jsp" frameborder="0" ></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="modal fade" id="vewOne" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" disabled id="exampleInput"
-                                                aria-describedby="emailHelp" name="nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Direccion</label>
-                                            <input type="text" class="form-control" disabled id="exampleInput" name="direccion">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                            <input type="tel" class="form-control" disabled id="exampleInput"
-                                                name="telefono">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="b-example-divider b-example-vr"></div>
                     </div>
             </div>
+            </div>
             </main>
-             
+
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">

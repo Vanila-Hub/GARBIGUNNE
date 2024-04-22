@@ -1,3 +1,4 @@
+
 package controlador;
 
 import java.io.IOException;
@@ -9,37 +10,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloPlanta;
-import modelo.Planta;
+import modelo.ModeloProveedor;
+import modelo.Proveedor;
 
 /**
- * Servlet implementation class Garbigunne_Admin_ViewAll
+ * Servlet implementation class Garbigunne_Admin_Proveedores_View
  */
-@WebServlet("/plantas")
-public class Garbigunne_Admin_ViewAll_plantas extends HttpServlet {
+@WebServlet("/proveedores")
+public class Garbigunne_Admin_Proveedores_View extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigunne_Admin_ViewAll_plantas() {
+    public Garbigunne_Admin_Proveedores_View() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//pedir Plantas
-		ModeloPlanta modelo_planta = new ModeloPlanta();
-		ArrayList<Planta> plantas = modelo_planta.getPlantas();
+		ModeloProveedor modelo_proveedor = new ModeloProveedor();
 		
-		//pedir arrayñlisy
-		//mandarlo al jsp de plantas
-		request.setAttribute("plantas", plantas);
-		request.getRequestDispatcher("Paneles_control/Admin/planta.jsp").forward(request, response);
+		ArrayList<Proveedor> proveedores = modelo_proveedor.getProveedores(); 
+		request.setAttribute("proveedores", proveedores);
+//		System.out.println(proveedores);
+		request.getRequestDispatcher("Paneles_control/Admin/proveedores.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -51,3 +50,4 @@ public class Garbigunne_Admin_ViewAll_plantas extends HttpServlet {
 	}
 
 }
+

@@ -11,8 +11,8 @@ public class Conector {
 	
 	public static Connection getConexion() throws SQLException, ClassNotFoundException {
 		final String URL = "jdbc:mysql://192.168.2.20:2007/Garbigunne";
-		final String USERNAME = "root";
-		final String PASSWORD = "oracle";
+		final String USERNAME = "AppAdmin";
+		final String PASSWORD = "CAMBIAME2024";
 		
         	Connection conexion;
             Class.forName("com.mysql.cj.jdbc.Driver");

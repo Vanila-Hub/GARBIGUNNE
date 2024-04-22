@@ -38,6 +38,31 @@ public class Garbigunne_Admin extends HttpServlet {
 		case "cliente":
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/clientes");
 			break;
+
+
+		case "proveedores":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/proveedores");
+			break;
+			
+		case "roles":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/rol");
+			break;
+			
+		case "suministros":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/suministros");
+			break;
+
+		case "productos":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/productos");
+			break;
+
+		case "emisiones":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/emisionProducto");
+			break;
+
+		case "historico":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/historicos");
+			break;
 			
 		default:
 			break;

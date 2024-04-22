@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Garbigunne_Planata_Delete
+ * Servlet implementation class Garbigune_Admin_Historicos_View
  */
-@WebServlet("/delete")
-public class Garbigunne_Planata_Delete extends HttpServlet {
+@WebServlet("/historicos")
+public class Garbigune_Admin_Historicos_View extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigunne_Planata_Delete() {
+    public Garbigune_Admin_Historicos_View() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class Garbigunne_Planata_Delete extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("Paneles_control/Admin/historicoContaminacion.jsp").forward(request, response);
 	}
 
 	/**
