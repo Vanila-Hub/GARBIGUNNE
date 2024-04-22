@@ -39,7 +39,7 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
                             <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores"
-                                class="nav-link" aria-current="page">
+                                class="nav-link disabled" aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
+                            <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -60,12 +60,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
+                            <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link disabled">
                                 PRODUCTOS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="nav-link">
+                            <a href="#" class="nav-link disabled">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
@@ -79,20 +79,6 @@
                                 VENTAS
                             </a>
                         </li>
-<<<<<<< HEAD
-                        <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
-                                HISTORICO
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
-                                ROLES
-                            </a>
-                        </li>
-                    </ul>
-                    <hr>
-=======
                         
                     </ul>
                     <hr>
@@ -113,7 +99,6 @@
                         </ul>
                     </div>
                     
->>>>>>> dd16184f8c625e5ac71b0659a1555c83d635e920
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
@@ -140,10 +125,11 @@
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target="#vewOne" ><i
+                                                    data-bs-target="#vewOne"><i
                                                         class="bi bi-eye fs-5 text-light"></i></button>
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal">
-                                                    <a href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${planta.id}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
+                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal"
+                                                    data-bs-target=" #exampleModal">
+                                                    <i class="bi bi-pencil-square fs-5 text-light"></i>
                                                 </button>
                                                 <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${planta.id}"
                                                     class="btn btn-flex trash">
@@ -153,6 +139,7 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
+
                             </tbody>
                         </table>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -179,7 +166,8 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                                <input type="tel" class="form-control" id="phone" name="telefono" placeholder="611-445-678" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
+                                                <input type="tel" class="form-control" id="exampleInput"
+                                                    name="telefono">
                                             </div>
 
                                             <div class="modal-footer">
@@ -188,22 +176,6 @@
                                                 <button type="submit" class="btn btn-primary"
                                                     id="liveToastBtn">Crear</button>
                                         </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="modal fade" id="plantaEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <iframe class="iframe" src="Paneles_control/Admin/Edit_planta.jsp" frameborder="0" ></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -239,11 +211,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="b-example-divider b-example-vr"></div>
                     </div>
             </div>
+            </div>
+            <div class="b-example-divider b-example-vr"></div>
             </main>
-             
+            </div>
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">
