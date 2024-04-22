@@ -118,6 +118,7 @@
                             <tbody class="table-group-divider">
                                 <c:forEach items="${plantas}" var="planta">
                                     <tr>
+                                    
                                         <th scope="row">${planta.id}</th>
                                         <td>${planta.nombre}</td>
                                         <td>${planta.direccion}</td>

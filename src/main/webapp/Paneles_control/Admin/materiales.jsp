@@ -98,7 +98,7 @@
             <div class="table-responsive">
                 <table class="table table-design">
                     <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" >CREAR<i class="bi bi-plus-lg"></i></button>
+                    data-bs-target="#exampleModal" >CREAR <i class="bi bi-plus-lg"></i></button>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -119,7 +119,7 @@
                                         data-bs-target="#exampleModal"><i
                                             class="bi bi-eye fs-5 text-light"></i></button>
                                     <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
+                                        data-bs-target="#vewOnel">
                                         <i class="bi bi-pencil-square fs-5 text-light"></i>
                                     </button>
                                     <button type="button" class="btn btn-flex trash">
