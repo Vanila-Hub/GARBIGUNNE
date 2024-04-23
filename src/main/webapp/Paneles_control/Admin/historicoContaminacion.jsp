@@ -76,7 +76,7 @@
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="nav-link ">
                                 VENTAS
                             </a>
                         </li>

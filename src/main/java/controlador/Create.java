@@ -17,6 +17,7 @@ import modelo.ModeloPlanta;
 import modelo.ModeloProducto;
 import modelo.ModeloProveedor;
 import modelo.ModeloSuministro;
+import modelo.ModeloVenta;
 
 /**
  * Servlet implementation class Create
@@ -89,7 +90,6 @@ public class Create extends HttpServlet {
 			ModeloCliente modelo_cliente = new ModeloCliente();
 			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
 			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/Cliente?peticion=clientes");
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
 			
@@ -165,6 +165,17 @@ public class Create extends HttpServlet {
 		    
 		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
 		    break;
+		case "venta":
+			int id_producto = Integer.parseInt(request.getParameter("id_producto"));
+			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+			int cantidad2 = Integer.parseInt(request.getParameter("cantidad"));
+			Date fecha2 = Date.valueOf(request.getParameter("fecha"));
+			
+			ModeloVenta modelo_venta = new ModeloVenta();
+			modelo_venta.crearVenta(id_cliente, id_producto, cantidad2, fecha2);
+		
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/Cliente?peticion=ventas");
+			break;
 			
 		default:
 			break;

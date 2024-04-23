@@ -38,19 +38,18 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores"
-                                class="nav-link disabled" aria-current="page">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
+                                aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta "
-                                class="nav-link active">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
                         <li>
-                            <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -60,12 +59,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
                                 PRODUCTOS
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="nav-link">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
@@ -75,11 +74,22 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="nav-link active">
                                 VENTAS
                             </a>
                         </li>
-                        
+                        <li>
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
+                                HISTORICO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
+                                ROLES
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
                     </ul>
                     <hr>
                     <div class="dropdown">
@@ -98,40 +108,43 @@
                             <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
                         </ul>
                     </div>
-                    
+
+
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
                     <div class="table-responsive">
                         <table class="table table-design">
                             <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Crear  <i class="bi bi-plus-lg"></i></button>
+                                data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">dirrecion</th>
-                                    <th scope="col">telefono</th>
-                                    <th scope="col">Opciones</th>
+                                    <th scope="col">Id_venta</th>
+                                    <th scope="col">Id_cliente</th>
+                                    <th scope="col">Id_producto</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Fecha</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <c:forEach items="${plantas}" var="planta">
+                                <c:forEach items="${ventas}" var="venta">
                                     <tr>
-                                        <th scope="row">${planta.id}</th>
-                                        <td>${planta.nombre}</td>
-                                        <td>${planta.direccion}</td>
-                                        <td>${planta.telefono}</td>
+                                        <th scope="row">${venta.id_venta}</th>
+                                        <td>${venta.id_cliente}</td>
+                                        <td>${venta.id_producto}</td>
+                                        <td>${venta.cantidad}</td>
+                                        <td>${venta.fecha}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal"
                                                     data-bs-target="#vewOne"><i
                                                         class="bi bi-eye fs-5 text-light"></i></button>
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target=" #exampleModal">
-                                                    <i class="bi bi-pencil-square fs-5 text-light"></i>
+                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal">
+                                                    <a
+                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${venta.id}"><i
+                                                            class="bi bi-pencil-square fs-5 text-light"></i></a>
                                                 </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${planta.id}"
+                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${venta.id}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -139,7 +152,6 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
-
                             </tbody>
                         </table>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -153,36 +165,50 @@
                                     </div>
                                     <div class="modal-body">
                                         <form action="http://localhost:8080/Garbigune_reto/create" method="post">
-                                            <input type="text" class="form-control d-none" name="opcion" value="planta">
+                                            <input type="text" class="form-control d-none" name="opcion" value="venta">
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="exampleInput"
-                                                    aria-describedby="emailHelp" name="nombre">
+                                                <label for="exampleInput" class="form-label">Id_cliente</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="cliente">
+                                                    <option selected>Clientes</option>
+                                                    <c:forEach items="${clientes}" var="cliente">
+                                                        <option value="${cliente.id_cliente}"> ${cliente.nombre}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Direccion</label>
-                                                <input type="text" class="form-control" id="exampleInput"
-                                                    name="direccion">
+                                                <label for="exampleInput" class="form-label">Id_producto</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="producto">
+                                                    <option selected>Productos</option>
+                                                    <c:forEach items="${productos}" var="producto">
+                                                        <option value="${producto.id_producto}"> ${producto.nombre}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                                <input type="tel" class="form-control" id="exampleInput"
-                                                    name="telefono">
+                                                <label for="exampleInput" class="form-label">Cantidad</label>
+                                                <input type="number" class="form-control" id="exampleInput"
+                                                   name="cantidad">
                                             </div>
-
+                                            <div class="mb-3">
+                                                <label for="exampleInput" class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" id="exampleInput" name="fecha">
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary"
-                                                    id="liveToastBtn">Crear</button>
-                                        </form>
-                                    </div>
+                                                    id="liveToastBtn">Crear</button>  
+                                    		</div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="modal fade" id="vewOne" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="plantaEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -192,31 +218,49 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" disabled id="exampleInput"
-                                                aria-describedby="emailHelp" name="nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Direccion</label>
-                                            <input type="text" class="form-control" disabled id="exampleInput" name="direccion">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">Numero de telefono</label>
-                                            <input type="tel" class="form-control" disabled id="exampleInput"
-                                                name="telefono">
-                                        </div>
-                                    </form>
+                                    <iframe class="iframe" src="Paneles_control/Admin/Edit_planta.jsp"
+                                        frameborder="0"></iframe>
                                 </div>
                             </div>
                         </div>
                     </div>
             </div>
+
+            <div class="modal fade" id="vewOne" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInput" class="form-label">Id_cliente</label>
+                                    <input type="text" class="form-control" disabled id="exampleInput"
+                                        name="id_cliente">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInput" class="form-label">Id_producto</label>
+                                    <input type="text" class="form-control" disabled id="exampleInput" name="id_producto">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInput" class="form-label">Cantidad</label>
+                                    <input type="numbre" class="form-control" disabled id="exampleInput" name="cantidad">
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="exampleInput" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" disabled id="exampleInput" name="fecha">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-example-divider b-example-vr"></div>
             </div>
-            <div class="b-example-divider b-example-vr"></div>
+            </div>
             </main>
-            </div>
+
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <div class="container">

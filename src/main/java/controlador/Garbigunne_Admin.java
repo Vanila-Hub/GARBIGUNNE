@@ -39,7 +39,6 @@ public class Garbigunne_Admin extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/clientes");
 			break;
 
-
 		case "proveedores":
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/proveedores");
 			break;
@@ -62,6 +61,9 @@ public class Garbigunne_Admin extends HttpServlet {
 
 		case "historico":
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/historicos");
+			break;
+		case "venta":
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/venta");
 			break;
 			
 		default:

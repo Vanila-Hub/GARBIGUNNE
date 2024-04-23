@@ -75,11 +75,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="nav-link ">
                                 VENTAS
                             </a>
                         </li>
-<<<<<<< HEAD
                         <li>
                             <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
                                 HISTORICO
@@ -92,7 +91,6 @@
                         </li>
                     </ul>
                     <hr>
-=======
                         
                     </ul>
                     <hr>
@@ -113,7 +111,6 @@
                         </ul>
                     </div>
                     
->>>>>>> dd16184f8c625e5ac71b0659a1555c83d635e920
                 </div>
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>

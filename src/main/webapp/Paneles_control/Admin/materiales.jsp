@@ -24,7 +24,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 	<header>
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid">
@@ -67,7 +66,8 @@
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente"
 					class="nav-link "> CLIENTES </a></li>
-				<li><a href="#" class="nav-link disabled"> VENTAS </a></li>
+				<li><a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" 
+					 class="nav-link "> VENTAS </a></li>
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=historico"
 					class="nav-link"> HISTORICO </a></li>
@@ -111,7 +111,6 @@
 												<i class="bi bi-pencil-square fs-5 text-light"></i>
 											</a>
 										</button>
-=======
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -129,149 +128,15 @@
                 <strong class="fs-4">Gestores</strong>
             </a>
             <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link disabled" aria-current="page">
-                        PROVEEDORES
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link ">
-                        PLANTAS
-                    </a>
-                </li>
-                <li>
-                    <a href="Paneles_control/Admin/suministro.jsp" class="nav-link disabled">
-                        SUMINISTROS
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="nav-link active">
-                        MATERIALES
-                    </a>
-                </li>
-                <li>
-                    <a href="Paneles_control/Admin/productos_Admin.jsp" class="nav-link disabled">
-                        PRODUCTOS
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link disabled">
-                        EMISIONES POR PRODUCTO
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
-                        CLIENTES
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link disabled">
-                        VENTAS
-                    </a>
-                </li>
-            </ul>
             <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>granky</strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">Gestionar Roles</a></li>
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
-                </ul>
-            </div>
-        </div>
-        <main class="row">
-            <div class="b-example-divider b-example-vr"></div>
-            <div class="table-responsive">
-                <table class="table table-design">
-                    <button type="button" class="btn btn-flex plus" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" >CREAR<i class="bi bi-plus-lg"></i></button>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Emison/KG</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                    <c:forEach items = "${materiales}" var="material">
-                        <tr>
-                            <th scope="row">${material.id_material}</th>
-                            <td>${material.tipo}</td>
-                            <td>${material.emision_kg}</td>
-                            <td class="d-flex flex-wrap justify-content-evenly w-2">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"><i
-                                            class="bi bi-eye fs-5 text-light"></i></button>
-                                    <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="bi bi-pencil-square fs-5 text-light"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-flex trash">
-                                        <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
-                                                    class="btn btn-flex trash">
-                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
-                                                </a>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                   </c:forEach>
-                    </tbody>
-                </table>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nombre de Usuario</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="http://localhost:8080/Garbigune_reto/create" method = "post">
-                                 <input type="text" class="form-control d-none" name="opcion" value="material">
-                                    <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Tipo</label>
-                                      <input type="text" class="form-control" id="exampleInput" aria-describedby="emailHelp" name="tipo">
-                                    </div>
-                                    <div class="mb-3">
-                                      <label for="exampleInput" class="form-label">Emison/kg</label>
-                                      <input type="text" class="form-control" id="exampleInput" name="emision_kg">
-                                    </div> 
-                                    <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="liveToastBtn">Crear</button>
-                            </div>
-                                  </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
->>>>>>> dd16184f8c625e5ac71b0659a1555c83d635e920
+           
+        
+  
 
-										<a
-											href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
-											class="btn btn-flex trash"> <i
-											class="bi bi-trash text-light fs-5 text-info"></i>
-										</a>
+										
 
-									</div>
-								</td>
-							</tr>
+		</div>
+								
 						</c:forEach>
 					</tbody>
 				</table>

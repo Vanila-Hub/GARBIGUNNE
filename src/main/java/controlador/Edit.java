@@ -318,6 +318,12 @@ public class Edit extends HttpServlet {
 
 		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
 		    break;
+		case "venta":
+			int id_Producto = Integer.parseInt(request.getParameter("id_producto"));
+			
+			
+			
+			break;
 			
 		default:
 			break;

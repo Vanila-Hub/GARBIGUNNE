@@ -4,7 +4,6 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon"
@@ -66,7 +65,8 @@
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente"
 					class="nav-link active"> CLIENTES </a></li>
-				<li><a href="#" class="nav-link disabled"> VENTAS </a></li>
+				<li><a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" 
+					 class="nav-link "> VENTAS </a></li>
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=historico"
 					class="nav-link "> HISTORICO </a></li>
@@ -203,7 +203,6 @@
 </body>
 
 </html>
-=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Paneles_control/Admin/img/logo_garbigunne.png" type="image/x-icon">
