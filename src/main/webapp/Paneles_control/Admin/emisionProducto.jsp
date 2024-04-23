@@ -105,7 +105,6 @@
                                 <tr>
                                     <th scope="col">ID Emision</th>
                                     <th scope="col">ID Producto</th>
-                                    <th scope="col">ID Material</th>
                                     <th scope="col">Emision Generada</th>
                                     <th scope="col">Fecha</th>
                                     <th scope="col">Opciones</th>
@@ -116,7 +115,6 @@
                                     <tr>
                                         <th scope="row">${emisionProducto.id_emision}</th>
                                         <td><a href="http://localhost:8080/Garbigune_reto/edit?opcion=producto&id_producto=${emisionProducto.id_producto}">${emisionProducto.id_producto}</a></td>
-                                        <td><a href="http://localhost:8080/Garbigune_reto/edit?opcion=material&id_material=${emisionProducto.id_material}">${emisionProducto.id_material}</a></td>
                                         <td>${emisionProducto.emision_generada}</td>
                                         <td>${emisionProducto.fecha}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
@@ -158,18 +156,6 @@
                                                     <option selected>Seleccionar Producto</option>
                                                     <c:forEach items="${productos}" var="producto">
                                                         <option value="${producto.id_producto}">${producto.nombre}
-                                                        </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="id_material" class="form-label">Material</label>
-                                                <select class="form-select" aria-label="Default select example"
-                                                    name="id_material">
-                                                    <option selected>Seleccionar Material</option>
-                                                    <c:forEach items="${materiales}" var="material">
-                                                        <option value="${material.id_material}">${material.tipo}
                                                         </option>
                                                     </c:forEach>
                                                 </select>

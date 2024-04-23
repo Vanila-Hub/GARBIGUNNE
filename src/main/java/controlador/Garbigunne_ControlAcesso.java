@@ -26,12 +26,21 @@ public class Garbigunne_ControlAcesso extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String correo = (String) request.getParameter("correo");
+		//recibir password del form
+		
+		//con el modelo recibir el usuario
+		
+		//si el password del usuario es el mismo que el password recibido por form
+			//enviar al index de proveedores
+		//si no al home
+		
 		System.out.println(correo);
 		if (correo.equalsIgnoreCase("admin@ee")) {
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+			response.sendRedirect("admin?peticion=proveedores");
 		} else {
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/productos");
+			response.sendRedirect("productos");
 		}
 
 	}

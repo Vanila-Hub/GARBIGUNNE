@@ -17,6 +17,7 @@ public class ModeloProducto {
                 Producto producto = new Producto();
 
                 producto.setId_producto(rst.getInt("ID_PRODUCTO"));
+                producto.setId_material(rst.getInt("ID_MATERIAL"));
                 producto.setNombre(rst.getString("NOMBRE"));
                 producto.setPeso_producto(rst.getDouble("PESO"));
                 producto.setPrecio(rst.getDouble("PRECIO"));
@@ -45,8 +46,8 @@ public class ModeloProducto {
 
     }
 
-    public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen) {
-        String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN) VALUES(?,?,?,?,?,?,?)";
+    public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen,int idMaterial) {
+        String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN,ID_MATERIAL) VALUES(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             prst.setString(1, nombre);
@@ -56,6 +57,7 @@ public class ModeloProducto {
             prst.setInt(5, stock);
             prst.setInt(6, idPlanta);
             prst.setString(7, rutaImagen);
+            prst.setInt(8, idMaterial);
 
             prst.executeUpdate();
         } catch (Exception e) {
@@ -73,6 +75,7 @@ public class ModeloProducto {
 
             if (rst.next()) {
                 producto.setId_producto(rst.getInt("ID_PRODUCTO"));
+                producto.setId_material((rst.getInt("ID_MATERIAL")));
                 producto.setNombre(rst.getString("NOMBRE"));
                 producto.setPeso_producto(rst.getDouble("PESO"));
                 producto.setPrecio(rst.getDouble("PRECIO"));

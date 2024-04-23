@@ -31,16 +31,11 @@ public class Garbigunne_Admin_EmisionProducto_View extends HttpServlet {
 
 		ModeloEmisionProducto modelo_emisiones = new ModeloEmisionProducto();
 		ArrayList<EmisionProducto> EmisionProductos = modelo_emisiones.getEmisionesProductos();
-		System.out.println(EmisionProductos);
+	
 		ModeloProducto modelo_productos = new ModeloProducto();
 		ArrayList<Producto> productos = modelo_productos.getProductos();
 
-		// pedir materiales
-		ModeloMaterial modelo_material = new ModeloMaterial();
-		ArrayList<Material> materiales = modelo_material.getMateriales();
-
 		// mandarlo al jsp de emisines plantas
-		request.setAttribute("materiales", materiales);
 		request.setAttribute("productos", productos);
 		request.setAttribute("emisionesProductos", EmisionProductos);
 		request.getRequestDispatcher("Paneles_control/Admin/emisionProducto.jsp").forward(request, response);

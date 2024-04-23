@@ -147,20 +147,19 @@ public class Create extends HttpServlet {
 		    
 		    
 		    ModeloProducto modeloProducto = new ModeloProducto();
-		    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome);
+		    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material);
 	
 		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
 		    break;
 		    
 		case "emision":
 		    int idProducto = Integer.parseInt(request.getParameter("id_producto"));
-		    int idMaterial = Integer.parseInt(request.getParameter("id_material"));
 		    Date fecha = Date.valueOf(request.getParameter("fecha"));
 		   
 		    
 		    ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
 		    
-		    modeloEmisionProducto.crearEmisionProducto(idProducto, idMaterial,fecha);
+		    modeloEmisionProducto.crearEmisionProducto(idProducto,fecha);
 		    
 		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
 		    break;

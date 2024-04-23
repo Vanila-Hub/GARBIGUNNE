@@ -3,6 +3,7 @@ package modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -48,6 +49,7 @@ public class ModeloSuministro {
 
 	public void crearSuministro(int id_Material, int id_Proveedor, int id_Planta, String mes, double cantidad) {
 		String sql = "INSERT INTO SUMINISTROS(ID_PROVEEDOR, ID_PLANTA, ID_MATERIAL, MES, CANTIDAD_KG) VALUES(?,?,?,?,?)";
+		String sql_regitrar_emision = "call Garbigunne.AutoRegistrar_Emision_Suministro()";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setInt(1, id_Proveedor);
@@ -60,6 +62,20 @@ public class ModeloSuministro {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+			finally {
+				try {
+					PreparedStatement prst = Conector.getConexion().prepareStatement(sql_regitrar_emision);
+					prst.executeUpdate();
+					
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
 		
 	}
 
