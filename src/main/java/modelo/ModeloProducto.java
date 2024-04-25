@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModeloProducto {
@@ -9,6 +11,8 @@ public class ModeloProducto {
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM PRODUCTOS;";
+        String sql_registrar_emision_producto = "call Garbigunne.AutoRegistrar_Emision_producto();";
+        
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             ResultSet rst = prst.executeQuery();
@@ -31,6 +35,19 @@ public class ModeloProducto {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        finally {
+        	
+			try {
+				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_registrar_emision_producto);
+				prst.executeUpdate();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
         return productos;
     }
 

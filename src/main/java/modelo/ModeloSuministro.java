@@ -49,7 +49,7 @@ public class ModeloSuministro {
 
 	public void crearSuministro(int id_Material, int id_Proveedor, int id_Planta, String mes, double cantidad) {
 		String sql = "INSERT INTO SUMINISTROS(ID_PROVEEDOR, ID_PLANTA, ID_MATERIAL, MES, CANTIDAD_KG) VALUES(?,?,?,?,?)";
-		String sql_regitrar_emision = "call Garbigunne.AutoRegistrar_Emision_Suministro()";
+		String sql_regitrar_emision = "call Garbigunne.Emision_Suministro()";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setInt(1, id_Proveedor);
