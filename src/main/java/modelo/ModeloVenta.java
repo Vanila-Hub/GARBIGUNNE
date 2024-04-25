@@ -27,7 +27,6 @@ public class ModeloVenta {
 				ventas.add(venta);
 			}
 			
-			
 		} catch (Exception e) {
 			System.err.println(e);
 		}
