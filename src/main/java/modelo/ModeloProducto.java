@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModeloProducto {
@@ -9,6 +11,8 @@ public class ModeloProducto {
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM PRODUCTOS;";
+        String sql_registrar_emision_producto = "call Garbigunne.AutoRegistrar_Emision_producto();";
+        
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             ResultSet rst = prst.executeQuery();
@@ -17,6 +21,7 @@ public class ModeloProducto {
                 Producto producto = new Producto();
 
                 producto.setId_producto(rst.getInt("ID_PRODUCTO"));
+                producto.setId_material(rst.getInt("ID_MATERIAL"));
                 producto.setNombre(rst.getString("NOMBRE"));
                 producto.setPeso_producto(rst.getDouble("PESO"));
                 producto.setPrecio(rst.getDouble("PRECIO"));
@@ -30,6 +35,19 @@ public class ModeloProducto {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        finally {
+        	
+			try {
+				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_registrar_emision_producto);
+				prst.executeUpdate();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
         return productos;
     }
 
@@ -45,8 +63,8 @@ public class ModeloProducto {
 
     }
 
-    public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen) {
-        String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN) VALUES(?,?,?,?,?,?,?)";
+    public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen,int idMaterial) {
+        String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN,ID_MATERIAL) VALUES(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             prst.setString(1, nombre);
@@ -56,6 +74,7 @@ public class ModeloProducto {
             prst.setInt(5, stock);
             prst.setInt(6, idPlanta);
             prst.setString(7, rutaImagen);
+            prst.setInt(8, idMaterial);
 
             prst.executeUpdate();
         } catch (Exception e) {
@@ -73,6 +92,7 @@ public class ModeloProducto {
 
             if (rst.next()) {
                 producto.setId_producto(rst.getInt("ID_PRODUCTO"));
+                producto.setId_material((rst.getInt("ID_MATERIAL")));
                 producto.setNombre(rst.getString("NOMBRE"));
                 producto.setPeso_producto(rst.getDouble("PESO"));
                 producto.setPrecio(rst.getDouble("PRECIO"));

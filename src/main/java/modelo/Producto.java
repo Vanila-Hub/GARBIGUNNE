@@ -2,6 +2,7 @@ package modelo;
 
 public class Producto {
     private int id_producto;
+    private int id_material;
     private String nombre;
     private double precio;
     private String descripcion;
@@ -61,14 +62,22 @@ public class Producto {
 		return ruta_imagen;
 	}
 
+	public int getId_material() {
+		return id_material;
+	}
+
+	public void setId_material(int id_material) {
+		this.id_material = id_material;
+	}
+
 	public void setRuta_imagen(String ruta_imagen) {
 		this.ruta_imagen = ruta_imagen;
 	}
 
 	@Override
 	public String toString() {
-		return "Producto [id_producto=" + id_producto + ", nombre=" + nombre + ", precio=" + precio + ", descripcion="
-				+ descripcion + ", stock=" + stock + ", peso_producto=" + peso_producto + ", id_planta=" + id_planta
-				+ ", ruta_imagen=" + ruta_imagen + "]";
+		return "Producto [id_producto=" + id_producto + ", id_material=" + id_material + ", nombre=" + nombre
+				+ ", precio=" + precio + ", descripcion=" + descripcion + ", stock=" + stock + ", peso_producto="
+				+ peso_producto + ", id_planta=" + id_planta + ", ruta_imagen=" + ruta_imagen + "]";
 	}
 }

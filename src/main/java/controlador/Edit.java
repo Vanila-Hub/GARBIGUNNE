@@ -190,7 +190,6 @@ public class Edit extends HttpServlet {
 			// mandarlo al jsp de emisines plantas
 			request.setAttribute("id_emision", emisionProducto.getId_emision());
 			request.setAttribute("id_producto", emisionProducto.getId_producto());
-			request.setAttribute("id_material", emisionProducto.getId_material());
 			request.setAttribute("emision_generada", emisionProducto.getEmision_generada());
 			request.setAttribute("fecha", emisionProducto.getFecha());
 
@@ -229,30 +228,12 @@ public class Edit extends HttpServlet {
 		switch (opcion) {
 		
 		case "planta":
-			String nombre = (String) request.getParameter("nombre");
-			String dirrecion = (String) request.getParameter("direccion");
-			String telefono = (String) request.getParameter("telefono");
-			int id_planta = Integer.parseInt(request.getParameter("id_planta"));
-			System.out.println(nombre+dirrecion+telefono+id_planta);
-			//lalam al modelo para inser
-			ModeloPlanta modelo_planta = new ModeloPlanta();
-			modelo_planta.actualizar(nombre,dirrecion,telefono,id_planta);
-			//volvera el /plantas
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
+			UpdatePlanta(request, response);
 			break;
 			
 			
 		case "material":
-			int id_material = Integer.parseInt(request.getParameter("id_material"));
-			String tipo_material = (String) request.getParameter("material");
-			int emison_kg = Integer.parseInt(request.getParameter("emision_kg"));
-			
-			System.out.println(id_material+"nhhhoi"+tipo_material+emison_kg);
-			//lalam al modelo para inser
-			ModeloMaterial modelo_material = new ModeloMaterial();
-			modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
-			//volvera el /plantas
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+			UpdateMaterial(request, response);
 			break;
 
 		case "cliente":
@@ -354,6 +335,32 @@ public class Edit extends HttpServlet {
 		default:
 			break;
 		}		
+	}
+
+	private void UpdateMaterial(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		int id_material = Integer.parseInt(request.getParameter("id_material"));
+		String tipo_material = (String) request.getParameter("material");
+		int emison_kg = Integer.parseInt(request.getParameter("emision_kg"));
+		
+		System.out.println(id_material+"nhhhoi"+tipo_material+emison_kg);
+		//lalam al modelo para inser
+		ModeloMaterial modelo_material = new ModeloMaterial();
+		modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
+		//volvera el /plantas
+		response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+	}
+
+	private void UpdatePlanta(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String nombre = (String) request.getParameter("nombre");
+		String dirrecion = (String) request.getParameter("direccion");
+		String telefono = (String) request.getParameter("telefono");
+		int id_planta = Integer.parseInt(request.getParameter("id_planta"));
+		System.out.println(nombre+dirrecion+telefono+id_planta);
+		//lalam al modelo para inser
+		ModeloPlanta modelo_planta = new ModeloPlanta();
+		modelo_planta.actualizar(nombre,dirrecion,telefono,id_planta);
+		//volvera el /plantas
+		response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 	}
 
 }

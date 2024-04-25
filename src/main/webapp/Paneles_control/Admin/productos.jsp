@@ -105,6 +105,7 @@
                                 <tr>
                                     <th scope="col">ID Producto</th>
                                     <th scope="col">ID Planta</th>
+                                    <th scope="col">ID Material</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Descripcion</th>
@@ -120,6 +121,9 @@
                                         <th scope="row">${producto.id_producto}</th>
                                         <td><a
                                                 href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${producto.id_planta}">${producto.id_planta}</a>
+                                        </td>
+                                        <td><a
+                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=material&id_material=${producto.id_material}">${producto.id_material}</a>
                                         </td>
                                         <td>${producto.nombre}</td>
                                         <td>${producto.precio}</td>

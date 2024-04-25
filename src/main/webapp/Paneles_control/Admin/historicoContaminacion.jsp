@@ -98,8 +98,11 @@
                 <main class="row">
                     <div class="b-example-divider b-example-vr"></div>
                     <div class="table-responsive">
+                        <div>
+                            <canvas id="myChart"></canvas>
+                          </div>
                         <table class="table table-design">
-                            <button type="button" class="btn btn-flex plus" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
+                           
                             <thead>
                                 <tr>
                                     <th scope="col">ID Historico</th>
@@ -132,63 +135,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
-                        
-
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Emision</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post"
-                                            class="d-flex flex-row flex-wrap justify-content-between">
-                                            <input type="text" class="form-control d-none" name="opcion"
-                                                value="emision">
-
-                                            <div class="mb-3">
-                                                <label for="id_producto" class="form-label">Producto</label>
-                                                <select class="form-select" aria-label="Default select example"
-                                                    name="id_producto">
-                                                    <option selected>Seleccionar Producto</option>
-                                                    <c:forEach items="${productos}" var="producto">
-                                                        <option value="${producto.id_producto}">${producto.nombre}
-                                                        </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="id_material" class="form-label">Material</label>
-                                                <select class="form-select" aria-label="Default select example"
-                                                    name="id_material">
-                                                    <option selected>Seleccionar Material</option>
-                                                    <c:forEach items="${materiales}" var="material">
-                                                        <option value="${material.id_material}">${material.tipo}
-                                                        </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="fecha" class="form-label">Fecha</label>
-                                                <input type="date" class="form-control" name="fecha">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary"
-                                                    id="liveToastBtn">Crear</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                       
             </div>
             </div>
             </main>
@@ -212,6 +159,30 @@
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"></script>
             <script src="sidebars.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </script>
+        <script>
+            const xValues = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            
+            new Chart("myChart", {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: [{ 
+                        data: [10, 20, 10, 20],
+                        borderColor: "red",
+                        fill: false
+                    }, { 
+                        data: [10, 20, 10, 20],
+                        borderColor: "green",
+                        fill: false
+                    }]
+                },
+                options: {
+                    legend: { display: false }
+                }
+            });
+        </script>
         </body>
 
         </html>
