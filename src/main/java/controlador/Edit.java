@@ -256,6 +256,7 @@ public class Edit extends HttpServlet {
 			break;
 
 		case "cliente":
+			
 			int id_CLiente = Integer.parseInt(request.getParameter("id_cliente"));
 			String nombreCliente = (String) request.getParameter("nombre");
 			nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
