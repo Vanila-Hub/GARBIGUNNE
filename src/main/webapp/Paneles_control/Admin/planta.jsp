@@ -122,7 +122,7 @@
                                 <tr>
                                     <th scope="col">id</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">dirrecion</th>
+                                    <th scope="col">direccion</th>
                                     <th scope="col">telefono</th>
                                     <th scope="col">Opciones</th>
                                 </tr>

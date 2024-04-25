@@ -141,10 +141,10 @@
                                                         class="bi bi-eye fs-5 text-light"></i></button>
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal">
                                                     <a
-                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${venta.id}"><i
+                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=venta&id_venta=${venta.id_venta}"><i
                                                             class="bi bi-pencil-square fs-5 text-light"></i></a>
                                                 </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=planta&id=${venta.id}"
+                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=venta&id=${venta.id_venta}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -169,7 +169,7 @@
                                             <div class="mb-3">
                                                 <label for="exampleInput" class="form-label">Id_cliente</label>
                                                 <select class="form-select" aria-label="Default select example"
-                                                    name="cliente">
+                                                    name="id_cliente">
                                                     <option selected>Clientes</option>
                                                     <c:forEach items="${clientes}" var="cliente">
                                                         <option value="${cliente.id_cliente}"> ${cliente.nombre}
@@ -180,7 +180,7 @@
                                             <div class="mb-3">
                                                 <label for="exampleInput" class="form-label">Id_producto</label>
                                                 <select class="form-select" aria-label="Default select example"
-                                                    name="producto">
+                                                    name="id_producto">
                                                     <option selected>Productos</option>
                                                     <c:forEach items="${productos}" var="producto">
                                                         <option value="${producto.id_producto}"> ${producto.nombre}
@@ -218,7 +218,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <iframe class="iframe" src="Paneles_control/Admin/Edit_planta.jsp"
+                                    <iframe class="iframe" src="Paneles_control/Admin/Edit_venta.jsp"
                                         frameborder="0"></iframe>
                                 </div>
                             </div>

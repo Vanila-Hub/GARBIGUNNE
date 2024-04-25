@@ -43,15 +43,15 @@
                                 <input type="text" class="form-control d-none" name="opcion" value="venta">
                                 <div class="mb-3">
                                     <label for="exampleInput" class="form-label">Id_cliente</label>
-                                    <input type="text" class="form-control"  name="id_cliente" value="${id_cliente}">
+                                    <input type="text" class="form-control"  name="id_cliente" value="${id_Cliente}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput" class="form-label">Id_producto</label>
-                                    <input type="text" class="form-control"  name="id_producto" value="${id_producto}">
+                                    <input type="text" class="form-control"  name="id_producto" value="${id_Producto}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput" class="form-label">Cantidad</label>
-                                    <input type="text" class="form-control" name="cantidad" value="${cantidad}">
+                                    <input type="text" class="form-control" name="cantidad" value="${Cantidad}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput" class="form-label">Fecha</label>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

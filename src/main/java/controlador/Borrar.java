@@ -16,6 +16,7 @@ import modelo.ModeloPlanta;
 import modelo.ModeloProducto;
 import modelo.ModeloProveedor;
 import modelo.ModeloSuministro;
+import modelo.ModeloVenta;
 
 /**
  * Servlet implementation class Borrar
@@ -107,6 +108,16 @@ public class Borrar extends HttpServlet {
 		    
 		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
 		    break;
+		case "venta":
+			int id_venta = Integer.parseInt(request.getParameter("id"));
+			
+			ModeloVenta modelo_venta = new ModeloVenta();
+			
+			modelo_venta.borrarVentaByID(id_venta);
+			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=venta");
+			
+			break;
 
 
 			

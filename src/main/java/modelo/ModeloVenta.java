@@ -24,6 +24,7 @@ public class ModeloVenta {
 				venta.setId_producto(rst.getInt("ID_PRODUCTO"));
 				venta.setCantidad(rst.getInt("CANTIDAD"));
 				venta.setFecha(rst.getDate("FECHA"));	
+				ventas.add(venta);
 			}
 			
 		} catch (Exception e) {
@@ -32,7 +33,10 @@ public class ModeloVenta {
 		return ventas;
 	}
 	public void crearVenta(int id_cliente, int id_producto, int cantidad, Date fecha) {
-		String sql = "INSERT INTO VENTAS(VENTAS.ID_CLIENTE,VENTAS.ID_PRODUCTO,VENTAS.CANTIDAD,VENTAS.FECHA) values(?,?,?,?)";
+		String sql = "INSERT INTO VENTAS(ID_CLIENTE,ID_PRODUCTO,CANTIDAD,FECHA) values(?,?,?,?)";
+		System.out.println(id_cliente);
+		System.out.println(cantidad);
+		System.out.println(fecha);
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setInt(1, id_cliente);
@@ -78,13 +82,13 @@ public class ModeloVenta {
 		}
 		return null;
 	}
-	public void actualizar(int id_cliente, int id_producto, int cantidad, Date fecha, int id_venta) {
-		String sql = "UPDATE VENTAS SET ID_CLIENTE =?, ID_PRODUCTO =? ,CANTIDAD=?,FECHA=? WHERE ID_VENTAA = ?";
+	public void actualizar(int id_venta,int id_Cliente, int id_Producto,int Cantidad,  Date fecha) {
+		String sql = "UPDATE VENTAS SET ID_CLIENTE =?, ID_PRODUCTO =? , CANTIDAD=?, FECHA=? WHERE ID_VENTA = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
-			prst.setInt(1, id_cliente);
-			prst.setInt(2, id_producto);
-			prst.setInt(3, cantidad);
+			prst.setInt(1, id_Cliente);
+			prst.setInt(2, id_Producto);
+			prst.setInt(3, Cantidad);
 			prst.setDate(4, fecha);
 			prst.setInt(5, id_venta);
 			

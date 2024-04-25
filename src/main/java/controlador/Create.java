@@ -171,10 +171,12 @@ public class Create extends HttpServlet {
 			int cantidad2 = Integer.parseInt(request.getParameter("cantidad"));
 			Date fecha2 = Date.valueOf(request.getParameter("fecha"));
 			
+
+			
 			ModeloVenta modelo_venta = new ModeloVenta();
 			modelo_venta.crearVenta(id_cliente, id_producto, cantidad2, fecha2);
 		
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/Cliente?peticion=ventas");
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=venta");
 			break;
 			
 		default:

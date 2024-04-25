@@ -1,6 +1,7 @@
 package controlador;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -19,10 +20,12 @@ import modelo.ModeloPlanta;
 import modelo.ModeloProducto;
 import modelo.ModeloProveedor;
 import modelo.ModeloSuministro;
+import modelo.ModeloVenta;
 import modelo.Planta;
 import modelo.Producto;
 import modelo.Proveedor;
 import modelo.Suministro;
+import modelo.Venta;
 
 /**
  * Servlet implementation class Edit
@@ -196,6 +199,20 @@ public class Edit extends HttpServlet {
 			
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_emisionProducto.jsp").forward(request, response);
 			break;
+		case "venta":
+			int id_venta = Integer.parseInt(request.getParameter("id_venta"));
+			
+			ModeloVenta modelo_venta = new ModeloVenta();
+			Venta venta =  modelo_venta.getVentaByID(id_venta);
+			
+			request.setAttribute("id_venta", venta.getId_venta());
+			request.setAttribute("id_Cliente", venta.getId_cliente());
+			request.setAttribute("id_Producto", venta.getId_producto());
+			request.setAttribute("Cantidad", venta.getCantidad());
+			request.setAttribute("fecha", venta.getFecha());
+			
+			request.getRequestDispatcher("Paneles_control/Admin/Edit_venta.jsp").forward(request, response);
+			break;
 			
 		default:
 			break;
@@ -239,7 +256,7 @@ public class Edit extends HttpServlet {
 			break;
 
 		case "cliente":
-			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+			int id_CLiente = Integer.parseInt(request.getParameter("id_cliente"));
 			String nombreCliente = (String) request.getParameter("nombre");
 			nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
 			
@@ -254,7 +271,7 @@ public class Edit extends HttpServlet {
 			contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 			
 			ModeloCliente modelo_cliente = new ModeloCliente();
-			modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_cliente);
+			modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_CLiente);
 			//volvera el /plantas
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
 			break;
@@ -319,9 +336,17 @@ public class Edit extends HttpServlet {
 		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
 		    break;
 		case "venta":
+			
+			int id_venta = Integer.parseInt(request.getParameter("id_venta"));
+			int idCliente = Integer.parseInt(request.getParameter("id_cliente"));
 			int id_Producto = Integer.parseInt(request.getParameter("id_producto"));
+			int Cantidad = Integer.parseInt(request.getParameter("cantidad"));
+			Date fecha = Date.valueOf(request.getParameter("fecha"));
+			System.out.println(idCliente);
+			ModeloVenta modelo_venta = new ModeloVenta();
+			modelo_venta.actualizar(id_venta,idCliente, id_Producto, Cantidad, fecha);
 			
-			
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=venta");
 			
 			break;
 			
