@@ -1,4 +1,4 @@
-package controlador;
+package controlador.logIn;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

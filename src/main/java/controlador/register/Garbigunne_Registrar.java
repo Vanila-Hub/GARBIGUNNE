@@ -1,4 +1,4 @@
-package controlador;
+package controlador.register;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Garbigunne_Register
  */
 @WebServlet("/registrarse")
-public class Garbigunne_Register extends HttpServlet {
+public class Garbigunne_Registrar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigunne_Register() {
+    public Garbigunne_Registrar() {
         super();
         // TODO Auto-generated constructor stub
     }
