@@ -38,7 +38,6 @@ public class Garbigunne_Admin_Ventas_View extends HttpServlet {
 		ModeloVenta modelo_venta = new ModeloVenta();
 		ArrayList<Venta> ventas = modelo_venta.getVentas();
 		
-		System.out.println(ventas);
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		ArrayList<Cliente> clientes = modelo_cliente.getClientes();

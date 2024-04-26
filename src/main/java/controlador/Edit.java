@@ -287,7 +287,6 @@ public class Edit extends HttpServlet {
 			double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 			String mes = (String) request.getParameter("mes");
 			
-			System.out.println(cantidad);
 			ModeloSuministro modelo_suministro = new ModeloSuministro();
 			
 			modelo_suministro.actualizarSuministroByID(id_Material,id_Proveedor,id_Planta,id_suministro,mes,cantidad);
