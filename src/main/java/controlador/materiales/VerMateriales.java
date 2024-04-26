@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Material;
-import modelo.ModeloMaterial;
-
+import modelo.material.Material;
+import modelo.material.ModeloMaterial;
 /**
  * Servlet implementation class VerMateriales
  */
-@WebServlet("/materiales")
+@WebServlet("/VerMateriales")
 public class VerMateriales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +30,6 @@ public class VerMateriales extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-					
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		ArrayList<Material> materiales = modelo_material.getMateriales();
 			

@@ -34,11 +34,7 @@ public class Garbigunne_Admin_Clientes_View extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// pedir Clientes
-				ModeloCliente modelo_cliente = new ModeloCliente();
-				ArrayList<Cliente> clientes = modelo_cliente.getClientes();
 				
-				request.setAttribute("clientes", clientes);
-				request.getRequestDispatcher("Paneles_control/Admin/cliente.jsp").forward(request, response);
 	}
 
 	/**

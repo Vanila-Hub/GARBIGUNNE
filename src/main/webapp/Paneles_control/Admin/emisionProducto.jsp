@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="nav-link ">
+                            <a href="/Garbigune_reto/VerMateriales" class="nav-link ">
                                 MATERIALES
                             </a>
                         </li>
@@ -70,13 +70,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
+                            <a href="/Garbigune_reto/VerClientese" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link disabled">
+                            <a href="/Garbigune_reto/VerVentas" class="nav-link disabled">
                                 VENTAS
                             </a>
                         </li>

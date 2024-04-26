@@ -54,7 +54,7 @@
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros"
 					class="nav-link"> SUMINISTROS </a></li>
 				<li><a
-					href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales"
+					href="/Garbigune_reto/VerMateriales"
 					class="nav-link "> MATERIALES </a></li>
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=productos"
@@ -63,7 +63,7 @@
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones"
 					class="nav-link"> EMISIONES POR PRODUCTO </a></li>
 				<li><a
-					href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente"
+					href="/Garbigune_reto/VerClientes"
 					class="nav-link active"> CLIENTES </a></li>
 				<li><a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" 
 					 class="nav-link "> VENTAS </a></li>

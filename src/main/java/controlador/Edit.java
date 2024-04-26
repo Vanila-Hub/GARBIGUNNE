@@ -63,18 +63,18 @@ public class Edit extends HttpServlet {
 			
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_planta.jsp").forward(request, response);
 			break;
-		case "material":
-			int id_material = Integer.parseInt(request.getParameter("id_material"));
-			//lalam al modelo para inser
-			ModeloMaterial modeloMaterial = new ModeloMaterial();
-			Material material = modeloMaterial.getMaterialByID(id_material);
-			//volvera el /plantas y gfuardar sus atributos
-			request.setAttribute("tipo_material", material.getTipo());
-			request.setAttribute("emision_kg", material.getEmision_kg());
-			request.setAttribute("id", material.getId_material());
-			
-			request.getRequestDispatcher("Paneles_control/Admin/Edit_material.jsp").forward(request, response);
-			break;
+//		case "material":
+//			int id_material = Integer.parseInt(request.getParameter("id_material"));
+//			//lalam al modelo para inser
+//			ModeloMaterial modeloMaterial = new ModeloMaterial();
+//			Material material = modeloMaterial.getMaterialByID(id_material);
+//			//volvera el /plantas y gfuardar sus atributos
+//			request.setAttribute("tipo_material", material.getTipo());
+//			request.setAttribute("emision_kg", material.getEmision_kg());
+//			request.setAttribute("id", material.getId_material());
+//			
+//			request.getRequestDispatcher("Paneles_control/Admin/Edit_material.jsp").forward(request, response);
+//			break;
 
 		case "cliente":
 			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));

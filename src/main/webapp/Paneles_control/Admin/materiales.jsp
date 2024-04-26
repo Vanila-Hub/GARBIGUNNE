@@ -55,7 +55,7 @@
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros"
 					class="nav-link"> SUMINISTROS </a></li>
 				<li><a
-					href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales"
+					href="/Garbigune_reto/VerMateriales"
 					class="nav-link active"> MATERIALES </a></li>
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=productos"
@@ -64,7 +64,7 @@
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones"
 					class="nav-link"> EMISIONES POR PRODUCTO </a></li>
 				<li><a
-					href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente"
+					href="/Garbigune_reto/VerClientes"
 					class="nav-link "> CLIENTES </a></li>
 				<li><a href="#" class="nav-link disabled"> VENTAS </a></li>
 				<li><a
@@ -100,19 +100,15 @@
 								<td>${material.emision_kg}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
-										<button type="button" class="btn btn-flex"
-											data-bs-toggle="modal" data-bs-target="#exampleModal">
-											<i class="bi bi-eye fs-5 text-light"></i>
-										</button>
 										<button type="button" class="btn btn-flex">
 											<a
-												href="http://localhost:8080/Garbigune_reto/edit?opcion=material&id_material=${material.id_material}">
+												href="/Garbigune_reto/editarMaterial?id_material=${material.id_material}">
 												<i class="bi bi-pencil-square fs-5 text-light"></i>
 											</a>
 										</button>
 
 										<a
-											href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
+											href="http://localhost:8080/Garbigune_reto/borrarMaterial?id=${material.id_material}"
 											class="btn btn-flex trash"> <i
 											class="bi bi-trash text-light fs-5 text-info"></i>
 										</a>
@@ -134,7 +130,7 @@
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="http://localhost:8080/Garbigune_reto/create"
+								<form action="/Garbigune_reto/crearMaterial"
 									method="post">
 									<input type="text" class="form-control d-none" name="opcion"
 										value="material">

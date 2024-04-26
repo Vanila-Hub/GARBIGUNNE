@@ -21,7 +21,7 @@ import modelo.ModeloVenta;
 /**
  * Servlet implementation class Borrar
  */
-@WebServlet("/borrar")
+@WebServlet("/Borrar")
 public class Borrar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,14 +50,14 @@ public class Borrar extends HttpServlet {
 			//volvera el /plantas
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
-		case "material":
-			int id_material = Integer.parseInt(request.getParameter("id"));
-			
-			ModeloMaterial modelo_material = new ModeloMaterial();
-			modelo_material.borrarMaterialByID (id_material);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
-			break;
+//		case "material":
+//			int id_material = Integer.parseInt(request.getParameter("id"));
+//			
+//			ModeloMaterial modelo_material = new ModeloMaterial();
+//			modelo_material.borrarMaterialByID (id_material);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+//			break;
 			
 		case "cliente":
 			int id_cliente = Integer.parseInt(request.getParameter("id"));
@@ -118,9 +118,6 @@ public class Borrar extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=venta");
 			
 			break;
-
-
-			
 		default:
 			break;
 		}

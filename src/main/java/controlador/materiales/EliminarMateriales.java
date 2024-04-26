@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloMaterial;
+import modelo.material.ModeloMaterial;
+
 
 /**
  * Servlet implementation class EliminarMateriales
  */
-@WebServlet("/EliminarMateriales")
+@WebServlet("/borrarMaterial")
 public class EliminarMateriales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +34,7 @@ public class EliminarMateriales extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		modelo_material.borrarMaterialByID (id_material);
 		
-		response.sendRedirect("http://localhost:8080/Garbigune_reto/VerMateriales/materiales");
+		response.sendRedirect("/Garbigune_reto/VerMateriales");			
 	}
 
 	/**
