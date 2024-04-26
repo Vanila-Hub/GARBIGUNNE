@@ -50,14 +50,7 @@ public class Borrar extends HttpServlet {
 			//volvera el /plantas
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
-		case "material":
-			int id_material = Integer.parseInt(request.getParameter("id"));
-			
-			ModeloMaterial modelo_material = new ModeloMaterial();
-			modelo_material.borrarMaterialByID (id_material);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
-			break;
+		
 			
 		case "cliente":
 			int id_cliente = Integer.parseInt(request.getParameter("id"));
