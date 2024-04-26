@@ -1,4 +1,4 @@
-package controlador.clientes;
+package controlador.proveedores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.cliente.Cliente;
-import modelo.cliente.ModeloCliente;
+import modelo.proveedor.ModeloProveedor;
+import modelo.proveedor.Proveedor;
+
 
 /**
- * Servlet implementation class EditarClientes
+ * Servlet implementation class EditarProveedores
  */
-@WebServlet("/editarCliente")
-public class EditarClientes extends HttpServlet {
+@WebServlet("/editarProveedor")
+public class EditarProveedores extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditarClientes() {
+    public EditarProveedores() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +30,17 @@ public class EditarClientes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
-		//lalam al modelo para inser
-		ModeloCliente modelo_cliente = new ModeloCliente();
+		int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+		//lalam al modelo para insert
+		ModeloProveedor modelo_proveedor = new ModeloProveedor();
+		Proveedor proveedor =  modelo_proveedor.getProveedorByID(id_proveedor);
 		
-		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
-		//volvera el /plantas y gfuardar sus atributos
-		request.setAttribute("nombre", cliente.getNombre());
-		request.setAttribute("apellido", cliente.getApellido());
-		request.setAttribute("usuario", cliente.getUsuario());
-		request.setAttribute("contrasena", cliente.getContrasena());
-		request.setAttribute("id_cliente", cliente.getId_cliente());
-
-		request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
+		request.setAttribute("id_proveedor", proveedor.getId_proveedor());
+		request.setAttribute("nombre", proveedor.getNombre());
+		request.setAttribute("correo", proveedor.getCorreo());
+		request.setAttribute("contrasena", proveedor.getContraseña());
+		
+		request.getRequestDispatcher("Paneles_control/Admin/Edit_proveedor.jsp").forward(request, response);
 	}
 
 	/**

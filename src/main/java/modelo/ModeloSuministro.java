@@ -27,8 +27,11 @@ public class ModeloSuministro {
 				suministro.setMes(rst.getString("MES"));
 				suministro.setId_suministro(rst.getInt("ID_SUMINISTRO"));
 				suminitros.add(suministro);
+				
+				suministro.getPlantas();
 
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

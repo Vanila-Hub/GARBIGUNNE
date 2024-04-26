@@ -41,15 +41,15 @@ public class Borrar extends HttpServlet {
 		String opcion = (String) request.getParameter("opcion");
 		
 		switch (opcion) {
-		case "planta":	
-			int id_planta = Integer.parseInt(request.getParameter("id"));
-			
-			//lalam al modelo para inser
-			ModeloPlanta modelo_planta = new ModeloPlanta();
-			modelo_planta.borrarPlantaByID(id_planta);
-			//volvera el /plantas
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
-			break;
+//		case "planta":	
+//			int id_planta = Integer.parseInt(request.getParameter("id"));
+//			
+//			//lalam al modelo para inser
+//			ModeloPlanta modelo_planta = new ModeloPlanta();
+//			modelo_planta.borrarPlantaByID(id_planta);
+//			//volvera el /plantas
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
+//			break;
 //		case "material":
 //			int id_material = Integer.parseInt(request.getParameter("id"));
 //			
@@ -59,25 +59,25 @@ public class Borrar extends HttpServlet {
 //			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 //			break;
 			
-		case "cliente":
-			int id_cliente = Integer.parseInt(request.getParameter("id"));
+//		case "cliente":
+//			int id_cliente = Integer.parseInt(request.getParameter("id"));
+//			
+//			ModeloCliente modelo_cliente = new ModeloCliente();
+//			
+//			modelo_cliente.borrarClienteByID(id_cliente);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
+//			break;
 			
-			ModeloCliente modelo_cliente = new ModeloCliente();
-			
-			modelo_cliente.borrarClienteByID(id_cliente);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
-			break;
-			
-		case "proveedor":
-			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
-			
-			ModeloProveedor modelo_proveedor = new ModeloProveedor();
-			
-			modelo_proveedor.borrarProveedorByID(id_proveedor);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
-			break;
+//		case "proveedor":
+//			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+//			
+//			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+//			
+//			modelo_proveedor.borrarProveedorByID(id_proveedor);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+//			break;
 
 		case "suministro":
 			int id_suminitro = Integer.parseInt(request.getParameter("id_suministro"));

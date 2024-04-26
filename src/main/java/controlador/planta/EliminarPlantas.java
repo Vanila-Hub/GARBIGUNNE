@@ -1,4 +1,4 @@
-package controlador.clientes;
+package controlador.planta;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.cliente.Cliente;
-import modelo.cliente.ModeloCliente;
+import modelo.plantas.ModeloPlanta;
+
+
 
 /**
- * Servlet implementation class EditarClientes
+ * Servlet implementation class EliminarPlantas
  */
-@WebServlet("/editarCliente")
-public class EditarClientes extends HttpServlet {
+@WebServlet("/borrarPlanta")
+public class EliminarPlantas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditarClientes() {
+    public EliminarPlantas() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +30,12 @@ public class EditarClientes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+		int id_planta = Integer.parseInt(request.getParameter("id"));
 		//lalam al modelo para inser
-		ModeloCliente modelo_cliente = new ModeloCliente();
-		
-		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
-		//volvera el /plantas y gfuardar sus atributos
-		request.setAttribute("nombre", cliente.getNombre());
-		request.setAttribute("apellido", cliente.getApellido());
-		request.setAttribute("usuario", cliente.getUsuario());
-		request.setAttribute("contrasena", cliente.getContrasena());
-		request.setAttribute("id_cliente", cliente.getId_cliente());
-
-		request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
+		ModeloPlanta modelo_planta = new ModeloPlanta();
+		modelo_planta.borrarPlantaByID(id_planta);
+		//volvera el /plantas
+		response.sendRedirect("/Garbigune_reto/VerPlantas");
 	}
 
 	/**

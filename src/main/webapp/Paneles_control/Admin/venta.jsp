@@ -33,24 +33,24 @@
             </header>
             <div class="contenedor">
                 <div class="sidebar aside">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                    <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                         <strong class="fs-4">Gestores</strong>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
+                            <a href="/Garbigune_reto/VerProveedores" class="nav-link"
                                 aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link">
+                            <a href="/Garbigune_reto/VerPlantas" class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
+                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -60,33 +60,28 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
+                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
                                 PRODUCTOS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="nav-link">
+                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
+                            <a href="/Garbigune_reto/VerClientes" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="nav-link active">
+                            <a href="/Garbigune_reto/VerVentas" class="nav-link active">
                                 VENTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
+                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
                                 HISTORICO
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
-                                ROLES
                             </a>
                         </li>
                     </ul>
@@ -189,22 +184,6 @@
                                                     id="liveToastBtn">Crear</button>  
                                     		</div>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="plantaEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <iframe class="iframe" src="Paneles_control/Admin/Edit_venta.jsp"
-                                        frameborder="0"></iframe>
                                 </div>
                             </div>
                         </div>

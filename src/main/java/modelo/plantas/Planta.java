@@ -1,4 +1,4 @@
-package modelo;
+package modelo.plantas;
 
 public class Planta {
 	private int id;

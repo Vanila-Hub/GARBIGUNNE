@@ -1,29 +1,28 @@
-
-package controlador;
+package controlador.planta;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloProveedor;
-import modelo.Proveedor;
+import modelo.plantas.ModeloPlanta;
+import modelo.plantas.Planta;
+
+
 
 /**
- * Servlet implementation class Garbigunne_Admin_Proveedores_View
+ * Servlet implementation class EditarPlantas
  */
-@WebServlet("/proveedores")
-public class Garbigunne_Admin_Proveedores_View extends HttpServlet {
+@WebServlet("/editarPlanta")
+public class EditarPlantas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigunne_Admin_Proveedores_View() {
+    public EditarPlantas() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,13 +31,17 @@ public class Garbigunne_Admin_Proveedores_View extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloProveedor modelo_proveedor = new ModeloProveedor();
+		int id_planta = Integer.parseInt(request.getParameter("id"));
+		//lalam al modelo para inser
+		ModeloPlanta modelo_planta = new ModeloPlanta();
+		Planta planta = modelo_planta.getPlantaByID(id_planta);
+		//volvera el /plantas
+		request.setAttribute("nombre", planta.getNombre());
+		request.setAttribute("direccion", planta.getDireccion());
+		request.setAttribute("telefono", planta.getTelefono());
+		request.setAttribute("id", planta.getId());
 		
-		ArrayList<Proveedor> proveedores = modelo_proveedor.getProveedores(); 
-		request.setAttribute("proveedores", proveedores);
-//		System.out.println(proveedores);
-		request.getRequestDispatcher("Paneles_control/Admin/proveedores.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("Paneles_control/Admin/Edit_planta.jsp").forward(request, response);
 	}
 
 	/**
@@ -50,4 +53,3 @@ public class Garbigunne_Admin_Proveedores_View extends HttpServlet {
 	}
 
 }
-

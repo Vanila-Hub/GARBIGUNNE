@@ -71,45 +71,45 @@ public class Create extends HttpServlet {
 //			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 //				break;
 //			
-		case "cliente":
-			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
+//		case "cliente":
+//			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
+//			
+//			String nombreCliente = (String) request.getParameter("nombre");
+//			nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
+//			
+//			String apellido = (String) request.getParameter("apellido");
+//			apellido = apellido.contains("+")?apellido.replaceAll("+", " "): apellido;
+//			
+//			String usuario = (String) request.getParameter("usuario");
+//			usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
+//			
+//			
+//			String contrasena = (String) request.getParameter("contrasena");
+//			contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
+//			
+//			ModeloCliente modelo_cliente = new ModeloCliente();
+//			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
+//			break;
 			
-			String nombreCliente = (String) request.getParameter("nombre");
-			nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
-			
-			String apellido = (String) request.getParameter("apellido");
-			apellido = apellido.contains("+")?apellido.replaceAll("+", " "): apellido;
-			
-			String usuario = (String) request.getParameter("usuario");
-			usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
-			
-			
-			String contrasena = (String) request.getParameter("contrasena");
-			contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
-			
-			ModeloCliente modelo_cliente = new ModeloCliente();
-			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=cliente");
-			break;
-			
-		case "proveedor":
-			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
-			
-			String nombreProveedor = (String) request.getParameter("nombre");
-			nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
-			
-			String correo = (String) request.getParameter("correo");
-			correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
-			
-			String contraseña = (String) request.getParameter("contrasena");
-			contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
-			
-			ModeloProveedor modelo_proveedor = new ModeloProveedor();
-			modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
-			break;
+//		case "proveedor":
+//			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
+//			
+//			String nombreProveedor = (String) request.getParameter("nombre");
+//			nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
+//			
+//			String correo = (String) request.getParameter("correo");
+//			correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
+//			
+//			String contraseña = (String) request.getParameter("contrasena");
+//			contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
+//			
+//			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+//			modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+//			break;
 
 		case "suministro":
 			

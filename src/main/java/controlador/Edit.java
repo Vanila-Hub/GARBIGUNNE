@@ -76,21 +76,21 @@ public class Edit extends HttpServlet {
 //			request.getRequestDispatcher("Paneles_control/Admin/Edit_material.jsp").forward(request, response);
 //			break;
 
-		case "cliente":
-			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
-			//lalam al modelo para inser
-			ModeloCliente modelo_cliente = new ModeloCliente();
-			
-			Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
-			//volvera el /plantas y gfuardar sus atributos
-			request.setAttribute("nombre", cliente.getNombre());
-			request.setAttribute("apellido", cliente.getApellido());
-			request.setAttribute("usuario", cliente.getUsuario());
-			request.setAttribute("contrasena", cliente.getContrasena());
-			request.setAttribute("id_cliente", cliente.getId_cliente());
-	
-			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
-			break;
+//		case "cliente":
+//			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+//			//lalam al modelo para inser
+//			ModeloCliente modelo_cliente = new ModeloCliente();
+//			
+//			Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+//			//volvera el /plantas y gfuardar sus atributos
+//			request.setAttribute("nombre", cliente.getNombre());
+//			request.setAttribute("apellido", cliente.getApellido());
+//			request.setAttribute("usuario", cliente.getUsuario());
+//			request.setAttribute("contrasena", cliente.getContrasena());
+//			request.setAttribute("id_cliente", cliente.getId_cliente());
+//	
+//			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
+//			break;
 		case "rol":
 			int id_usuario = Integer.parseInt(request.getParameter("id_cliente"));
 			//lalam al modelo para inser
@@ -107,19 +107,19 @@ public class Edit extends HttpServlet {
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
 			break;
 			
-		case "proveedor":
-			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
-			//lalam al modelo para insert
-			ModeloProveedor modelo_proveedor = new ModeloProveedor();
-			Proveedor proveedor =  modelo_proveedor.getProveedorByID(id_proveedor);
-			
-			request.setAttribute("id_proveedor", proveedor.getId_proveedor());
-			request.setAttribute("nombre", proveedor.getNombre());
-			request.setAttribute("correo", proveedor.getCorreo());
-			request.setAttribute("contrasena", proveedor.getContraseña());
-			
-			request.getRequestDispatcher("Paneles_control/Admin/Edit_proveedor.jsp").forward(request, response);
-			break;
+//		case "proveedor":
+//			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+//			//lalam al modelo para insert
+//			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+//			Proveedor proveedor =  modelo_proveedor.getProveedorByID(id_proveedor);
+//			
+//			request.setAttribute("id_proveedor", proveedor.getId_proveedor());
+//			request.setAttribute("nombre", proveedor.getNombre());
+//			request.setAttribute("correo", proveedor.getCorreo());
+//			request.setAttribute("contrasena", proveedor.getContraseña());
+//			
+//			request.getRequestDispatcher("Paneles_control/Admin/Edit_proveedor.jsp").forward(request, response);
+//			break;
 			
 		case "suministro":
 			int id_suministro = Integer.parseInt(request.getParameter("id_suministro"));
@@ -228,7 +228,7 @@ public class Edit extends HttpServlet {
 		switch (opcion) {
 		
 		case "planta":
-			UpdatePlanta(request, response);
+//			UpdatePlanta(request, response);
 			break;
 			
 			
@@ -259,24 +259,24 @@ public class Edit extends HttpServlet {
 			break;
 
 			
-		case "proveedor":
-			
-			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
-			
-			String nombreProveedor = (String) request.getParameter("nombre");
-			nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
-			
-			String correo = (String) request.getParameter("correo");
-			correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
-			
-			String contraseña = (String) request.getParameter("contrasena");
-			contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
-			
-			ModeloProveedor modelo_proveedor = new ModeloProveedor();
-			
-			modelo_proveedor.actualizarProveedor(id_proveedor,nombreProveedor,correo,contraseña);
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
-			break;
+//		case "proveedor":
+//			
+//			int id_proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+//			
+//			String nombreProveedor = (String) request.getParameter("nombre");
+//			nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
+//			
+//			String correo = (String) request.getParameter("correo");
+//			correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
+//			
+//			String contraseña = (String) request.getParameter("contrasena");
+//			contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
+//			
+//			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+//			
+//			modelo_proveedor.actualizarProveedor(id_proveedor,nombreProveedor,correo,contraseña);
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
+//			break;
 
 		case "suministro":
 			
@@ -349,17 +349,17 @@ public class Edit extends HttpServlet {
 		response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
 	}
 
-	private void UpdatePlanta(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String nombre = (String) request.getParameter("nombre");
-		String dirrecion = (String) request.getParameter("direccion");
-		String telefono = (String) request.getParameter("telefono");
-		int id_planta = Integer.parseInt(request.getParameter("id_planta"));
-		System.out.println(nombre+dirrecion+telefono+id_planta);
-		//lalam al modelo para inser
-		ModeloPlanta modelo_planta = new ModeloPlanta();
-		modelo_planta.actualizar(nombre,dirrecion,telefono,id_planta);
-		//volvera el /plantas
-		response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
-	}
+//	private void UpdatePlanta(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//		String nombre = (String) request.getParameter("nombre");
+//		String dirrecion = (String) request.getParameter("direccion");
+//		String telefono = (String) request.getParameter("telefono");
+//		int id_planta = Integer.parseInt(request.getParameter("id_planta"));
+//		System.out.println(nombre+dirrecion+telefono+id_planta);
+//		//lalam al modelo para inser
+//		ModeloPlanta modelo_planta = new ModeloPlanta();
+//		modelo_planta.actualizar(nombre,dirrecion,telefono,id_planta);
+//		//volvera el /plantas
+//		response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
+//	}
 
 }

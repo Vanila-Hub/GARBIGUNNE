@@ -1,10 +1,12 @@
-package modelo;
+package modelo.plantas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import modelo.Conector;
 
 public class ModeloPlanta{
 

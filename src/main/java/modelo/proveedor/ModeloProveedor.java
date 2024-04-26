@@ -1,8 +1,10 @@
-package modelo;
+package modelo.proveedor;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import modelo.Conector;
 
 public class ModeloProveedor {
 

@@ -39,30 +39,7 @@ public class Garbigunne_Admin_Suministros_View extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*TRAEMOS LOS SUMINISTRSOS*/
 		
-		ModeloSuministro modelo_suministro = new ModeloSuministro();
-		ArrayList<Suministro> suministros = modelo_suministro.getSuministros();
-		
-		request.setAttribute("suministros", suministros);
-		
-		/*TRAEMOS LOS LAS PLANTAS  */
-		ModeloPlanta modelo_planta = new ModeloPlanta();
-		ArrayList<Planta> plantas = modelo_planta.getPlantas();
-		request.setAttribute("plantas", plantas);
-		
-		/*TRAEMOS LOS LAS PROVEEDORES */
-		ModeloProveedor modelo_proveedor = new ModeloProveedor();
-		
-		ArrayList<Proveedor> proveedores = modelo_proveedor.getProveedores(); 
-		request.setAttribute("proveedores", proveedores);
-		
-		/*TRAEMOS LOS LOS MATERIALES*/
-		ModeloMaterial modelo_material = new ModeloMaterial();
-		ArrayList<Material> materiales = modelo_material.getMateriales();
-		
-		request.setAttribute("materiales", materiales);
-		
-//		System.out.println(proveedores);
-		request.getRequestDispatcher("Paneles_control/Admin/suministros.jsp").forward(request, response);
+
 	}
 
 	/**
