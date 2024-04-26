@@ -66,8 +66,7 @@
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente"
 					class="nav-link "> CLIENTES </a></li>
-				<li><a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" 
-					 class="nav-link "> VENTAS </a></li>
+				<li><a href="#" class="nav-link disabled"> VENTAS </a></li>
 				<li><a
 					href="http://localhost:8080/Garbigune_reto/admin?peticion=historico"
 					class="nav-link"> HISTORICO </a></li>
@@ -111,32 +110,16 @@
 												<i class="bi bi-pencil-square fs-5 text-light"></i>
 											</a>
 										</button>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost:8080/Garbigune_reto/home">
-                    <div class="imgDiv">
-                        <img src="Paneles_control/Admin/img/logo_garbigunne.png" alt="logo" class="logo">
-                    </div>
-                </a>
-            </div>
-        </nav>
-    </header>
-    <div class="contenedor">
-        <div class="sidebar aside">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                <strong class="fs-4">Gestores</strong>
-            </a>
-            <hr>
-            <hr>
-           
-        
-  
 
-										
+										<a
+											href="http://localhost:8080/Garbigune_reto/borrar?opcion=material&id=${material.id_material}"
+											class="btn btn-flex trash"> <i
+											class="bi bi-trash text-light fs-5 text-info"></i>
+										</a>
 
-		</div>
-								
+									</div>
+								</td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>

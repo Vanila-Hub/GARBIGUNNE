@@ -93,22 +93,6 @@
                     <hr>
                     </ul>
                     <hr>
-                    <div class="dropdown">
-                        <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                                class="rounded-circle me-2">
-                            <strong>granky</strong>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Gestionar Roles</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cerrar cesion</a></li>
-                        </ul>
-                    </div>
 
 
                 </div>
@@ -120,9 +104,9 @@
                                 data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">Id_venta</th>
-                                    <th scope="col">Id_cliente</th>
-                                    <th scope="col">Id_producto</th>
+                                    <th scope="col">ID Venta</th>
+                                    <th scope="col">ID Cliente</th>
+                                    <th scope="col">ID Producto</th>
                                     <th scope="col">Cantidad</th>
                                     <th scope="col">Fecha</th>
                                 </tr>
@@ -168,7 +152,7 @@
                                         <form action="http://localhost:8080/Garbigune_reto/create" method="post">
                                             <input type="text" class="form-control d-none" name="opcion" value="venta">
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Id_cliente</label>
+                                                <label for="exampleInput" class="form-label">ID cliente</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_cliente">
                                                     <option selected>Clientes</option>
@@ -179,7 +163,7 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Id_producto</label>
+                                                <label for="exampleInput" class="form-label">ID Producto</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_producto">
                                                     <option selected>Productos</option>
