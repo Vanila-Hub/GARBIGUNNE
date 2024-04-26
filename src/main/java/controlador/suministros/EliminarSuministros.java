@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.suministro.ModeloSuministro;
+
+
 /**
  * Servlet implementation class EliminarSuministros
  */
-@WebServlet("/EliminarSuministros")
+@WebServlet("/borrarSuministro")
 public class EliminarSuministros extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +30,13 @@ public class EliminarSuministros extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int id_suminitro = Integer.parseInt(request.getParameter("id_suministro"));
+		
+		ModeloSuministro modelo_suministro = new ModeloSuministro();
+		
+		modelo_suministro.borrarSuministroByID(id_suminitro);
+		
+		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 
 	/**

@@ -79,15 +79,15 @@ public class Borrar extends HttpServlet {
 //			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
 //			break;
 
-		case "suministro":
-			int id_suminitro = Integer.parseInt(request.getParameter("id_suministro"));
-			
-			ModeloSuministro modelo_suministro = new ModeloSuministro();
-			
-			modelo_suministro.borrarSuministroByID(id_suminitro);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
-			break;
+//		case "suministro":
+//			int id_suminitro = Integer.parseInt(request.getParameter("id_suministro"));
+//			
+//			ModeloSuministro modelo_suministro = new ModeloSuministro();
+//			
+//			modelo_suministro.borrarSuministroByID(id_suminitro);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
+//			break;
 			
 		case "producto":
 		    int id_producto = Integer.parseInt(request.getParameter("id_producto"));

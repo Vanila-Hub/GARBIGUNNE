@@ -96,10 +96,10 @@
                                 data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">ID_SUMINISTRO</th>
-                                    <th scope="col">ID_PROVEEDOR</th>
-                                    <th scope="col">ID_PLANTA</th>
-                                    <th scope="col">ID_MATERIAL</th>
+                                    <th scope="col">ID SUMINISTRO</th>
+                                    <th scope="col">ID PROVEEDOR</th>
+                                    <th scope="col">ID PLANTA</th>
+                                    <th scope="col">ID MATERIAL</th>
                                     <th scope="col">Mes</th>
                                     <th scope="col">Cantidad (KG)</th>
                                     <th scope="col">Emision esperada (%)</th>
@@ -110,13 +110,13 @@
                                     <tr>
                                         <th scope="row">${suministro.id_suministro}</th>
                                         <td><a
-                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=proveedor&id_proveedor=${suministro.id_proveedor}">${suministro.id_proveedor}</a>
+                                                href="/Garbigune_reto/editarProveedor?id_proveedor=${suministro.id_proveedor}">${suministro.id_proveedor}</a>
                                         </td>
                                         <td><a
-                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=planta&id=${suministro.id_planta}">${suministro.id_planta}</a>
+                                                href="/Garbigune_reto/editarPlanta?id=${suministro.id_planta}">${suministro.id_planta}</a>
                                         </td>
                                         <td><a
-                                                href="http://localhost:8080/Garbigune_reto/edit?opcion=material&id_material=${suministro.id_material}">${suministro.id_material}</a>
+                                                href="/Garbigune_reto/editarMaterial?id_material=${suministro.id_material}">${suministro.id_material}</a>
                                         </td>
                                         <td>${suministro.mes}</td>
                                         <td>${suministro.cantidad_kg}</td>
@@ -125,10 +125,10 @@
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal">
                                                     <a
-                                                        href="http://localhost:8080/Garbigune_reto/edit?opcion=suministro&id_suministro=${suministro.id_suministro}"><i
+                                                        href="/Garbigune_reto/editarSuministro?id_suministro=${suministro.id_suministro}"><i
                                                             class="bi bi-pencil-square fs-5 text-light"></i></a>
                                                 </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=suministro&id_suministro=${suministro.id_suministro}"
+                                                <a href="/Garbigune_reto/borrarSuministro?id_suministro=${suministro.id_suministro}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -148,7 +148,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post">
+                                        <form action="http://localhost:8080/Garbigune_reto/crearSuministro" method="post">
                                             <input type="text" class="form-control d-none" name="opcion"
                                                 value="suministro">
                                             <div class="mb-3">

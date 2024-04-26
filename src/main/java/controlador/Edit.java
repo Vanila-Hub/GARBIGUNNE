@@ -121,40 +121,40 @@ public class Edit extends HttpServlet {
 //			request.getRequestDispatcher("Paneles_control/Admin/Edit_proveedor.jsp").forward(request, response);
 //			break;
 			
-		case "suministro":
-			int id_suministro = Integer.parseInt(request.getParameter("id_suministro"));
-			//lalam al modelo para insert
-			ModeloSuministro modelo_suministro = new ModeloSuministro();
-			Suministro suministro = modelo_suministro.getSuministroByID(id_suministro);
-
-			
-			/*TRAEMOS LOS LAS PLANTAS  */
-			ModeloPlanta modeloPlanta = new ModeloPlanta();
-			ArrayList<Planta> plantas = modeloPlanta.getPlantas();
-			
-			/*TRAEMOS LOS LAS PROVEEDORES */
-			ModeloProveedor modeloProveedor = new ModeloProveedor();
-			
-			ArrayList<Proveedor> proveedores = modeloProveedor.getProveedores(); 
-			
-			/*TRAEMOS LOS LOS MATERIALES*/
-			ModeloMaterial modelo_material = new ModeloMaterial();
-			ArrayList<Material> materiales = modelo_material.getMateriales();
-			
-			
-			request.setAttribute("plantas", plantas);
-			request.setAttribute("proveedores", proveedores);
-			request.setAttribute("materiales", materiales);
-			request.setAttribute("id_suministro", suministro.getId_suministro());
-			request.setAttribute("id_proveedor", suministro.getId_proveedor());
-			request.setAttribute("id_planta", suministro.getId_planta());
-			request.setAttribute("id_material", suministro.getId_material());
-			request.setAttribute("cantidad", suministro.getCantidad_kg());
-			request.setAttribute("mes", suministro.getMes());
-			
-			System.out.println(suministro.getId_planta());
-			request.getRequestDispatcher("Paneles_control/Admin/Edit_suministro.jsp").forward(request, response);
-			break;
+//		case "suministro":
+//			int id_suministro = Integer.parseInt(request.getParameter("id_suministro"));
+//			//lalam al modelo para insert
+//			ModeloSuministro modelo_suministro = new ModeloSuministro();
+//			Suministro suministro = modelo_suministro.getSuministroByID(id_suministro);
+//
+//			
+//			/*TRAEMOS LOS LAS PLANTAS  */
+//			ModeloPlanta modeloPlanta = new ModeloPlanta();
+//			ArrayList<Planta> plantas = modeloPlanta.getPlantas();
+//			
+//			/*TRAEMOS LOS LAS PROVEEDORES */
+//			ModeloProveedor modeloProveedor = new ModeloProveedor();
+//			
+//			ArrayList<Proveedor> proveedores = modeloProveedor.getProveedores(); 
+//			
+//			/*TRAEMOS LOS LOS MATERIALES*/
+//			ModeloMaterial modelo_material = new ModeloMaterial();
+//			ArrayList<Material> materiales = modelo_material.getMateriales();
+//			
+//			
+//			request.setAttribute("plantas", plantas);
+//			request.setAttribute("proveedores", proveedores);
+//			request.setAttribute("materiales", materiales);
+//			request.setAttribute("id_suministro", suministro.getId_suministro());
+//			request.setAttribute("id_proveedor", suministro.getId_proveedor());
+//			request.setAttribute("id_planta", suministro.getId_planta());
+//			request.setAttribute("id_material", suministro.getId_material());
+//			request.setAttribute("cantidad", suministro.getCantidad_kg());
+//			request.setAttribute("mes", suministro.getMes());
+//			
+//			System.out.println(suministro.getId_planta());
+//			request.getRequestDispatcher("Paneles_control/Admin/Edit_suministro.jsp").forward(request, response);
+//			break;
 			
 		case "producto":
 		    int idProducto = Integer.parseInt(request.getParameter("id_producto"));
@@ -278,20 +278,20 @@ public class Edit extends HttpServlet {
 //			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=proveedores");
 //			break;
 
-		case "suministro":
-			
-			int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
-			int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
-			int id_Material = Integer.parseInt(request.getParameter("id_material"));
-			int id_suministro = Integer.parseInt(request.getParameter("id_suministro"));
-			double cantidad = Double.parseDouble(request.getParameter("cantidad"));
-			String mes = (String) request.getParameter("mes");
-			
-			ModeloSuministro modelo_suministro = new ModeloSuministro();
-			
-			modelo_suministro.actualizarSuministroByID(id_Material,id_Proveedor,id_Planta,id_suministro,mes,cantidad);
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
-			break;
+//		case "suministro":
+//			
+//			int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
+//			int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
+//			int id_Material = Integer.parseInt(request.getParameter("id_material"));
+//			int id_suministro = Integer.parseInt(request.getParameter("id_suministro"));
+//			double cantidad = Double.parseDouble(request.getParameter("cantidad"));
+//			String mes = (String) request.getParameter("mes");
+//			
+//			ModeloSuministro modelo_suministro = new ModeloSuministro();
+//			
+//			modelo_suministro.actualizarSuministroByID(id_Material,id_Proveedor,id_Planta,id_suministro,mes,cantidad);
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
+//			break;
 			
 		case "producto":
 			String carpetaHome = "/Garbigune_reto/ProductosIMG/";

@@ -38,7 +38,7 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Editar suministro</h1>
                         </div>
                         <div class="modal-body">
-                            <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
+                            <form action="/Garbigune_reto/updateSuministro" method="post">
                                 <input type="text" class="form-control d-none" name="opcion" value="suministro">
                                 <input type="text" class="form-control d-none" name="id_suministro" value="${id_suministro}">
                                 <div class="mb-3">
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="/Garbigune_reto/VerSuministros" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary"
                                         id="liveToastBtn">Actualizar</button>
                                 </div>

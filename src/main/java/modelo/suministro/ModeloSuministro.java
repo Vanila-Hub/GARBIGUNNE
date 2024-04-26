@@ -1,4 +1,4 @@
-package modelo;
+package modelo.suministro;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import modelo.Conector;
 
 public class ModeloSuministro {
 
@@ -107,6 +109,7 @@ public class ModeloSuministro {
 
 	public void actualizarSuministroByID(int id_Material, int id_Proveedor, int id_Planta, int id_suministro, String mes, double cantidad) {
 		String sql = "UPDATE SUMINISTROS SET ID_PROVEEDOR = ?, ID_PLANTA = ?, ID_MATERIAL = ?, MES= ?, CANTIDAD_KG = ? WHERE ID_SUMINISTRO = ?";
+		String sql_regitrar_emision = "call Garbigunne.Emision_Suministro()";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setInt(1, id_Proveedor);
@@ -118,6 +121,20 @@ public class ModeloSuministro {
 			prst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		finally {
+			try {
+				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_regitrar_emision);
+				prst.executeUpdate();
+				
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 
