@@ -103,6 +103,7 @@
                                     <th scope="col">Mes</th>
                                     <th scope="col">Cantidad (KG)</th>
                                     <th scope="col">Emision esperada (%)</th>
+                                    <th scope="col">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">

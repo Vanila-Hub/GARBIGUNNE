@@ -102,7 +102,7 @@
                                     <th scope="col">Fecha</th>
                                     <th scope="col">ID Planta</th>
                                     <th scope="col">ID Material</th>
-                                    <th scope="col">Porcentaje de Contaminación</th>
+                                    <th scope="col">Porcentaje de Contaminacion</th>
                                     <th scope="col">Opciones</th>
                                 </tr>
                             </thead>

@@ -1,23 +1,28 @@
-package controlador;
+package controlador.historicoemision;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.historicocontaminacion.HistoricoContaminacion;
+import modelo.historicocontaminacion.ModeloHistoricoContaminacion;
+
 /**
- * Servlet implementation class Garbigune_Admin_Historicos_View
+ * Servlet implementation class VerHistoricos
  */
-@WebServlet("/historicos")
-public class Garbigune_Admin_Historicos_View extends HttpServlet {
+@WebServlet("/VerHistorico")
+public class VerHistoricos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigune_Admin_Historicos_View() {
+    public VerHistoricos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +31,10 @@ public class Garbigune_Admin_Historicos_View extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		ModeloHistoricoContaminacion modelo_historico = new ModeloHistoricoContaminacion();
+		ArrayList<HistoricoContaminacion> historico_contaminacion = modelo_historico.getHistoricos();
+		
+		request.setAttribute("historicoEmisiones", historico_contaminacion);
 		request.getRequestDispatcher("Paneles_control/Admin/historicoContaminacion.jsp").forward(request, response);
 	}
 

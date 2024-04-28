@@ -104,6 +104,7 @@
                                     <th scope="col">ID Producto</th>
                                     <th scope="col">Cantidad</th>
                                     <th scope="col">Fecha</th>
+                                    <th scope="col">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">

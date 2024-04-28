@@ -108,7 +108,7 @@
 							<th scope="col">Apellido</th>
 							<th scope="col">Usuario</th>
 							<th scope="col">Contraseña</th>
-							<th scope="col">Acciones</th>
+							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">

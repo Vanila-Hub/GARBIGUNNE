@@ -106,7 +106,7 @@
 							<th scope="col">ID</th>
 							<th scope="col">Tipo</th>
 							<th scope="col">Emision/KG</th>
-							<th scope="col"></th>
+							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import modelo.Conector;
 
@@ -46,5 +47,27 @@ public class ModeloHistoricoContaminacion {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ArrayList<HistoricoContaminacion> getHistoricos() {
+		ArrayList<HistoricoContaminacion> historicos = new ArrayList<HistoricoContaminacion>();
+		
+		String sql = "SELECT * FROM HISTORICO_CONTAMINACION";
+		try {
+			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
+			ResultSet rs = prst.executeQuery();
+			if (rs.next()) {
+				HistoricoContaminacion historico = new HistoricoContaminacion();
+				historico.setIdHistorico(rs.getInt("ID_HISTORICO"));
+				historico.setFecha(rs.getString("FECHA"));
+				historico.setIdPlanta(rs.getInt("ID_PLANTA"));
+				historico.setIdMaterial(rs.getInt("ID_MATERIAL"));
+				historico.setPorcentajeContaminacion(rs.getDouble("PORCENTAJE_CONTAMINACION"));
+				historicos.add(historico);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return historicos;
 	}
 }
