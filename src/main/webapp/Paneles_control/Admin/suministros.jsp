@@ -96,10 +96,10 @@
                                 data-bs-target="#exampleModal">Crear <i class="bi bi-plus-lg"></i></button>
                             <thead>
                                 <tr>
-                                    <th scope="col">ID SUMINISTRO</th>
-                                    <th scope="col">ID PROVEEDOR</th>
-                                    <th scope="col">ID PLANTA</th>
-                                    <th scope="col">ID MATERIAL</th>
+                                    <th scope="col">ID Suministro</th>
+                                    <th scope="col">ID Proveedor</th>
+                                    <th scope="col">ID Planta</th>
+                                    <th scope="col">ID Material</th>
                                     <th scope="col">Mes</th>
                                     <th scope="col">Cantidad (KG)</th>
                                     <th scope="col">Emision esperada (%)</th>

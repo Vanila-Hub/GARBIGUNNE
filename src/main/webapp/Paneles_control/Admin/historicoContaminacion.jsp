@@ -119,9 +119,6 @@
                                                 <a href="http://localhost:8080/Garbigune_reto/edit?opcion=historico&idHistorico=${historicoEmision.idHistorico}" class="btn btn-flex">
                                                     <i class="bi bi-pencil-square fs-5 text-light"></i>
                                                 </a>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=historico&idHistorico=${historicoEmision.idHistorico}" class="btn btn-flex trash">
-                                                    <i class="bi bi-trash text-light fs-5 text-info"></i>
-                                                </a>
                                             </div>
                                         </td>
                                     </tr>
