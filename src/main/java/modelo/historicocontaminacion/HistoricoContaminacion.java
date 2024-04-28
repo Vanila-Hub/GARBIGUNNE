@@ -1,4 +1,4 @@
-package modelo;
+package modelo.historicocontaminacion;
 
 public class HistoricoContaminacion {
     private int id_Historico;

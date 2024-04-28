@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost:8080/Garbigune_reto/home">
+                <a class="navbar-brand" href="Garbigune_reto/home">
                     <div class="imgDiv">
                         <img src="Paneles_control/Admin/img/logo_garbigunne.png" alt="logo" class="logo">
                     </div>
@@ -38,15 +38,15 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
                         </div>
                         <div class="modal-body">
-                            <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
+                            <form action="/Garbigune_reto/updateVenta" method="post">
                                 <input type="text" class="form-control d-none" name="id_venta" value="${id_venta}">
                                 <input type="text" class="form-control d-none" name="opcion" value="venta">
                                 <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Id_cliente</label>
+                                    <label for="exampleInput" class="form-label">Id cliente</label>
                                     <input type="text" class="form-control"  name="id_cliente" value="${id_Cliente}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInput" class="form-label">Id_producto</label>
+                                    <label for="exampleInput" class="form-label">Id producto</label>
                                     <input type="text" class="form-control"  name="id_producto" value="${id_Producto}">
                                 </div>
                                 <div class="mb-3">
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="/Garbigune_reto/VerVenta" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

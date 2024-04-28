@@ -107,16 +107,16 @@
                                 <c:forEach items="${emisionesProductos}" var="emisionProducto">
                                     <tr>
                                         <th scope="row">${emisionProducto.id_emision}</th>
-                                        <td><a href="http://localhost:8080/Garbigune_reto/edit?opcion=producto&id_producto=${emisionProducto.id_producto}">${emisionProducto.id_producto}</a></td>
+                                        <td><a href="/Garbigune_reto/editarProducto?id_producto=${emisionProducto.id_producto}">${emisionProducto.id_producto}</a></td>
                                         <td>${emisionProducto.emision_generada}</td>
                                         <td>${emisionProducto.fecha}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a href="http://localhost:8080/Garbigune_reto/edit?opcion=emision&id_emision=${emisionProducto.id_emision}" class="btn btn-flex">
+                                                <a href="/Garbigune_reto/editarEmisionProducto?id_emision=${emisionProducto.id_emision}" class="btn btn-flex">
                                                     <i class="bi bi-pencil-square fs-5 text-light"></i>
                                                 </a>
                                                 
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=emision&id_emision=${emisionProducto.id_emision}"
+                                                <a href="/Garbigune_reto/borrarEmisionProducto?id_emision=${emisionProducto.id_emision}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -137,7 +137,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post"
+                                        <form action="/Garbigune_reto/crearEmisionProducto" method="post"
                                             class="d-flex flex-row flex-wrap justify-content-between">
                                             <input type="text" class="form-control d-none" name="opcion"
                                                 value="emision">

@@ -40,7 +40,7 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Editar suministro</h1>
                         </div>
                         <div class="modal-body">
-                            <form action="http://localhost:8080/Garbigune_reto/edit" method="post"
+                            <form action="/Garbigune_reto/updateProducto" method="post"
                                 class="d-flex flex-row flex-wrap justify-content-between">
                                 <input type="text" class="form-control d-none" name="opcion" value="producto">
                                 <input type="text" class="form-control d-none" name="id_producto"

@@ -1,4 +1,4 @@
-package controlador;
+package controlador.productos;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,24 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Material;
-import modelo.ModeloMaterial;
-import modelo.ModeloPlanta;
-import modelo.ModeloProducto;
-import modelo.Planta;
-import modelo.Producto;
+import modelo.material.Material;
+import modelo.material.ModeloMaterial;
+import modelo.plantas.ModeloPlanta;
+import modelo.plantas.Planta;
+import modelo.productos.ModeloProducto;
+import modelo.productos.Producto;
+
 
 /**
- * Servlet implementation class Garbigunne_Admin_Productos_View
+ * Servlet implementation class VerProductos
  */
-@WebServlet("/productos")
-public class Garbigunne_Admin_Productos_View extends HttpServlet {
+@WebServlet("/VerProductos")
+public class VerProductos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Garbigunne_Admin_Productos_View() {
+    public VerProductos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +53,6 @@ public class Garbigunne_Admin_Productos_View extends HttpServlet {
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
 		request.getRequestDispatcher("Paneles_control/Admin/productos.jsp").forward(request, response);
-		
 	}
 
 	/**

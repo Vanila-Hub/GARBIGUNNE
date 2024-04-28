@@ -35,13 +35,11 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar suministro</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar emision</h1>
                         </div>
                         <div class="modal-body">
-                            <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
-                                <input type="text" class="form-control d-none" name="opcion" value="emision">
+                            <form action="/Garbigune_reto/updateEmisionProducto" method="post">
                                 <input type="text" class="form-control d-none" name="id_emision" value="${id_emision}">
-                                
                                 <div class="mb-3">
                                     <label for="id_producto" class="form-label">Producto</label>
                                     <select class="form-select" aria-label="Default select example" name="id_producto">
@@ -77,7 +75,7 @@
                                 </div>
                                 
                                 <div class="mb-3">
-                                    <label for="emision_generada" class="form-label">Emisión Generada</label>
+                                    <label for="emision_generada" class="form-label">Emision Generada</label>
                                     <input type="text" class="form-control" name="emision_generada" value="${emision_generada}" disabled>
                                 </div>
                                 
@@ -88,7 +86,7 @@
                                 
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="">Volver</a>
+                                        <a href="/Garbigune_reto/VerEmisiones" class="">Volver</a>
                                     </button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                                 </div>

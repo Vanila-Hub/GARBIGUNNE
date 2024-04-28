@@ -88,36 +88,36 @@ public class Borrar extends HttpServlet {
 //			
 //			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=suministros");
 //			break;
-			
-		case "producto":
-		    int id_producto = Integer.parseInt(request.getParameter("id_producto"));
-		    
-		    ModeloProducto modelo_producto = new ModeloProducto();
-		    
-		    modelo_producto.borrarProductoByID(id_producto);
-		    
-		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
-		    break;
+//			
+//		case "producto":
+//		    int id_producto = Integer.parseInt(request.getParameter("id_producto"));
+//		    
+//		    ModeloProducto modelo_producto = new ModeloProducto();
+//		    
+//		    modelo_producto.borrarProductoByID(id_producto);
+//		    
+//		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=productos");
+//		    break;
 		  
-		case "emision":
-		    int idEmision = Integer.parseInt(request.getParameter("id_emision"));
-		    
-		    ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
-		    
-		    modeloEmisionProducto.eliminarEmisionProducto(idEmision);
-		    
-		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
-		    break;
-		case "venta":
-			int id_venta = Integer.parseInt(request.getParameter("id"));
-			
-			ModeloVenta modelo_venta = new ModeloVenta();
-			
-			modelo_venta.borrarVentaByID(id_venta);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=venta");
-			
-			break;
+//		case "emision":
+//		    int idEmision = Integer.parseInt(request.getParameter("id_emision"));
+//		    
+//		    ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
+//		    
+//		    modeloEmisionProducto.eliminarEmisionProducto(idEmision);
+//		    
+//		    response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=emisiones");
+//		    break;
+//		case "venta":
+//			int id_venta = Integer.parseInt(request.getParameter("id"));
+//			
+//			ModeloVenta modelo_venta = new ModeloVenta();
+//			
+//			modelo_venta.borrarVentaByID(id_venta);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=venta");
+//			
+//			break;
 		default:
 			break;
 		}
