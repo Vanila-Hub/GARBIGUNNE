@@ -1,4 +1,4 @@
-package controlador.emisionproducto;
+package controlador.emisionProducto;
 
 import java.io.IOException;
 import java.sql.Date;
