@@ -53,22 +53,30 @@
             </form>
         </div>
     </main>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">ï¿½ 2024 vanila</span>
-        </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-threads-fill"></i></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-instagram"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></li>
-        </ul>
-    </footer>
+    <footer
+		class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+		<div class="container">
+			<footer class="py-3 my-4 d-flex justify-content-around row">
+          		 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          			<h5 class="text-uppercase mb-4">CONTACTO</h5>
+          			<ul class="list-unstyled">
+            			<li><p><i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>DIRECCION: Berio Kalea, Guipuzcoa</p></li>
+            			<li><p><i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nº DE TELEFONO: 943 04 33 12</p></li>
+            			<li><p><i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>CORREO: garbigunne@gmail.com</p></li>
+          			</ul>
+          			
+          		</div>
+          		<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          			<h5 class="text-uppercase mb-4">REDES SOCIALES</h5>
+          			<ul class="list-unstyled">
+            			<li><p><i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>INSTAGRAM: @garbigunneSL</p></li>
+            			<li><p><i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>YOUTUBE: @garbigunneSL</p></li>
+            			<li><p><i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>TIKTOK: @garbigunneSL</p></li>
+          			</ul>
+        		 </div>
+			</footer>
+		</div>
+	</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
