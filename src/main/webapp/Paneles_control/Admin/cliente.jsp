@@ -368,6 +368,7 @@
 		</main>
 	</div>
 
+
 	<footer
 		class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
 		<div class="container">
@@ -384,7 +385,7 @@
 					<li class="nav-item"><a href="#"
 						class="nav-link px-2 text-body-secondary">About</a></li>
 				</ul>
-				<p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+				<p class="text-center text-body-secondary">ï¿½ 2024 Company, Inc</p>
 			</footer>
 		</div>
 	</footer>
@@ -394,5 +395,4 @@
 		crossorigin="anonymous"></script>
 	<script src="sidebars.js"></script>
 </body>
-
 </html>
