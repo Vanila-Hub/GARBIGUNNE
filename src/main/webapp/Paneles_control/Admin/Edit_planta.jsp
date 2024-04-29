@@ -35,11 +35,10 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar planta</h1>
                         </div>
                         <div class="modal-body">
-                            <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
-                                <input type="text" class="form-control d-none" name="opcion" value="planta">
+                            <form action="/Garbigune_reto/updatePlanta" method="post">
                                 <input type="text" class="form-control d-none" name="id_planta" value="${id}">
                                 <div class="mb-3">
                                     <label for="exampleInput" class="form-label">Nombre</label>
@@ -59,7 +58,7 @@
 
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="/Garbigune_reto/VerPlantas" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

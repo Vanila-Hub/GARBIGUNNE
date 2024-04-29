@@ -32,24 +32,24 @@
             </header>
             <div class="contenedor">
                 <div class="sidebar aside">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                    <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                         <strong class="fs-4">Gestores</strong>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores" class="nav-link"
+                            <a href="/Garbigune_reto/VerProveedores" class="nav-link"
                                 aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta " class="nav-link">
+                            <a href="/Garbigune_reto/VerPlantas" class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
+                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -59,35 +59,28 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
+                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
                                 PRODUCTOS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones"
-                                class="nav-link active">
+                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link active">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
                         <li>
-                            <a href="/Garbigune_reto/VerClientese" class="nav-link ">
+                            <a href="/Garbigune_reto/VerClientes" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
-
                         <li>
-                            <a href="/Garbigune_reto/VerVentas" class="nav-link disabled">
+                            <a href="/Garbigune_reto/VerVentas" class="nav-link">
                                 VENTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link ">
+                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
                                 HISTORICO
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
-                                ROLES
                             </a>
                         </li>
 
@@ -114,16 +107,16 @@
                                 <c:forEach items="${emisionesProductos}" var="emisionProducto">
                                     <tr>
                                         <th scope="row">${emisionProducto.id_emision}</th>
-                                        <td><a href="http://localhost:8080/Garbigune_reto/edit?opcion=producto&id_producto=${emisionProducto.id_producto}">${emisionProducto.id_producto}</a></td>
+                                        <td><a href="/Garbigune_reto/editarProducto?id_producto=${emisionProducto.id_producto}">${emisionProducto.id_producto}</a></td>
                                         <td>${emisionProducto.emision_generada}</td>
                                         <td>${emisionProducto.fecha}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a href="http://localhost:8080/Garbigune_reto/edit?opcion=emision&id_emision=${emisionProducto.id_emision}" class="btn btn-flex">
+                                                <a href="/Garbigune_reto/editarEmisionProducto?id_emision=${emisionProducto.id_emision}" class="btn btn-flex">
                                                     <i class="bi bi-pencil-square fs-5 text-light"></i>
                                                 </a>
                                                 
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=emision&id_emision=${emisionProducto.id_emision}"
+                                                <a href="/Garbigune_reto/borrarEmisionProducto?id_emision=${emisionProducto.id_emision}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -144,7 +137,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post"
+                                        <form action="/Garbigune_reto/crearEmisionProducto" method="post"
                                             class="d-flex flex-row flex-wrap justify-content-between">
                                             <input type="text" class="form-control d-none" name="opcion"
                                                 value="emision">

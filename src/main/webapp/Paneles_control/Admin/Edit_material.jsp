@@ -35,7 +35,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar material</h1>
                         </div>
                         <div class="modal-body">
                             <form action="/Garbigune_reto/UpdateMaterial" method="post">

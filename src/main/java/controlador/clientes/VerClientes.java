@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Cliente;
-import modelo.ModeloCliente;
+import modelo.cliente.Cliente;
+import modelo.cliente.ModeloCliente;
 
 /**
  * Servlet implementation class VerClientes

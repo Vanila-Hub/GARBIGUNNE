@@ -32,25 +32,24 @@
             </header>
             <div class="contenedor">
                 <div class="sidebar aside">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                    <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                         <strong class="fs-4">Gestores</strong>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=proveedores"
-                                class="nav-link active" aria-current="page">
+                            <a href="/Garbigune_reto/VerProveedores" class="nav-link active"
+                                aria-current="page">
                                 PROVEEDORES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=planta "
-                                class="nav-link">
+                            <a href="/Garbigune_reto/VerPlantas" class="nav-link">
                                 PLANTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=suministros" class="nav-link">
+                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
                                 SUMINISTROS
                             </a>
                         </li>
@@ -60,33 +59,28 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos" class="nav-link">
+                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
                                 PRODUCTOS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=emisiones" class="nav-link">
+                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link">
                                 EMISIONES POR PRODUCTO
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=cliente" class="nav-link ">
+                            <a href="/Garbigune_reto/VerClientes" class="nav-link ">
                                 CLIENTES
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=venta" class="nav-link ">
+                            <a href="/Garbigune_reto/VerVentas" class="nav-link ">
                                 VENTAS
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=historico" class="nav-link">
+                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
                                 HISTORICO
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=roles" class="nav-link ">
-                                ROLES
                             </a>
                         </li>
                         
@@ -118,13 +112,10 @@
                                         <td>${proveedor.contraseña}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-flex" data-bs-toggle="modal"
-                                                    data-bs-target="#vewOne" ><i
-                                                        class="bi bi-eye fs-5 text-light"></i></button>
                                                 <button type="button" class="btn btn-flex" data-bs-toggle="modal">
-                                                    <a href="http://localhost:8080/Garbigune_reto/edit?opcion=proveedor&id_proveedor=${proveedor.id_proveedor}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
+                                                    <a href="/Garbigune_reto/editarProveedor?id_proveedor=${proveedor.id_proveedor}"><i class="bi bi-pencil-square fs-5 text-light"></i></a>
                                                 </button>
-                                                <a href="http://localhost:8080/Garbigune_reto/borrar?opcion=proveedor&id_proveedor=${proveedor.id_proveedor}"
+                                                <a href="/Garbigune_reto/borrarProveedor?id_proveedor=${proveedor.id_proveedor}"
                                                     class="btn btn-flex trash">
                                                     <i class="bi bi-trash text-light fs-5 text-info"></i>
                                                 </a>
@@ -144,7 +135,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="http://localhost:8080/Garbigune_reto/create" method="post">
+                                        <form action="/Garbigune_reto/crearProveedor" method="post">
                                             <input type="text" class="form-control d-none" name="opcion" value="proveedor">
                                             <div class="mb-3">
                                                 <label for="exampleInput" class="form-label">Nombre</label>
@@ -155,7 +146,7 @@
                                                 <input type="email" class="form-control" id="exampleInput" name="correo">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInput" class="form-label">Contraseï¿½a</label>
+                                                <label for="exampleInput" class="form-label">Contraseña</label>
                                                 <input type="text" class="form-control" id="exampleInput" name="contrasena">
                                             </div>
                                             <div class="modal-footer">

@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.cliente.Cliente;
+import modelo.cliente.ModeloCliente;
+
 /**
  * Servlet implementation class EditarClientes
  */
-@WebServlet("/EditarClientes")
+@WebServlet("/editarCliente")
 public class EditarClientes extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,8 +29,19 @@ public class EditarClientes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+		//lalam al modelo para inser
+		ModeloCliente modelo_cliente = new ModeloCliente();
+		
+		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+		//volvera el /plantas y gfuardar sus atributos
+		request.setAttribute("nombre", cliente.getNombre());
+		request.setAttribute("apellido", cliente.getApellido());
+		request.setAttribute("usuario", cliente.getUsuario());
+		request.setAttribute("contrasena", cliente.getContrasena());
+		request.setAttribute("id_cliente", cliente.getId_cliente());
+
+		request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
 	}
 
 	/**
