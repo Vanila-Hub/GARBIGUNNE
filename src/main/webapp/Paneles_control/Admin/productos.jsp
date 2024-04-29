@@ -102,6 +102,7 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Descripcion</th>
+                                    <th scope="col">Fecha de Creacion</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Peso (Kg)</th>
                                     <th scope="col">Opciones</th>
@@ -121,6 +122,7 @@
                                         <td>${producto.nombre}</td>
                                         <td>${producto.precio}</td>
                                         <td>${producto.descripcion}</td>
+                                        <td>${producto.fecha}</td>
                                         <td>${producto.stock}</td>
                                         <td>${producto.peso_producto}</td>
                                         <td class="d-flex flex-wrap justify-content-evenly w-2">
@@ -194,6 +196,10 @@
                                             <div class="mb-3">
                                                 <label for="stock" class="form-label">Stock</label>
                                                 <input type="number" class="form-control" name="stock">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="fecha" class="form-label">Fecha</label>
+                                                <input type="date" class="form-control" name="fecha">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="peso_producto" class="form-label">Peso Producto</label>
