@@ -77,7 +77,7 @@
                         </li>
                         <li>
                             <a href="/Garbigune_reto/VerClientes" class="nav-link active">
-                                CLIENTES
+                                USUARIOS
                             </a>
                         </li>
                         <li>
