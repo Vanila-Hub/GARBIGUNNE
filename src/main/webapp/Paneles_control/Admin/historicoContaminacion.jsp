@@ -133,7 +133,7 @@
           			<h5 class="text-uppercase mb-4">CONTACTO</h5>
           			<ul class="list-unstyled">
             			<li><p><i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>DIRECCION: Berio Kalea, Guipuzcoa</p></li>
-            			<li><p><i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nº DE TELEFONO: 943 04 33 12</p></li>
+            			<li><p><i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nï¿½ DE TELEFONO: 943 04 33 12</p></li>
             			<li><p><i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>CORREO: garbigunne@gmail.com</p></li>
           			</ul>
           			
@@ -153,13 +153,14 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"></script>
-            <script src="sidebars.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </script>
         <script>
             const xValues = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
             const tipos_values = document.querySelectorAll('.tipo');
-            console.log(tipos_values.value);
+            tipos_values.forEach((i)=>{
+                console.log(tipos_values[i].defaultValue);
+            })
             new Chart("myChart", {
                 type: "line",
                 data: {
