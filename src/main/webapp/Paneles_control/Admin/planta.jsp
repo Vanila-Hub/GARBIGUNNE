@@ -59,7 +59,7 @@
 				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
 						EMISIONES POR PRODUCTO </a></li>
 				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
-						CLIENTES </a></li>
+						USUARIOS </a></li>
 				<li><a href="/Garbigune_reto/VerVentas" class="nav-link">
 						VENTAS </a></li>
 				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link">
