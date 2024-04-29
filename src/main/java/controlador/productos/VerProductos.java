@@ -52,6 +52,7 @@ public class VerProductos extends HttpServlet {
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
+		
 		request.getRequestDispatcher("Paneles_control/Admin/productos.jsp").forward(request, response);
 	}
 

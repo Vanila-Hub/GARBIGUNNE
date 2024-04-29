@@ -1,5 +1,6 @@
 package modelo.productos;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,6 @@ public class ModeloProducto {
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM PRODUCTOS;";
-        String sql_registrar_emision_producto = "call Garbigunne.AutoRegistrar_Emision_producto();";
         
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -31,24 +31,12 @@ public class ModeloProducto {
                 producto.setStock(rst.getInt("STOCK"));
                 producto.setId_planta(rst.getInt("ID_PLANTA"));
                 producto.setRuta_imagen(rst.getString("RUTA_IMAGEN"));
+                producto.setFecha(rst.getDate("FECHA"));
 
                 productos.add(producto);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
-        	
-			try {
-				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_registrar_emision_producto);
-				prst.executeUpdate();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
         return productos;
     }
@@ -65,8 +53,9 @@ public class ModeloProducto {
 
     }
 
-    public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen,int idMaterial) {
-        String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN,ID_MATERIAL) VALUES(?,?,?,?,?,?,?,?)";
+    public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen,int idMaterial,Date fecha) {
+        String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN,ID_MATERIAL,FECHA) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql_procedure = "call Garbigunne.AutoRegistrar_Emision_producto();";
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             prst.setString(1, nombre);
@@ -77,11 +66,23 @@ public class ModeloProducto {
             prst.setInt(6, idPlanta);
             prst.setString(7, rutaImagen);
             prst.setInt(8, idMaterial);
-
+            prst.setDate(9, fecha);
+            
             prst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } finally {
+			try {
+				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_procedure);
+				prst.executeUpdate();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
     }
 
     public Producto getProductoByID(int idProducto) {
@@ -102,6 +103,7 @@ public class ModeloProducto {
                 producto.setStock(rst.getInt("STOCK"));
                 producto.setId_planta(rst.getInt("ID_PLANTA"));
                 producto.setRuta_imagen(rst.getString("RUTA_IMAGEN"));
+                producto.setFecha(rst.getDate("FECHA"));
             }
         } catch (Exception e) {
             e.printStackTrace();

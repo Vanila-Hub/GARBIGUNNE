@@ -1,6 +1,8 @@
 package controlador.productos;
 
 import java.io.IOException;
+import java.sql.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,9 +49,10 @@ public class CrearProductos extends HttpServlet {
 	    int stock = Integer.parseInt(request.getParameter("stock"));
 	    int idPlanta = Integer.parseInt(request.getParameter("planta"));
 	    int id_material = Integer.parseInt(request.getParameter("material"));
+	    Date fecha = Date.valueOf(request.getParameter("fecha"));
 	    
 	    ModeloProducto modeloProducto = new ModeloProducto();
-	    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material);
+	    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material,fecha);
 
 	    response.sendRedirect("http://localhost:8080/Garbigune_reto/VerProductos");
 	}
