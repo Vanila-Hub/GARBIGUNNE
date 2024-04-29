@@ -74,6 +74,7 @@
             			<li><p><i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>TIKTOK: @garbigunneSL</p></li>
           			</ul>
         		 </div>
+        		 
 			</footer>
 		</div>
 	</footer>
