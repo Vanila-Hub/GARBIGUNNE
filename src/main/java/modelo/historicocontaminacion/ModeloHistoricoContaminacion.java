@@ -21,11 +21,12 @@ public class ModeloHistoricoContaminacion {
 			ResultSet rs = prst.executeQuery();
 			if (rs.next()) {
 				historico = new HistoricoContaminacion();
-				historico.setIdHistorico(rs.getInt("ID_HISTORICO"));
+				historico.setId_Historico(rs.getInt("ID_HISTORICO"));
 				historico.setFecha(rs.getString("FECHA"));
-				historico.setIdPlanta(rs.getInt("ID_PLANTA"));
-				historico.setIdMaterial(rs.getInt("ID_MATERIAL"));
+				historico.setId_Planta(rs.getInt("ID_PLANTA"));
 				historico.setPorcentajeContaminacion(rs.getDouble("PORCENTAJE_CONTAMINACION"));
+				historico.setId_Material(rs.getInt("ID_MATERIAL"));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,22 +52,42 @@ public class ModeloHistoricoContaminacion {
 
 	public ArrayList<HistoricoContaminacion> getHistoricos() {
 		ArrayList<HistoricoContaminacion> historicos = new ArrayList<HistoricoContaminacion>();
+		String sql_procedure = "call Garbigunne.getMaterialesYEmisones();";
 		
 		String sql = "SELECT * FROM HISTORICO_CONTAMINACION";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			ResultSet rs = prst.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				HistoricoContaminacion historico = new HistoricoContaminacion();
-				historico.setIdHistorico(rs.getInt("ID_HISTORICO"));
+				historico.setId_Historico(rs.getInt("ID_HISTORICO"));
 				historico.setFecha(rs.getString("FECHA"));
-				historico.setIdPlanta(rs.getInt("ID_PLANTA"));
-				historico.setIdMaterial(rs.getInt("ID_MATERIAL"));
+				historico.setId_Planta(rs.getInt("ID_PLANTA"));
 				historico.setPorcentajeContaminacion(rs.getDouble("PORCENTAJE_CONTAMINACION"));
 				historicos.add(historico);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		finally {
+			try {
+				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_procedure);
+				ResultSet rs = prst.executeQuery();
+				while (rs.next()) {
+					HistoricoContaminacion historico = new HistoricoContaminacion();
+					historico.setEmisionTotal(rs.getDouble("EMISION_TOTAL"));
+					historico.setTipo_material(rs.getString("TIPO"));
+					historico.setId_Material(rs.getInt("ID_MATERIAL"));
+					historicos.add(historico);
+				}
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		return historicos;
 	}

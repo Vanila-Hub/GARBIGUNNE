@@ -33,7 +33,6 @@ public class VerHistoricos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloHistoricoContaminacion modelo_historico = new ModeloHistoricoContaminacion();
 		ArrayList<HistoricoContaminacion> historico_contaminacion = modelo_historico.getHistoricos();
-		
 		request.setAttribute("historicoEmisiones", historico_contaminacion);
 		request.getRequestDispatcher("Paneles_control/Admin/historicoContaminacion.jsp").forward(request, response);
 	}

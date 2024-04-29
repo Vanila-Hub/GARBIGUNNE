@@ -4,50 +4,92 @@ public class HistoricoContaminacion {
     private int id_Historico;
     private String fecha;
     private int id_Planta;
-    private int id_Material;
     private double porcentajeContaminacion;
+    private double emisionTotal;
+    private String tipo_material;
+    private int id_Material;
 
     public HistoricoContaminacion() {
 		// TODO Auto-generated constructor stub
 	}
-    
-    public int getIdHistorico() {
-        return id_Historico;
-    }
+  
 
-    public String getFecha() {
-        return fecha;
-    }
+    public int getId_Historico() {
+		return id_Historico;
+	}
 
-    public int getIdPlanta() {
-        return id_Planta;
-    }
 
-    public int getIdMaterial() {
-        return id_Material;
-    }
+	public void setId_Historico(int id_Historico) {
+		this.id_Historico = id_Historico;
+	}
 
-    public double getPorcentajeContaminacion() {
-        return porcentajeContaminacion;
-    }
 
-    public void setIdHistorico(int idHistorico) {
-        this.id_Historico = idHistorico;
-    }
+	public String getFecha() {
+		return fecha;
+	}
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
 
-    public void setIdPlanta(int idPlanta) {
-        this.id_Planta = idPlanta;
-    }
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
 
-    public void setIdMaterial(int idMaterial) {
-        this.id_Material = idMaterial;
-    }
 
-    public void setPorcentajeContaminacion(double porcentajeContaminacion) {
+	public int getId_Planta() {
+		return id_Planta;
+	}
+
+
+	public void setId_Planta(int id_Planta) {
+		this.id_Planta = id_Planta;
+	}
+
+
+	public double getEmisionTotal() {
+		return emisionTotal;
+	}
+
+
+	public void setEmisionTotal(double emisionTotal) {
+		this.emisionTotal = emisionTotal;
+	}
+
+
+	public String getTipo_material() {
+		return tipo_material;
+	}
+
+
+	public void setTipo_material(String tipo_material) {
+		this.tipo_material = tipo_material;
+	}
+
+
+	public int getId_Material() {
+		return id_Material;
+	}
+
+
+	public void setId_Material(int id_Material) {
+		this.id_Material = id_Material;
+	}
+
+
+	public double getPorcentajeContaminacion() {
+		return porcentajeContaminacion;
+	}
+
+
+	public void setPorcentajeContaminacion(double porcentajeContaminacion) {
         this.porcentajeContaminacion = porcentajeContaminacion;
     }
+
+
+	@Override
+	public String toString() {
+		return "HistoricoContaminacion [id_Historico=" + id_Historico + ", fecha=" + fecha + ", id_Planta=" + id_Planta
+				+ ", porcentajeContaminacion=" + porcentajeContaminacion + ", emisionTotal=" + emisionTotal
+				+ ", tipo_material=" + tipo_material + ", id_Material=" + id_Material + "]";
+	}
+	
+	
 }
