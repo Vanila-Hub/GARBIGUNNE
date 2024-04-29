@@ -61,16 +61,16 @@ public class Create extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=planta");
 			break;
 			
-		case "material":	
-			String tipo_material = (String) request.getParameter("material");
-			int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
-			
-			ModeloMaterial modelo_material = new ModeloMaterial();
-			modelo_material.crearMaterial(tipo_material, emision_kg);
-			
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
-				break;
-			
+//		case "material":	
+//			String tipo_material = (String) request.getParameter("material");
+//			int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
+//			
+//			ModeloMaterial modelo_material = new ModeloMaterial();
+//			modelo_material.crearMaterial(tipo_material, emision_kg);
+//			
+//			response.sendRedirect("http://localhost:8080/Garbigune_reto/admin?peticion=materiales");
+//				break;
+//			
 		case "cliente":
 			//llemos los parametro nombre,apellido,usurio,contraseña y se verifica si tiene '+' en el valor del parametro si es asi se remplaza por un espacio
 			

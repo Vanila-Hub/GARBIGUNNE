@@ -63,7 +63,7 @@ public class Edit extends HttpServlet {
 			
 			request.getRequestDispatcher("Paneles_control/Admin/Edit_planta.jsp").forward(request, response);
 			break;
-		
+
 
 		case "cliente":
 			int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));

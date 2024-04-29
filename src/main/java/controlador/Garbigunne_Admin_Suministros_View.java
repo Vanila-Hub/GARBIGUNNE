@@ -56,8 +56,7 @@ public class Garbigunne_Admin_Suministros_View extends HttpServlet {
 		request.setAttribute("proveedores", proveedores);
 		
 		/*TRAEMOS LOS LOS MATERIALES*/
-		ModeloMaterial modelo_material = new ModeloMaterial();
-		ArrayList<Material> materiales = modelo_material.getMateriales();
+		
 		
 		request.setAttribute("materiales", materiales);
 		

@@ -38,7 +38,7 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE SA</h1>
                         </div>
                         <div class="modal-body">
-                            <form action="http://localhost:8080/Garbigune_reto/edit" method="post">
+                            <form action="/Garbigune_reto/UpdateMaterial" method="post">
                                 <input type="text" class="form-control d-none" name="id_material" value="${id}">
                                 <input type="text" class="form-control d-none" name="opcion" value="material">
                             
@@ -82,7 +82,7 @@
 
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="/Garbigune_reto/VerMateriales" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

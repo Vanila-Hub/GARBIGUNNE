@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/Garbigune_reto/admin?peticion=materiales" class="nav-link ">
+                            <a href="/Garbigune_reto/VerMateriales" class="nav-link ">
                                 MATERIALES
                             </a>
                         </li>

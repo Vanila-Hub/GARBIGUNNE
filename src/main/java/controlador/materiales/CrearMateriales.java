@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.material.ModeloMaterial;
+
+
 /**
  * Servlet implementation class CrearMateriales
  */
-@WebServlet("/CrearMateriales")
+@WebServlet("/crearMaterial")
 public class CrearMateriales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,15 +30,19 @@ public class CrearMateriales extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String tipo_material = (String) request.getParameter("material");
+		int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
+		
+		ModeloMaterial modelo_material = new ModeloMaterial();
+		modelo_material.crearMaterial(tipo_material, emision_kg);
+		
+		response.sendRedirect("/Garbigune_reto/VerMateriales");
 	}
 
 }

@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Material;
-import modelo.ModeloMaterial;
+
+import modelo.material.Material;
+import modelo.material.ModeloMaterial;
+
+
 
 /**
  * Servlet implementation class EditarMateriales
  */
-@WebServlet("/EditarMateriales")
+@WebServlet("/editarMaterial")
 public class EditarMateriales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
