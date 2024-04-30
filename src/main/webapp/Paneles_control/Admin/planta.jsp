@@ -46,24 +46,61 @@
 			</a>
 			<hr>
 			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
-					class="nav-link" aria-current="page"> PROVEEDORES </a></li>
-				<li><a href="/Garbigune_reto/VerPlantas"
-					class="nav-link active"> PLANTAS </a></li>
-				<li><a href="/Garbigune_reto/VerSuministros" class="nav-link">
-						SUMINISTROS </a></li>
-				<li><a href="/Garbigune_reto/VerMateriales" class="nav-link ">
-						MATERIALES </a></li>
-				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
-						PRODUCTOS </a></li>
-				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
-						EMISIONES POR PRODUCTO </a></li>
-				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
-						USUARIOS </a></li>
-				<li><a href="/Garbigune_reto/VerVentas" class="nav-link">
-						VENTAS </a></li>
-				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link">
-						HISTORICO </a></li>
+				<li class="nav-item">
+                            <a href="/Garbigune_reto/VerProveedores" class="nav-link"
+                                aria-current="page">
+                                PROVEEDORES
+                                <i class="bi bi-truck-flatbed"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerPlantas" class="nav-link active">
+                                PLANTAS
+                                <i class="bi bi-house-gear-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
+                                SUMINISTROS
+                                <i class="bi bi-diagram-3-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerMateriales" class="nav-link ">
+                                MATERIALES
+                                <i class="bi bi-tree-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
+                                PRODUCTOS
+                                <i class="bi bi-box-seam-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link">
+                                EMISIONES DE PRODUCTOS
+                                <i class="bi bi-fire"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerClientes" class="nav-link ">
+                                USUARIOS
+                                <i class="bi bi-people-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerVentas" class="nav-link ">
+                                VENTAS
+                                <i class="bi bi-handbag-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
+                                HISTORICO
+                                <i class="bi bi-graph-up"></i>
+                            </a>
+                        </li>
 			</ul>
 			<hr>
 

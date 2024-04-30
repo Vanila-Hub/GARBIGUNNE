@@ -1,6 +1,7 @@
 package controlador.suministros;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -53,7 +54,7 @@ public class CrearSuministros extends HttpServlet {
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		String mes = (String) request.getParameter("mes");
 		
-		System.out.println(cantidad);
+		
 		ModeloSuministro modelo_suministro = new ModeloSuministro();
 		modelo_suministro.crearSuministro(id_Material,id_Proveedor,id_Planta,mes,cantidad);
 		
