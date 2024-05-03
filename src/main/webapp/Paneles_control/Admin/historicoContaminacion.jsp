@@ -104,17 +104,11 @@
 					</thead>
 					<tbody class="table-group-divider">
 						<c:forEach items="${historicoEmisiones}" var="historicoEmision">
-							<input type="text" class="d-none total"
-								value="${historicoEmision.emisionTotal}">
-							<input type="text" class="d-none tipo"
-								value="${historicoEmision.tipo_material}">
-							<input type="text" class="d-none id_material"
-								value="${historicoEmision.id_Material}">
 							<tr>
 								<th scope="row">${historicoEmision.id_Historico}</th>
 								<td>${historicoEmision.fecha}</td>
-								<td>${historicoEmision.id_Planta}</td>
-								<td>${historicoEmision.id_Material}</td>
+								<td><a href="/Garbigune_reto/editarPlanta?id=${historicoEmision.id_Planta}">${historicoEmision.id_Planta}</a></td>
+								<td><a href="/Garbigune_reto/editarMaterial?id_material=${historicoEmision.id_Material}">${historicoEmision.id_Material}</a></td>
 								<td>${historicoEmision.porcentajeContaminacion}</td>
 							</tr>
 						</c:forEach>

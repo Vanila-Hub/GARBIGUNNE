@@ -94,12 +94,13 @@ public class ModeloHistoricoContaminacion {
 		return historicos;
 	}
 
-	public void registrarHsitorico(String fecha_inicio, String fecha_fin) {
-		String sql = "call Garbigunne.Registrar_Historico(?, ?);";
+	public void registrarHsitorico(String fecha_inicio, String fecha_fin, String mes) {
+		String sql = "call Garbigunne.Registrar_Historico(?, ?, ?);";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setString(1, fecha_inicio);
 			prst.setString(2, fecha_fin);
+			prst.setString(3, mes);
 			prst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

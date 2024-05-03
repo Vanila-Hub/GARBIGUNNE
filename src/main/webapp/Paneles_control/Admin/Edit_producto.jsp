@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        <a href="http://localhost:8080/Garbigune_reto/admin?peticion=productos"
+                                        <a href="/Garbigune_reto/VerProductos"
                                         class="">Cancelar</a>
                                     </button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>

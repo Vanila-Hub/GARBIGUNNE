@@ -52,7 +52,7 @@ public class CrearClientes extends HttpServlet {
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
 		
-		response.sendRedirect("http://localhost:8080/Garbigune_reto/VerClientes");
+		response.sendRedirect("/Garbigune_reto/VerClientes");
 	}
 
 }

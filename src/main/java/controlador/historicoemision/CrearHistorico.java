@@ -35,11 +35,14 @@ public class CrearHistorico extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String mes;
 		String fecha_inicio = request.getParameter("mes");
+		mes = fecha_inicio;
+		
 		String fecha_fin = fecha_inicio + "-29";
 		fecha_inicio = fecha_inicio + "-01";
 		ModeloHistoricoContaminacion modelo_historico = new ModeloHistoricoContaminacion();
-		modelo_historico.registrarHsitorico(fecha_inicio,fecha_fin);
+		modelo_historico.registrarHsitorico(fecha_inicio,fecha_fin,mes);
 		
 		response.sendRedirect("/Garbigune_reto/VerHistorico");
 	}
