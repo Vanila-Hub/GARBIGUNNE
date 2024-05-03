@@ -178,7 +178,7 @@
 											name="usuario">
 									</div>
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">Contraseï¿½a</label>
+										<label for="exampleInput" class="form-label">Contraseña</label>
 										<input type="password" class="form-control" id="exampleInput"
 											name="contrasena">
 									</div>

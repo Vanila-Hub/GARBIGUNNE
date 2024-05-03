@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="controlador.clientes.CrearClientes" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,28 +29,33 @@
     </header>
     <main>
         <div class="contenedor">
-            <form action="http://localhost:8080/Garbigune_reto/create" method="post">
-                <input type="text" class="form-control d-none" name="opcion" value="cliente">
-                <div class="mb-3">
-                    <label for="exampleInput" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="exampleInput" name="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInput" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="exampleInput" name="apellido">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInput" class="form-label">Usuario</label>
-                    <input type="email" class="form-control" id="exampleInput" name="usuario">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInput" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInput" name="contrasena">
-                </div>
-                <button type="submit" class="btn btn-secondary">Crear Usuario</button>
+            <form action="/Garbigune_reto/registrarse"
+									method="post">
+									<input type="text" class="form-control d-none" name="opcion"
+										value="cliente">
+									<div class="mb-3">
+										<label for="exampleInput" class="form-label">Nombre</label> <input
+											type="text" class="form-control" id="exampleInput"
+											name="nombre">
+									</div>
+									<div class="mb-3">
+										<label for="exampleInput" class="form-label">Apellido</label>
+										<input type="text" class="form-control" id="exampleInput"
+											name="apellido">
+									</div>
+									<div class="mb-3">
+										<label for="exampleInput" class="form-label">Usuario</label> <input
+											type="email" class="form-control" id="exampleInput"
+											name="usuario">
+									</div>
+									<div class="mb-3">
+										<label for="exampleInput" class="form-label">Contraseña</label>
+										<input type="password" class="form-control" id="exampleInput"
+											name="contrasena">
+									</div>
+                <button type="submit" class="btn btn-secondary" >Crear Usuario</button>
                 <button type="button" class="btn btn-primary"><a
                         href="http://localhost:8080/Garbigune_reto/Login">Iniciar Sesion</a></button>
-
             </form>
         </div>
     </main>

@@ -1,11 +1,17 @@
 package controlador.logIn;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import controlador.formValidador.FormValidador;
+import modelo.cliente.Cliente;
+import modelo.cliente.ModeloCliente;
 
 /**
  * Servlet implementation class Garbigunne_ControlAcesso
@@ -27,30 +33,30 @@ public class Garbigunne_Validacion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String correo = (String) request.getParameter("correo");
-		//recibir password del form
+		String usuario = request.getParameter("usuario");
+		String contrasena = request.getParameter("contrasena");
 		
-		//con el modelo recibir el usuario
+		//pedir correo a la BBDD
+		ModeloCliente modelo_cliente = new ModeloCliente();
+		Cliente cliente =  modelo_cliente.getClientelByUsuario(usuario);
 		
-		//si el password del usuario es el mismo que el password recibido por form
-			//enviar al index de proveedores
-		//si no al home
-		
-		System.out.println(correo);
-		if (correo.equalsIgnoreCase("admin@ee")) {
-			response.sendRedirect("admin?peticion=proveedores");
-		} else {
-			response.sendRedirect("productos");
+		//si el password del usuario es el mismo que el password recibido por form	
+		if(usuario != null && cliente.getContrasena().equals(contrasena)) {
+			//enviar al index de productos
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/Paneles_control/clienteProducto/indexProductos.jsp");
+			
+		}else {
+			//si no al home
+			response.sendRedirect("http://localhost:8080/Garbigune_reto/home");
 		}
-
+	
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

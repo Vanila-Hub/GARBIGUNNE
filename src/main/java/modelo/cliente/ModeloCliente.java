@@ -92,5 +92,24 @@ public class ModeloCliente {
 		}
 		
 	}
+	public Cliente getClientelByUsuario(String usuario) {
+		Cliente cliente = new Cliente();
+		String sql = "SELECT * FROM CLIENTES WHERE USUARIO = ?";
+		try {
+			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
+			prst.setString(1, usuario);
+			ResultSet rst = prst.executeQuery();
+			if (rst.next()) {
+				cliente.setId_cliente(rst.getInt("ID_CLIENTE"));
+				cliente.setNombre(rst.getString("NOMBRE"));
+				cliente.setApellido(rst.getString("APELLIDO"));
+				cliente.setUsuario(rst.getString("USUARIO"));
+				cliente.setContrasena(rst.getString("CONTRASENA"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cliente;
+	}
 		
 }
