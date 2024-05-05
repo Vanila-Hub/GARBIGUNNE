@@ -32,14 +32,15 @@ public class EditarClientes extends HttpServlet {
 		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
 		//lalam al modelo para inser
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		
 		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+
 		//volvera el /plantas y gfuardar sus atributos
 		request.setAttribute("nombre", cliente.getNombre());
 		request.setAttribute("apellido", cliente.getApellido());
 		request.setAttribute("usuario", cliente.getUsuario());
 		request.setAttribute("contrasena", cliente.getContrasena());
 		request.setAttribute("id_cliente", cliente.getId_cliente());
+		request.setAttribute("rol", cliente.getRol());
 
 		request.getRequestDispatcher("Paneles_control/Admin/Edit_cliente.jsp").forward(request, response);
 	}

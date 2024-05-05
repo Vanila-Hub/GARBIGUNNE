@@ -36,6 +36,8 @@ public class CrearClientes extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rol = "usuario";
+		
 		String nombreCliente = (String) request.getParameter("nombre");
 		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
 		
@@ -50,7 +52,7 @@ public class CrearClientes extends HttpServlet {
 		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
+		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 		
 		response.sendRedirect("/Garbigune_reto/VerClientes");
 	}

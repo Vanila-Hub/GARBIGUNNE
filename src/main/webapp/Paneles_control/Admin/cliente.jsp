@@ -39,66 +39,40 @@
 	</header>
 	<div class="contenedor">
 		<div class="sidebar aside">
-			 <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                        <strong class="fs-4">Gestores</strong>
-                    </a>
-                    <hr>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                       <li class="nav-item">
-                            <a href="/Garbigune_reto/VerProveedores" class="nav-link"
-                                aria-current="page">
-                                PROVEEDORES
-                                <i class="bi bi-truck-flatbed"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerPlantas" class="nav-link">
-                                PLANTAS
-                                <i class="bi bi-house-gear-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
-                                SUMINISTROS
-                                <i class="bi bi-diagram-3-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerMateriales" class="nav-link ">
-                                MATERIALES
-                                <i class="bi bi-tree-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
-                                PRODUCTOS
-                                <i class="bi bi-box-seam-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link">
-                                EMISIONES DE PRODUCTOS
-                                <i class="bi bi-fire"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerClientes" class="nav-link active">
-                                USUARIOS
-                                <i class="bi bi-people-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerVentas" class="nav-link ">
-                                VENTAS
-                                <i class="bi bi-handbag-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
-                                HISTORICO
-                                <i class="bi bi-graph-up"></i>
-                            </a>
-                        </li>
+			<a href="/Garbigune_reto/home"
+				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+				<strong class="fs-4">Gestores</strong>
+			</a>
+			<hr>
+			<ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
+					class="nav-link" aria-current="page"> PROVEEDORES <i
+						class="bi bi-truck-flatbed"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerPlantas" class="nav-link">
+						PLANTAS <i class="bi bi-house-gear-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerSuministros" class="nav-link">
+						SUMINISTROS <i class="bi bi-diagram-3-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerMateriales" class="nav-link ">
+						MATERIALES <i class="bi bi-tree-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
+						PRODUCTOS <i class="bi bi-box-seam-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
+						EMISIONES DE PRODUCTOS <i class="bi bi-fire"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerClientes"
+					class="nav-link active"> USUARIOS <i class="bi bi-people-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
+						VENTAS <i class="bi bi-handbag-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link">
+						HISTORICO <i class="bi bi-graph-up"></i>
+				</a></li>
 			</ul>
 			<hr>
 		</div>
@@ -116,7 +90,8 @@
 							<th scope="col">Nombre</th>
 							<th scope="col">Apellido</th>
 							<th scope="col">Usuario</th>
-							<th scope="col">Contraseï¿½a</th>
+							<th scope="col">Contraseña</th>
+							<th scope="col">Rol</th>
 							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
@@ -128,6 +103,28 @@
 								<td>${cliente.apellido}</td>
 								<td>${cliente.usuario}</td>
 								<td>${cliente.contrasena}</td>
+								<td><c:choose>
+										<c:when test="${cliente.rol=='usuario'}">
+											<form action="/Garbigune_reto/actualizarRol">
+												<div class="form-check form-switch">
+													<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled">
+													<input class="d-none" type="submit" role="switch" id="flexSwitchCheckCheckedDisabled">
+													<label class="form-check-label"
+														for="flexSwitchCheckCheckedDisabled">Admin</label>
+												</div>
+											</form>
+										</c:when>
+										<c:otherwise>
+											<form action="/Garbigune_reto/actualizarRol">
+												<div class="form-check form-switch">
+													<input class="form-check-input" type="checkbox"
+														role="switch" id="flexSwitchCheckCheckedDisabled" checked>
+													<label class="form-check-label"
+														for="flexSwitchCheckCheckedDisabled">Admin</label>
+												</div>
+											</form>
+										</c:otherwise>
+									</c:choose></td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<button type="button" class="btn btn-flex">
@@ -158,29 +155,24 @@
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="/Garbigune_reto/crearCliente"
-									method="post">
+								<form action="/Garbigune_reto/crearCliente" method="post">
 									<input type="text" class="form-control d-none" name="opcion"
 										value="cliente">
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Nombre</label> <input
-											type="text" class="form-control" id="exampleInput"
-											name="nombre">
+											type="text" class="form-control" name="nombre">
 									</div>
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Apellido</label>
-										<input type="text" class="form-control" id="exampleInput"
-											name="apellido">
+										<input type="text" class="form-control" name="apellido">
 									</div>
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Usuario</label> <input
-											type="email" class="form-control" id="exampleInput"
-											name="usuario">
+											type="email" class="form-control" name="usuario">
 									</div>
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Contraseña</label>
-										<input type="password" class="form-control" id="exampleInput"
-											name="contrasena">
+										<input type="password" class="form-control" name="contrasena">
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
@@ -201,31 +193,56 @@
 		class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
 		<div class="container">
 			<footer class="py-3 my-4 d-flex justify-content-around row">
-          		 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          			<h5 class="text-uppercase mb-4">CONTACTO</h5>
-          			<ul class="list-unstyled">
-            			<li><p><i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>DIRECCION: Berio Kalea, Guipuzcoa</p></li>
-            			<li><p><i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nº DE TELEFONO: 943 04 33 12</p></li>
-            			<li><p><i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>CORREO: garbigunne@gmail.com</p></li>
-          			</ul>
-          			
-          		</div>
-          		<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          			<h5 class="text-uppercase mb-4">REDES SOCIALES</h5>
-          			<ul class="list-unstyled">
-            			<li><p><i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>INSTAGRAM: @garbigunneSL</p></li>
-            			<li><p><i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>YOUTUBE: @garbigunneSL</p></li>
-            			<li><p><i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>TIKTOK: @garbigunneSL</p></li>
-          			</ul>
-        		 </div>
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase mb-4">CONTACTO</h5>
+					<ul class="list-unstyled">
+						<li><p>
+								<i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>DIRECCION:
+								Berio Kalea, Guipuzcoa
+							</p></li>
+						<li><p>
+								<i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nï¿½ DE
+								TELEFONO: 943 04 33 12
+							</p></li>
+						<li><p>
+								<i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>CORREO:
+								garbigunne@gmail.com
+							</p></li>
+					</ul>
+
+				</div>
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase mb-4">REDES SOCIALES</h5>
+					<ul class="list-unstyled">
+						<li><p>
+								<i class="fas fa-map-marker-alt pe-6 col-md-6 col-lg-6"></i>INSTAGRAM:
+								@garbigunneSL
+							</p></li>
+						<li><p>
+								<i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>YOUTUBE:
+								@garbigunneSL
+							</p></li>
+						<li><p>
+								<i class="fas fa-envelope pe-6 mb-0 col-md-6 col-lg-6"></i>TIKTOK:
+								@garbigunneSL
+							</p></li>
+					</ul>
+				</div>
 			</footer>
 		</div>
 	</footer>
-	
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<script src="sidebars.js"></script>
-
+	<script>
+		function checkRole(id_cliente, input) {
+			let checkbox = document.getElementById(`input`);
+			console.log(checkbox.checked);
+			checkbox.setAttribute("checked", "checked");
+			console.log(checkbox.checked);
+		}
+	</script>
 </html>

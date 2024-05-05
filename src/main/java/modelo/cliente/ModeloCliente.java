@@ -24,6 +24,7 @@ public class ModeloCliente {
 				cliente.setApellido(rst.getString("APELLIDO"));
 				cliente.setUsuario(rst.getString("USUARIO"));
 				cliente.setContrasena(rst.getString("CONTRASENA"));
+				cliente.setRol(rst.getString("ROL"));
 				clientes.add(cliente);
 			}
 		} catch (Exception e) {
@@ -31,14 +32,15 @@ public class ModeloCliente {
 		}
 		return clientes;
 	}
-	public void crearCliente(String nombre, String apellido, String usuario, String contrasena) {
-		String sql = "INSERT INTO CLIENTES (NOMBRE,APELLIDO,USUARIO,CONTRASENA) VALUES (?,?,?,?)";
+	public void crearCliente(String nombre, String apellido, String usuario, String contrasena, String rol) {
+		String sql = "INSERT INTO CLIENTES (NOMBRE,APELLIDO,USUARIO,CONTRASENA,ROL) VALUES (?,?,?,?,?)";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setString(1, nombre);
 			prst.setString(2, apellido);
 			prst.setString(3, usuario);
 			prst.setString(4, contrasena);
+			prst.setString(5, rol);
 			prst.executeUpdate();
 			Conector.getConexion().close();
 		} catch (Exception e) {
@@ -69,6 +71,7 @@ public class ModeloCliente {
 				cliente.setApellido(rst.getString("APELLIDO"));
 				cliente.setUsuario(rst.getString("USUARIO"));
 				cliente.setContrasena(rst.getString("CONTRASENA"));
+				cliente.setRol(rst.getString("ROL"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,15 +80,16 @@ public class ModeloCliente {
 	}
 	
 	public void actualizarCliente(String nombreCliente, String apellido, String usuario, String contrasena,
-			int id_cliente) {
-		String sql = "UPDATE CLIENTES SET NOMBRE=?, APELLIDO=?, USUARIO=?, CONTRASENA=? WHERE ID_CLIENTE = ?";
+			int id_cliente, String tipo_usuario) {
+		String sql = "UPDATE CLIENTES SET NOMBRE=?, APELLIDO=?, USUARIO=?, CONTRASENA=?, ROL = ? WHERE ID_CLIENTE = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setString(1, nombreCliente);
 			prst.setString(2, apellido);
 			prst.setString(3, usuario);
 			prst.setString(4, contrasena);
-			prst.setInt(5, id_cliente);
+			prst.setString(5, tipo_usuario);
+			prst.setInt(6, id_cliente);
 			prst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,6 +109,7 @@ public class ModeloCliente {
 				cliente.setApellido(rst.getString("APELLIDO"));
 				cliente.setUsuario(rst.getString("USUARIO"));
 				cliente.setContrasena(rst.getString("CONTRASENA"));
+				cliente.setRol(rst.getString("ROL"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

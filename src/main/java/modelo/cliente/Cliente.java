@@ -6,7 +6,21 @@ public class Cliente {
 	private String apellido;
 	private String usuario;
 	private String contrasena;
+	private String rol;
 	
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	public int getId_cliente() {
 		return id_cliente;
 	}
@@ -40,8 +54,8 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Clientes [id_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", usuario="
-				+ usuario + ", contrasena=" + contrasena + "]";
+		return "Cliente [id_cliente=" + id_cliente + ", nombre=" + nombre + ", apellido=" + apellido + ", usuario="
+				+ usuario + ", contrasena=" + contrasena + ", rol=" + rol + "]";
 	}
 	
 }

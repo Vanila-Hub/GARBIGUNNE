@@ -32,25 +32,32 @@ public class Garbigunne_Validacion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String usuario = request.getParameter("usuario");
-		String contrasena = request.getParameter("contrasena");
-		
-		//pedir correo a la BBDD
-		ModeloCliente modelo_cliente = new ModeloCliente();
-		Cliente cliente =  modelo_cliente.getClientelByUsuario(usuario);
-		
-		//si el password del usuario es el mismo que el password recibido por form	
-		if(usuario != null && cliente.getContrasena().equals(contrasena)) {
-			//enviar al index de productos
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/Paneles_control/clienteProducto/indexProductos.jsp");
-			
-		}else {
-			//si no al home
-			response.sendRedirect("http://localhost:8080/Garbigune_reto/home");
-		}
 	
+		String usuario = (String) request.getParameter("correo");
+		usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
 		
+		
+		String contrasena = (String) request.getParameter("contrasena");
+		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
+		
+		ModeloCliente modelo_cliente = new ModeloCliente();
+		
+		Cliente cliente = modelo_cliente.getClientelByUsuario(usuario);
+		
+		if (cliente.getUsuario() != null) {
+			if (cliente.getUsuario().equals(usuario) && cliente.getContrasena().equalsIgnoreCase(contrasena) &&cliente.getRol().equals("admin")) {
+				response.sendRedirect("/Garbigune_reto/VerProveedores?msg=logged");
+				
+			} else if (cliente.getUsuario().equals(usuario) && cliente.getContrasena().equalsIgnoreCase(contrasena) &&cliente.getRol().equals("usuario")){
+				response.sendRedirect("/Garbigune_reto/VerPaginaProductos?msg=logged");
+			} else {
+				request.setAttribute("msg", "wrong_passwd");
+				request.getRequestDispatcher("/Login/").forward(request, response);
+			}		
+		} else {
+			request.setAttribute("msg", "no_data_found");
+			request.getRequestDispatcher("/Login/").forward(request, response);
+		}
 	}
 
 	/**

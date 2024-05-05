@@ -32,8 +32,7 @@ public class Garbigunne_Registrar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/Registrar/").forward(request, response);
-		
+		String rol = "usuario";
 		String nombreCliente = (String) request.getParameter("nombre");
 		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
 		
@@ -48,7 +47,7 @@ public class Garbigunne_Registrar extends HttpServlet {
 		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena);
+		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 		
 		response.sendRedirect("/Garbigune_reto/VerPaginaProductos");
 	}

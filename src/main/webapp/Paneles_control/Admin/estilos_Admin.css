@@ -61,11 +61,11 @@ footer {
 }
 
 .active {
-  background-color: #0aaf10 !important;
+  background-color: #0dac61 !important;
   box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.521);
 }
 .active:hover {
-  background-color: #0aaf10 !important;
+  background-color: #0dac61 !important;
   box-shadow: -3px 3px 8px rgba(155, 149, 149, 0.5);
 }
 
@@ -128,11 +128,12 @@ table.table-design, th,td{
     box-shadow: -3px 8px 10px 0px #8fcf9436;
 }
 .btn-flex{
-  background-color: #1ec925 !important;
+  background-color: #0dac61 !important;
+  color: white !important;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
 }
 .btn-flex:hover{
-  background-color: #12a718 !important;
+  background-color: #0dac61 !important;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
 }
 .btn-flex:active{
@@ -194,4 +195,7 @@ button.btn.btn-secondary, button.btn.btn-secondary>a{
   text-decoration: none !important;
   color: white !important;
   background-color: #0aaf10;
+}
+.form-check-input:checked{
+	background-color: #0aaf10 !important;
 }

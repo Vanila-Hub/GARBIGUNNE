@@ -35,6 +35,7 @@ public class UpdateClientes extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		boolean rol = false;
 		int id_CLiente = Integer.parseInt(request.getParameter("id_cliente"));
 		String nombreCliente = (String) request.getParameter("nombre");
 		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
@@ -49,8 +50,10 @@ public class UpdateClientes extends HttpServlet {
 		String contrasena = (String) request.getParameter("contrasena");
 		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 		
+		String tipo_usuario = (String) request.getParameter("tipo-usuario");
+
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_CLiente);
+		modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_CLiente,tipo_usuario);
 		//volvera el /plantas
 		response.sendRedirect("/Garbigune_reto/VerClientes");
 	}
