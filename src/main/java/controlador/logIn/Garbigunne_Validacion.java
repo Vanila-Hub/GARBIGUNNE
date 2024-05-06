@@ -69,5 +69,4 @@ public class Garbigunne_Validacion extends HttpServlet {
 			request.getRequestDispatcher("/Login/").forward(request, response);
 		}
 	}
-
 }

@@ -31,8 +31,6 @@
         <div class="contenedor">
             <form action="/Garbigune_reto/registrarse"
 									method="post">
-									<input type="text" class="form-control d-none" name="opcion"
-										value="cliente">
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Nombre</label> <input
 											type="text" class="form-control" id="exampleInput"
