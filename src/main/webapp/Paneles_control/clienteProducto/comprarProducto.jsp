@@ -81,8 +81,7 @@
 					<div class="modal-footer flex-nowrap p-0">
 						<button type="button"
 							class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end">
-							<a href="/Garbigune_reto/Pagar??id_producto=${producto.id_producto}&id_cliente=${id_cliente}"></a>
-
+							<a href="/Garbigune_reto/Pagar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"><strong>Si, deseo Realizar el pago</strong></a>
 						</button>
 						<button type="button"
 							class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
