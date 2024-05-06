@@ -32,33 +32,34 @@ public class Garbigunne_Registrar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String rol = "usuario";
-		String nombreCliente = (String) request.getParameter("nombre");
-		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
-		
-		String apellido = (String) request.getParameter("apellido");
-		apellido = apellido.contains("+")?apellido.replaceAll("+", " "): apellido;
-		
-		String usuario = (String) request.getParameter("usuario");
-		usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
-		
-		
-		String contrasena = (String) request.getParameter("contrasena");
-		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
-		
-		ModeloCliente modelo_cliente = new ModeloCliente();
-		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
-		
-		response.sendRedirect("Garbigune_reto/VerPaginaProductos");
-		
+		request.getRequestDispatcher("Registrar/index.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String nombreCliente = (String) request.getParameter("nombre");
+		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
+
+		String apellido = (String) request.getParameter("apellido");
+		apellido = apellido.contains("+")?apellido.replaceAll("+", " "): apellido;
+
+		String usuario = (String) request.getParameter("usuario");
+		usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
+
+
+		String contrasena = (String) request.getParameter("contrasena");
+		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
+		
+		String rol = "usuario";
+		
+		ModeloCliente modelo_cliente = new ModeloCliente();
+		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
+		
+
+		response.sendRedirect("/Garbigune_reto/VerPaginaProductos?msg=logged");
 	}
 
 }
