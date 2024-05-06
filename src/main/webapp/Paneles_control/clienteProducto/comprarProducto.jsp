@@ -60,12 +60,6 @@
 							<p class="card-text">${producto.descripcion}</p>
 							<h5>${producto.precio}$</h5>
 							<hr>
-							<div class="mb-3">
-							<form action="/Garbigune_reto/Comprar">
-								<label for="cantidad" class="form-label">Cantidad</label>
-								 <input type="number" class="form-control" name="cantidad">
-							</form>
-							</div>
 							<button type="button" class="btn btn-flex" data-bs-toggle="modal"
 								data-bs-target="#exampleModal">Pagar</button>
 						</div>
@@ -87,8 +81,7 @@
 					<div class="modal-footer flex-nowrap p-0">
 						<button type="button"
 							class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end">
-							<button type="submit" class="btn btn-primary" id="liveToastBtn"><strong>Si, quiero proceder con mi compra</strong></button>
-								
+							<a href="/Garbigune_reto/Pagar??id_producto=${producto.id_producto}&id_cliente=${id_cliente}"></a>
 
 						</button>
 						<button type="button"

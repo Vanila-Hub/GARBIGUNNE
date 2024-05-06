@@ -96,22 +96,7 @@
 							<img src="./img/botella.jpg" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h5 class="card-title">BOTELLAS</h5>
-								<p class="card-text">Botellas de plástico.</p>
-								<h5>0,50 €</h5>
-								<hr>
-								<button type="button" class="btn btn-flex plus"
-									data-bs-toggle="modal" data-bs-target="#exampleModal">
-									Comprar
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-3">
-						<div class="card" id="card">
-							<img src="./img/botella.jpg" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">BOTELLAS</h5>
-								<p class="card-text">Botellas de plástico.</p>
+								<p class="card-text">Botellas de plastico.</p>
 								<h5>0,50 €</h5>
 								<hr>
 								<button type="button" class="btn btn-flex plus"
@@ -141,7 +126,22 @@
 							<img src="./img/botella.jpg" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h5 class="card-title">BOTELLAS</h5>
-								<p class="card-text">Botellas de plástico.</p>
+								<p class="card-text">Botellas de plastico.</p>
+								<h5>0,50 €</h5>
+								<hr>
+								<button type="button" class="btn btn-flex plus"
+									data-bs-toggle="modal" data-bs-target="#exampleModal">
+									Comprar
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-3">
+						<div class="card" id="card">
+							<img src="./img/botella.jpg" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">BOTELLAS</h5>
+								<p class="card-text">Botellas de plastico.</p>
 								<h5>0,50 €</h5>
 								<hr>
 								<button type="button" class="btn btn-flex plus"
