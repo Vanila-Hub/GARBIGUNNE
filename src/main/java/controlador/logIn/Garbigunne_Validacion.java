@@ -44,7 +44,10 @@ public class Garbigunne_Validacion extends HttpServlet {
 		
 		Cliente cliente = modelo_cliente.getClientelByUsuario(usuario);
 		
-		if (cliente.getUsuario() != null) {
+		FormValidador valitator = new FormValidador();
+		boolean usuarioValido = valitator.usuarioEsValido(cliente);
+		
+		if (usuarioValido == true) {
 			if (cliente.getUsuario().equals(usuario) && cliente.getContrasena().equalsIgnoreCase(contrasena) &&cliente.getRol().equals("admin")) {
 				response.sendRedirect("/Garbigune_reto/VerProveedores?msg=logged");
 				
