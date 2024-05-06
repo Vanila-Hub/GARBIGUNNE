@@ -59,7 +59,7 @@ public class VerPaginaProductos extends HttpServlet {
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
-		//volvera el /productos  y gfuardar sus atributos
+		//volvera el /productos  y guardar sus atributos
 		request.setAttribute("nombre", cliente.getNombre());
 		request.setAttribute("apellido", cliente.getApellido());
 		request.setAttribute("usuario", cliente.getUsuario());

@@ -59,7 +59,7 @@ public class Garbigunne_Registrar extends HttpServlet {
 		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 		
 
-		response.sendRedirect("/Garbigune_reto/VerPaginaProductos?msg=logged");
+		response.sendRedirect("/Garbigune_reto/VerPaginaProductos?id_cliente=" + 0);
 	}
 
 }

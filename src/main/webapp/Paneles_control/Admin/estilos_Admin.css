@@ -199,3 +199,21 @@ button.btn.btn-secondary, button.btn.btn-secondary>a{
 .form-check-input:checked{
 	background-color: #0aaf10 !important;
 }
+
+@media(min-width: 900px){
+
+footer{
+	background-color: #0dac61 !important;
+  	backdrop-filter: blur(2px);
+  	position: relative;
+  	width:70%;
+  	align-self: flex-end;
+	}
+}
+
+
+
+
+
+
+
