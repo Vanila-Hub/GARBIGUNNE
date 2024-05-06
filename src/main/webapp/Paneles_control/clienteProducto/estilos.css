@@ -117,7 +117,7 @@ a.nav-link {
 }
 a > strong {
   color: #013205;
-  font-size: 20px;
+  font-size: 15px;
   margin-left: 3rem;
 }
 .card-img-top{
@@ -152,6 +152,36 @@ div.contenedor{
   scale: 2.2;
   width: 7rem;
   height: 1.5rem;
+}
+
+
+button.btn.btn-secondary, button.btn.btn-secondary>a{
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #0aaf10;
+}
+a{
+  text-decoration: none !important;
+  color: grey !important;
+}
+.btn-flex{
+  background-color: #0dac61 !important;
+  color: white !important;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+}
+.btn-flex:hover{
+  background-color: #0dac61 !important;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+}
+.btn-flex:active{
+  background-color: #0a490c !important;
+  border: 1px solid #013205;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+}
+.trash:hover, button.trash >a>i:hover{
+  background-color: #910c0c !important;
+  color: white !important;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
 }
 @media (width >= 200px) and (width <= 500px){
   .peca{

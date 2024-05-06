@@ -57,7 +57,7 @@
 									<p class="card-text">${producto.descripcion}</p>
 									<h5>${producto.precio}$</h5>
 									<hr>
-									<a href="#" class="btn btn-primary">COMPRAR</a>
+									 <a href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}" class="btn btn-flex">COMPRAR</a>
 								</div>
 							</div>
 						</div>

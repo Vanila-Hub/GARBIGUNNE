@@ -10,9 +10,18 @@ public class FormValidador {
 
 	public boolean usuarioEsValido(Cliente cliente) {
 		if (cliente.getNombre() == null || cliente.getNombre().isBlank()) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean rolEsValido(String rol) {
+		if (rol==null || rol.isEmpty()) {
+			return false;
+			
+		} else {
+			return true;
 		}
 	}	
 }

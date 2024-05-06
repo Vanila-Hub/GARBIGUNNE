@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.cliente.ModeloCliente;
 
 /**
@@ -35,7 +36,8 @@ public class UpdateClientes extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean rol = false;
+		String tipo_usuario ="";
+		
 		int id_CLiente = Integer.parseInt(request.getParameter("id_cliente"));
 		String nombreCliente = (String) request.getParameter("nombre");
 		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
@@ -50,9 +52,17 @@ public class UpdateClientes extends HttpServlet {
 		String contrasena = (String) request.getParameter("contrasena");
 		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 		
-		String tipo_usuario = (String) request.getParameter("tipo-usuario");
-
+		String rol = request.getParameter("rol");
+		
 		ModeloCliente modelo_cliente = new ModeloCliente();
+		
+		FormValidador valitator = new FormValidador();
+
+		if (valitator.rolEsValido(rol)) {
+			tipo_usuario="admin";
+		} else {
+			tipo_usuario="usuario";
+		}
 		modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_CLiente,tipo_usuario);
 		//volvera el /plantas
 		response.sendRedirect("/Garbigune_reto/VerClientes");

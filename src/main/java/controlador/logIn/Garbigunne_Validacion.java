@@ -52,7 +52,7 @@ public class Garbigunne_Validacion extends HttpServlet {
 				response.sendRedirect("/Garbigune_reto/VerProveedores?msg=logged");
 				
 			} else if (cliente.getUsuario().equals(usuario) && cliente.getContrasena().equalsIgnoreCase(contrasena) &&cliente.getRol().equals("usuario")){
-				response.sendRedirect("/Garbigune_reto/VerPaginaProductos?msg=logged");
+				response.sendRedirect("/Garbigune_reto/VerPaginaProductos?id_cliente="+ cliente.getId_cliente());
 			} else {
 				request.setAttribute("msg", "wrong_passwd");
 				request.getRequestDispatcher("/Login/").forward(request, response);

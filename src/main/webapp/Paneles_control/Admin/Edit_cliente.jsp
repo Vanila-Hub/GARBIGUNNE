@@ -75,29 +75,17 @@
 								<div class="mb-3">
 									<c:choose>
 										<c:when test="${rol==null || rol=='usuario'}">
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="tipo-usuario" id="inlineRadio1" value="admin">
-												<label class="form-check-label" for="inlineRadio1">Administrador</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="tipo-usuario" id="inlineRadio2" value="usuario" checked >
-												<label class="form-check-label" for="inlineRadio2">Usuario</label>
-											</div>
+											<input class="form-check-input" type="checkbox" name="rol" value="admin"
+												id="flexCheckDefault">
+											<label class="form-check-label" for="flexCheckDefault">
+												Es Admin</label>
 										</c:when>
-										
+
 										<c:otherwise>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="tipo-usuario" id="inlineRadio1" value="admin" checked>
-												<label class="form-check-label" for="inlineRadio1">Administrador</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio"
-													name="tipo-usuario" id="inlineRadio2" value="usuario">
-												<label class="form-check-label" for="inlineRadio2">Usuario</label>
-											</div>
+											<input class="form-check-input" type="checkbox" name="rol" value="es_admin"
+												id="flexCheckDefault" checked>
+											<label class="form-check-label" for="flexCheckDefault">
+												Es Admin</label>
 										</c:otherwise>
 									</c:choose>
 

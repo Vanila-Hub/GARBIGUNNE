@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.cliente.Cliente;
+import modelo.cliente.ModeloCliente;
 import modelo.material.Material;
 import modelo.material.ModeloMaterial;
 import modelo.plantas.ModeloPlanta;
@@ -35,6 +37,12 @@ public class VerPaginaProductos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+		
+		//lalam al modelo para inser
+		ModeloCliente modelo_cliente = new ModeloCliente();
+		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+		
 		ModeloProducto modelo_productos = new ModeloProducto();
 		
 		ArrayList<Producto> productos = modelo_productos.getProductos();
@@ -51,6 +59,13 @@ public class VerPaginaProductos extends HttpServlet {
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
+		//volvera el /productos  y gfuardar sus atributos
+		request.setAttribute("nombre", cliente.getNombre());
+		request.setAttribute("apellido", cliente.getApellido());
+		request.setAttribute("usuario", cliente.getUsuario());
+		request.setAttribute("contrasena", cliente.getContrasena());
+		request.setAttribute("id_cliente", cliente.getId_cliente());
+		request.setAttribute("rol", cliente.getRol());
 		
 		request.getRequestDispatcher("Paneles_control/clienteProducto/indexProductos.jsp").forward(request, response);
 	}

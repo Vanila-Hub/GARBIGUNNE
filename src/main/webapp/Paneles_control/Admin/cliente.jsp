@@ -103,28 +103,7 @@
 								<td>${cliente.apellido}</td>
 								<td>${cliente.usuario}</td>
 								<td>${cliente.contrasena}</td>
-								<td><c:choose>
-										<c:when test="${cliente.rol=='usuario'}">
-											<form action="/Garbigune_reto/actualizarRol">
-												<div class="form-check form-switch">
-													<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled">
-													<input class="d-none" type="submit" role="switch" id="flexSwitchCheckCheckedDisabled">
-													<label class="form-check-label"
-														for="flexSwitchCheckCheckedDisabled">Admin</label>
-												</div>
-											</form>
-										</c:when>
-										<c:otherwise>
-											<form action="/Garbigune_reto/actualizarRol">
-												<div class="form-check form-switch">
-													<input class="form-check-input" type="checkbox"
-														role="switch" id="flexSwitchCheckCheckedDisabled" checked>
-													<label class="form-check-label"
-														for="flexSwitchCheckCheckedDisabled">Admin</label>
-												</div>
-											</form>
-										</c:otherwise>
-									</c:choose></td>
+								<td>${cliente.rol}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<button type="button" class="btn btn-flex">
