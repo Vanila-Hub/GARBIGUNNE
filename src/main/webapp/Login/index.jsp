@@ -42,7 +42,7 @@
 		<div class="alert alert-danger" role="alert">Contraseña o correo incorrectos</div>
 		</c:when>
 		</c:choose>
-			<form action="/Garbigune_reto/acces" method="get">
+			<form action="/Garbigune_reto/acces" method="post">
 				<div class="mb-3">
 					<label for="exampleInputEmail1" class="form-label">Correo</label> <input
 						type="email" class="form-control" id="exampleInputEmail1"

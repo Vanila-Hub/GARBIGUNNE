@@ -33,6 +33,13 @@ public class Garbigunne_Validacion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String usuario = (String) request.getParameter("correo");
 		usuario = usuario.contains("%40")?usuario.replaceAll("%40", "@"):usuario;
 		
@@ -61,12 +68,6 @@ public class Garbigunne_Validacion extends HttpServlet {
 			request.setAttribute("msg", "no_data_found");
 			request.getRequestDispatcher("/Login/").forward(request, response);
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }
