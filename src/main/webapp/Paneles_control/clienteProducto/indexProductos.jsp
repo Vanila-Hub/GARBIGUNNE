@@ -57,6 +57,7 @@
 									<p class="card-text">${producto.descripcion}</p>
 									<h5>${producto.precio}$</h5>
 									<hr>
+									<a href="#" class="btn btn-primary">COMPRAR</a>
 								</div>
 							</div>
 						</div>
