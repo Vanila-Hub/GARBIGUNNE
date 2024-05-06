@@ -42,8 +42,14 @@ public class PagarProducto extends HttpServlet {
 		
 		if (valitator.CompraValida(id_cliente,idProducto)) {
 			modelo_venta.registrarCompra(id_cliente,idProducto,cantidad);
+			
+			request.setAttribute("msg", "compra_realizada");
+			request.setAttribute("id_cliente", id_cliente);
+			
+			request.getRequestDispatcher("/VerPaginaProductos").forward(request, response);
+//			response.sendRedirect("/Garbigune_reto/VerPaginaProductos?id_cliente=" +  + "&msg=");
 		} else {
-			response.sendRedirect("Garbigune_reto/Comprar?id_producto=" + idProducto + "&&" + "id_cliente=" + id_cliente);
+			response.sendRedirect("/Garbigune_reto/Comprar?id_producto=" + idProducto + "&" + "id_cliente=" + id_cliente);
 		}
 	}
 

@@ -34,6 +34,7 @@ public class ComprarProducto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idProducto = Integer.parseInt(request.getParameter("id_producto"));
+		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
 	    // Llamada al modelo para obtener el producto por su ID
 	    ModeloProducto modeloProducto = new ModeloProducto();
 	    Producto producto = modeloProducto.getProductoByID(idProducto);
@@ -44,7 +45,7 @@ public class ComprarProducto extends HttpServlet {
 
 	    request.setAttribute("plantas", Plantas);
 	    request.setAttribute("producto", producto);
-	    
+	    request.setAttribute("id_cliente", id_cliente);
 		request.getRequestDispatcher("Paneles_control/clienteProducto/comprarProducto.jsp").forward(request, response);
 	}
 

@@ -32,16 +32,23 @@
 			<div class="container-fluid ">
 				<a class="navbar-brand d-flex flex-row justify-between" href="#">
 					<div class="imgDiv">
-						<img src="Paneles_control/clienteProducto/img/logo_garbigunne.png" alt="logo" class="logo">
+						<img src="Paneles_control/clienteProducto/img/logo_garbigunne.png"
+							alt="logo" class="logo">
 					</div>
 				</a>
 				<div class="peca">
-					<i class="bi bi-person-circle"></i> <i class="bi bi-cart3"></i>
+					<a href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}"><i class="bi bi-person-circle"></i></a>
 				</div>
 			</div>
 		</nav>
 	</header>
 	<main>
+		<c:choose>
+			<c:when test="${msg=='compra_realizada'}">
+				<div class="alert alert-success" role="alert">Compra Realizada
+					Exitosamente</div>
+			</c:when>
+		</c:choose>
 		<div class="contenedor">
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="b-example-divider b-example-vr"></div>
@@ -57,7 +64,9 @@
 									<p class="card-text">${producto.descripcion}</p>
 									<h5>${producto.precio}$</h5>
 									<hr>
-									 <a href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}" class="btn btn-flex">COMPRAR</a>
+									<a
+										href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
+										class="btn btn-flex">COMPRAR</a>
 								</div>
 							</div>
 						</div>

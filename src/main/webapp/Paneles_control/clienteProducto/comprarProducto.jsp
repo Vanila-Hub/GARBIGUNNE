@@ -37,7 +37,7 @@
 					</div>
 				</a>
 				<div class="peca">
-					<i class="bi bi-person-circle"></i> <i class="bi bi-cart3"></i>
+					<a href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}"><i class="bi bi-person-circle"></i></a>
 				</div>
 			</div>
 		</nav>
