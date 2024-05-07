@@ -1,7 +1,8 @@
 package controlador.productos;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,22 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.plantas.ModeloPlanta;
-import modelo.plantas.Planta;
+import controlador.formValidador.FormValidador;
 import modelo.productos.ModeloProducto;
-import modelo.productos.Producto;
+import modelo.ventas.ModeloVenta;
 
 /**
- * Servlet implementation class ComprarProducto
+ * Servlet implementation class PagarProducto
  */
-@WebServlet("/Comprar")
-public class ComprarProducto extends HttpServlet {
+@WebServlet("/Pagar")
+public class PagarProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ComprarProducto() {
+    public PagarProducto() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,20 +33,24 @@ public class ComprarProducto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idProducto = Integer.parseInt(request.getParameter("id_producto"));
 		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
-	    // Llamada al modelo para obtener el producto por su ID
-	    ModeloProducto modeloProducto = new ModeloProducto();
-	    Producto producto = modeloProducto.getProductoByID(idProducto);
+		int idProducto = Integer.parseInt(request.getParameter("id_producto"));
+		int cantidad = 1;
 
-	    /* TRAEMOS LAS PLANTAS */
-	    ModeloPlanta modelo_Planta = new ModeloPlanta();
-	    ArrayList<Planta> Plantas = modelo_Planta.getPlantas();
-
-	    request.setAttribute("plantas", Plantas);
-	    request.setAttribute("producto", producto);
-	    request.setAttribute("id_cliente", id_cliente);
-		request.getRequestDispatcher("Paneles_control/clienteProducto/comprarProducto.jsp").forward(request, response);
+		FormValidador valitator = new FormValidador();
+		ModeloVenta modelo_venta = new ModeloVenta();
+		
+		if (valitator.CompraValida(id_cliente,idProducto)) {
+			modelo_venta.registrarCompra(id_cliente,idProducto,cantidad);
+			
+			request.setAttribute("msg", "compra_realizada");
+			request.setAttribute("id_cliente", id_cliente);
+			
+			request.getRequestDispatcher("/VerPaginaProductos").forward(request, response);
+//			response.sendRedirect("/Garbigune_reto/VerPaginaProductos?id_cliente=" +  + "&msg=");
+		} else {
+			response.sendRedirect("/Garbigune_reto/Comprar?id_producto=" + idProducto + "&" + "id_cliente=" + id_cliente);
+		}
 	}
 
 	/**

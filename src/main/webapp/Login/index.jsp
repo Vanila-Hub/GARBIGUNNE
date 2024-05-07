@@ -73,12 +73,14 @@
 
 		<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
 			<li class="ms-3"><a class="text-body-secondary" href="#"><i
-					class="bi bi-threads-fill"></i></li>
-			<li class="ms-3"><a class="text-body-secondary" href="#"><i
 					class="bi bi-instagram"></i></a></li>
 			<li class="ms-3"><a class="text-body-secondary" href="#"><i
-					class="bi bi-whatsapp"></i></li>
+					class="bi bi-tiktok"></i></li>
+			<li class="ms-3"><a class="text-body-secondary" href="#"><i
+					class="bi bi-twitter"></i></li>
+			
 		</ul>
+
 	</footer>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

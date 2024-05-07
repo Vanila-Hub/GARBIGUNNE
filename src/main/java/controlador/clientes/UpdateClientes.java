@@ -65,7 +65,13 @@ public class UpdateClientes extends HttpServlet {
 		}
 		modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_CLiente,tipo_usuario);
 		//volvera el /plantas
-		response.sendRedirect("/Garbigune_reto/VerClientes");
+		if (request.getParameter("peticion")==null || request.getParameter("peticion") == "") {
+			response.sendRedirect("/Garbigune_reto/VerClientes");
+		} else {
+			request.setAttribute("id_cliente", id_CLiente);
+			request.getRequestDispatcher("/VerPaginaProductos").forward(request, response);
+		}
+		
 	}
 
 }

@@ -23,5 +23,14 @@ public class FormValidador {
 		} else {
 			return true;
 		}
+	}
+
+	public boolean CompraValida(int id_cliente, int idProducto) {
+		if (id_cliente >=0 && idProducto >=0) {
+			return true;
+		} else {
+			return false;
+		}
+		
 	}	
 }

@@ -100,6 +100,20 @@ public class ModeloVenta {
 		}
 		
 	}
+	public void registrarCompra(int id_cliente, int idProducto, int cantidad) {
+		//llamamos al procedure el cual va a registrar una venta con los parametros del cliente el producto y la cantidad
+		String sql = "call Garbigunne.AutoRegistrar_Ventas(?,?,?);";
+		try {
+			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
+			prst.setInt(1, id_cliente);
+			prst.setInt(2, idProducto);
+			prst.setInt(3, cantidad);
+			prst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 }
