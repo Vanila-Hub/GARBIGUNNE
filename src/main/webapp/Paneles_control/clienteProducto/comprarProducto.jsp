@@ -30,7 +30,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid ">
-				<a class="navbar-brand d-flex flex-row justify-between" href="#">
+				<a class="navbar-brand d-flex flex-row justify-between" href="/Garbigune_reto/home">
 					<div class="imgDiv">
 						<img src="Paneles_control/clienteProducto/img/logo_garbigunne.png"
 							alt="logo" class="logo">
