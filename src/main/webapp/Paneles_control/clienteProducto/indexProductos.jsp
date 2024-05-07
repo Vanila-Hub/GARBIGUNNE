@@ -30,14 +30,16 @@
 	<header>
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid ">
-				<a class="navbar-brand d-flex flex-row justify-between" href="/Garbigune_reto/home">
+				<a class="navbar-brand d-flex flex-row justify-between"
+					href="/Garbigune_reto/home">
 					<div class="imgDiv">
 						<img src="Paneles_control/clienteProducto/img/logo_garbigunne.png"
 							alt="logo" class="logo">
 					</div>
 				</a>
-				<div class="peca">
-					<a href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}"><i class="bi bi-person-circle"></i></a>
+				<div class="peca d-flex flex-row gap-2 text-white">
+					<a href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}"><i
+						class="bi bi-person-circle text-white"></i></a> <strong class="align-self-center">${nombre}</strong>
 				</div>
 			</div>
 		</nav>
@@ -62,7 +64,7 @@
 								<div class="card-body">
 									<h5 class="card-title">${producto.nombre}</h5>
 									<strong class="text">${producto.descripcion}</strong>
-									<h5 >${producto.precio}$</h5>
+									<h5>${producto.precio}$</h5>
 									<hr>
 									<a
 										href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"

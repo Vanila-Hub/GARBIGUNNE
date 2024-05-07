@@ -123,8 +123,9 @@ a.nav-link {
 	font-size: 20px;
 }
 
-a>strong {
+a>strong,h6 {
 	color: #013205;
+	font-weight: 800;
 	font-size: 15px;
 	margin-left: 3rem;
 }

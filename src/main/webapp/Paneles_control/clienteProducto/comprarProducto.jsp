@@ -81,12 +81,12 @@
 					<div class="modal-footer flex-nowrap p-0">
 						<button type="button"
 							class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end">
-							<a href="/Garbigune_reto/Pagar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"><strong>Si, deseo Realizar el pago</strong></a>
+							<a href="/Garbigune_reto/Pagar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"><h6>Si, deseo Realizar el pago</h6></a>
 						</button>
 						<button type="button"
 							class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
 							data-bs-dismiss="modal">
-							<a href="/Garbigune_reto/VerPaginaProductos">Cancelar Pago</a>
+							<a href="/Garbigune_reto/VerPaginaProductos?id_cliente=${id_cliente}">Cancelar Pago</a>
 						</button>
 					</div>
 				</div>
