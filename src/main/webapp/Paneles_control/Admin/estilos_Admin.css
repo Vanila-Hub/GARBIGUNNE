@@ -105,6 +105,7 @@ a.dropdown-item:hover {
 	transition: ease-in 0.3s;
 }
 
+
 .contenedor {
 	display: flex;
 	flex-direction: row;
@@ -116,6 +117,7 @@ a.dropdown-item:hover {
 	height: 100%;
 	position: relative;
 }
+
 
 a.nav-link {
 	color: #013205;
