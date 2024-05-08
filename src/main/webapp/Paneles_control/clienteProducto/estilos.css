@@ -230,4 +230,10 @@ strong {
     background-color: white;
     color: black !important;
 }
+.comprar{
+	color: red !important;
+}
+.agotado{
+	color: red !important;
+}
 

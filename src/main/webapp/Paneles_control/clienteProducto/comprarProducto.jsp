@@ -68,9 +68,30 @@
 							<h5 class="card-title">${producto.nombre}</h5>
 							<p class="card-text">${producto.descripcion}</p>
 							<h5>${producto.precio}$</h5>
+							<c:choose>
+								<c:when test="${producto.stock >= 1}">
+									<h5 class="card-title">STOCK: ${producto.stock}</h5>
+									<br>
+											<select name="stock" class="form-select" aria_label="Default select example" name="cantidad">
+												<option selected>Cantidad</option>
+												<br>
+												<c:forEach begin="1" step="1" end="${producto.stock}" var="i">
+													<option>${i}</option>
+												</c:forEach>
+											</select>	
+								</c:when>
+								<c:otherwise>
+									<h5 class="card-title agotado">STOCK: ${producto.stock}</h5>
+								</c:otherwise>
+							</c:choose>
 							<hr>
+							
 							<button type="button" class="btn btn-flex" data-bs-toggle="modal"
 								data-bs-target="#exampleModal">Pagar</button>
+							<button type="button" class="btn">
+							<a href="/Garbigune_reto/VerPaginaProductos?id_cliente=${id_cliente}" 
+							class="comprar">Cancelar pedido</a>
+						</button>
 						</div>
 					</div>
 				</div>
