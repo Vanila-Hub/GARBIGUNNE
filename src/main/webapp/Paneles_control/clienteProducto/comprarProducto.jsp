@@ -86,6 +86,7 @@
 							</c:choose>
 							<hr>
 							
+							
 							<button type="button" class="btn btn-flex" data-bs-toggle="modal"
 								data-bs-target="#exampleModal">Pagar</button>
 							<button type="button" class="btn">
