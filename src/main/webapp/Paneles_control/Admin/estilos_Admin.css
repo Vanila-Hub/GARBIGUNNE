@@ -105,6 +105,7 @@ a.dropdown-item:hover {
 	transition: ease-in 0.3s;
 }
 
+
 .contenedor {
 	display: flex;
 	flex-direction: row;
