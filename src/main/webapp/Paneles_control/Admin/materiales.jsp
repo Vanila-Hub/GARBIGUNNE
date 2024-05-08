@@ -40,7 +40,7 @@
 	<div class="contenedor">
 		<div class="sidebar aside">
 			 <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                        <strong class="fs-4">Gestores</strong>
+                        
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">

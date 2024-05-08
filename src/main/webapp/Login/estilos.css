@@ -106,16 +106,6 @@ button.btn.btn-secondary:active{
   background-color: inherit;
   border-color: inherit !important;
 }
-@media (min-width: 900px){
-	
-body {
-  background-color: #0dac61 !important;
-  backdrop-filter: blur(2px);
-  position: relative;
-  width:70%;
-  align-self: flex-end;
-}
-	
-}
+
 
 
