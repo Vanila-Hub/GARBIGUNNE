@@ -38,13 +38,21 @@
 					</div>
 				</a>
 				<div class="peca d-flex flex-row gap-2 text-white">
-					<a href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}"><i
-						class="bi bi-person-circle text-white"></i></a> <strong class="align-self-center">${nombre}</strong>
+					
+					<button class="btn btn-flex dropdown-toggle"
+						data-bs-toggle="dropdown" aria-expanded="false"><strong class="align-self-center">${nombre}</strong>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li><a class="dropdown-item" href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}">Editar Perfil</a></li>
+						<li><a class="dropdown-item" href="/Garbigune_reto/home">Cerrar Sesion</a></li>
+					</ul>
+					
 				</div>
 			</div>
 		</nav>
 	</header>
 	<main>
+
 		<c:choose>
 			<c:when test="${msg=='compra_realizada'}">
 				<div class="alert alert-success" role="alert">Compra Realizada

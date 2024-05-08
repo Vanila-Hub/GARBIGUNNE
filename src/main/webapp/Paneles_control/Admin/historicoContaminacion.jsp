@@ -41,7 +41,6 @@
 		<div class="sidebar aside">
 			<a href="/Garbigune_reto/home"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-				
 			</a>
 			<hr>
 			<ul class="nav nav-pills flex-column mb-auto">
@@ -78,7 +77,49 @@
 			<hr>
 
 		</div>
-		<main class="row">
+
+		<div class="d-flex flex-column flex-shrink-0 bg-body-tertiary"
+			style="width: 4.5rem;">
+			<a href="/"
+				class="d-block p-3 link-body-emphasis text-decoration-none"
+				data-bs-toggle="tooltip" data-bs-placement="right"
+				data-bs-original-title="Icon-only"> <svg class="bi pe-none"
+					width="40" height="32">
+					<use xlink:href="#bootstrap"></use></svg> <span class="visually-hidden">Icon-only</span>
+			</a>
+			<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+				<li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
+					class="nav-link" aria-current="page"> <i
+						class="bi bi-truck-flatbed"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerPlantas" class="nav-link">
+						<i class="bi bi-house-gear-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerSuministros" class="nav-link">
+						<i class="bi bi-diagram-3-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerMateriales" class="nav-link ">
+						<i class="bi bi-tree-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
+						<i class="bi bi-box-seam-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
+						<i class="bi bi-fire"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerClientes"
+					class="nav-link "> <i class="bi bi-people-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
+						<i class="bi bi-handbag-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link active">
+						<i class="bi bi-graph-up"></i>
+				</a></li>
+			</ul>
+		</div>
+
+		<main class="row mb-5">
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
 				<a href="/Garbigune_reto/VerHistorico" class="btn btn-flex plus">
@@ -97,8 +138,8 @@
 						<tr>
 							<th scope="col">ID Historico</th>
 							<th scope="col">Mes</th>
-							<th scope="col">ID Planta</th>
-							<th scope="col">ID Material</th>
+							<th scope="col">Planta</th>
+							<th scope="col">Material</th>
 							<th scope="col">Porcentaje de Contaminacion</th>
 						</tr>
 					</thead>
@@ -107,8 +148,10 @@
 							<tr>
 								<th scope="row">${historicoEmision.id_Historico}</th>
 								<td>${historicoEmision.fecha}</td>
-								<td><a href="/Garbigune_reto/editarPlanta?id=${historicoEmision.id_Planta}">${historicoEmision.id_Planta}</a></td>
-								<td><a href="/Garbigune_reto/editarMaterial?id_material=${historicoEmision.id_Material}">${historicoEmision.id_Material}</a></td>
+								<td><a
+									href="/Garbigune_reto/editarPlanta?id=${historicoEmision.id_Planta}">${historicoEmision.id_Planta}</a></td>
+								<td><a
+									href="/Garbigune_reto/editarMaterial?id_material=${historicoEmision.id_Material}">${historicoEmision.id_Material}</a></td>
 								<td>${historicoEmision.porcentajeContaminacion}</td>
 							</tr>
 						</c:forEach>
