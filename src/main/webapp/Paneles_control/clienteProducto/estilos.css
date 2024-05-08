@@ -161,9 +161,11 @@ div.contenedor {
 }
 
 .peca {
-	scale: 2.2;
-	width: 7rem;
-	height: 1.5rem;
+    width: 7rem;
+    position: relative;
+    height: 1.5rem;
+    left: -2rem;
+    font-size: 6px;
 }
 
 button.btn.btn-secondary, button.btn.btn-secondary>a {
@@ -215,12 +217,17 @@ strong {
     overflow: hidden
 }
 
-@media ( width >= 200px) and (width <= 500px) {
-	.peca {
-		display: flex;
-		justify-content: flex-end;
-		scale: 1.7;
-		width: 15rem;
-		height: 1.5rem;
-	}
+.btn.show{
+	background-color: #0a490c !important;
+	color: white !important;
 }
+.dropdown-menu.show{
+    display: block;
+    background-color: white;
+}
+.dropdown-menu.show > a {
+    display: block;
+    background-color: white;
+    color: black !important;
+}
+
