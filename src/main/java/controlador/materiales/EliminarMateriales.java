@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.material.ModeloMaterial;
 
-
 /**
  * Servlet implementation class EliminarMateriales
  */
-
+@WebServlet("/EliminarMateriales")
 public class EliminarMateriales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,14 +28,12 @@ public class EliminarMateriales extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		int id_material = Integer.parseInt(request.getParameter("id"));
 		
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		modelo_material.borrarMaterialByID (id_material);
 		
-		response.sendRedirect("/Garbigune_reto/VerMateriales");			
-
+		response.sendRedirect("/Garbigune_reto/VerMateriales");		
 	}
 
 	/**

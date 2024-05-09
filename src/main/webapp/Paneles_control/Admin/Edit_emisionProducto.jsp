@@ -56,24 +56,6 @@
                                         </c:forEach>
                                     </select>
                                 </div>
-                                
-                                <div class="mb-3">
-                                    <label for="id_material" class="form-label">Material</label>
-                                    <select class="form-select" aria-label="Default select example" name="id_material">
-                                        <option>Seleccionar Material</option>
-                                        <c:forEach items="${materiales}" var="material">
-                                            <c:choose>
-                                                <c:when test="${material.id_material == id_material}">
-                                                    <option value="${material.id_material}" selected>${material.tipo}</option>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <option value="${material.id_material}">${material.tipo}</option>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                
                                 <div class="mb-3">
                                     <label for="emision_generada" class="form-label">Emision Generada</label>
                                     <input type="text" class="form-control" name="emision_generada" value="${emision_generada}" disabled>
