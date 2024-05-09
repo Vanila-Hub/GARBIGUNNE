@@ -41,11 +41,10 @@ public class UpadateEmisionProductos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idEmision = Integer.parseInt(request.getParameter("id_emision"));
         int idProducto = Integer.parseInt(request.getParameter("id_producto"));
-        int idMaterial = Integer.parseInt(request.getParameter("id_material"));
         Date fecha = Date.valueOf(request.getParameter("fecha"));
         
         ModeloEmisionProducto modelo_emision_producto = new ModeloEmisionProducto();
-        modelo_emision_producto.actualizarEmisionProducto(idEmision, idProducto, idMaterial, idEmision, fecha);
+        modelo_emision_producto.actualizarEmisionProducto(idEmision, idProducto, fecha);
         
         response.sendRedirect("/Garbigune_reto/VerEmisiones");
 	}

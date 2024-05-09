@@ -35,13 +35,13 @@ public class PagarProducto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
 		int idProducto = Integer.parseInt(request.getParameter("id_producto"));
-		int cantidad = 1;
+		int stock = Integer.parseInt(request.getParameter("stock"));
 
 		FormValidador valitator = new FormValidador();
 		ModeloVenta modelo_venta = new ModeloVenta();
 		
 		if (valitator.CompraValida(id_cliente,idProducto)) {
-			modelo_venta.registrarCompra(id_cliente,idProducto,cantidad);
+			modelo_venta.registrarCompra(id_cliente,idProducto,stock);
 			
 			request.setAttribute("msg", "compra_realizada");
 			request.setAttribute("id_cliente", id_cliente);

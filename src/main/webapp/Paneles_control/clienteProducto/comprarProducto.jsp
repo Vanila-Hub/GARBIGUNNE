@@ -63,14 +63,39 @@
 								alt="{producto.ruta_imagen}">
 						</div>
 					</div>
+					
 					<div class="col-sm-12 col-md-6 col-lg-6">
 						<div class="card-body">
 							<h5 class="card-title">${producto.nombre}</h5>
 							<p class="card-text">${producto.descripcion}</p>
+							<form action="/Garbigune_reto/Pagar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}" method="get">
+							<input type="text" class="form-control d-none" name="id_producto" value="${producto.id_producto}">
+							<input type="text" class="form-control d-none" name="id_cliente" value="${id_cliente}">
+								<c:choose>
+									<c:when test="${producto.stock >= 1}">
+										<h5 class="card-title">STOCK: ${producto.stock}</h5>
+										<br>
+											<select name="stock" class="form-select" aria_label="Default select example" name="cantidad">
+												<option selected>Cantidad</option>
+												<br>
+												<c:forEach begin="1" step="1" end="${producto.stock}" var="i">
+													<option>${i}</option>
+												</c:forEach>
+											</select>	
+									</c:when>
+								<c:otherwise>
+									<h5 class="card-title agotado">STOCK: ${producto.stock}</h5>
+								</c:otherwise>
+							</c:choose>
+							<br>
 							<h5>${producto.precio}$</h5>
 							<hr>
-							<button type="button" class="btn btn-flex" data-bs-toggle="modal"
-								data-bs-target="#exampleModal">Pagar</button>
+							<button type="submit" class="btn btn-flex">Pagar</button>
+							<button type="button" class="btn">
+							<a href="/Garbigune_reto/VerPaginaProductos?id_cliente=${id_cliente}" 
+							class="comprar">Cancelar pedido</a>
+						</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -109,5 +134,4 @@
 		crossorigin="anonymous"></script>
 	<script src="sidebars.js"></script>
 </body>
-
 </html>

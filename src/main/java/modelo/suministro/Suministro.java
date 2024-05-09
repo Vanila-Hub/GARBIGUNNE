@@ -18,9 +18,10 @@ public class Suministro {
 	private String mes;
 	private double cantidad_kg;
 	private double emisiones_proyectadas;
-	private ArrayList<Planta> plantas;
-	private ArrayList<Proveedor> proveedores;
-	private ArrayList<Material> materiales;
+	
+	private Planta planta;
+	private Proveedor proveedor;
+	private Material material;
 	
 	public Suministro() {
 		// TODO Auto-generated constructor stub
@@ -70,46 +71,39 @@ public class Suministro {
 	public void setEmisiones_proyectadas(double Emisiones_esperadas) {
 		this.emisiones_proyectadas = Emisiones_esperadas;
 	}
-
-	public ArrayList<Planta> getPlantas() {
-		ModeloPlanta modelo_planta = new ModeloPlanta();
-		ArrayList<Planta> plantas = modelo_planta.getPlantas();
-		return plantas;
+	
+	public Planta getPlanta() {
+		return planta;
 	}
 
-	public void setPlantas(ArrayList<Planta> plantas) {
-		this.plantas = plantas;
+	public void setPlanta(Planta planta) {
+		this.planta = planta;
 	}
 
-	public ArrayList<Proveedor> getProveedores() {
-		ModeloProveedor modelo_proveedor = new ModeloProveedor();
-		
-		ArrayList<Proveedor> proveedores = modelo_proveedor.getProveedores(); 
-		return proveedores;
+	public Proveedor getProveedor() {
+		return proveedor;
 	}
 
-	public void setProveedores(ArrayList<Proveedor> proveedores) {
-		this.proveedores = proveedores;
+	public void setProveedor(Proveedor proveedor) {
+		this.proveedor = proveedor;
 	}
 
-	public ArrayList<Material> getMateriales() {
-		ModeloMaterial modelo_material = new ModeloMaterial();
-		ArrayList<Material> materiales = modelo_material.getMateriales();
-		return materiales;
+	public Material getMaterial() {
+		return material;
 	}
 
-	public void setMateriales(ArrayList<Material> materiales) {
-		this.materiales = materiales;
+	public void setMaterial(Material material) {
+		this.material = material;
 	}
 
 	@Override
 	public String toString() {
 		return "Suministro [id_suministro=" + id_suministro + ", id_proveedor=" + id_proveedor + ", id_planta="
 				+ id_planta + ", id_material=" + id_material + ", mes=" + mes + ", cantidad_kg=" + cantidad_kg
-				+ ", emisiones_proyectadas=" + emisiones_proyectadas + ", plantas=" + plantas + ", proveedores="
-				+ proveedores + ", materiales=" + materiales + "]";
+				+ ", emisiones_proyectadas=" + emisiones_proyectadas + ", planta=" + planta + ", proveedor=" + proveedor
+				+ ", material=" + material + "]";
 	}
-	
+
 	
 	
 }

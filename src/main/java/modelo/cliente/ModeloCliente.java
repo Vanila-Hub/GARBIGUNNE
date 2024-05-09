@@ -12,7 +12,7 @@ public class ModeloCliente {
 
 	public ArrayList<Cliente> getClientes() {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		String sql = "SELECT * FROM CLIENTES";
+		String sql = "SELECT * FROM CLIENTES ORDER BY(NOMBRE)";
 		try {
 			Connection con = Conector.getConexion();
 			Statement st = con.createStatement();

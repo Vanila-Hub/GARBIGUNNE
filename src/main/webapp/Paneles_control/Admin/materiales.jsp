@@ -39,39 +39,65 @@
 	</header>
 	<div class="contenedor">
 		<div class="sidebar aside">
-			<a href="/Garbigune_reto/home"
-				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-			</a>
-			<hr>
-			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
-					class="nav-link" aria-current="page"> PROVEEDORES <i
-						class="bi bi-truck-flatbed"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerPlantas" class="nav-link">
-						PLANTAS <i class="bi bi-house-gear-fill"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerSuministros" class="nav-link">
-						SUMINISTROS <i class="bi bi-diagram-3-fill"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerMateriales"
-					class="nav-link active"> MATERIALES <i class="bi bi-tree-fill"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
-						PRODUCTOS <i class="bi bi-box-seam-fill"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
-						EMISIONES DE PRODUCTOS <i class="bi bi-fire"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
-						USUARIOS <i class="bi bi-people-fill"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
-						VENTAS <i class="bi bi-handbag-fill"></i>
-				</a></li>
-				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link">
-						HISTORICO <i class="bi bi-graph-up"></i>
-				</a></li>
+			 <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"> 
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="/Garbigune_reto/VerProveedores" class="nav-link"
+                                aria-current="page">
+                                PROVEEDORES
+                                <i class="bi bi-truck-flatbed"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerPlantas" class="nav-link">
+                                PLANTAS
+                                <i class="bi bi-house-gear-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
+                                SUMINISTROS
+                                <i class="bi bi-diagram-3-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerMateriales" class="nav-link active">
+                                MATERIALES
+                                <i class="bi bi-tree-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
+                                PRODUCTOS
+                                <i class="bi bi-box-seam-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link">
+                                EMISIONES DE PRODUCTOS
+                                <i class="bi bi-fire"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerClientes" class="nav-link ">
+                                USUARIOS
+                                <i class="bi bi-people-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerVentas" class="nav-link ">
+                                VENTAS
+                                <i class="bi bi-handbag-fill"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
+                                HISTORICO
+                                <i class="bi bi-graph-up"></i>
+                            </a>
+                        </li>
 			</ul>
 			<hr>
 		</div>
@@ -165,8 +191,7 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">Nombre
-									de Usuario</h1>
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Crear Material</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
