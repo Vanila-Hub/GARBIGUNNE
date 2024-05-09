@@ -2,6 +2,9 @@ package modelo.productos;
 
 import java.sql.Date;
 
+import modelo.material.Material;
+import modelo.plantas.Planta;
+
 public class Producto {
     private int id_producto;
     private int id_material;
@@ -14,6 +17,8 @@ public class Producto {
     private String ruta_imagen;
     private Date fecha;
     
+    private Planta planta;
+    private Material material;
     public Producto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -119,11 +124,34 @@ public class Producto {
 	}
 
 
+	public Planta getPlanta() {
+		return planta;
+	}
+
+
+	public void setPlanta(Planta planta) {
+		this.planta = planta;
+	}
+
+
+	public Material getMaterial() {
+		return material;
+	}
+
+
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Producto [id_producto=" + id_producto + ", id_material=" + id_material + ", nombre=" + nombre
 				+ ", precio=" + precio + ", descripcion=" + descripcion + ", stock=" + stock + ", peso_producto="
 				+ peso_producto + ", id_planta=" + id_planta + ", ruta_imagen=" + ruta_imagen + ", fecha=" + fecha
-				+ "]";
+				+ ", planta=" + planta + ", material=" + material + "]";
 	}
+
+
+
 }

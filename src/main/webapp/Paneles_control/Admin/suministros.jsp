@@ -169,13 +169,13 @@
 							<tr>
 								<th scope="row">${suministro.id_suministro}</th>
 								<td><a
-									href="/Garbigune_reto/editarProveedor?id_proveedor=${suministro.id_proveedor}">${suministro.id_proveedor}</a>
+									href="/Garbigune_reto/editarProveedor?id_proveedor=${suministro.id_proveedor}">${suministro.getProveedor().nombre}</a>
 								</td>
 								<td><a
-									href="/Garbigune_reto/editarPlanta?id=${suministro.id_planta}">${suministro.id_planta}</a>
+									href="/Garbigune_reto/editarPlanta?id=${suministro.id_planta}">${suministro.getPlanta().nombre}</a>
 								</td>
 								<td><a
-									href="/Garbigune_reto/editarMaterial?id_material=${suministro.id_material}">${suministro.id_material}</a>
+									href="/Garbigune_reto/editarMaterial?id_material=${suministro.id_material}">${suministro.getMaterial().tipo}</a>
 								</td>
 								<td>${suministro.mes}</td>
 								<td>${suministro.cantidad_kg}</td>

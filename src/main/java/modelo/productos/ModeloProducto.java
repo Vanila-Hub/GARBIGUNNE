@@ -8,11 +8,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import modelo.Conector;
+import modelo.material.ModeloMaterial;
+import modelo.plantas.ModeloPlanta;
 
 public class ModeloProducto {
 
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> productos = new ArrayList<>();
+		ModeloMaterial mmat = new ModeloMaterial();
+		ModeloPlanta modpla = new ModeloPlanta();
+		
         String sql = "SELECT * FROM PRODUCTOS;";
         
         try {
@@ -32,7 +37,10 @@ public class ModeloProducto {
                 producto.setId_planta(rst.getInt("ID_PLANTA"));
                 producto.setRuta_imagen(rst.getString("RUTA_IMAGEN"));
                 producto.setFecha(rst.getDate("FECHA"));
-
+              
+                //setterar atributos relacionados
+                producto.setMaterial(mmat.getMaterialByID(producto.getId_material()));
+                producto.setPlanta(modpla.getPlantaByID(producto.getId_planta()));
                 productos.add(producto);
             }
         } catch (Exception e) {
@@ -87,6 +95,9 @@ public class ModeloProducto {
 
     public Producto getProductoByID(int idProducto) {
         String sql = "SELECT * FROM PRODUCTOS WHERE ID_PRODUCTO = ?";
+		ModeloMaterial mmat = new ModeloMaterial();
+		ModeloPlanta modpla = new ModeloPlanta();
+		
         Producto producto = new Producto();
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -104,6 +115,10 @@ public class ModeloProducto {
                 producto.setId_planta(rst.getInt("ID_PLANTA"));
                 producto.setRuta_imagen(rst.getString("RUTA_IMAGEN"));
                 producto.setFecha(rst.getDate("FECHA"));
+                
+                //setterar atributos relacionados
+                producto.setMaterial(mmat.getMaterialByID(producto.getId_material()));
+                producto.setPlanta(modpla.getPlantaByID(producto.getId_planta()));
             }
         } catch (Exception e) {
             e.printStackTrace();

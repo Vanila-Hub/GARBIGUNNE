@@ -8,11 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.Conector;
+import modelo.productos.ModeloProducto;
 
 public class ModeloEmisionProducto {
 	
     public ArrayList<EmisionProducto> getEmisionesProductos() {
-        ArrayList<EmisionProducto> listaEmisiones = new ArrayList<>();
+        ArrayList<EmisionProducto> listaEmisiones = new ArrayList<EmisionProducto>();
+        ModeloProducto modelo_produ = new ModeloProducto();
         String sql = "SELECT * FROM EMISIONES_PRODUCTOS";
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -23,6 +25,9 @@ public class ModeloEmisionProducto {
                 emisionProducto.setId_producto(rs.getInt("ID_PRODUCTO"));
                 emisionProducto.setEmision_generada((rs.getDouble("EMISION_GENERADA")));
                 emisionProducto.setFecha(rs.getDate("FECHA"));
+                
+                //setteamos complementos relacionados
+                emisionProducto.setProducto(modelo_produ.getProductoByID(emisionProducto.getId_producto()));
                 listaEmisiones.add(emisionProducto);
             }
         } catch (Exception e) {
@@ -48,6 +53,7 @@ public class ModeloEmisionProducto {
     public EmisionProducto getEmisionProductoByID(int id_producto) {
 
     	EmisionProducto emision_producto = new EmisionProducto();
+    	ModeloProducto modelo_produ = new ModeloProducto();
         String sql = "SELECT * FROM EMISIONES_PRODUCTOS WHERE ID_EMISION = ?";
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -58,6 +64,9 @@ public class ModeloEmisionProducto {
                 emision_producto.setId_producto(rs.getInt("ID_PRODUCTO"));
                 emision_producto.setEmision_generada(rs.getDouble("EMISION_GENERADA"));
                 emision_producto.setFecha(rs.getDate("FECHA"));
+                
+                //setteamos complementos relacionados
+                emision_producto.setProducto(modelo_produ.getProductoByID(emision_producto.getId_producto()));
             }
         } catch (Exception e) {
             e.printStackTrace();

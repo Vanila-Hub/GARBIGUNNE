@@ -7,6 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.Conector;
+import modelo.cliente.ModeloCliente;
+import modelo.material.ModeloMaterial;
+import modelo.plantas.ModeloPlanta;
+import modelo.productos.ModeloProducto;
 
 public class ModeloHistoricoContaminacion {
 
@@ -14,6 +18,9 @@ public class ModeloHistoricoContaminacion {
 
 	public HistoricoContaminacion getHistoricoContaminacionById(int idHistorico) {
 		HistoricoContaminacion historico = null;
+		ModeloMaterial md_mat = new ModeloMaterial();
+		ModeloPlanta md_plan = new ModeloPlanta();
+		
 		String sql = "SELECT * FROM HISTORICO_CONTAMINACION WHERE ID_HISTORICO = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -28,6 +35,9 @@ public class ModeloHistoricoContaminacion {
 				historico.setPorcentajeContaminacion(rs.getDouble("PORCENTAJE_CONTAMINACION"));
 				historico.setId_Material(rs.getInt("ID_MATERIAL"));
 				
+				//Asignamos tablas relacionadas
+				historico.setPlanta(md_plan.getPlantaByID(historico.getId_Planta()));
+				historico.setMaterial(md_mat.getMaterialByID(historico.getId_Material()));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,6 +63,9 @@ public class ModeloHistoricoContaminacion {
 
 	public ArrayList<HistoricoContaminacion> getHistoricos() {
 		ArrayList<HistoricoContaminacion> historicos = new ArrayList<HistoricoContaminacion>();
+		ModeloMaterial md_mat = new ModeloMaterial();
+		ModeloPlanta md_plan = new ModeloPlanta();
+		
 		String sql_procedure = "call Garbigunne.getMaterialesYEmisones();";
 		
 		String sql = "SELECT * FROM HISTORICO_CONTAMINACION";
@@ -66,6 +79,11 @@ public class ModeloHistoricoContaminacion {
 				historico.setId_Planta(rs.getInt("ID_PLANTA"));
 				historico.setId_Material(rs.getInt("ID_MATERIAL"));
 				historico.setPorcentajeContaminacion(rs.getDouble("PORCENTAJE_CONTAMINACION"));
+				
+				//Asignamos tablas relacionadas
+				historico.setPlanta(md_plan.getPlantaByID(historico.getId_Planta()));
+				historico.setMaterial(md_mat.getMaterialByID(historico.getId_Material()));
+				
 				historicos.add(historico);
 			}
 		} catch (Exception e) {

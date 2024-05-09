@@ -170,9 +170,9 @@
 							<tr>
 								<th scope="row">${producto.id_producto}</th>
 								<td><a
-									href="/Garbigune_reto/editarPlanta?id=${producto.id_planta}">${producto.id_planta}</a>
+									href="/Garbigune_reto/editarPlanta?id=${producto.id_planta}">${producto.getPlanta().nombre}</a>
 								</td>
-								<td><a href="/Garbigune_reto/editarMaterial?id_material=${producto.id_material}">${producto.id_material}</a>
+								<td><a href="/Garbigune_reto/editarMaterial?id_material=${producto.id_material}">${producto.getMaterial().tipo}</a>
 								</td>
 								<td>${producto.nombre}</td>
 								<td>${producto.precio}</td>

@@ -142,7 +142,7 @@
 						<c:forEach items="${emisionesProductos}" var="emisionProducto">
 							<tr>
 								<th scope="row">${emisionProducto.id_emision}</th>
-								<td><a href="/Garbigune_reto/editarProducto?id_producto=${emisionProducto.id_producto}">${emisionProducto.id_producto}</a></td>
+								<td><a href="/Garbigune_reto/editarProducto?id_producto=${emisionProducto.id_producto}">${emisionProducto.getProducto().nombre}</a></td>
 								<td>${emisionProducto.emision_generada}</td>
 								<td>${emisionProducto.fecha}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">

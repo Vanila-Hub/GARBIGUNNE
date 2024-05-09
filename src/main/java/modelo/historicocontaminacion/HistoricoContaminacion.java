@@ -1,5 +1,8 @@
 package modelo.historicocontaminacion;
 
+import modelo.material.Material;
+import modelo.plantas.Planta;
+
 public class HistoricoContaminacion {
     private int id_Historico;
     private String fecha;
@@ -8,7 +11,10 @@ public class HistoricoContaminacion {
     private double emisionTotal;
     private String tipo_material;
     private int id_Material;
-
+    
+    private Planta planta;
+    private Material material;
+    
     public HistoricoContaminacion() {
 		// TODO Auto-generated constructor stub
 	}
@@ -83,12 +89,34 @@ public class HistoricoContaminacion {
         this.porcentajeContaminacion = porcentajeContaminacion;
     }
 
+	
+
+	public Planta getPlanta() {
+		return planta;
+	}
+
+
+	public void setPlanta(Planta planta) {
+		this.planta = planta;
+	}
+
+
+	public Material getMaterial() {
+		return material;
+	}
+
+
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+
 
 	@Override
 	public String toString() {
 		return "HistoricoContaminacion [id_Historico=" + id_Historico + ", fecha=" + fecha + ", id_Planta=" + id_Planta
 				+ ", porcentajeContaminacion=" + porcentajeContaminacion + ", emisionTotal=" + emisionTotal
-				+ ", tipo_material=" + tipo_material + ", id_Material=" + id_Material + "]";
+				+ ", tipo_material=" + tipo_material + ", id_Material=" + id_Material + ", planta=" + planta
+				+ ", material=" + material + "]";
 	}
 	
 	

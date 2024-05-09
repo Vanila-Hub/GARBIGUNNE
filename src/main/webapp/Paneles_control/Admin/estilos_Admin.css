@@ -257,3 +257,8 @@ div.d-flex.flex-column.flex-shrink-0.bg-body-tertiary {
 	margin-top: -20rem;
 	}
 }
+
+td > a {
+    color: #013205 !important;
+    text-decoration: none !important;
+}

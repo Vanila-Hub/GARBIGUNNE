@@ -149,9 +149,9 @@
 								<th scope="row">${historicoEmision.id_Historico}</th>
 								<td>${historicoEmision.fecha}</td>
 								<td><a
-									href="/Garbigune_reto/editarPlanta?id=${historicoEmision.id_Planta}">${historicoEmision.id_Planta}</a></td>
+									href="/Garbigune_reto/editarPlanta?id=${historicoEmision.id_Planta}">${historicoEmision.getPlanta().nombre}</a></td>
 								<td><a
-									href="/Garbigune_reto/editarMaterial?id_material=${historicoEmision.id_Material}">${historicoEmision.id_Material}</a></td>
+									href="/Garbigune_reto/editarMaterial?id_material=${historicoEmision.id_Material}">${historicoEmision.getMaterial().tipo}</a></td>
 								<td>${historicoEmision.porcentajeContaminacion}</td>
 							</tr>
 						</c:forEach>

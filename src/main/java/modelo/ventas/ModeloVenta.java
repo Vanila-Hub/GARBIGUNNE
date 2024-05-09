@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import modelo.Conector;
+import modelo.cliente.ModeloCliente;
+import modelo.productos.ModeloProducto;
 
 public class ModeloVenta {
 
@@ -17,6 +19,9 @@ public class ModeloVenta {
 		ArrayList<Venta> ventas = new ArrayList<Venta>();
 		try {
 			Connection con = Conector.getConexion();
+			ModeloCliente modelo_cliente = new ModeloCliente();
+			ModeloProducto modelo_pro = new ModeloProducto();
+			
 			Statement st = con.createStatement();
 			ResultSet rst = st.executeQuery(sql);
 			while(rst.next()) {
@@ -26,6 +31,10 @@ public class ModeloVenta {
 				venta.setId_producto(rst.getInt("ID_PRODUCTO"));
 				venta.setCantidad(rst.getInt("CANTIDAD"));
 				venta.setFecha(rst.getDate("FECHA"));	
+				
+				//setterar atributos relacionados
+				venta.setCliente(modelo_cliente.getClientelByID(venta.getId_cliente()));
+				venta.setProducto(modelo_pro.getProductoByID(venta.getId_producto()));
 				ventas.add(venta);
 			}
 			

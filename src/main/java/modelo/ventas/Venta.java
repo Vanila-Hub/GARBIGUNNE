@@ -2,12 +2,18 @@ package modelo.ventas;
 
 import java.sql.Date;
 
+import modelo.cliente.Cliente;
+import modelo.productos.Producto;
+
 public class Venta {
 	private int id_venta;
 	private int id_cliente;
 	private int id_producto;
 	private int cantidad;
 	private Date fecha;
+	
+	private Cliente cliente;
+	private Producto producto;
 	
 	public int getId_venta() {
 		return id_venta;
@@ -40,9 +46,22 @@ public class Venta {
 		this.fecha = fecha;
 	}
 	
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Producto getProducto() {
+		return producto;
+	}
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
 	@Override
 	public String toString() {
 		return "Venta [id_venta=" + id_venta + ", id_cliente=" + id_cliente + ", id_producto=" + id_producto
-				+ ", cantidad=" + cantidad + ", fecha=" + fecha + "]";
+				+ ", cantidad=" + cantidad + ", fecha=" + fecha + ", cliente=" + cliente + ", producto=" + producto
+				+ "]";
 	}
 }

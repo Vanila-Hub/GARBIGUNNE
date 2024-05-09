@@ -2,11 +2,15 @@ package modelo.emisionproducto;
 
 import java.sql.Date;
 
+import modelo.productos.Producto;
+
 public class EmisionProducto {
     private int id_emision;
     private int id_producto;
     private double emision_generada;
     private Date fecha;
+    
+    private Producto producto;
 
     public EmisionProducto() {
     }
@@ -47,8 +51,19 @@ public class EmisionProducto {
         this.fecha = fecha;
     }
 
-    @Override
-    public String toString() {
-        return "EmisionProducto [id_emision=" + id_emision + ", id_producto=" + id_producto + ", emision_generada=" + emision_generada + ", fecha=" + fecha + "]";
-    }
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+
+	@Override
+	public String toString() {
+		return "EmisionProducto [id_emision=" + id_emision + ", id_producto=" + id_producto + ", emision_generada="
+				+ emision_generada + ", fecha=" + fecha + ", producto=" + producto + "]";
+	}
+
+
 }

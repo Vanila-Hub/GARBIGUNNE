@@ -166,8 +166,8 @@
 						<c:forEach items="${ventas}" var="venta">
 							<tr>
 								<th scope="row">${venta.id_venta}</th>
-								<td><a href="/Garbigune_reto/editarCliente?id_cliente=${venta.id_cliente}">${venta.id_cliente}</a></td>
-								<td><a href="/Garbigune_reto/editarProducto?id_producto=${venta.id_producto}">${venta.id_producto}</a></td>
+								<td><a href="/Garbigune_reto/editarCliente?id_cliente=${venta.id_cliente}">${venta.getCliente().nombre}</a></td>
+								<td><a href="/Garbigune_reto/editarProducto?id_producto=${venta.id_producto}">${venta.getProducto().nombre}</a></td>
 								<td>${venta.cantidad}</td>
 								<td>${venta.fecha}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">

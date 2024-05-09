@@ -12,7 +12,7 @@ import modelo.material.ModeloMaterial;
 /**
  * Servlet implementation class EliminarMateriales
  */
-@WebServlet("/EliminarMateriales")
+@WebServlet("/borrarMaterial")
 public class EliminarMateriales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
