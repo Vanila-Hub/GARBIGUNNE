@@ -112,6 +112,7 @@ public class ModeloHistoricoContaminacion {
 		return historicos;
 	}
 
+	
 	public void registrarHsitorico(String fecha_inicio, String fecha_fin, String mes) {
 		String sql = "call Garbigunne.Registrar_Historico(?, ?, ?);";
 		try {
