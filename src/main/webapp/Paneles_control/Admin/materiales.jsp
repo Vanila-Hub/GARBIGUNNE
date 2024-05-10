@@ -203,10 +203,12 @@
 										<select class="form-select"
 											aria-label="Default select example" name="material">
 											<option selected>Tipo de material</option>
-											<option value="plastico">plastico</option>
-											<option value="papel">papel</option>
-											<option value="vidrio">vidrio</option>
-											<option value="carton">carton</option>
+											<option value="plastico">Plastico</option>
+											<option value="papel">Papel</option>
+											<option value="vidrio">Vidrio</option>
+											<option value="carton">Carton</option>
+											<option value="metal">Metal</option>
+											<option value="Madera">Madera</option>
 										</select>
 									</div>
 									<div class="mb-3">
