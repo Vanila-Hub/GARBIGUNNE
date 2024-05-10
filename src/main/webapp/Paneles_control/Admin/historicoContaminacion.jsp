@@ -124,32 +124,32 @@
 
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
-			<c:choose>
-				<c:when test="${msg=='deleted'}">
-					<div class="alert alert-danger fade show test" role="alert">
-						<i class="bi bi-check-circle"></i>
-						<p>Historico Borrado</p>
-						<button type="button" class="btn-close" data-bs-dismiss="alert"
-							aria-label="Close"></button>
-					</div>
-				</c:when>
-				<c:when test="${msg=='updated'}">
-					<div class="alert alert-primary fade show test" role="alert">
-						<i class="bi bi-check-circle"></i>
-						<p>Historico Actualizado</p>
-						<button type="button" class="btn-close" data-bs-dismiss="alert"
-							aria-label="Close"></button>
-					</div>
-				</c:when>
-				<c:when test="${msg=='created'}">
-					<div class="alert alert-success fade show test" role="alert">
-						<i class="bi bi-check-circle"></i>
-						<p>Historico Creado</p>
-						<button type="button" class="btn-close" data-bs-dismiss="alert"
-							aria-label="Close"></button>
-					</div>
-				</c:when>
-			</c:choose>
+				<c:choose>
+					<c:when test="${msg=='deleted'}">
+						<div class="alert alert-danger fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Historico Borrado</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+					<c:when test="${msg=='updated'}">
+						<div class="alert alert-primary fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Historico Actualizado</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+					<c:when test="${msg=='created'}">
+						<div class="alert alert-success fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Historico Creado</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+				</c:choose>
 				<a href="/Garbigune_reto/VerHistorico" class="btn btn-flex plus">
 					Actualizar <i class="bi bi-arrow-clockwise"></i>
 				</a>
@@ -169,6 +169,7 @@
 							<th scope="col">Planta</th>
 							<th scope="col">Material</th>
 							<th scope="col">Porcentaje de Contaminacion</th>
+							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">
@@ -181,6 +182,11 @@
 								<td><a
 									href="/Garbigune_reto/editarMaterial?id_material=${historicoEmision.id_Material}">${historicoEmision.getMaterial().tipo}</a></td>
 								<td>${historicoEmision.porcentajeContaminacion}</td>
+								<td><a
+									href="/Garbigune_reto/borrarHistorico?id=${historicoEmision.id_Historico}"
+									class="btn btn-flex trash"> <i
+										class="bi bi-trash text-light fs-5 text-info"></i>
+								</a></td>
 							</tr>
 						</c:forEach>
 

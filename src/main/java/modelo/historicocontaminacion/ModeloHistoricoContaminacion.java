@@ -125,4 +125,16 @@ public class ModeloHistoricoContaminacion {
 			e.printStackTrace();
 		}
 	}
+
+	public void borrarHistorico(int id_historico) {
+		String sql = "DELETE FROM HISTORICO_CONTAMINACION WHERE ID_HISTORICO = ?";
+		try {
+			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
+			prst.setInt(1, id_historico);
+			prst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
