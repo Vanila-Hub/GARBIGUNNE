@@ -46,7 +46,9 @@ public class UpdateMateriales extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
 		//volvera el /plantas
-		response.sendRedirect("/Garbigune_reto/VerMateriales");
+		request.setAttribute("msg", "updated");
+		request.getRequestDispatcher("VerMateriales").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerMateriales");
 	}
 
 }

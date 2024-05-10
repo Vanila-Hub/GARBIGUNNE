@@ -54,7 +54,9 @@ public class CrearProductos extends HttpServlet {
 	    ModeloProducto modeloProducto = new ModeloProducto();
 	    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material,fecha);
 
-	    response.sendRedirect("http://localhost:8080/Garbigune_reto/VerProductos");
+	    request.setAttribute("msg", "created");
+	    request.getRequestDispatcher("VerProductos").forward(request, response);
+//	    response.sendRedirect("http://localhost:8080/Garbigune_reto/VerProductos");
 	}
 
 	/**

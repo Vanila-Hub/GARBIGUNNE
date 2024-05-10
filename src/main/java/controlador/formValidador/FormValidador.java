@@ -32,5 +32,21 @@ public class FormValidador {
 			return false;
 		}
 		
+	}
+
+	public boolean estadoValido(String habilitado) {
+		if (habilitado==null || habilitado.isEmpty()){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean mensajeValido(String msg) {
+		if (msg==null || msg.isEmpty()){
+			return false;
+		} else {
+			return true;
+		}
 	}	
 }

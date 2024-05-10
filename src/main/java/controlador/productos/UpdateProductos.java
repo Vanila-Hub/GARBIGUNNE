@@ -58,7 +58,9 @@ public class UpdateProductos extends HttpServlet {
 	    ModeloProducto modeloProducto = new ModeloProducto();
 	    modeloProducto.actualizarProductoByID(id_producto, nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome);
 
-	    response.sendRedirect("/Garbigune_reto/VerProductos");
+	    request.setAttribute("msg", "updated");
+	    request.getRequestDispatcher("VerProductos").forward(request, response);
+//	    response.sendRedirect("/Garbigune_reto/VerProductos");
 	}
 
 }

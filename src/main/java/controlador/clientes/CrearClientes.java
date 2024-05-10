@@ -54,7 +54,9 @@ public class CrearClientes extends HttpServlet {
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 		
-		response.sendRedirect("/Garbigune_reto/VerClientes");
+		request.setAttribute("msg", "created");
+		request.getRequestDispatcher("/VerClientes").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerClientes?msg=created");
 	}
 
 }

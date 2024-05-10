@@ -67,7 +67,6 @@ public class EditarSuministros extends HttpServlet {
 		request.setAttribute("cantidad", suministro.getCantidad_kg());
 		request.setAttribute("mes", suministro.getMes());
 		
-		System.out.println(suministro.getId_planta());
 		request.getRequestDispatcher("Paneles_control/Admin/Edit_suministro.jsp").forward(request, response);
 	}
 

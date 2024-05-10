@@ -35,7 +35,9 @@ public class EliminarVentas extends HttpServlet {
 		
 		modelo_venta.borrarVentaByID(id_venta);
 		
-		response.sendRedirect("/Garbigune_reto/VerVentas");
+		request.setAttribute("msg", "deleted");
+	    request.getRequestDispatcher("VerVentas").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerVentas");
 	}
 
 	/**

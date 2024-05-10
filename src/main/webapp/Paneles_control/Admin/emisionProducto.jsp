@@ -106,11 +106,11 @@
 				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
 						<i class="bi bi-box-seam-fill"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link active">
-						<i class="bi bi-fire"></i>
+				<li><a href="/Garbigune_reto/VerEmisiones"
+					class="nav-link active"> <i class="bi bi-fire"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerClientes"
-					class="nav-link "> <i class="bi bi-people-fill"></i>
+				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
+						<i class="bi bi-people-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
 						<i class="bi bi-handbag-fill"></i>
@@ -122,6 +122,34 @@
 		</div>
 
 		<main class="row mb-5">
+
+			<c:choose>
+				<c:when test="${msg=='deleted'}">
+					<div class="alert alert-danger fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Emision Borrada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='updated'}">
+					<div class="alert alert-primary fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Emision Actualizada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='created'}">
+					<div class="alert alert-success fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Emision Creada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+			</c:choose>
+
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
 				<table class="table table-design">
@@ -142,7 +170,8 @@
 						<c:forEach items="${emisionesProductos}" var="emisionProducto">
 							<tr>
 								<th scope="row">${emisionProducto.id_emision}</th>
-								<td><a href="/Garbigune_reto/editarProducto?id_producto=${emisionProducto.id_producto}">${emisionProducto.getProducto().nombre}</a></td>
+								<td><a
+									href="/Garbigune_reto/editarProducto?id_producto=${emisionProducto.id_producto}">${emisionProducto.getProducto().nombre}</a></td>
 								<td>${emisionProducto.emision_generada}</td>
 								<td>${emisionProducto.fecha}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">

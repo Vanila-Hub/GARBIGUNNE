@@ -46,7 +46,9 @@ public class UpadateEmisionProductos extends HttpServlet {
         ModeloEmisionProducto modelo_emision_producto = new ModeloEmisionProducto();
         modelo_emision_producto.actualizarEmisionProducto(idEmision, idProducto, fecha);
         
-        response.sendRedirect("/Garbigune_reto/VerEmisiones");
+        request.setAttribute("msg", "updated");
+        request.getRequestDispatcher("VerEmisiones").forward(request, response);
+//        response.sendRedirect("/Garbigune_reto/VerEmisiones");
 	}
 
 }

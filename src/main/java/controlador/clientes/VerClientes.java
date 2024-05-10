@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.cliente.Cliente;
 import modelo.cliente.ModeloCliente;
 
@@ -31,6 +32,9 @@ public class VerClientes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitato = new FormValidador();
+		String msg = (String) request.getParameter("msg");
+		
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		ArrayList<Cliente> clientes = modelo_cliente.getClientes();
 		

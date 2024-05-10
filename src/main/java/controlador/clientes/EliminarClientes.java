@@ -33,8 +33,8 @@ public class EliminarClientes extends HttpServlet {
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		
 		modelo_cliente.borrarClienteByID(id_cliente);
-		
-		response.sendRedirect("http://localhost:8080/Garbigune_reto/VerClientes");
+		request.setAttribute("msg", "deleted");
+		request.getRequestDispatcher("/VerClientes").forward(request, response);
 	}
 
 	/**

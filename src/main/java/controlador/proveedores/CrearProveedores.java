@@ -49,7 +49,9 @@ public class CrearProveedores extends HttpServlet {
 		ModeloProveedor modelo_proveedor = new ModeloProveedor();
 		modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
 		
-		response.sendRedirect("/Garbigune_reto/VerProveedores");
+		request.setAttribute("msg", "created");
+	    request.getRequestDispatcher("VerProveedores").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerProveedores");
 	}
 
 }

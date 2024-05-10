@@ -49,7 +49,9 @@ public class CrearVentas extends HttpServlet {
 		ModeloVenta modelo_venta = new ModeloVenta();
 		modelo_venta.crearVenta(id_cliente, id_producto, cantidad2, fecha2);
 	
-		response.sendRedirect("/Garbigune_reto/VerVentas");
+		request.setAttribute("msg", "created");
+	    request.getRequestDispatcher("VerVentas").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerVentas");
 	}
 
 }

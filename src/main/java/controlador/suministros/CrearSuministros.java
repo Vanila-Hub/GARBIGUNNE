@@ -59,7 +59,9 @@ public class CrearSuministros extends HttpServlet {
 		ModeloSuministro modelo_suministro = new ModeloSuministro();
 		modelo_suministro.crearSuministro(id_Material,id_Proveedor,id_Planta,mes,cantidad);
 		
-		response.sendRedirect("/Garbigune_reto/VerSuministros");
+		request.setAttribute("msg", "created");
+	    request.getRequestDispatcher("VerSuministros").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 
 }

@@ -36,7 +36,9 @@ public class EliminarSuministros extends HttpServlet {
 		
 		modelo_suministro.borrarSuministroByID(id_suminitro);
 		
-		response.sendRedirect("/Garbigune_reto/VerSuministros");
+		request.setAttribute("msg", "deleted");
+	    request.getRequestDispatcher("VerSuministros").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 
 	/**

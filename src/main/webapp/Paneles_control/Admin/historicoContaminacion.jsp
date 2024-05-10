@@ -107,21 +107,49 @@
 				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
 						<i class="bi bi-fire"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerClientes"
-					class="nav-link "> <i class="bi bi-people-fill"></i>
+				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
+						<i class="bi bi-people-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
 						<i class="bi bi-handbag-fill"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link active">
-						<i class="bi bi-graph-up"></i>
+				<li><a href="/Garbigune_reto/VerHistorico"
+					class="nav-link active"> <i class="bi bi-graph-up"></i>
 				</a></li>
 			</ul>
 		</div>
 
 		<main class="row mb-5">
+
+
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
+			<c:choose>
+				<c:when test="${msg=='deleted'}">
+					<div class="alert alert-danger fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Historico Borrado</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='updated'}">
+					<div class="alert alert-primary fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Historico Actualizado</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='created'}">
+					<div class="alert alert-success fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Historico Creado</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+			</c:choose>
 				<a href="/Garbigune_reto/VerHistorico" class="btn btn-flex plus">
 					Actualizar <i class="bi bi-arrow-clockwise"></i>
 				</a>

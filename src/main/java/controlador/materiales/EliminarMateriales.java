@@ -33,7 +33,9 @@ public class EliminarMateriales extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		modelo_material.borrarMaterialByID (id_material);
 		
-		response.sendRedirect("/Garbigune_reto/VerMateriales");		
+		request.setAttribute("msg", "deleted");
+		request.getRequestDispatcher("VerMateriales").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerMateriales");		
 	}
 
 	/**

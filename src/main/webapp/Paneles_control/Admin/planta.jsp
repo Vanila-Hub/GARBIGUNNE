@@ -81,48 +81,80 @@
 			<hr>
 
 		</div>
-		
-				<div class="d-flex flex-column flex-shrink-0 bg-body-tertiary" style="width: 4.5rem;">
-    <a href="/" class="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-      <svg class="bi pe-none" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      <span class="visually-hidden">Icon-only</span>
-    </a>
-    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
-					class="nav-link" aria-current="page">  <i
+
+		<div class="d-flex flex-column flex-shrink-0 bg-body-tertiary"
+			style="width: 4.5rem;">
+			<a href="/"
+				class="d-block p-3 link-body-emphasis text-decoration-none"
+				data-bs-toggle="tooltip" data-bs-placement="right"
+				data-bs-original-title="Icon-only"> <svg class="bi pe-none"
+					width="40" height="32">
+					<use xlink:href="#bootstrap"></use></svg> <span class="visually-hidden">Icon-only</span>
+			</a>
+			<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+				<li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
+					class="nav-link" aria-current="page"> <i
 						class="bi bi-truck-flatbed"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerPlantas" class="nav-link active" >
-						 <i class="bi bi-house-gear-fill"></i>
+				<li><a href="/Garbigune_reto/VerPlantas"
+					class="nav-link active"> <i class="bi bi-house-gear-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerSuministros" class="nav-link">
-						 <i class="bi bi-diagram-3-fill"></i>
+						<i class="bi bi-diagram-3-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerMateriales" class="nav-link ">
-						 <i class="bi bi-tree-fill"></i>
+						<i class="bi bi-tree-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
-						 <i class="bi bi-box-seam-fill"></i>
+						<i class="bi bi-box-seam-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
 						<i class="bi bi-fire"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerClientes"
-					class="nav-link ">  <i class="bi bi-people-fill"></i>
+				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
+						<i class="bi bi-people-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
-						 <i class="bi bi-handbag-fill"></i>
+						<i class="bi bi-handbag-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link">
-						 <i class="bi bi-graph-up"></i>
+						<i class="bi bi-graph-up"></i>
 				</a></li>
-    </ul>
-  </div>
-  
+			</ul>
+		</div>
+
 		<main class="row mb-5">
+
+
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
 				<table class="table table-design">
+			<c:choose>
+				<c:when test="${msg=='deleted'}">
+					<div class="alert alert-danger fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Planta Borrada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='updated'}">
+					<div class="alert alert-primary fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Planta Actualizada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='created'}">
+					<div class="alert alert-success fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Planta Creada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+			</c:choose>
 					<button type="button" class="btn btn-flex plus"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">
 						Crear <i class="bi bi-plus-lg"></i>

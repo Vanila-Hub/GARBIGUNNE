@@ -31,7 +31,6 @@ public class CrearPlantas extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -45,7 +44,9 @@ public class CrearPlantas extends HttpServlet {
 		ModeloPlanta modelo_planta = new ModeloPlanta();
 		modelo_planta.crearPlanta(nombre,dirrecion,telefono);
 		//volvera el /plantas
-		response.sendRedirect("/Garbigune_reto/VerPlantas");
+		request.setAttribute("msg", "created");
+		request.getRequestDispatcher("VerPlantas").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerPlantas");
 	}
 
 }
