@@ -21,6 +21,7 @@ public class ModeloProveedor {
 				proveedor.setNombre(rst.getString("NOMBRE"));
 				proveedor.setCorreo(rst.getString("CORREO"));
 				proveedor.setContraseña(rst.getString("CONTRASENA"));
+				proveedor.setHabilitado(rst.getBoolean("HABILITADO"));
 				proveedores.add(proveedor);
 			}
 		} catch (Exception e) {
@@ -31,12 +32,13 @@ public class ModeloProveedor {
 	}
 
 	public void crearProveedor(String nombreProveedor, String correo, String contraseña) {
-		String sql = "INSERT INTO PROVEEDORES(NOMBRE,CORREO,CONTRASENA) VALUES(?,?,?)";
+		String sql = "INSERT INTO PROVEEDORES(NOMBRE,CORREO,CONTRASENA,HABILITADO) VALUES(?,?,?,?)";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setString(1, nombreProveedor);
 			prst.setString(2, correo);
 			prst.setString(3, contraseña);
+			prst.setInt(4, 1);
 			prst.executeUpdate();
 
 		} catch (Exception e) {
@@ -70,6 +72,7 @@ public class ModeloProveedor {
 				proveedor.setNombre(rst.getString("NOMBRE"));
 				proveedor.setCorreo(rst.getString("CORREO"));
 				proveedor.setContraseña(rst.getString("CONTRASENA"));
+				proveedor.setHabilitado(rst.getBoolean("HABILITADO"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,14 +80,15 @@ public class ModeloProveedor {
 		return proveedor;
 	}
 
-	public void actualizarProveedor(int id_proveedor, String nombreProveedor, String correo, String contraseña) {
-		String sql = "UPDATE PROVEEDORES SET NOMBRE = ?, CORREO=?, CONTRASENA=? WHERE ID_PROVEEDOR = ?";
+	public void actualizarProveedor(int id_proveedor, String nombreProveedor, String correo, String contraseña, int activo) {
+		String sql = "UPDATE PROVEEDORES SET NOMBRE = ?, CORREO=?, CONTRASENA=?, HABILITADO = ? WHERE ID_PROVEEDOR = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setString(1, nombreProveedor);
 			prst.setString(2, correo);
 			prst.setString(3, contraseña);
-			prst.setInt(4, id_proveedor);
+			prst.setInt(4, activo);
+			prst.setInt(5, id_proveedor);
 			prst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

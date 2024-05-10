@@ -145,8 +145,35 @@
 		</div>
 
 		<main class="row mb-5">
+			
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
+				<c:choose>
+				<c:when test="${msg=='deleted'}">
+					<div class="alert alert-danger fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Venta Borrada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='updated'}">
+					<div class="alert alert-primary fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Venta Actualizada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='created'}">
+					<div class="alert alert-success fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Venta Creada</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+			</c:choose>
 				<table class="table table-design">
 					<button type="button" class="btn btn-flex plus"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">

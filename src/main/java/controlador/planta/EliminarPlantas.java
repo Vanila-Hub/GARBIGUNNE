@@ -35,7 +35,9 @@ public class EliminarPlantas extends HttpServlet {
 		ModeloPlanta modelo_planta = new ModeloPlanta();
 		modelo_planta.borrarPlantaByID(id_planta);
 		//volvera el /plantas
-		response.sendRedirect("/Garbigune_reto/VerPlantas");
+		request.setAttribute("msg", "deleted");
+		request.getRequestDispatcher("VerPlantas").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerPlantas");
 	}
 
 	/**

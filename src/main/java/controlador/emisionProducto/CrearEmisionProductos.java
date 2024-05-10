@@ -47,7 +47,9 @@ public class CrearEmisionProductos extends HttpServlet {
 	    
 	    modeloEmisionProducto.crearEmisionProducto(idProducto,fecha);
 	    
-	    response.sendRedirect("/Garbigune_reto/VerEmisiones");
+	    request.setAttribute("msg", "created");
+	    request.getRequestDispatcher("VerEmisiones").forward(request, response);
+//	    response.sendRedirect("/Garbigune_reto/VerEmisiones");
 	}
 
 }

@@ -109,8 +109,8 @@
 				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
 						<i class="bi bi-fire"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerClientes"
-					class="nav-link "> <i class="bi bi-people-fill"></i>
+				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
+						<i class="bi bi-people-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerVentas" class="nav-link ">
 						<i class="bi bi-handbag-fill"></i>
@@ -120,10 +120,37 @@
 				</a></li>
 			</ul>
 		</div>
-		
+
 		<main class="row mb-5">
+
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
+			<c:choose>
+				<c:when test="${msg=='deleted'}">
+					<div class="alert alert-danger fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Proveedor Borrado</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='updated'}">
+					<div class="alert alert-primary fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Proveedor Actualizado</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+				<c:when test="${msg=='created'}">
+					<div class="alert alert-success fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Proveedor Creado</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
+			</c:choose>
 				<table class="table table-design">
 					<button type="button" class="btn btn-flex plus"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -135,6 +162,7 @@
 							<th scope="col">Nombre</th>
 							<th scope="col">Correo</th>
 							<th scope="col">Contraseña</th>
+							<th scope="col">Activo</th>
 							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
@@ -145,6 +173,7 @@
 								<td>${proveedor.nombre}</td>
 								<td>${proveedor.correo}</td>
 								<td>${proveedor.contraseña}</td>
+								<td>${proveedor.habilitado}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<button type="button" class="btn btn-flex"

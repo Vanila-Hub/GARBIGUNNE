@@ -36,7 +36,9 @@ public class EliminarProductos extends HttpServlet {
 	    
 	    modelo_producto.borrarProductoByID(id_producto);
 	    
-	    response.sendRedirect("/Garbigune_reto/VerProductos");
+	    request.setAttribute("msg", "deleted");
+	    request.getRequestDispatcher("VerProductos").forward(request, response);
+//	    response.sendRedirect("/Garbigune_reto/VerProductos");
 	}
 
 	/**

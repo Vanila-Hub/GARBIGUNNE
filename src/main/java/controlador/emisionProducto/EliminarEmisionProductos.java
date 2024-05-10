@@ -36,7 +36,9 @@ public class EliminarEmisionProductos extends HttpServlet {
 	    
 	    modeloEmisionProducto.eliminarEmisionProducto(idEmision);
 	    
-	    response.sendRedirect("/Garbigune_reto/VerEmisiones");
+	    request.setAttribute("msg", "deleted");
+	    request.getRequestDispatcher("VerEmisiones").forward(request, response);
+//	    response.sendRedirect("/Garbigune_reto/VerEmisiones");
 	}
 
 	/**

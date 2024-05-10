@@ -36,7 +36,9 @@ public class EliminarProveedores extends HttpServlet {
 		
 		modelo_proveedor.borrarProveedorByID(id_proveedor);
 		
-		response.sendRedirect("/Garbigune_reto/VerProveedores");
+		request.setAttribute("msg", "deleted");
+	    request.getRequestDispatcher("VerProveedores").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerProveedores");
 
 	}
 

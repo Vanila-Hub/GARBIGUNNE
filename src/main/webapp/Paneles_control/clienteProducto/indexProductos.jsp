@@ -38,15 +38,19 @@
 					</div>
 				</a>
 				<div class="peca d-flex flex-row gap-2 text-white">
-					
+
 					<button class="btn btn-flex dropdown-toggle"
-						data-bs-toggle="dropdown" aria-expanded="false"><strong class="align-self-center">${nombre}</strong>
+						data-bs-toggle="dropdown" aria-expanded="false">
+						<strong class="align-self-center">${nombre}</strong>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-dark">
-						<li><a class="dropdown-item" href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}">Editar Perfil</a></li>
-						<li><a class="dropdown-item" href="/Garbigune_reto/home">Cerrar Sesion</a></li>
+						<li><a class="dropdown-item"
+							href="/Garbigune_reto/EditarPerfil?id_cliente=${id_cliente}">Editar
+								Perfil</a></li>
+						<li><a class="dropdown-item" href="/Garbigune_reto/home">Cerrar
+								Sesion</a></li>
 					</ul>
-					
+
 				</div>
 			</div>
 		</nav>
@@ -55,8 +59,13 @@
 
 		<c:choose>
 			<c:when test="${msg=='compra_realizada'}">
-				<div class="alert alert-success" role="alert">Compra Realizada
-					Exitosamente</div>
+				<div class="alert alert-success fade show test"
+					role="alert">
+					<i class="bi bi-check-circle"></i>
+					<p>Compra Realizada</p>
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
 			</c:when>
 		</c:choose>
 		<div class="contenedor">

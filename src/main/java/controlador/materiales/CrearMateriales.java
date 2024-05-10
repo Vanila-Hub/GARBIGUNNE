@@ -42,7 +42,9 @@ public class CrearMateriales extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		modelo_material.crearMaterial(tipo_material, emision_kg);
 		
-		response.sendRedirect("/Garbigune_reto/VerMateriales");
+		request.setAttribute("msg", "created");
+		request.getRequestDispatcher("VerMateriales").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerMateriales");
 	}
 
 }

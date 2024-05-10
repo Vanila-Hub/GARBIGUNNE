@@ -53,6 +53,23 @@
                                     <label for="exampleInput" class="form-label">Contraseña</label>
                                     <input type="text" class="form-control" id="exampleInput" name="contrasena" value="${contrasena}">
                                 </div>
+                                <div class="mb-3">
+									<c:choose>
+										<c:when test="${habilitado==null || habilitado==false}">
+											<label class="form-check-label" for="flexCheckDefault">
+												Habilitado</label>
+											<input class="form-check-input" type="checkbox" name="habilitado" value="1"
+												id="flexCheckDefault">
+										</c:when>
+
+										<c:otherwise>
+											<label class="form-check-label" for="flexCheckDefault">Habilitado</label>
+											<input class="form-check-input" type="checkbox" name="habilitado" value="0"
+												id="flexCheckDefault" checked>
+										</c:otherwise>
+									</c:choose>
+
+                                </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a
                                             href="/Garbigune_reto/VerProveedores"

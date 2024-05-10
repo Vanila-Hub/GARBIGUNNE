@@ -43,8 +43,9 @@ public class CrearHistorico extends HttpServlet {
 		fecha_inicio = fecha_inicio + "-01";
 		ModeloHistoricoContaminacion modelo_historico = new ModeloHistoricoContaminacion();
 		modelo_historico.registrarHsitorico(fecha_inicio,fecha_fin,mes);
-		
-		response.sendRedirect("/Garbigune_reto/VerHistorico");
+		request.setAttribute("msg", "created");
+		request.getRequestDispatcher("VerHistorico").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerHistorico");
 	}
 
 }

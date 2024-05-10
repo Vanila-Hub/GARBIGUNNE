@@ -45,7 +45,9 @@ public class UpdatePlantas extends HttpServlet {
 		ModeloPlanta modelo_planta = new ModeloPlanta();
 		modelo_planta.actualizar(nombre,dirrecion,telefono,id_planta);
 		//volvera el /plantas
-		response.sendRedirect("/Garbigune_reto/VerPlantas");
+		request.setAttribute("msg", "updated");
+		request.getRequestDispatcher("VerPlantas").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerPlantas");
 	}
 
 }

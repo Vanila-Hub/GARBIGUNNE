@@ -46,7 +46,10 @@ public class UpdateSuministros extends HttpServlet {
 		ModeloSuministro modelo_suministro = new ModeloSuministro();
 		
 		modelo_suministro.actualizarSuministroByID(id_Material,id_Proveedor,id_Planta,id_suministro,mes,cantidad);
-		response.sendRedirect("/Garbigune_reto/VerSuministros");
+		
+		request.setAttribute("msg", "updated");
+	    request.getRequestDispatcher("VerSuministros").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 
 }

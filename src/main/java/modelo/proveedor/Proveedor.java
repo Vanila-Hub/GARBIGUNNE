@@ -5,6 +5,7 @@ public class Proveedor {
 	private String nombre;
 	private String correo;
 	private String contraseña;
+	private Boolean habilitado;
 	
 	public Proveedor() {
 		// TODO Auto-generated constructor stub
@@ -42,10 +43,18 @@ public class Proveedor {
 		this.contraseña = contraseña;
 	}
 
+	public Boolean getHabilitado() {
+		return habilitado;
+	}
+
+	public void setHabilitado(Boolean habilitado) {
+		this.habilitado = habilitado;
+	}
+
 	@Override
 	public String toString() {
 		return "Proveedor [id_proveedor=" + id_proveedor + ", nombre=" + nombre + ", correo=" + correo + ", contraseña="
-				+ contraseña + "]";
+				+ contraseña + ", habilitado=" + habilitado + "]";
 	}
  
 }

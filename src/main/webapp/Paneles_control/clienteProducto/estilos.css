@@ -123,7 +123,7 @@ a.nav-link {
 	font-size: 20px;
 }
 
-a>strong,h6 {
+a>strong, h6 {
 	color: #013205;
 	font-weight: 800;
 	font-size: 15px;
@@ -161,11 +161,11 @@ div.contenedor {
 }
 
 .peca {
-    width: 7rem;
-    position: relative;
-    height: 1.5rem;
-    left: -2rem;
-    font-size: 6px;
+	width: 7rem;
+	position: relative;
+	height: 1.5rem;
+	left: -2rem;
+	font-size: 6px;
 }
 
 button.btn.btn-secondary, button.btn.btn-secondary>a {
@@ -209,31 +209,44 @@ a {
 }
 
 strong {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100px;
-    font-size: 10px;
-    display: block;
-    overflow: hidden
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 100px;
+	font-size: 10px;
+	display: block;
+	overflow: hidden
 }
 
-.btn.show{
+.btn.show {
 	background-color: #0a490c !important;
 	color: white !important;
 }
-.dropdown-menu.show{
-    display: block;
-    background-color: white;
+
+.dropdown-menu.show {
+	display: block;
+	background-color: white;
 }
-.dropdown-menu.show > a {
-    display: block;
-    background-color: white;
-    color: black !important;
+
+.dropdown-menu.show>a {
+	display: block;
+	background-color: white;
+	color: black !important;
 }
-.comprar{
-	color: red !important;
-}
-.agotado{
+
+.comprar {
 	color: red !important;
 }
 
+.agotado {
+	color: red !important;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+    width: 24%;
+    justify-content: space-between;
+    align-self: end;
+    transition: ease-in .2s;
+    box-shadow: rgb(0 0 0 / 6%) 0px 26px 30px -10px, rgb(0 0 0 / 14%) 0px 16px 10px -10px;
+}

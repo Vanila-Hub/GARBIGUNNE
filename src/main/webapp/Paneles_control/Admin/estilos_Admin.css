@@ -105,7 +105,6 @@ a.dropdown-item:hover {
 	transition: ease-in 0.3s;
 }
 
-
 .contenedor {
 	display: flex;
 	flex-direction: row;
@@ -117,7 +116,6 @@ a.dropdown-item:hover {
 	height: 100%;
 	position: relative;
 }
-
 
 a.nav-link {
 	color: #013205;
@@ -253,12 +251,27 @@ div.d-flex.flex-column.flex-shrink-0.bg-body-tertiary {
 		display: block !important;
 		margin-top: -32rem;
 	}
-	div.d-flex.flex-column.flex-shrink-0.bg-body-tertiary{
-	margin-top: -20rem;
+	div.d-flex.flex-column.flex-shrink-0.bg-body-tertiary {
+		margin-top: -20rem;
 	}
 }
 
-td > a {
-    color: #013205 !important;
-    text-decoration: none !important;
+td>a {
+	color: #013205 !important;
+	text-decoration: none !important;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+    width: 22%;
+    height: 6%;
+    top: 5rem;
+    transform: scale(0.8);
+    left: 58rem;
+    position: fixed;
+    justify-content: space-between;
+    align-self: end;
+    transition: ease-in .2s;
+    box-shadow: rgb(0 0 0 / 6%) 0px 26px 30px -10px, rgb(0 0 0 / 14%) 0px 16px 10px -10px;
 }

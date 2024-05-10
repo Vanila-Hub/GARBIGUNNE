@@ -48,7 +48,9 @@ public class UpdateVentas extends HttpServlet {
 		ModeloVenta modelo_venta = new ModeloVenta();
 		modelo_venta.actualizar(id_venta,idCliente, id_Producto, Cantidad, fecha);
 		
-		response.sendRedirect("/Garbigune_reto/VerVentas");
+		request.setAttribute("msg", "updated");
+	    request.getRequestDispatcher("VerVentas").forward(request, response);
+//		response.sendRedirect("/Garbigune_reto/VerVentas");
 	}
 
 }

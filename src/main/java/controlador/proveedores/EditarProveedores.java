@@ -39,6 +39,7 @@ public class EditarProveedores extends HttpServlet {
 		request.setAttribute("nombre", proveedor.getNombre());
 		request.setAttribute("correo", proveedor.getCorreo());
 		request.setAttribute("contrasena", proveedor.getContraseña());
+		request.setAttribute("habilitado", proveedor.getHabilitado());
 		
 		request.getRequestDispatcher("Paneles_control/Admin/Edit_proveedor.jsp").forward(request, response);
 	}
