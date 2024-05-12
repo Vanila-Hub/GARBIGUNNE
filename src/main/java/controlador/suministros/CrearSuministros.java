@@ -52,22 +52,29 @@ public class CrearSuministros extends HttpServlet {
 		FormValidador valitator = new FormValidador();
 		ModeloSuministro modelo_suministro = new ModeloSuministro();
 		int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
-		int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
-		int id_Material = Integer.parseInt(request.getParameter("id_material"));
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		String mes = (String) request.getParameter("mes");
 		
-		if (valitator.suministroValido(id_Proveedor,id_Planta,id_Material,cantidad,mes)) {
-			modelo_suministro.crearSuministro(id_Material,id_Proveedor,id_Planta,mes,cantidad);
-			
+		//arrayList
+//		int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
+//		int id_Material = Integer.parseInt(request.getParameter("id_material"));
+		String[] id_Plantas = request.getParameterValues("plantas");
+		String[] id_Materiales = request.getParameterValues("materiales");
+		
+		if (valitator.camposSuministroValido(id_Plantas,id_Materiales)) {
+			for (String id_Material : id_Materiales) {
+				for (String id_Planta : id_Plantas) {
+					if (valitator.suministroValido(id_Proveedor,Integer.parseInt(id_Planta),Integer.parseInt(id_Material),cantidad,mes)) {
+						modelo_suministro.crearSuministro(Integer.parseInt(id_Material),id_Proveedor,Integer.parseInt(id_Planta),mes,cantidad);
+					}
+				}
+			}
 			request.setAttribute("msg", "created");
 			request.getRequestDispatcher("VerSuministros").forward(request, response);
-			
 		} else {
 			request.setAttribute("msg", "no_valid_data");
 			request.getRequestDispatcher("VerSuministros").forward(request, response);
 		}
-//		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 
 }

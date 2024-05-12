@@ -161,7 +161,8 @@
 					</c:when>
 					<c:when test="${msg=='integrity_error'}">
 						<div class="alert alert-warning fade show test" role="alert">
-							<p>Error, hay una plantas con productos asociados a este suministro.</p>
+							<p>Error, hay una plantas con productos asociados a este
+								suministro.</p>
 							<button type="button" class="btn-close" data-bs-dismiss="alert"
 								aria-label="Close"></button>
 						</div>
@@ -224,17 +225,13 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE
-									SA</h1>
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Crear
+									Suministro</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form
-									action="http://localhost:8080/Garbigune_reto/crearSuministro"
-									method="post">
-									<input type="text" class="form-control d-none" name="opcion"
-										value="suministro">
+								<form action="/Garbigune_reto/crearSuministro" method="post">
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Proveedor</label>
 										<select class="form-select"
@@ -253,28 +250,30 @@
 										</select>
 									</div>
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">Planta</label> <select
-											class="form-select" aria-label="Default select example"
-											name="id_planta">
-
-											<option selected>Seleccionar Plantas</option>
+										<label for="exampleInput" class="form-label">Plantas</label>
+										<ul class="list-group">
 											<c:forEach items="${plantas}" var="planta">
-												<option value="${planta.id}">${planta.nombre}</option>
+												<li class="list-group-item"><input
+													class="form-check-input me-1" type="checkbox"
+													name="plantas" value="${planta.id}" id="${planta.id}">
+													<label class="form-check-label" for="${planta.id}">${planta.nombre}</label>
+												</li>
 											</c:forEach>
-
-										</select>
+										</ul>
 									</div>
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">Material</label>
+										<label for="exampleInput" class="form-label">Materiaeles</label>
 
-										<select class="form-select"
-											aria-label="Default select example" name="id_material">
-											<option selected>Seleccionar Materiales</option>
+										<ul class="list-group">
 											<c:forEach items="${materiales}" var="material">
-												<option value="${material.id_material}">${material.tipo}
-												</option>
+												<li class="list-group-item"><input
+													class="form-check-input me-1" type="checkbox"
+													value="${material.id_material}" name="materiales"
+													id="${material.id_material}"> <label
+													class="form-check-label" for="${material.id_material}">${material.tipo}</label>
+												</li>
 											</c:forEach>
-										</select>
+										</ul>
 									</div>
 									<div class="mb-3">
 										<label for="month" class="form-label">Mes</label> <input
@@ -286,9 +285,9 @@
 											step="0.01">
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
+										<button type="button" class="btn btn-flex plus"
 											data-bs-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-primary"
+										<button type="submit" class="btn btn-primary plus"
 											id="liveToastBtn">Crear</button>
 									</div>
 								</form>
@@ -296,6 +295,7 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 	</div>
 	</div>
@@ -350,6 +350,7 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<script src="sidebars.js"></script>
+
 </body>
 
 </html>

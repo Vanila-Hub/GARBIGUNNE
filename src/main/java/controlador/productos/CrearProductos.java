@@ -57,7 +57,8 @@ public class CrearProductos extends HttpServlet {
 	    if (valitator.productoValido(nombreProducto,descripcion,carpetaHome,fecha,idPlanta,id_material)) {
 	    	ModeloProducto modeloProducto = new ModeloProducto();
 	    	modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material,fecha);
-	    	modeloProducto.registrarEmision();
+	    	
+	    	modeloProducto.registrarEmision(fecha);
 	    	request.setAttribute("msg", "created");
 	    	request.getRequestDispatcher("VerProductos").forward(request, response);
 		}else {

@@ -7,11 +7,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import modelo.Conector;
+import modelo.material.ModeloMaterial;
 
 public class ModeloPlanta{
 
 	public ArrayList<Planta> getPlantas() {		
-		
+		ModeloMaterial modelo_material = new ModeloMaterial();
 		String sql = "SELECT * FROM PLANTAS";
 		ArrayList<Planta> plantas = new ArrayList<Planta>();
 		try {
@@ -24,6 +25,7 @@ public class ModeloPlanta{
 				planta.setNombre(rst.getString("NOMBRE"));
 				planta.setTelefono(rst.getInt("TELEFONO"));
 				planta.setDireccion(rst.getString("DIRECCION"));
+				planta.setMaterialesSuministrados(modelo_material.getMaterialByPlanta(planta.getId()));
 				plantas.add(planta);
 			}
 		} catch (Exception e) {

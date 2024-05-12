@@ -121,4 +121,12 @@ public class FormValidador {
 			return true;
 		}
 	}
+
+	public boolean camposSuministroValido(String[] id_Plantas, String[] id_Materiales) {
+		if (id_Plantas == null || id_Materiales == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

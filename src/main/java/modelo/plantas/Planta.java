@@ -1,10 +1,15 @@
 package modelo.plantas;
 
+import java.util.ArrayList;
+
+import modelo.material.Material;
+
 public class Planta {
 	private int id;
 	private String nombre;
 	private String direccion;
 	private int telefono;
+	private ArrayList<Material> materialesSuministrados = new  ArrayList<Material>();
 	
 	public int getId() {
 		return id;
@@ -30,9 +35,18 @@ public class Planta {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	
+	public ArrayList<Material> getMaterialesSuministrados() {
+		return materialesSuministrados;
+	}
+	public void setMaterialesSuministrados(ArrayList<Material> materialesSuministrados) {
+		this.materialesSuministrados = materialesSuministrados;
+	}
+	
 	@Override
 	public String toString() {
-		return "Planta [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + "]";
+		return "Planta [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono
+				+ ", materialesSuministrados=" + materialesSuministrados + "]";
 	}
 	
 }

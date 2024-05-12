@@ -95,4 +95,24 @@ public class ModeloMaterial {
 		}
 	}
 
+	public ArrayList<Material> getMaterialByPlanta(int id) {
+		String sql = "SELECT M.ID_MATERIAL,M.TIPO FROM MATERIALES M JOIN SUMINISTROS S ON S.ID_MATERIAL = M.ID_MATERIAL WHERE S.ID_PLANTA = ?";
+		ArrayList<Material> materialesSuministrados = new ArrayList<Material>();
+		
+		try {
+			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
+			prst.setInt(1, id);
+			ResultSet rst = prst.executeQuery();
+			while (rst.next()) {
+				Material material = new Material();
+				material.setId_material(rst.getInt("ID_MATERIAL"));
+				material.setTipo(rst.getString("TIPO"));
+				materialesSuministrados.add(material);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return materialesSuministrados;
+	}
+
 }

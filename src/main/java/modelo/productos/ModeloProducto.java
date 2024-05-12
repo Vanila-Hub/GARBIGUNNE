@@ -134,11 +134,12 @@ public class ModeloProducto {
         }
     }
 
-	public void registrarEmision() {
-	 String sql_procedure = "call Garbigunne.AutoRegistrar_Emision_producto()";
+	public void registrarEmision(Date fecha) {
+	 String sql_procedure = "call Garbigunne.AutoRegistrar_Emision_producto(?)";
 	 try {
-		Statement st = Conector.getConexion().createStatement();
-		st.execute(sql_procedure);
+		 PreparedStatement prst = Conector.getConexion().prepareStatement(sql_procedure);
+		 prst.setDate(1, fecha);
+		 prst.executeUpdate();
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

@@ -62,6 +62,7 @@ public class ModeloHistoricoContaminacion {
 	}
 
 	public ArrayList<HistoricoContaminacion> getHistoricos() {
+		
 		ArrayList<HistoricoContaminacion> historicos = new ArrayList<HistoricoContaminacion>();
 		ModeloMaterial md_mat = new ModeloMaterial();
 		ModeloPlanta md_plan = new ModeloPlanta();
@@ -89,26 +90,6 @@ public class ModeloHistoricoContaminacion {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		finally {
-//			try {
-//				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_procedure);
-//				ResultSet rs = prst.executeQuery();
-//				while (rs.next()) {
-//					HistoricoContaminacion historico = new HistoricoContaminacion();
-//					historico.setEmisionTotal(rs.getDouble("EMISION_TOTAL"));
-//					historico.setTipo_material(rs.getString("TIPO"));
-//					historico.setId_Material(rs.getInt("ID_MATERIAL"));
-//					historicos.add(historico);
-//				}
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			
-//		}
 		return historicos;
 	}
 	
