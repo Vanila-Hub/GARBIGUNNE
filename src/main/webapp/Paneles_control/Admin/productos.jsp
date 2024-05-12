@@ -233,11 +233,11 @@
 									<div class="mb-3">
 										<label for="id_planta" class="form-label">Planta</label> <select
 											class="form-select" aria-label="Default select example"
-											name="planta">
+											name="planta" id="plantas" onchange="getMaterialPlanta(plantas)">
 
-											<option selected>Seleccionar Planta</option>
+											<option>Seleccionar Planta</option>
 											<c:forEach items="${plantas}" var="planta">
-												<option value="${planta.id}">${planta.nombre}</option>
+												<option id="${planta.id}" value="${planta.id}">${planta.nombre}</option>
 											</c:forEach>
 
 										</select>
@@ -245,14 +245,8 @@
 									<div class="mb-3">
 										<label for="id_planta" class="form-label">Material</label> <select
 											class="form-select" aria-label="Default select example"
-											name="material">
-
+											name="material" id="materiales">
 											<option selected>Seleccionar Material</option>
-											<c:forEach items="${materiales}" var="material">
-												<option value="${material.id_material}">${material.tipo}
-												</option>
-											</c:forEach>
-
 										</select>
 									</div>
 									<div class="mb-3">
@@ -316,7 +310,7 @@
 								Berio Kalea, Guipuzcoa
 							</p></li>
 						<li><p>
-								<i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nº DE
+								<i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>Nï¿½ DE
 								TELEFONO: 943 04 33 12
 							</p></li>
 						<li><p>
@@ -352,6 +346,34 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<script src="sidebars.js"></script>
+	<script>
+		function getMaterialPlanta(id_planta) {
+			var listaMateriales = document.getElementById("materiales");
+			listaMateriales.innerHTML = "<option selected>Seleccionar Material</option>";
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/Garbigune_reto/PlantaMateriales?id_planta="
+					+ id_planta.value, true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// Convertir la respuesta JSON en un array de objetos
+					var materiales = JSON.parse(xhr.responseText);
+
+					materiales.forEach(function(material) {
+						var listOption = document.createElement("option");
+						listOption.textContent = material.tipo;
+						listOption.value=material.id_material;
+
+						listaMateriales.append(listOption);
+						console.log(material,listOption,listaMateriales);
+					});
+				}
+			};
+			xhr.send();
+		}
+	</script>
 </body>
 
 </html>

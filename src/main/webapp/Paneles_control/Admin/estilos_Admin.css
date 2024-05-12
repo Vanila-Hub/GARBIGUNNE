@@ -52,7 +52,6 @@ nav.navbar.navbar-expand-lg {
 	z-index: 3;
 }
 
-
 footer {
 	background-color: #0dac61 !important;
 	backdrop-filter: blur(2px);
@@ -263,16 +262,30 @@ td>a {
 }
 
 .test {
+	display: flex;
+	flex-direction: row;
+	width: 22%;
+	height: auto;
+	top: 5rem;
+	transform: scale(0.8);
+	left: 58rem;
+	position: fixed;
+	justify-content: space-between;
+	align-self: end;
+	transition: ease-in .2s;
+	box-shadow: rgb(0 0 0/ 6%) 0px 26px 30px -10px, rgb(0 0 0/ 14%) 0px 16px
+		10px -10px;
+}
+
+.planta_items {
     display: flex;
-    flex-direction: row;
-    width: 22%;
-    height: auto;
-    top: 5rem;
-    transform: scale(0.8);
-    left: 58rem;
-    position: fixed;
-    justify-content: space-between;
-    align-self: end;
-    transition: ease-in .2s;
-    box-shadow: rgb(0 0 0 / 6%) 0px 26px 30px -10px, rgb(0 0 0 / 14%) 0px 16px 10px -10px;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+div#card.card {
+	width: 26rem;
 }

@@ -164,7 +164,7 @@
 						</c:when>
 					</c:choose>
 					<button type="button" class="btn btn-flex plus"
-						data-bs-toggle="modal" data-bs-target="#exampleModal">
+						data-bs-toggle="modal" data-bs-target="#exampleModal1">
 						Crear <i class="bi bi-plus-lg"></i>
 					</button>
 					<thead>
@@ -186,6 +186,12 @@
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<button type="button" class="btn btn-flex"
+											data-bs-toggle="modal" data-bs-target="#exampleModal"
+											data-bs-whatever="@mdo"
+											onclick="getMateriales('${planta.id}')">
+											<i class="bi bi-eye fs-5 text-light"></i>
+										</button>
+										<button type="button" class="btn btn-flex"
 											data-bs-toggle="modal">
 											<a href="/Garbigune_reto/editarPlanta?id=${planta.id}"><i
 												class="bi bi-pencil-square fs-5 text-light"></i></a>
@@ -200,13 +206,12 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<div class="modal fade" id="exampleModal" tabindex="-1"
+				<div class="modal fade" id="exampleModal1" tabindex="-1"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE
-									SA</h1>
+								<h1 class="modal-title fs-5">Crear Planta</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
@@ -242,6 +247,70 @@
 					</div>
 				</div>
 			</div>
+			<div class="modal fade" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-scrollable planta_items carta">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">Productos</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="container">
+								<div class="row gap-3" id="row">
+									<div class="col-12 d-flex flex-row" id="card_body">
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer"></div>
+					</div>
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">Materiales</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body row">
+							<ul id="lista_materiales"
+								class="d-flex flex-column gap-3 align-items-stretch"></ul>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cerar</button>
+						</div>
+					</div>
+
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5"></h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+								<input type="text" class="form-control d-none" name="opcion"
+									value="planta">
+								<div class="mb-3">
+									<label for="exampleInput" class="form-label">Nombre</label> <input
+										type="text" class="form-control" id="nombre"
+										aria-describedby="emailHelp" name="nombre" disabled>
+								</div>
+								<div class="mb-3">
+									<label for="exampleInput" class="form-label">Direccion</label>
+									<input type="text" class="form-control" id="direccion"
+										name="direccion" disabled>
+								</div>
+								<div class="mb-3">
+									<label for="exampleInput" class="form-label">Numero de
+										telefono</label> <input type="text" class="form-control" id="telefono"
+										name="telefono" disabled>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	</div>
 
 
@@ -266,7 +335,7 @@
 								Berio Kalea, Guipuzcoa
 							</p></li>
 						<li><p>
-								<i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>N� DE
+								<i class="fas fa-phone pe-6 col-md-6 col-lg-6"></i>N� DE
 								TELEFONO: 943 04 33 12
 							</p></li>
 						<li><p>
@@ -295,13 +364,128 @@
 				</div>
 			</footer>
 		</div>
+
 	</footer>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
-	<script src="sidebars.js"></script>
+	<script>
+		function getMateriales(id_planta) {
+			// Hacer una solicitud AJAX para obtener los datos de las plantas
+			var listaMateriales = document.getElementById("lista_materiales");
+			listaMateriales.innerHTML = "";
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/Garbigune_reto/PlantaMateriales?id_planta="
+					+ id_planta, true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// Convertir la respuesta JSON en un array de objetos
+					var materiales = JSON.parse(xhr.responseText);
+
+					materiales.forEach(function(material) {
+						var listItem = document.createElement("li");
+						listItem.textContent = material.tipo;
+
+						var button = document.createElement("button");
+						button.type = "button";
+						button.className = "btn btn-flex d-flex flex-column plus";
+
+						button.textContent = material.tipo;
+
+						var span = document.createElement("span");
+						span.className = "badge text-bg-secondary";
+						span.textContent = material.emision_kg + "kg";
+
+						button.appendChild(span);
+
+						// Agregar el bot�n al contenedor
+						listaMateriales.appendChild(button);
+						//console.log(material);
+					});
+				}
+			};
+			xhr.send();
+			getProductos(id_planta);
+		}
+		function getProductos(id_planta) {
+			var listaProductos = document.getElementById('row');
+			listaProductos.innerHTML = "";
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/Garbigune_reto/PlantaProductos?id_planta="
+					+ id_planta, true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// Convertir la respuesta JSON en un array de objetos
+					var Productos = JSON.parse(xhr.responseText);
+
+					Productos.forEach(function(producto) {
+						var cardBody = document.createElement("div");
+						cardBody.className = "col-12 d-flex flex-row gap-3";
+						cardBody.id = "card_body";
+
+						var card = document.createElement("div");
+						card.className = "card";
+						card.id = "card";
+						// Crear el elemento <img> y establecer su atributo src
+						var img = document.createElement("img");
+						img.src = producto.ruta_imagen;
+						img.className = "card-img-top";
+						img.alt = producto.ruta_imagen;
+
+						// Crear elementos para el título, descripción, precio y hr
+						var title = document.createElement("h5");
+						title.className = "card-title";
+						title.textContent = producto.nombre;
+
+						var description = document.createElement("p");
+						description.className = "card-text";
+						description.textContent = producto.descripcion;
+
+						var price = document.createElement("strong");
+						price.className = "text";
+						price.textContent = producto.precio + "$";
+
+						var hr = document.createElement("hr");
+
+						// Adjuntar los elementos al contenedor
+						card.appendChild(img);
+						card.appendChild(title);
+						card.appendChild(description);
+						card.appendChild(price);
+						card.appendChild(hr);
+
+						cardBody.append(card);
+						listaProductos.append(cardBody);
+
+						//seteamos card de datos dela planta
+						let nombre = document.getElementById('nombre');
+						let dirrecion = document.getElementById('direccion');
+						let telefono = document.getElementById('telefono');
+
+						console.log(telefono);
+						nombre.value="";
+						dirrecion.value="";
+						telefono.value = "";
+
+						nombre.value=producto.planta.nombre;
+						dirrecion.value=producto.planta.direccion;
+						telefono.value = producto.planta.telefono;
+						console.log(producto);
+					});
+				}
+			};
+			xhr.send();
+		}
+	</script>
+
 </body>
 
 </html>

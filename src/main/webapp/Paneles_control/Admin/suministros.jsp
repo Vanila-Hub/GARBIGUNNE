@@ -181,7 +181,7 @@
 							<th scope="col">Material</th>
 							<th scope="col">Mes</th>
 							<th scope="col">Cantidad (KG)</th>
-							<th scope="col">Emision esperada (%)</th>
+							<!-- <th scope="col">Emision esperada (%)</th> -->
 							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
@@ -200,9 +200,10 @@
 								</td>
 								<td>${suministro.mes}</td>
 								<td>${suministro.cantidad_kg}</td>
-								<td>${suministro.emisiones_proyectadas}</td>
+								<%-- <td>${suministro.emisiones_proyectadas}</td> --%>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
+									
 										<button type="button" class="btn btn-flex"
 											data-bs-toggle="modal">
 											<a

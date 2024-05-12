@@ -16,7 +16,7 @@ public class ModeloSuministro {
 
 	public ArrayList<Suministro> getSuministros() {
 		ArrayList<Suministro> suminitros = new ArrayList<Suministro>();
-		String sql = "SELECT * FROM SUMINISTROS ORDER BY ID_PLANTA;";
+		String sql = "SELECT * FROM SUMINISTROS ORDER BY ID_MATERIAL;";
 		ModeloMaterial mmat = new ModeloMaterial();
 		ModeloPlanta modpla = new ModeloPlanta();
 		ModeloProveedor modpro = new ModeloProveedor();

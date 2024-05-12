@@ -55,9 +55,6 @@ public class CrearSuministros extends HttpServlet {
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		String mes = (String) request.getParameter("mes");
 		
-		//arrayList
-//		int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
-//		int id_Material = Integer.parseInt(request.getParameter("id_material"));
 		String[] id_Plantas = request.getParameterValues("plantas");
 		String[] id_Materiales = request.getParameterValues("materiales");
 		

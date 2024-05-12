@@ -96,7 +96,7 @@ public class ModeloMaterial {
 	}
 
 	public ArrayList<Material> getMaterialByPlanta(int id) {
-		String sql = "SELECT M.ID_MATERIAL,M.TIPO FROM MATERIALES M JOIN SUMINISTROS S ON S.ID_MATERIAL = M.ID_MATERIAL WHERE S.ID_PLANTA = ?";
+		String sql = "SELECT M.ID_MATERIAL,M.TIPO,S.CANTIDAD_KG FROM MATERIALES M JOIN SUMINISTROS S ON S.ID_MATERIAL = M.ID_MATERIAL WHERE S.ID_PLANTA = ?";
 		ArrayList<Material> materialesSuministrados = new ArrayList<Material>();
 		
 		try {
@@ -107,6 +107,7 @@ public class ModeloMaterial {
 				Material material = new Material();
 				material.setId_material(rst.getInt("ID_MATERIAL"));
 				material.setTipo(rst.getString("TIPO"));
+				material.setEmision_kg(rst.getInt("CANTIDAD_KG"));
 				materialesSuministrados.add(material);
 			}
 		} catch (Exception e) {
