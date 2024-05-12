@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.cliente.ModeloCliente;
 
 
@@ -36,6 +37,8 @@ public class CrearClientes extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+		
 		String rol = "usuario";
 		
 		String nombreCliente = (String) request.getParameter("nombre");
@@ -53,6 +56,7 @@ public class CrearClientes extends HttpServlet {
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
+		
 		
 		request.setAttribute("msg", "created");
 		request.getRequestDispatcher("/VerClientes").forward(request, response);
