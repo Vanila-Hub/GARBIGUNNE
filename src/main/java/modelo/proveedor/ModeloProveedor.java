@@ -47,7 +47,7 @@ public class ModeloProveedor {
 	}
 
 	public void borrarProveedorByID(int id_proveedor) {
-		String sql = "DELETE FROM PROVEEDORES WHERE ID_PROVEEDOR = ?";
+		String sql = "UPDATE PROVEEDORES SET HABILITADO = 0  WHERE ID_PROVEEDOR = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setInt(1, id_proveedor);

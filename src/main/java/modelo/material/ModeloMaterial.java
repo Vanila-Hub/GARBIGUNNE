@@ -46,7 +46,7 @@ public class ModeloMaterial {
 		}
 	}
 
-	public void borrarMaterialByID(int id_material) {
+	public Boolean borrarMaterialByID(int id_material) {
 		String sql = "DELETE FROM MATERIALES WHERE ID_MATERIAL = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -55,7 +55,11 @@ public class ModeloMaterial {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			if (e.getMessage().equals("No se puede eliminar este material porque hay suministros asociados.")) {
+				return false;
+			}
 		}
+		return true;
 
 	}
 

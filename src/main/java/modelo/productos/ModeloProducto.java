@@ -63,7 +63,7 @@ public class ModeloProducto {
 
     public void crearProducto(String nombre, double peso, double precio, String descripcion, int stock, int idPlanta, String rutaImagen,int idMaterial,Date fecha) {
         String sql = "INSERT INTO PRODUCTOS(NOMBRE, PESO, PRECIO, DESCRIPCION, STOCK, ID_PLANTA, RUTA_IMAGEN,ID_MATERIAL,FECHA) VALUES(?,?,?,?,?,?,?,?,?)";
-        String sql_procedure = "call Garbigunne.AutoRegistrar_Emision_producto();";
+        
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             prst.setString(1, nombre);
@@ -79,18 +79,7 @@ public class ModeloProducto {
             prst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-			try {
-				PreparedStatement prst = Conector.getConexion().prepareStatement(sql_procedure);
-				prst.executeUpdate();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+        }
     }
 
     public Producto getProductoByID(int idProducto) {
@@ -139,10 +128,27 @@ public class ModeloProducto {
             prst.setString(7, rutaImagen);
             prst.setInt(8, idProducto);
             prst.executeUpdate();
+            Conector.getConexion().close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+	public void registrarEmision() {
+	 String sql_procedure = "call Garbigunne.AutoRegistrar_Emision_producto()";
+	 try {
+		Statement st = Conector.getConexion().createStatement();
+		st.execute(sql_procedure);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	 
+		
+	}
 
 
 }

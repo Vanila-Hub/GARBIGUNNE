@@ -151,6 +151,21 @@
 								aria-label="Close"></button>
 						</div>
 					</c:when>
+					<c:when test="${msg=='no_valid_data'}">
+						<div class="alert alert-warning fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Tienes campos sin rellenar</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+					<c:when test="${msg=='integrity_error'}">
+						<div class="alert alert-warning fade show test" role="alert">
+							<p>Error, hay una plantas con productos asociados a este suministro.</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
 				</c:choose>
 				<table class="table table-design">
 					<button type="button" class="btn btn-flex plus"

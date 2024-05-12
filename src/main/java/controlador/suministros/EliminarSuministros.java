@@ -34,10 +34,15 @@ public class EliminarSuministros extends HttpServlet {
 		
 		ModeloSuministro modelo_suministro = new ModeloSuministro();
 		
-		modelo_suministro.borrarSuministroByID(id_suminitro);
+		boolean borradoMaterial = modelo_suministro.borrarSuministroByID(id_suminitro);
 		
-		request.setAttribute("msg", "deleted");
-	    request.getRequestDispatcher("VerSuministros").forward(request, response);
+		if (borradoMaterial == true) {
+			request.setAttribute("msg", "deleted");
+			request.getRequestDispatcher("VerSuministros").forward(request, response);			
+		} else {
+			request.setAttribute("msg", "integrity_error");
+			request.getRequestDispatcher("VerSuministros").forward(request, response);	
+		}
 //		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 

@@ -49,7 +49,7 @@ public class ModeloSuministro {
 		return suminitros;
 	}
 
-	public void borrarSuministroByID(int id_suminitro) {
+	public boolean borrarSuministroByID(int id_suminitro) {
 		String sql = "DELETE FROM SUMINISTROS WHERE ID_SUMINISTRO = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -57,7 +57,11 @@ public class ModeloSuministro {
 			prst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+			if (e.getMessage().equals("No se puede eliminar este suministro porque hay productos asociados.")) {
+				return false;
+			}
 		}
+		return true;
 
 	}
 

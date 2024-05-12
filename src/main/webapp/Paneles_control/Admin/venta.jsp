@@ -23,84 +23,59 @@
 <link rel="stylesheet" href="Paneles_control/Admin/estilos_Admin.css">
 <title>GarbiGunne SL</title>
 </head>
- <body>
-            <header>
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="/Garbigune_reto/home">
-                            <div class="imgDiv">
-                                <img src="Paneles_control/Admin/img/logo_garbigunne.png" alt="logo" class="logo">
-                            </div>
-                        </a>
-                    </div>
-                </nav>
-            </header>
-            <div class="contenedor">
-                <div class="sidebar aside">
-                    <a href="/Garbigune_reto/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                        
-                    </a>
-                    <hr>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a href="/Garbigune_reto/VerProveedores" class="nav-link"
-                                aria-current="page">
-                                PROVEEDORES
-                                <i class="bi bi-truck-flatbed"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerPlantas" class="nav-link">
-                                PLANTAS
-                                <i class="bi bi-house-gear-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerSuministros" class="nav-link">
-                                SUMINISTROS
-                                <i class="bi bi-diagram-3-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerMateriales" class="nav-link ">
-                                MATERIALES
-                                <i class="bi bi-tree-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerProductos" class="nav-link">
-                                PRODUCTOS
-                                <i class="bi bi-box-seam-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerEmisiones" class="nav-link">
-                                EMISIONES DE PRODUCTOS
-                                <i class="bi bi-fire"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerClientes" class="nav-link ">
-                                USUARIOS
-                                <i class="bi bi-people-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerVentas" class="nav-link active">
-                                VENTAS
-                                <i class="bi bi-handbag-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Garbigune_reto/VerHistorico" class="nav-link">
-                                HISTORICO
-                                <i class="bi bi-graph-up"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <hr>
-                    </ul>
-                    <hr>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/Garbigune_reto/home">
+					<div class="imgDiv">
+						<img src="Paneles_control/Admin/img/logo_garbigunne.png"
+							alt="logo" class="logo">
+					</div>
+				</a>
+			</div>
+		</nav>
+	</header>
+	<div class="contenedor">
+		<div class="sidebar aside">
+			<a href="/Garbigune_reto/home"
+				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+
+			</a>
+			<hr>
+			<ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item"><a href="/Garbigune_reto/VerProveedores"
+					class="nav-link" aria-current="page"> PROVEEDORES <i
+						class="bi bi-truck-flatbed"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerPlantas" class="nav-link">
+						PLANTAS <i class="bi bi-house-gear-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerSuministros" class="nav-link">
+						SUMINISTROS <i class="bi bi-diagram-3-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerMateriales" class="nav-link ">
+						MATERIALES <i class="bi bi-tree-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerProductos" class="nav-link">
+						PRODUCTOS <i class="bi bi-box-seam-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
+						EMISIONES DE PRODUCTOS <i class="bi bi-fire"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
+						USUARIOS <i class="bi bi-people-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerVentas" class="nav-link active">
+						VENTAS <i class="bi bi-handbag-fill"></i>
+				</a></li>
+				<li><a href="/Garbigune_reto/VerHistorico" class="nav-link">
+						HISTORICO <i class="bi bi-graph-up"></i>
+				</a></li>
+			</ul>
+			<hr>
+			</ul>
+			<hr>
 		</div>
 
 		<div class="d-flex flex-column flex-shrink-0 bg-body-tertiary"
@@ -132,8 +107,8 @@
 				<li><a href="/Garbigune_reto/VerEmisiones" class="nav-link">
 						<i class="bi bi-fire"></i>
 				</a></li>
-				<li><a href="/Garbigune_reto/VerClientes"
-					class="nav-link "> <i class="bi bi-people-fill"></i>
+				<li><a href="/Garbigune_reto/VerClientes" class="nav-link ">
+						<i class="bi bi-people-fill"></i>
 				</a></li>
 				<li><a href="/Garbigune_reto/VerVentas" class="nav-link active">
 						<i class="bi bi-handbag-fill"></i>
@@ -145,35 +120,43 @@
 		</div>
 
 		<main class="row mb-5">
-			
+
 			<div class="b-example-divider b-example-vr"></div>
 			<div class="table-responsive">
 				<c:choose>
-				<c:when test="${msg=='deleted'}">
-					<div class="alert alert-danger fade show test" role="alert">
-						<i class="bi bi-check-circle"></i>
-						<p>Venta Borrada</p>
-						<button type="button" class="btn-close" data-bs-dismiss="alert"
-							aria-label="Close"></button>
-					</div>
-				</c:when>
-				<c:when test="${msg=='updated'}">
-					<div class="alert alert-primary fade show test" role="alert">
-						<i class="bi bi-check-circle"></i>
-						<p>Venta Actualizada</p>
-						<button type="button" class="btn-close" data-bs-dismiss="alert"
-							aria-label="Close"></button>
-					</div>
-				</c:when>
-				<c:when test="${msg=='created'}">
-					<div class="alert alert-success fade show test" role="alert">
-						<i class="bi bi-check-circle"></i>
-						<p>Venta Creada</p>
-						<button type="button" class="btn-close" data-bs-dismiss="alert"
-							aria-label="Close"></button>
-					</div>
-				</c:when>
-			</c:choose>
+					<c:when test="${msg=='deleted'}">
+						<div class="alert alert-danger fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Venta Borrada</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+					<c:when test="${msg=='updated'}">
+						<div class="alert alert-primary fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Venta Actualizada</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+					<c:when test="${msg=='created'}">
+						<div class="alert alert-success fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Venta Creada</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+					<c:when test="${msg=='no_valid_data'}">
+						<div class="alert alert-warning fade show test" role="alert">
+							<i class="bi bi-check-circle"></i>
+							<p>Tienes campos sin rellenar</p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+					</c:when>
+				</c:choose>
 				<table class="table table-design">
 					<button type="button" class="btn btn-flex plus"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -193,8 +176,10 @@
 						<c:forEach items="${ventas}" var="venta">
 							<tr>
 								<th scope="row">${venta.id_venta}</th>
-								<td><a href="/Garbigune_reto/editarCliente?id_cliente=${venta.id_cliente}">${venta.getCliente().nombre}</a></td>
-								<td><a href="/Garbigune_reto/editarProducto?id_producto=${venta.id_producto}">${venta.getProducto().nombre}</a></td>
+								<td><a
+									href="/Garbigune_reto/editarCliente?id_cliente=${venta.id_cliente}">${venta.getCliente().nombre}</a></td>
+								<td><a
+									href="/Garbigune_reto/editarProducto?id_producto=${venta.id_producto}">${venta.getProducto().nombre}</a></td>
 								<td>${venta.cantidad}</td>
 								<td>${venta.fecha}</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">

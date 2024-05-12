@@ -266,7 +266,7 @@ td>a {
     display: flex;
     flex-direction: row;
     width: 22%;
-    height: 6%;
+    height: auto;
     top: 5rem;
     transform: scale(0.8);
     left: 58rem;

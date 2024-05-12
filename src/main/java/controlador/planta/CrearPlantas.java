@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.plantas.ModeloPlanta;
 
 
@@ -37,15 +38,22 @@ public class CrearPlantas extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
 		String nombre = (String) request.getParameter("nombre");
 		String dirrecion = (String) request.getParameter("direccion");
 		String telefono = (String) request.getParameter("telefono");
-		//lalam al modelo para inser
-		ModeloPlanta modelo_planta = new ModeloPlanta();
-		modelo_planta.crearPlanta(nombre,dirrecion,telefono);
-		//volvera el /plantas
-		request.setAttribute("msg", "created");
-		request.getRequestDispatcher("VerPlantas").forward(request, response);
+		
+		if (valitator.plantaValida(nombre,dirrecion,telefono)) {
+			//lalam al modelo para inser
+			ModeloPlanta modelo_planta = new ModeloPlanta();
+			modelo_planta.crearPlanta(nombre,dirrecion,telefono);
+			
+			request.setAttribute("msg", "created");
+			request.getRequestDispatcher("VerPlantas").forward(request, response);
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("VerPlantas").forward(request, response);
+		}
 //		response.sendRedirect("/Garbigune_reto/VerPlantas");
 	}
 

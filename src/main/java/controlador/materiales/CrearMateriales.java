@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.material.ModeloMaterial;
 
 
@@ -36,14 +37,22 @@ public class CrearMateriales extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+		ModeloMaterial modelo_material = new ModeloMaterial();
+
 		String tipo_material = (String) request.getParameter("material");
 		int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
 		
-		ModeloMaterial modelo_material = new ModeloMaterial();
-		modelo_material.crearMaterial(tipo_material, emision_kg);
-		
-		request.setAttribute("msg", "created");
-		request.getRequestDispatcher("VerMateriales").forward(request, response);
+		if (valitator.materialValido(tipo_material,emision_kg)) {
+			modelo_material.crearMaterial(tipo_material, emision_kg);
+			
+			request.setAttribute("msg", "created");
+			request.getRequestDispatcher("VerMateriales").forward(request, response);
+			
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("VerMateriales").forward(request, response);
+		}
 //		response.sendRedirect("/Garbigune_reto/VerMateriales");
 	}
 

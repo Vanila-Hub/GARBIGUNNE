@@ -1,12 +1,16 @@
 package controlador.productos;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.productos.ModeloProducto;
 
 
@@ -38,6 +42,7 @@ public class UpdateProductos extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
 		String carpetaHome = "/Garbigune_reto/ProductosIMG/";
 		String nombreProducto = request.getParameter("nombre");
 	    nombreProducto = nombreProducto.contains("+")? nombreProducto.replaceAll("+", " "):nombreProducto;
@@ -55,11 +60,17 @@ public class UpdateProductos extends HttpServlet {
 	    String rutaImagen = request.getParameter("imagen");
 	    carpetaHome= carpetaHome + rutaImagen;
 
-	    ModeloProducto modeloProducto = new ModeloProducto();
-	    modeloProducto.actualizarProductoByID(id_producto, nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome);
-
-	    request.setAttribute("msg", "updated");
-	    request.getRequestDispatcher("VerProductos").forward(request, response);
+	    if (valitator.productoValido(nombreProducto, descripcion, carpetaHome, Date.valueOf(LocalDate.now()), idPlanta, id_producto)) {
+	    	ModeloProducto modeloProducto = new ModeloProducto();
+	    	modeloProducto.actualizarProductoByID(id_producto, nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome);
+	    	
+	    	request.setAttribute("msg", "updated");
+	    	request.getRequestDispatcher("VerProductos").forward(request, response);
+			
+		} else {
+	    	request.setAttribute("msg", "no_valid_data");
+	    	request.getRequestDispatcher("VerProductos").forward(request, response);
+		}
 //	    response.sendRedirect("/Garbigune_reto/VerProductos");
 	}
 

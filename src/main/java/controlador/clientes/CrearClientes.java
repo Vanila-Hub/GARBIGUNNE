@@ -55,11 +55,16 @@ public class CrearClientes extends HttpServlet {
 		contrasena = contrasena.contains("+")?contrasena.replaceAll("+", " "):contrasena;
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
+		if (valitator.newUsuarioEsValido(nombreCliente,apellido,usuario,contrasena,rol)) {
+			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
+			request.setAttribute("msg", "created");
+			request.getRequestDispatcher("/VerClientes").forward(request, response);
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("/VerClientes").forward(request, response);
+		}
 		
 		
-		request.setAttribute("msg", "created");
-		request.getRequestDispatcher("/VerClientes").forward(request, response);
 //		response.sendRedirect("/Garbigune_reto/VerClientes?msg=created");
 	}
 

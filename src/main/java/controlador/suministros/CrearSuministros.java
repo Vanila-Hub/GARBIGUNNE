@@ -49,18 +49,24 @@ public class CrearSuministros extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+		ModeloSuministro modelo_suministro = new ModeloSuministro();
 		int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
 		int id_Planta = Integer.parseInt(request.getParameter("id_planta"));
 		int id_Material = Integer.parseInt(request.getParameter("id_material"));
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		String mes = (String) request.getParameter("mes");
 		
-		
-		ModeloSuministro modelo_suministro = new ModeloSuministro();
-		modelo_suministro.crearSuministro(id_Material,id_Proveedor,id_Planta,mes,cantidad);
-		
-		request.setAttribute("msg", "created");
-	    request.getRequestDispatcher("VerSuministros").forward(request, response);
+		if (valitator.suministroValido(id_Proveedor,id_Planta,id_Material,cantidad,mes)) {
+			modelo_suministro.crearSuministro(id_Material,id_Proveedor,id_Planta,mes,cantidad);
+			
+			request.setAttribute("msg", "created");
+			request.getRequestDispatcher("VerSuministros").forward(request, response);
+			
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("VerSuministros").forward(request, response);
+		}
 //		response.sendRedirect("/Garbigune_reto/VerSuministros");
 	}
 

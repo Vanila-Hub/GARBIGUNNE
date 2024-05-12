@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.proveedor.ModeloProveedor;
 
 
@@ -37,20 +38,24 @@ public class CrearProveedores extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+		ModeloProveedor modelo_proveedor = new ModeloProveedor();
+		
 		String nombreProveedor = (String) request.getParameter("nombre");
 		nombreProveedor = nombreProveedor.contains("+") ? nombreProveedor.replaceAll("+", " "):nombreProveedor;
-		
 		String correo = (String) request.getParameter("correo");
 		correo = correo.contains("%40") ? correo.replaceAll("%40", "@"):correo;
-		
 		String contraseña = (String) request.getParameter("contrasena");
 		contraseña = contraseña.contains("+")? contraseña.replaceAll("+", " "):contraseña;
 		
-		ModeloProveedor modelo_proveedor = new ModeloProveedor();
-		modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
-		
-		request.setAttribute("msg", "created");
-	    request.getRequestDispatcher("VerProveedores").forward(request, response);
+		if (valitator.proveedorValido(nombreProveedor,correo,contraseña)) {
+			modelo_proveedor.crearProveedor(nombreProveedor,correo,contraseña);
+			request.setAttribute("msg", "created");
+			request.getRequestDispatcher("VerProveedores").forward(request, response);
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("VerProveedores").forward(request, response);
+		}		
 //		response.sendRedirect("/Garbigune_reto/VerProveedores");
 	}
 

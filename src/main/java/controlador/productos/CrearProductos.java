@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.productos.ModeloProducto;
 
 
@@ -31,6 +32,8 @@ public class CrearProductos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+
 		String carpetaHome = "http://localhost:8080/Garbigune_reto/ProductosIMG/";
 		
 	    String nombreProducto = request.getParameter("nombre");
@@ -51,11 +54,16 @@ public class CrearProductos extends HttpServlet {
 	    int id_material = Integer.parseInt(request.getParameter("material"));
 	    Date fecha = Date.valueOf(request.getParameter("fecha"));
 	    
-	    ModeloProducto modeloProducto = new ModeloProducto();
-	    modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material,fecha);
-
-	    request.setAttribute("msg", "created");
-	    request.getRequestDispatcher("VerProductos").forward(request, response);
+	    if (valitator.productoValido(nombreProducto,descripcion,carpetaHome,fecha,idPlanta,id_material)) {
+	    	ModeloProducto modeloProducto = new ModeloProducto();
+	    	modeloProducto.crearProducto(nombreProducto, peso, precio, descripcion, stock, idPlanta, carpetaHome,id_material,fecha);
+	    	modeloProducto.registrarEmision();
+	    	request.setAttribute("msg", "created");
+	    	request.getRequestDispatcher("VerProductos").forward(request, response);
+		}else {
+	    	request.setAttribute("msg","no_valid_data");
+	    	request.getRequestDispatcher("VerProductos").forward(request, response);
+		}	    
 //	    response.sendRedirect("http://localhost:8080/Garbigune_reto/VerProductos");
 	}
 

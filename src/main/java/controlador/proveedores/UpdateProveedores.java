@@ -58,11 +58,16 @@ public class UpdateProveedores extends HttpServlet {
 			activo = 0;
 		}
 		
-		ModeloProveedor modelo_proveedor = new ModeloProveedor();
-		modelo_proveedor.actualizarProveedor(id_proveedor,nombreProveedor,correo,contraseña,activo);
-		
-		request.setAttribute("msg", "updated");
-	    request.getRequestDispatcher("VerProveedores").forward(request, response);
+		if (valitator.proveedorValido(nombreProveedor, correo, contraseña)) {
+			ModeloProveedor modelo_proveedor = new ModeloProveedor();
+			modelo_proveedor.actualizarProveedor(id_proveedor,nombreProveedor,correo,contraseña,activo);
+			
+			request.setAttribute("msg", "updated");
+			request.getRequestDispatcher("VerProveedores").forward(request, response);
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("VerProveedores").forward(request, response);
+		}
 //		response.sendRedirect("/Garbigune_reto/VerProveedores");
 	}
 

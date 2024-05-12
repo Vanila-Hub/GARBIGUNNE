@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.material.ModeloMaterial;
 
 
@@ -37,18 +38,24 @@ public class UpdateMateriales extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+		ModeloMaterial modelo_material = new ModeloMaterial();
+		
 		int id_material = Integer.parseInt(request.getParameter("id_material"));
 		String tipo_material = (String) request.getParameter("material");
 		int emison_kg = Integer.parseInt(request.getParameter("emision_kg"));
-		
-		System.out.println(id_material+"nhhhoi"+tipo_material+emison_kg);
-		//lalam al modelo para inser
-		ModeloMaterial modelo_material = new ModeloMaterial();
-		modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
-		//volvera el /plantas
-		request.setAttribute("msg", "updated");
-		request.getRequestDispatcher("VerMateriales").forward(request, response);
+
+		if (valitator.materialValido(tipo_material, emison_kg)) {
+			//lalam al modelo para inser
+			modelo_material.actualizarMaterial(emison_kg,tipo_material,id_material);
+			//volvera el /plantas
+			request.setAttribute("msg", "updated");
+			request.getRequestDispatcher("VerMateriales").forward(request, response);
 //		response.sendRedirect("/Garbigune_reto/VerMateriales");
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("VerMateriales").forward(request, response);
+		}
 	}
 
 }

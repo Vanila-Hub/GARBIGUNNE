@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.emisionproducto.ModeloEmisionProducto;
 
 
@@ -39,16 +40,22 @@ public class CrearEmisionProductos extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
+		ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
+		
 		int idProducto = Integer.parseInt(request.getParameter("id_producto"));
 	    Date fecha = Date.valueOf(request.getParameter("fecha"));
 	   
+	    if (valitator.emisionProductoValido(idProducto,fecha)) {
+	    	modeloEmisionProducto.crearEmisionProducto(idProducto,fecha);
+	    	
+	    	request.setAttribute("msg", "created");
+	    	request.getRequestDispatcher("VerEmisiones").forward(request, response);			
+		} else {
+	    	request.setAttribute("msg", "no_valid_data");
+	    	request.getRequestDispatcher("VerEmisiones").forward(request, response);
+		}
 	    
-	    ModeloEmisionProducto modeloEmisionProducto = new ModeloEmisionProducto();
-	    
-	    modeloEmisionProducto.crearEmisionProducto(idProducto,fecha);
-	    
-	    request.setAttribute("msg", "created");
-	    request.getRequestDispatcher("VerEmisiones").forward(request, response);
 //	    response.sendRedirect("/Garbigune_reto/VerEmisiones");
 	}
 

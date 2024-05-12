@@ -148,6 +148,14 @@
 							aria-label="Close"></button>
 					</div>
 				</c:when>
+				<c:when test="${msg=='no_valid_data'}">
+					<div class="alert alert-warning fade show test" role="alert">
+						<i class="bi bi-check-circle"></i>
+						<p>Tienes campos sin rellenar</p>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"
+							aria-label="Close"></button>
+					</div>
+				</c:when>
 			</c:choose>
 
 			<div class="b-example-divider b-example-vr"></div>
