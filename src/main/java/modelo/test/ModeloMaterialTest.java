@@ -28,7 +28,7 @@ class ModeloMaterialTest {
     @Test
     void testCrearMaterial() {
         ModeloMaterial modelo = new ModeloMaterial();
-        String tipo = "NuevoMaterialTest";
+        String tipo = "Madera";
         int emisionKg = 100; // Ajusta este valor según tus necesidades
         
         modelo.crearMaterial(tipo, emisionKg);
@@ -66,7 +66,7 @@ class ModeloMaterialTest {
     void testActualizarMaterial() {
         ModeloMaterial modelo = new ModeloMaterial();
         int idMaterialAActualizar = obtenerUltimoIdMaterialCreado(); // ID del material a actualizar (ajusta según tu caso)
-        String nuevoTipo = "NuevoTipoTest";
+        String nuevoTipo = "Madera";
         int nuevaEmisionKg = 200; // Ajusta este valor según tus necesidades
         
         modelo.actualizarMaterial(nuevaEmisionKg, nuevoTipo, idMaterialAActualizar);

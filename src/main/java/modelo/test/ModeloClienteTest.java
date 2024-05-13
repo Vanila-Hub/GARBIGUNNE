@@ -89,7 +89,7 @@ class ModeloClienteTest {
     @Test
     void testGetClientelByUsuario() {
         ModeloCliente modeloCliente = new ModeloCliente();
-        String usuarioABuscar = "usuario@usuario"; // Usuario del cliente a buscar (ajusta según tu caso)
+        String usuarioABuscar = "admin@admin.com"; // Usuario del cliente a buscar (ajusta según tu caso)
         
         Cliente cliente = modeloCliente.getClientelByUsuario(usuarioABuscar);
         
