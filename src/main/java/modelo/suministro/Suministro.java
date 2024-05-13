@@ -95,6 +95,7 @@ public class Suministro {
 	public void setMaterial(Material material) {
 		this.material = material;
 	}
+	
 
 	@Override
 	public String toString() {
