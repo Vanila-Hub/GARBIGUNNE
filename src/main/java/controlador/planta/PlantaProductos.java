@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
+
 
 import modelo.productos.ModeloProducto;
 import modelo.productos.Producto;
@@ -34,18 +34,18 @@ public class PlantaProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id_planta = Integer.parseInt(request.getParameter("id_planta"));
-		
-		ModeloProducto modelo_producto = new ModeloProducto();
-		
-		ArrayList<Producto> plantaProductos =  modelo_producto.getProductoByPlanta(id_planta);
-	
-		Gson gson = new Gson();
-		String jsonPlantasYsusProductos = gson.toJson(plantaProductos);
-
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(jsonPlantasYsusProductos);
+//		int id_planta = Integer.parseInt(request.getParameter("id_planta"));
+//		
+//		ModeloProducto modelo_producto = new ModeloProducto();
+//		
+//		ArrayList<Producto> plantaProductos =  modelo_producto.getProductoByPlanta(id_planta);
+//	
+//		Gson gson = new Gson();
+//		String jsonPlantasYsusProductos = gson.toJson(plantaProductos);
+//
+//		response.setContentType("application/json");
+//		response.setCharacterEncoding("UTF-8");
+//		response.getWriter().write(jsonPlantasYsusProductos);
 		
 	}
 

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
+
 
 import modelo.material.Material;
 import modelo.material.ModeloMaterial;
@@ -38,13 +38,13 @@ public class PlantaMateriales extends HttpServlet {
 		int id_planta = Integer.parseInt(request.getParameter("id_planta"));
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		ArrayList<Material> materiles_planta =  modelo_material.getMaterialByPlanta(id_planta);
-		Gson gson = new Gson();
-		String jsonPlantasYsusMateriales = gson.toJson(materiles_planta);
+//		Gson gson = new Gson();
+//		String jsonPlantasYsusMateriales = gson.toJson(materiles_planta);
 
-		// Enviar la respuesta al cliente
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(jsonPlantasYsusMateriales);
+//		// Enviar la respuesta al cliente
+//		response.setContentType("application/json");
+//		response.setCharacterEncoding("UTF-8");
+//		response.getWriter().write(jsonPlantasYsusMateriales);
 	}
 
 	/**
