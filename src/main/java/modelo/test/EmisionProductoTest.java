@@ -71,7 +71,8 @@ class EmisionProductoTest {
         emisionProducto.setProducto(producto);
         assertEquals(producto, emisionProducto.getProducto());
     }
-
+    
+    
     @Test
     void testToString() {
         EmisionProducto emisionProducto = new EmisionProducto();
