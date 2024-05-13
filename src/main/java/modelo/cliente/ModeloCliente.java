@@ -72,11 +72,12 @@ public class ModeloCliente {
 				cliente.setUsuario(rst.getString("USUARIO"));
 				cliente.setContrasena(rst.getString("CONTRASENA"));
 				cliente.setRol(rst.getString("ROL"));
+				return cliente;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return cliente;
+		return null;
 	}
 	
 	public void actualizarCliente(String nombreCliente, String apellido, String usuario, String contrasena,

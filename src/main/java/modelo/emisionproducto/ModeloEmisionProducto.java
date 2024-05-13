@@ -67,11 +67,12 @@ public class ModeloEmisionProducto {
                 
                 //setteamos complementos relacionados
                 emision_producto.setProducto(modelo_produ.getProductoByID(emision_producto.getId_producto()));
+                return emision_producto;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return emision_producto;
+		return null;
     }
 
     public void eliminarEmisionProducto(int id_emision) {
