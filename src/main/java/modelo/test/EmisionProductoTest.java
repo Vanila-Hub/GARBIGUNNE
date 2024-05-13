@@ -30,6 +30,7 @@ class EmisionProductoTest {
         assertEquals(emisionGenerada, emisionProducto.getEmision_generada());
         assertEquals(fecha, emisionProducto.getFecha());
     }
+    
 
     @Test
     void testGetSetId_emision() {
