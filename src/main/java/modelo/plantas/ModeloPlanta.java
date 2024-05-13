@@ -23,7 +23,7 @@ public class ModeloPlanta{
 				Planta planta = new Planta();
 				planta.setId(rst.getInt("ID_PLANTA"));
 				planta.setNombre(rst.getString("NOMBRE"));
-				planta.setTelefono(rst.getInt("TELEFONO"));
+				planta.setTelefono(rst.getString("TELEFONO"));
 				planta.setDireccion(rst.getString("DIRECCION"));
 				planta.setMaterialesSuministrados(modelo_material.getMaterialByPlanta(planta.getId()));
 				plantas.add(planta);
@@ -72,7 +72,7 @@ public class ModeloPlanta{
 				Planta planta = new Planta();
 				planta.setId(rst.getInt("ID_PLANTA"));
 				planta.setNombre(rst.getString("NOMBRE"));
-				planta.setTelefono(rst.getInt("TELEFONO"));
+				planta.setTelefono(rst.getString("TELEFONO"));
 				planta.setDireccion(rst.getString("DIRECCION"));
 				return planta;
 			}

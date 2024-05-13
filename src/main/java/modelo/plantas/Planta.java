@@ -8,7 +8,7 @@ public class Planta {
 	private int id;
 	private String nombre;
 	private String direccion;
-	private int telefono;
+	private String telefono;
 	private ArrayList<Material> materialesSuministrados = new  ArrayList<Material>();
 	
 	public int getId() {
@@ -29,10 +29,10 @@ public class Planta {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	
