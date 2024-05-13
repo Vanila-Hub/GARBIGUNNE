@@ -128,7 +128,7 @@ public class ModeloSuministro {
 		}
 		return suministro;
 	}
-
+ 
 	public void actualizarSuministroByID(int id_Material, int id_Proveedor, int id_Planta, int id_suministro, String mes, double cantidad) {
 		String sql = "UPDATE SUMINISTROS SET ID_PROVEEDOR = ?, ID_PLANTA = ?, ID_MATERIAL = ?, MES= ?, CANTIDAD_KG = ? WHERE ID_SUMINISTRO = ?";
 		String sql_regitrar_emision = "call Garbigunne.Emision_Suministro()";
