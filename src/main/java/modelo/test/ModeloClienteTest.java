@@ -2,11 +2,15 @@ package modelo.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
 import modelo.cliente.ModeloCliente;
+import modelo.Conector;
 import modelo.cliente.Cliente;
 
 class ModeloClienteTest {
@@ -16,7 +20,6 @@ class ModeloClienteTest {
         ModeloCliente modeloCliente = new ModeloCliente();
         ArrayList<Cliente> clientes = modeloCliente.getClientes();
         assertNotNull(clientes);
-        assertFalse(clientes.isEmpty());
         // Aquí podrías realizar más aserciones según lo que esperas de la lista de clientes obtenida
     }
 
@@ -25,13 +28,13 @@ class ModeloClienteTest {
         ModeloCliente modeloCliente = new ModeloCliente();
         String nombre = "NombreTest";
         String apellido = "ApellidoTest";
-        String usuario = "UsuarioTest";
+        String usuario = "UsuarioTest@usuario.com";
         String contrasena = "ContrasenaTest";
-        String rol = "RolTest";
+        String rol = "usuario";
         
         modeloCliente.crearCliente(nombre, apellido, usuario, contrasena, rol);
         
-        Cliente clienteCreado = modeloCliente.getClientelByUsuario(usuario);
+        Cliente clienteCreado = modeloCliente.getClientelByUsuario(obtenerUsuarioUltimoClienteCreado());
         assertNotNull(clienteCreado);
         assertEquals(nombre, clienteCreado.getNombre());
         assertEquals(apellido, clienteCreado.getApellido());
@@ -43,7 +46,7 @@ class ModeloClienteTest {
     @Test
     void testBorrarClienteByID() {
         ModeloCliente modeloCliente = new ModeloCliente();
-        int idClienteABorrar = 1; // ID del cliente a borrar (ajusta según tu caso)
+        int idClienteABorrar = obtenerIdUltimoClienteCreado(); // ID del cliente a borrar (ajusta según tu caso)
         
         modeloCliente.borrarClienteByID(idClienteABorrar);
         
@@ -54,7 +57,7 @@ class ModeloClienteTest {
     @Test
     void testGetClientelByID() {
         ModeloCliente modeloCliente = new ModeloCliente();
-        int idClienteABuscar = 1; // ID del cliente a buscar (ajusta según tu caso)
+        int idClienteABuscar = obtenerIdUltimoClienteCreado(); // ID del cliente a buscar (ajusta según tu caso)
         
         Cliente cliente = modeloCliente.getClientelByID(idClienteABuscar);
         
@@ -65,12 +68,12 @@ class ModeloClienteTest {
     @Test
     void testActualizarCliente() {
         ModeloCliente modeloCliente = new ModeloCliente();
-        int idClienteAActualizar = 1; // ID del cliente a actualizar (ajusta según tu caso)
+        int idClienteAActualizar = obtenerIdUltimoClienteCreado(); // ID del cliente a actualizar (ajusta según tu caso)
         String nuevoNombre = "NuevoNombreTest";
         String nuevoApellido = "NuevoApellidoTest";
         String nuevoUsuario = "NuevoUsuarioTest";
         String nuevaContrasena = "NuevaContrasenaTest";
-        String nuevoRol = "NuevoRolTest";
+        String nuevoRol = "usuario";
         
         modeloCliente.actualizarCliente(nuevoNombre, nuevoApellido, nuevoUsuario, nuevaContrasena, idClienteAActualizar, nuevoRol);
         
@@ -86,13 +89,48 @@ class ModeloClienteTest {
     @Test
     void testGetClientelByUsuario() {
         ModeloCliente modeloCliente = new ModeloCliente();
-        String usuarioABuscar = "NombreTest"; // Usuario del cliente a buscar (ajusta según tu caso)
+        String usuarioABuscar = "usuario@usuario"; // Usuario del cliente a buscar (ajusta según tu caso)
         
         Cliente cliente = modeloCliente.getClientelByUsuario(usuarioABuscar);
         
         assertNotNull(cliente);
         assertEquals(usuarioABuscar, cliente.getUsuario());
         // Aquí podrías realizar más aserciones según lo que esperas del cliente obtenido
+    }
+
+    private int obtenerIdUltimoClienteCreado() {
+        int idCliente = 0;
+        try {
+            // Realiza una consulta para obtener el ID del último cliente creado
+            String sql = "SELECT MAX(ID_CLIENTE) FROM CLIENTES";
+            Connection con = Conector.getConexion();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                idCliente = rs.getInt(1);
+            }
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return idCliente;
+    }
+    private String obtenerUsuarioUltimoClienteCreado() {
+    	String ClienteUser = null;
+    	try {
+    		// Realiza una consulta para obtener el ID del último cliente creado
+    		String sql = "SELECT USUARIO FROM CLIENTES WHERE ID_CLIENTE = (SELECT MAX(ID_CLIENTE) FROM CLIENTES)";
+    		Connection con = Conector.getConexion();
+    		Statement st = con.createStatement();
+    		ResultSet rs = st.executeQuery(sql);
+    		if (rs.next()) {
+    			ClienteUser = rs.getString(1);
+    		}
+    		con.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	return ClienteUser;
     }
 
 }

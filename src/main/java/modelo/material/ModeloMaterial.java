@@ -74,11 +74,12 @@ public class ModeloMaterial {
 				material.setId_material(rst.getInt("ID_MATERIAL"));
 				material.setTipo(rst.getString("TIPO"));
 				material.setEmision_kg(rst.getInt("EMISION_KG"));
+				return material;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return material;
+		return null;
 	}
 
 	public void actualizarMaterial(int emison_kg, String tipo_material, int id_material) {
