@@ -65,7 +65,7 @@ public class Garbigunne_Registrar extends HttpServlet {
 		if (valitator.newUsuarioEsValido(nombreCliente,apellido,usuario,contrasena,rol)) {
 			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 			request.setAttribute("msg", "created");
-			request.getRequestDispatcher("Registrar/index.jsp").forward(request, response);
+			request.getRequestDispatcher("Login/index.jsp").forward(request, response);
 		} else {
 			request.setAttribute("msg", "no_valid_data");
 			request.getRequestDispatcher("Registrar/index.jsp").forward(request, response);
