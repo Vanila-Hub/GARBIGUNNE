@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.Conector;
 import modelo.cliente.ModeloCliente;
 
@@ -39,6 +40,7 @@ public class Garbigunne_Registrar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FormValidador valitator = new FormValidador();
 		
 		String nombreCliente = (String) request.getParameter("nombre");
 		nombreCliente = nombreCliente.contains("+")?nombreCliente.replaceAll("+", " "):nombreCliente;
@@ -58,8 +60,16 @@ public class Garbigunne_Registrar extends HttpServlet {
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 		
+//		response.sendRedirect("/Garbigune_reto/Login?id_cliente=" + 0);
 
-		response.sendRedirect("/Garbigune_reto/Login?id_cliente=" + 0);
+		if (valitator.newUsuarioEsValido(nombreCliente,apellido,usuario,contrasena,rol)) {
+			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
+			request.setAttribute("msg", "created");
+			request.getRequestDispatcher("Registrar/index.jsp").forward(request, response);
+		} else {
+			request.setAttribute("msg", "no_valid_data");
+			request.getRequestDispatcher("Registrar/index.jsp").forward(request, response);
+		}
 	}
 
 }

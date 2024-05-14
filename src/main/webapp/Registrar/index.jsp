@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="controlador.clientes.CrearClientes"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="./img/logo_garbigunne.png"
+<link rel="shortcut icon" href="Paneles_control/Admin/img/logo_garbigunne.png"
 	type="image/x-icon">
 <link rel="stylesheet" href="Registrar/estilos.css">
 <link rel="stylesheet"
@@ -34,6 +34,16 @@
 			</div>
 		</nav>
 	</header>
+		<c:choose>
+			<c:when test="${msg=='no_valid_data'}">
+				<div class="alert alert-warning fade show test" role="alert">
+					<i class="bi bi-check-circle"></i>
+					<p>Tienes campos sin rellenar</p>
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:when>
+		</c:choose>
 	<main>
 		<div class="contenedor">
 			<form action="/Garbigune_reto/registrarse" method="post">
@@ -57,7 +67,8 @@
 				<button type="submit" class="btn btn-secondary">Crear
 					Usuario</button>
 				<button type="button" class="btn btn-primary">
-					<a href="http://localhost:8080/Garbigune_reto/Login">Ya tengo Cuenta</a>
+					<a href="http://localhost:8080/Garbigune_reto/Login">Ya tengo
+						Cuenta</a>
 				</button>
 			</form>
 		</div>
