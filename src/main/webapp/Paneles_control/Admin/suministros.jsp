@@ -263,7 +263,7 @@
 										</ul>
 									</div>
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">Materiaeles</label>
+										<label for="exampleInput" class="form-label">Materiales</label>
 
 										<ul class="list-group">
 											<c:forEach items="${materiales}" var="material">
