@@ -58,7 +58,6 @@ public class Garbigunne_Registrar extends HttpServlet {
 		String rol = "usuario";
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);
 		
 //		response.sendRedirect("/Garbigune_reto/Login?id_cliente=" + 0);
 
