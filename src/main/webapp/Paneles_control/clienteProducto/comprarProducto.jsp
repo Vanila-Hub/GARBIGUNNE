@@ -89,6 +89,7 @@
 							</c:choose>
 							<br>
 							<h5>${producto.precio}$</h5>
+							<strong class="card-title">Material: ${producto.getMaterial().getTipo()}</strong>
 							<hr>
 							<button type="submit" class="btn btn-flex">Pagar</button>
 							<button type="button" class="btn">

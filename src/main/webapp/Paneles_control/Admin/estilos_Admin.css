@@ -278,15 +278,126 @@ td>a {
 }
 
 .planta_items {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-left: 10rem;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 2rem;
+	flex-wrap: wrap;
+	margin-left: 10rem;
+	justify-content: center;
+	align-items: center;
 }
 
 div#card.card {
 	width: 26rem;
+}
+
+.vidrio {
+	background-color: rgba(13, 110, 253, 0.25) !important;
+	color: black !important;
+	transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+	margin: 1rem 1rem;
+	box-shadow: 0 9px 8px #01320538;
+}
+
+.vidrio:hover {
+	background-color: rgba(13, 110, 253, 0.25) !important;
+	transform: scale(1.1);
+}
+
+.vidrio:active {
+	background-color: rgba(13, 110, 253, 0.25) !important;
+	transform: scale(0.7);
+}
+
+.papel {
+	background: linear-gradient(90deg, rgba(225, 228, 228, 0.5214460784313726)
+		18%, rgba(191, 197, 198, 0.4654236694677871) 45%,
+		rgba(255, 255, 255, 1) 85%) ! important;
+	color: #020000 !important;
+	transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+	margin: 1rem 1rem;
+	box-shadow: 6px 9px 8px #2c352d38;
+}
+
+.papel:hover {
+	background-color: rgb(255 255 255/ 35%) !important;
+	transform: scale(1.1);
+}
+
+.papel:active {
+	background-color: rgb(255 255 255/ 35%) !important;
+	transform: scale(0.7);
+	border: none;
+}
+
+.carton {
+	background: linear-gradient(98deg, rgba(255, 166, 0, 0.9500175070028011)
+		18%, rgba(255, 149, 0, 0.6643032212885154) 85%)! important;
+	color: rgb(1, 24, 59) !important;
+	transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+	margin: 1rem 1rem;
+	box-shadow: 0 9px 8px #01320538;
+}
+
+.carton:hover {
+	transform: scale(1.1);
+	background-color: rgb(255 174 58/ 76%) !important;
+}
+
+.carton:active {
+	transform: scale(0.7);
+	background-color: rgb(255 174 58/ 56%) !important;
+	border: none;
+}
+
+.metal {
+	background-color: rgb(139 129 129/ 25%) !important;
+	color: black !important;
+	transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+	margin: 1rem 1rem;
+	box-shadow: 0 9px 8px #01320538;
+}
+
+.metal:hover {
+	background-color: rgb(139 129 129/ 25%) !important;
+	transform: scale(1.1);
+}
+
+.metal:active {
+	background-color: rgb(139 129 129/ 25%) !important;
+	transform: scale(0.7);
+}
+
+.madera {
+	background-color: #ac3f0dc9 !important;
+	color: black !important;
+	transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+	margin: 1rem 1rem;
+	box-shadow: 0 9px 8px #01320538;
+}
+
+.madera:hover {
+	background-color: #ac3f0dc9 !important;
+	transform: scale(1.1);
+}
+
+.madera:active {
+	background-color: #ac3f0dc9 !important;
+	transform: scale(0.7);
+}
+
+.plastico {
+	background: linear-gradient(90deg, rgba(255, 255, 255, 1) 42%, rgba(249, 225, 227, 0.7231267507002801) 63%, rgb(85 63 63 / 76%) 73%) !important;
+	color: black !important;
+	transition: cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+	margin: 1rem 1rem;
+	box-shadow: 0 9px 8px #01320538;
+}
+
+.plastico:hover {
+	transform: scale(1.1);
+}
+
+.plastico:active {
+	transform: scale(0.7);
 }

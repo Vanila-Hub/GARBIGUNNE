@@ -191,6 +191,7 @@
 											onclick="getMateriales('${planta.id}')">
 											<i class="bi bi-eye fs-5 text-light"></i>
 										</button>
+
 										<button type="button" class="btn btn-flex"
 											data-bs-toggle="modal">
 											<a href="/Garbigune_reto/editarPlanta?id=${planta.id}"><i
@@ -259,8 +260,7 @@
 						<div class="modal-body">
 							<div class="container">
 								<div class="row gap-3" id="row">
-									<div class="col-12 d-flex flex-row" id="card_body">
-									</div>
+									<div class="col-12 d-flex flex-row" id="card_body"></div>
 
 								</div>
 							</div>
@@ -285,28 +285,28 @@
 
 					<div class="modal-content">
 						<div class="modal-header">
-							<h1 class="modal-title fs-5"></h1>
+							<h1 class="modal-title fs-5">Datos de la Planta</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-								<input type="text" class="form-control d-none" name="opcion"
-									value="planta">
-								<div class="mb-3">
-									<label for="exampleInput" class="form-label">Nombre</label> <input
-										type="text" class="form-control" id="nombre"
-										aria-describedby="emailHelp" name="nombre" disabled>
-								</div>
-								<div class="mb-3">
-									<label for="exampleInput" class="form-label">Direccion</label>
-									<input type="text" class="form-control" id="direccion"
-										name="direccion" disabled>
-								</div>
-								<div class="mb-3">
-									<label for="exampleInput" class="form-label">Numero de
-										telefono</label> <input type="text" class="form-control" id="telefono"
-										name="telefono" disabled>
-								</div>
+							<input type="text" class="form-control d-none" name="opcion"
+								value="planta">
+							<div class="mb-3">
+								<label for="exampleInput" class="form-label">Nombre</label> <input
+									type="text" class="form-control" id="nombre"
+									aria-describedby="emailHelp" name="nombre" disabled>
+							</div>
+							<div class="mb-3">
+								<label for="exampleInput" class="form-label">Direccion</label> <input
+									type="text" class="form-control" id="direccion"
+									name="direccion" disabled>
+							</div>
+							<div class="mb-3">
+								<label for="exampleInput" class="form-label">Numero de
+									telefono</label> <input type="text" class="form-control" id="telefono"
+									name="telefono" disabled>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -368,9 +368,7 @@
 	</footer>
 
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
 		function getMateriales(id_planta) {
 			// Hacer una solicitud AJAX para obtener los datos de las plantas
@@ -393,7 +391,29 @@
 
 						var button = document.createElement("button");
 						button.type = "button";
-						button.className = "btn btn-flex d-flex flex-column plus";
+						switch (material.tipo) {
+							case "vidrio":
+								button.className = "btn btn-flex d-flex flex-column vidrio";
+								break;
+							case "papel":
+								button.className = "btn btn-flex d-flex flex-column papel";
+								break;
+							case "carton":
+								button.className = "btn btn-flex d-flex flex-column carton";
+								break;
+							case "metal":
+								button.className = "btn btn-flex d-flex flex-column metal";
+								break;
+							case "Madera":
+								button.className = "btn btn-flex d-flex flex-column madera";
+								break;
+							case "plastico":
+								button.className = "btn btn-flex d-flex flex-column plastico";
+								break;
+							default:
+									button.className = "btn btn-flex d-flex flex-column plus ";
+								break;
+						}
 
 						button.textContent = material.tipo;
 
@@ -409,8 +429,8 @@
 					});
 				}
 			};
-			xhr.send();
 			getProductos(id_planta);
+			xhr.send();
 		}
 		function getProductos(id_planta) {
 			var listaProductos = document.getElementById('row');
@@ -453,6 +473,10 @@
 						price.className = "text";
 						price.textContent = producto.precio + "$";
 
+						var material = document.createElement("strong");
+						price.className = "text";
+						price.textContent = "Material: " + producto.material.tipo;
+
 						var hr = document.createElement("hr");
 
 						// Adjuntar los elementos al contenedor
@@ -461,6 +485,7 @@
 						card.appendChild(description);
 						card.appendChild(price);
 						card.appendChild(hr);
+						card.appendChild(material);
 
 						cardBody.append(card);
 						listaProductos.append(cardBody);
@@ -485,7 +510,6 @@
 			xhr.send();
 		}
 	</script>
-
 </body>
 
 </html>
