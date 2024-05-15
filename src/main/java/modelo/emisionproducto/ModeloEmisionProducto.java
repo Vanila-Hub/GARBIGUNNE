@@ -86,13 +86,14 @@ public class ModeloEmisionProducto {
         }
     }
 
-    public void actualizarEmisionProducto(int id_emision, int id_producto, Date fecha) {
-        String sql = "UPDATE EMISIONES_PRODUCTOS SET ID_PRODUCTO = ?, FECHA = ? WHERE ID_EMISION = ?";
+    public void actualizarEmisionProducto(int id_emision, int id_producto, Date fecha, Double emision_generada) {
+        String sql = "UPDATE EMISIONES_PRODUCTOS SET ID_PRODUCTO = ?, FECHA = ?, SET EMISION_GENERADA = ? WHERE ID_EMISION = ?";
         try {
             PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
             prst.setInt(1, id_producto);
             prst.setDate(2, fecha);
-            prst.setInt(3, id_emision);
+            prst.setDouble(3, emision_generada);
+            prst.setInt(4, id_emision);
             prst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

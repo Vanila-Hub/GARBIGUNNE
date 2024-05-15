@@ -72,7 +72,7 @@ class ModeloEmisionProductoTest {
         int nuevoIdProducto = obtenerUltimoIdProductoCreado(); // Nuevo ID del producto
         Date nuevaFecha = new Date(System.currentTimeMillis()); // Nueva fecha
         
-        modelo.actualizarEmisionProducto(idEmisionAActualizar, nuevoIdProducto, nuevaFecha);
+        modelo.actualizarEmisionProducto(idEmisionAActualizar, nuevoIdProducto, nuevaFecha, 22.2);
         
         EmisionProducto emisionActualizada = modelo.getEmisionProductoByID(idEmisionAActualizar);
         assertNotNull(emisionActualizada);

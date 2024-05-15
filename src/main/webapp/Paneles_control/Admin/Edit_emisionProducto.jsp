@@ -43,22 +43,18 @@
                                 <div class="mb-3">
                                     <label for="id_producto" class="form-label">Producto</label>
                                     <select class="form-select" aria-label="Default select example" name="id_producto">
-                                        <option>Seleccionar Producto</option>
                                         <c:forEach items="${productos}" var="producto">
                                             <c:choose>
                                                 <c:when test="${producto.id_producto == id_producto}">
                                                     <option value="${producto.id_producto}" selected>${producto.nombre}</option>
                                                 </c:when>
-                                                <c:otherwise>
-                                                    <option value="${producto.id_producto}">${producto.nombre}</option>
-                                                </c:otherwise>
                                             </c:choose>                                        	
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="emision_generada" class="form-label">Emision Generada</label>
-                                    <input type="text" class="form-control" name="emision_generada" value="${emision_generada}" disabled>
+                                    <input type="text" class="form-control" name="emision_generada" value="${emision_generada}" >
                                 </div>
                                 
                                 <div class="mb-3">

@@ -45,6 +45,7 @@ public class CrearEmisionProductos extends HttpServlet {
 		
 		int idProducto = Integer.parseInt(request.getParameter("id_producto"));
 	    Date fecha = Date.valueOf(request.getParameter("fecha"));
+	    Double emision_generada = Double.parseDouble(request.getParameter("emision_generada"));
 	   
 	    if (valitator.emisionProductoValido(idProducto,fecha)) {
 	    	modeloEmisionProducto.crearEmisionProducto(idProducto,fecha);

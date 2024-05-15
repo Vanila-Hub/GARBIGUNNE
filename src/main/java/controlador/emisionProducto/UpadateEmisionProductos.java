@@ -42,9 +42,10 @@ public class UpadateEmisionProductos extends HttpServlet {
         int idEmision = Integer.parseInt(request.getParameter("id_emision"));
         int idProducto = Integer.parseInt(request.getParameter("id_producto"));
         Date fecha = Date.valueOf(request.getParameter("fecha"));
+        Double emision_generada = Double.parseDouble(request.getParameter("emision_generada"));
         
         ModeloEmisionProducto modelo_emision_producto = new ModeloEmisionProducto();
-        modelo_emision_producto.actualizarEmisionProducto(idEmision, idProducto, fecha);
+        modelo_emision_producto.actualizarEmisionProducto(idEmision, idProducto, fecha, emision_generada);
         
         request.setAttribute("msg", "updated");
         request.getRequestDispatcher("VerEmisiones").forward(request, response);
