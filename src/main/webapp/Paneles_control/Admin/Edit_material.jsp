@@ -47,7 +47,7 @@
                                     <select class="form-select" aria-label="Default select example" name="material">
                                         <option selected>Materiales</option>
                                         <c:choose>
-                                            <c:when test="${tipo_material == 'Plastico'}">
+                                            <c:when test="${tipo_material == 'plastico'}">
                                                 <option value="plastico" selected>Plastico</option>
                                                 <option value="papel">Papel</option>
                                                 <option value="vidrio">Vidrio</option>
@@ -55,7 +55,7 @@
                                                 <option value="metal">Metal</option>
                                                 <option value="madera">Madera</option>
                                             </c:when>
-                                            <c:when test="${tipo_material == 'Papel'}">
+                                            <c:when test="${tipo_material == 'papel'}">
                                                 <option value="plastico">Plastico</option>
                                                 <option value="papel" selected>Papel</option>
                                                 <option value="vidrio">Vidrio</option>
@@ -63,7 +63,7 @@
                                                 <option value="metal">Metal</option>
                                                 <option value="madera">Madera</option>
                                             </c:when>
-                                            <c:when test="${tipo_material == 'Vidrio'}">
+                                            <c:when test="${tipo_material == 'vidrio'}">
                                                 <option value="plastico">Plastico</option>
                                                 <option value="papel">Papel</option>
                                                 <option value="vidrio" selected>Vidrio</option>
@@ -71,7 +71,7 @@
                                                 <option value="metal">Metal</option>
                                                 <option value="madera">Madera</option>
                                             </c:when>
-                                            <c:when test="${tipo_material == 'Carton'}">
+                                            <c:when test="${tipo_material == 'carton'}">
                                                 <option value="plastico">Plastico</option>
                                                 <option value="papel">Papel</option>
                                                 <option value="vidrio">Vidrio</option>
@@ -79,7 +79,7 @@
                                                 <option value="metal">Metal</option>
                                                 <option value="madera">Madera</option>
                                             </c:when>
-                                            <c:when test="${tipo_material == 'Metal'}">
+                                            <c:when test="${tipo_material == 'metal'}">
                                                 <option value="plastico">Plastico</option>
                                                 <option value="papel">Papel</option>
                                                 <option value="vidrio">Vidrio</option>

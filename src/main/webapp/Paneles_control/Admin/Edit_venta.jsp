@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="flex-row flex-wrap align-items-start">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal"><a href="/Garbigune_reto/VerVenta" class="">Cancelar</a></button>
+                                        data-bs-dismiss="modal"><a href="/Garbigune_reto/VerVentas" class="">Cancelar</a></button>
                                     <button type="submit" class="btn btn-primary" id="liveToastBtn">Actualizar</button>
                             </form>
                         </div>

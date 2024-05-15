@@ -181,7 +181,14 @@
 								<td>${proveedor.nombre}</td>
 								<td>${proveedor.correo}</td>
 								<td>${proveedor.contraseña}</td>
-								<td>${proveedor.habilitado}</td>
+								<td>
+								<c:choose>
+								<c:when test="${proveedor.habilitado == true}">Si</c:when>
+								<c:otherwise>
+									No
+								</c:otherwise>
+								</c:choose>
+								</td>
 								<td class="d-flex flex-wrap justify-content-evenly w-2">
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<button type="button" class="btn btn-flex"

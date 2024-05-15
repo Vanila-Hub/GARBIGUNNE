@@ -205,15 +205,14 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">GARBIGUNNE
-									SA</h1>
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Crear Venta</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
 								<form action="/Garbigune_reto/crearVenta" method="post">
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">ID
+										<label for="exampleInput" class="form-label">
 											cliente</label> <select class="form-select"
 											aria-label="Default select example" name="id_cliente">
 											<option selected>Clientes</option>
@@ -224,7 +223,7 @@
 										</select>
 									</div>
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">ID
+										<label for="exampleInput" class="form-label">
 											Producto</label> <select class="form-select"
 											aria-label="Default select example" name="id_producto">
 											<option selected>Productos</option>

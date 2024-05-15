@@ -24,7 +24,9 @@ import modelo.suministro.ModeloSuministro;
  */
 @WebServlet("/crearSuministro")
 public class CrearSuministros extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
+	private static final String UPLOAD_DIRECTORY = "/ProductosIMG/"; // Carpeta donde se guardarán las imágenes
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -40,7 +42,7 @@ public class CrearSuministros extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 
 	/**
@@ -54,15 +56,17 @@ public class CrearSuministros extends HttpServlet {
 		int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		String mes = (String) request.getParameter("mes");
-		
+
 		String[] id_Plantas = request.getParameterValues("plantas");
 		String[] id_Materiales = request.getParameterValues("materiales");
-		
-		if (valitator.camposSuministroValido(id_Plantas,id_Materiales)) {
+
+		if (valitator.camposSuministroValido(id_Plantas, id_Materiales)) {
 			for (String id_Material : id_Materiales) {
 				for (String id_Planta : id_Plantas) {
-					if (valitator.suministroValido(id_Proveedor,Integer.parseInt(id_Planta),Integer.parseInt(id_Material),cantidad,mes)) {
-						modelo_suministro.crearSuministro(Integer.parseInt(id_Material),id_Proveedor,Integer.parseInt(id_Planta),mes,cantidad);
+					if (valitator.suministroValido(id_Proveedor, Integer.parseInt(id_Planta),
+							Integer.parseInt(id_Material), cantidad, mes)) {
+						modelo_suministro.crearSuministro(Integer.parseInt(id_Material), id_Proveedor,
+								Integer.parseInt(id_Planta), mes, cantidad);
 					}
 				}
 			}
