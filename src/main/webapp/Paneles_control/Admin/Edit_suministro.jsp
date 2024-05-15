@@ -86,9 +86,9 @@
                                             	<c:when test="${material.id_material==id_material}">
 		                                            <option value="${material.id_material}" selected>${material.tipo}</option>   	
                                             	</c:when>
-<%--                                             	<c:otherwise>
+                                           	<c:otherwise>
                                             		<option value="${material.id_material}">${material.tipo}</option>
-                                            	</c:otherwise> --%>
+                                            	</c:otherwise> 
                                             </c:choose>
                                         </c:forEach>
                                     </select>
@@ -136,32 +136,4 @@
         crossorigin="anonymous"></script>
     <script src="sidebars.js"></script>
 </body>
-<script>
-		function getMaterialPlanta(id_planta) {
-			var listaMateriales = document.getElementById("materiales");
-			listaMateriales.innerHTML = "<option selected>Seleccionar Material</option>";
-
-			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "/Garbigune_reto/PlantaMateriales?id_planta="
-					+ id_planta.value, true);
-			xhr.setRequestHeader("Content-Type", "application/json");
-
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					// Convertir la respuesta JSON en un array de objetos
-					var materiales = JSON.parse(xhr.responseText);
-
-					materiales.forEach(function(material) {
-						var listOption = document.createElement("option");
-						listOption.textContent = material.tipo;
-						listOption.value=material.id_material;
-
-						listaMateriales.append(listOption);
-						console.log(material,listOption,listaMateriales);
-					});
-				}
-			};
-			xhr.send();
-		}
-	</script>
 </html>
