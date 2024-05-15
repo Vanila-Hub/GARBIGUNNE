@@ -253,11 +253,11 @@
 									<div class="mb-3">
 										<label for="nombre" class="form-label">Nombre Del
 											Producto</label> <input type="text" class="form-control"
-											name="nombre">
+											name="nombre" required>
 									</div>
 									<div class="mb-3">
 										<label for="precio" class="form-label">Precio</label> <input
-											type="number" class="form-control" name="precio">
+											type="number" class="form-control" name="precio" required>
 									</div>
 									<div class="mb-3">
 										<label for="descripcion" class="form-label">Descripcion</label>
@@ -266,20 +266,20 @@
 									</div>
 									<div class="mb-3">
 										<label for="stock" class="form-label">Stock</label> <input
-											type="number" class="form-control" name="stock">
+											type="number" class="form-control" name="stock" required>
 									</div>
 									<div class="mb-3">
 										<label for="fecha" class="form-label">Fecha</label> <input
-											type="date" class="form-control" name="fecha">
+											type="date" class="form-control" name="fecha" required>
 									</div>
 									<div class="mb-3">
 										<label for="peso_producto" class="form-label">Peso
 											Producto</label> <input type="number" class="form-control"
-											name="peso_producto">
+											name="peso_producto" step="0.01" required>
 									</div>
 									<div class="mb-3">
 										<label for="imagen" class="form-label">Ruta de la
-											Imagen</label> <input type="file" class="form-control" name="imagen">
+											Imagen</label> <input type="file" class="form-control" name="imagen" >
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"

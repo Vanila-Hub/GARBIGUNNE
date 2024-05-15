@@ -32,13 +32,13 @@ public class ModeloMaterial {
 		return materiales;
 	}
 
-	public void crearMaterial(String tipo, int emision_kg) {
+	public void crearMaterial(String tipo, double emision_kg) {
 		String sql = "INSERT INTO MATERIALES (TIPO,EMISION_KG) VALUES (?,?)";
 		System.out.println(tipo);
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
 			prst.setString(1, tipo);
-			prst.setInt(2, emision_kg);
+			prst.setDouble(2, emision_kg);
 			prst.executeUpdate();
 			Conector.getConexion().close();
 		} catch (Exception e) {

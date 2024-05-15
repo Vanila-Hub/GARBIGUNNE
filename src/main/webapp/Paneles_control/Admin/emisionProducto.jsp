@@ -220,7 +220,7 @@
 									<div class="mb-3">
 										<label for="id_producto" class="form-label">Producto</label> <select
 											class="form-select" aria-label="Default select example"
-											name="id_producto">
+											name="id_producto" required>
 											<option selected>Seleccionar Producto</option>
 											<c:forEach items="${productos}" var="producto">
 												<option value="${producto.id_producto}">${producto.nombre}
@@ -231,7 +231,7 @@
 
 									<div class="mb-3">
 										<label for="fecha" class="form-label">Fecha</label> <input
-											type="date" class="form-control" name="fecha">
+											type="date" class="form-control" name="fecha" required>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"

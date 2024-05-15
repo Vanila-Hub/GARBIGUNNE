@@ -105,7 +105,7 @@ public class FormValidador {
 		}
 	}
 
-	public boolean materialValido(String tipo_material, int emision_kg) {
+	public boolean materialValido(String tipo_material, double emision_kg) {
 		if (tipo_material.isEmpty() || emision_kg<0 || tipo_material == null || tipo_material.equalsIgnoreCase("Tipo de material")) {
 			return false;
 			

@@ -236,7 +236,7 @@
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Proveedor</label>
 										<select class="form-select"
-											aria-label="Default select example" name="id_proveedor">
+											aria-label="Default select example" name="id_proveedor" required>
 
 											<option selected>Seleccionar Proveedor</option>
 											<c:forEach items="${proveedores}" var="proveedor">
@@ -256,7 +256,7 @@
 											<c:forEach items="${plantas}" var="planta">
 												<li class="list-group-item"><input
 													class="form-check-input me-1" type="checkbox"
-													name="plantas" value="${planta.id}" id="${planta.id}">
+													name="plantas" value="${planta.id}" id="${planta.id}" required>
 													<label class="form-check-label" for="${planta.id}">${planta.nombre}</label>
 												</li>
 											</c:forEach>
@@ -281,9 +281,9 @@
 											type="month" id="month" name="mes" class="form-control">
 									</div>
 									<div class="mb-3">
-										<label for="exampleInput" class="form-label">Cantidad(Kg)</label>
+										<label for="exampleInput" class="form-label" >Cantidad(Kg)</label>
 										<input type="text" class="form-control" name="cantidad"
-											step="0.01">
+											step="0.01" required>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-flex plus"

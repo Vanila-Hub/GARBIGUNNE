@@ -218,7 +218,7 @@
 										value="material">
 									<div class="mb-3">
 										<select class="form-select"
-											aria-label="Default select example" name="material">
+											aria-label="Default select example" name="material" required>
 											<option selected>Tipo de material</option>
 											<option value="plastico">Plastico</option>
 											<option value="papel">Papel</option>
@@ -230,8 +230,8 @@
 									</div>
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Emison/kg</label>
-										<input type="text" class="form-control" id="exampleInput"
-											name="emision_kg">
+										<input type="number" class="form-control" id="exampleInput"
+											name="emision_kg" step="0.01" required>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"

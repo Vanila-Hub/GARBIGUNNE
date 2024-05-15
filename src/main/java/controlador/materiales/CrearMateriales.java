@@ -41,7 +41,7 @@ public class CrearMateriales extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 
 		String tipo_material = (String) request.getParameter("material");
-		int emision_kg = Integer.parseInt(request.getParameter("emision_kg"));
+		double emision_kg = Double.parseDouble(request.getParameter("emision_kg"));
 		
 		if (valitator.materialValido(tipo_material,emision_kg)) {
 			modelo_material.crearMaterial(tipo_material, emision_kg);
