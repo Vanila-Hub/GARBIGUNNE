@@ -226,8 +226,8 @@
 							</div>
 							<div class="modal-body">
 								<form
-									action="http://localhost:8080/Garbigune_reto/crearProducto"
-									method="post" enctype="multipart/form-data"
+									action="/Garbigune_reto/crearProducto"
+									method="post"
 									class="d-flex flex-row flex-wrap justify-content-between">
 									<input type="text" class="form-control d-none" name="opcion"
 										value="producto">
