@@ -33,6 +33,7 @@
 							alt="logo" class="logo">
 					</div>
 				</a>
+			<a href="/Garbigune_reto/Login" class="btn btn-flex trash plus"> Cerrar sesion</a>
 			</div>
 		</nav>
 	</header>

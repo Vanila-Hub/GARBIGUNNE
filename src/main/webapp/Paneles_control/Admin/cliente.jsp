@@ -27,13 +27,13 @@
 	<header>
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid">
-				<a class="navbar-brand"
-					href="http://localhost:8080/Garbigune_reto/home">
+				<a class="navbar-brand" href="/Garbigune_reto/home">
 					<div class="imgDiv">
 						<img src="Paneles_control/Admin/img/logo_garbigunne.png"
 							alt="logo" class="logo">
 					</div>
 				</a>
+			<a href="/Garbigune_reto/Login" class="btn btn-flex trash plus"> Cerrar sesion</a>
 			</div>
 		</nav>
 	</header>
