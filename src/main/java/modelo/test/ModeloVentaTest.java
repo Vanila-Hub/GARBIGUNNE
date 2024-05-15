@@ -42,7 +42,7 @@ class ModeloVentaTest {
 	void testGetVentaByID() {
 		
 		ModeloVenta modeloVenta = new ModeloVenta();
-		int idVenta = 30; 
+		int idVenta = 66; 
 		Venta venta = modeloVenta.getVentaByID(idVenta);
 		assertNotNull(venta);
 	}
