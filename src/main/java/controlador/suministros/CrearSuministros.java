@@ -51,8 +51,10 @@ public class CrearSuministros extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		FormValidador valitator = new FormValidador();
 		ModeloSuministro modelo_suministro = new ModeloSuministro();
+		
 		int id_Proveedor = Integer.parseInt(request.getParameter("id_proveedor"));
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		String mes = (String) request.getParameter("mes");
@@ -76,6 +78,7 @@ public class CrearSuministros extends HttpServlet {
 			request.setAttribute("msg", "no_valid_data");
 			request.getRequestDispatcher("VerSuministros").forward(request, response);
 		}
+		
 	}
 
 }

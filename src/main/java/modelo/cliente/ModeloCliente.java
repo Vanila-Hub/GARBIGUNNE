@@ -80,6 +80,7 @@ public class ModeloCliente {
 		return null;
 	}
 	
+	
 	public void actualizarCliente(String nombreCliente, String apellido, String usuario, String contrasena,
 			int id_cliente, String tipo_usuario) {
 		String sql = "UPDATE CLIENTES SET NOMBRE=?, APELLIDO=?, USUARIO=?, CONTRASENA=?, ROL = ? WHERE ID_CLIENTE = ?";

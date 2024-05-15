@@ -64,7 +64,6 @@ public class CrearClientes extends HttpServlet {
 			request.getRequestDispatcher("/VerClientes").forward(request, response);
 		}
 		
-		
 //		response.sendRedirect("/Garbigune_reto/VerClientes?msg=created");
 	}
 
