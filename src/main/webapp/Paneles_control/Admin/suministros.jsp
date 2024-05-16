@@ -273,6 +273,7 @@
 													id="${material.id_material}"> <label
 													class="form-check-label" for="${material.id_material}">${material.tipo}</label>
 												</li>
+												
 											</c:forEach>
 										</ul>
 									</div>
