@@ -1,6 +1,7 @@
 package modelo.ventas;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import modelo.cliente.Cliente;
 import modelo.productos.Producto;
@@ -14,7 +15,22 @@ public class Venta {
 	
 	private Cliente cliente;
 	private Producto producto;
+	private ArrayList<Producto> productos;
+	private int ComprasTotal;
 	
+	
+	public int getComprasTotal() {
+		return ComprasTotal;
+	}
+	public void setComprasTotal(int setComprasTotal) {
+		this.ComprasTotal = setComprasTotal;
+	}
+	public ArrayList<Producto> getProductos() {
+		return productos;
+	}
+	public void setProductos(ArrayList<Producto> productos) {
+		this.productos = productos;
+	}
 	public int getId_venta() {
 		return id_venta;
 	}
@@ -62,6 +78,6 @@ public class Venta {
 	public String toString() {
 		return "Venta [id_venta=" + id_venta + ", id_cliente=" + id_cliente + ", id_producto=" + id_producto
 				+ ", cantidad=" + cantidad + ", fecha=" + fecha + ", cliente=" + cliente + ", producto=" + producto
-				+ "]";
+				+ ", productos=" + productos + ", setComprasTotal=" + ComprasTotal + "]";
 	}
 }

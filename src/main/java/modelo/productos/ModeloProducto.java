@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import modelo.Conector;
 import modelo.material.ModeloMaterial;
 import modelo.plantas.ModeloPlanta;
+import modelo.ventas.ModeloVenta;
 
 public class ModeloProducto {
 
@@ -186,5 +187,40 @@ public class ModeloProducto {
 		return productos_planta;
 	}
 
+	public ArrayList<Producto> getProductosByVenta(int id_cliente) {
+		ModeloMaterial mmat = new ModeloMaterial();
+		ModeloPlanta modpla = new ModeloPlanta();
+		ModeloVenta modvent = new ModeloVenta();
+		
+		ArrayList<Producto> productos_cliente = new ArrayList<Producto>();
+		String sql = "SELECT * FROM PRODUCTOS WHERE ID_PRODUCTO IN( SELECT V.ID_PRODUCTO FROM VENTAS V JOIN PRODUCTOS P ON V.ID_PRODUCTO=P.ID_PRODUCTO WHERE V.ID_CLIENTE=?);";
+		try {
+			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
+			prst.setInt(1, id_cliente);
+			ResultSet rst = prst.executeQuery();
+            while (rst.next()) {
+                Producto producto = new Producto();
 
+                producto.setId_producto(rst.getInt("ID_PRODUCTO"));
+                producto.setId_material(rst.getInt("ID_MATERIAL"));
+                producto.setNombre(rst.getString("NOMBRE"));
+                producto.setPeso_producto(rst.getDouble("PESO")); 
+                producto.setPrecio(rst.getDouble("PRECIO"));
+                producto.setDescripcion(rst.getString("DESCRIPCION"));
+                producto.setStock(rst.getInt("STOCK"));
+                producto.setId_planta(rst.getInt("ID_PLANTA"));
+                producto.setRuta_imagen(rst.getString("RUTA_IMAGEN"));
+                producto.setFecha(rst.getDate("FECHA"));
+                producto.setComprasTotal(modvent.getCompraTotalByCliente(id_cliente));
+                
+                //setterar atributos relacionados
+                producto.setMaterial(mmat.getMaterialByID(producto.getId_material()));
+                producto.setPlanta(modpla.getPlantaByID(producto.getId_planta()));
+                productos_cliente.add(producto);
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return productos_cliente;
+	}
 }

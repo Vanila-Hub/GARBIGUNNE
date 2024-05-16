@@ -37,8 +37,8 @@
 							alt="logo" class="logo">
 					</div>
 				</a>
+				
 				<div class="peca d-flex flex-row gap-2 text-white">
-
 					<button class="btn btn-flex dropdown-toggle"
 						data-bs-toggle="dropdown" aria-expanded="false">
 						<strong class="align-self-center">${nombre}</strong>
@@ -50,7 +50,6 @@
 						<li><a class="dropdown-item" href="/Garbigune_reto/home">Cerrar
 								Sesion</a></li>
 					</ul>
-
 				</div>
 			</div>
 		</nav>

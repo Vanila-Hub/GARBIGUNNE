@@ -7,11 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import modelo.Conector;
+import modelo.productos.ModeloProducto;
 
 public class ModeloCliente {
 
 	public ArrayList<Cliente> getClientes() {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		ModeloProducto modelo_producto = new ModeloProducto();
+		
 		String sql = "SELECT * FROM CLIENTES ORDER BY(NOMBRE)";
 		try {
 			Connection con = Conector.getConexion();
@@ -25,6 +28,7 @@ public class ModeloCliente {
 				cliente.setUsuario(rst.getString("USUARIO"));
 				cliente.setContrasena(rst.getString("CONTRASENA"));
 				cliente.setRol(rst.getString("ROL"));
+				cliente.setProductosCliente(modelo_producto.getProductosByVenta(cliente.getId_cliente()));
 				clientes.add(cliente);
 			}
 		} catch (Exception e) {
@@ -100,6 +104,7 @@ public class ModeloCliente {
 	}
 	public Cliente getClientelByUsuario(String usuario) {
 		Cliente cliente = new Cliente();
+		ModeloProducto modelo_producto = new ModeloProducto();
 		String sql = "SELECT * FROM CLIENTES WHERE USUARIO = ?";
 		try {
 			PreparedStatement prst = Conector.getConexion().prepareStatement(sql);
@@ -112,6 +117,7 @@ public class ModeloCliente {
 				cliente.setUsuario(rst.getString("USUARIO"));
 				cliente.setContrasena(rst.getString("CONTRASENA"));
 				cliente.setRol(rst.getString("ROL"));
+				cliente.setProductosCliente(modelo_producto.getProductosByVenta(cliente.getId_cliente()));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,12 +1,18 @@
 package controlador.ventas;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.cliente.Cliente;
+import modelo.cliente.ModeloCliente;
+import modelo.productos.ModeloProducto;
+import modelo.productos.Producto;
 import modelo.ventas.ModeloVenta;
 import modelo.ventas.Venta;
 
@@ -35,6 +41,15 @@ public class EditarVentas extends HttpServlet {
 		
 		ModeloVenta modelo_venta = new ModeloVenta();
 		Venta venta =  modelo_venta.getVentaByID(id_venta);
+		
+		ModeloCliente modelo_cliente = new ModeloCliente();
+		ArrayList<Cliente> clientes = modelo_cliente.getClientes();
+		
+		ModeloProducto modelo_productos = new ModeloProducto();
+		ArrayList<Producto> productos = modelo_productos.getProductos();
+		
+		request.setAttribute("clientes", clientes);
+		request.setAttribute("productos", productos);
 		
 		request.setAttribute("id_venta", venta.getId_venta());
 		request.setAttribute("id_Cliente", venta.getId_cliente());

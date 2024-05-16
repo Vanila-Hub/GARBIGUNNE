@@ -14,15 +14,16 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
-<link rel="canonical"
-	href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+	rel="stylesheet">
 <link rel="stylesheet"
 	href="Paneles_control/clienteProducto/estilos.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>GarbiGunne SL</title>
 </head>
 
@@ -50,17 +51,39 @@
 						<li><a class="dropdown-item" href="/Garbigune_reto/home">Cerrar
 								Sesion</a></li>
 					</ul>
-
 				</div>
 			</div>
+			<button type="button" class="btn btn-flex plus me-3"
+				data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<i class="bi bi-bag-check-fill fs-4 position-relative"><span
+					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus">
+					${productosCliente.get(0).getComprasTotal()}
+					</span></i>
+			</button>
+			<button class="btn btn-flex plus me-4" type="button"
+				data-bs-toggle="offcanvas" data-bs-target="#demo">
+
+				<i class="bi bi-cart4 fs-4 position-relative"><span
+					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus">4</span></i>
+			</button>
+
 		</nav>
 	</header>
 	<main>
+		<div class="offcanvas offcanvas-end" id="demo">
+			<div class="offcanvas-header">
+				<h1 class="offcanvas-title">Carrito de Compra</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+			</div>
+			<hr></hr>
+			<div class="offcanvas-body">
+				<!-- Modal -->
 
+			</div>
+		</div>
 		<c:choose>
 			<c:when test="${msg=='compra_realizada'}">
-				<div class="alert alert-success fade show test"
-					role="alert">
+				<div class="alert alert-success fade show test" role="alert">
 					<i class="bi bi-check-circle"></i>
 					<p>Compra Realizada</p>
 					<button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -83,9 +106,15 @@
 									<strong class="text">${producto.descripcion}</strong>
 									<h5>${producto.precio}$</h5>
 									<hr>
-									<a
-										href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
-										class="btn btn-flex">COMPRAR</a>
+									<div class="btn-group shadow-lg bg-body-tertiary rounded" role="group" aria-label="Basic example">
+										<a
+											href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
+											class="btn btn-flex"> Comprar <i class="bi bi-credit-card"></i></a>
+										<a
+											href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
+											class="btn bg-warning text-white"> Añadir <i class="bi bi-cart-plus"></i></a>
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -93,14 +122,47 @@
 				</div>
 			</div>
 		</div>
+
 	</main>
+	
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-scrollable modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Historial de Compras</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body row">
+				<c:forEach items="${productosCliente}" var="producto">
+						<div class="col-sm-12 col-md-6 col-lg-3">
+							<div class="card" id="card">
+								<img src="${producto.ruta_imagen}" class="card-img-top"
+									alt="{producto.ruta_imagen}">
+								<div class="card-body">
+									<h5 class="card-title">${producto.nombre}</h5>
+									<strong class="text">${producto.descripcion}</strong>
+									<h5>${producto.precio}$</h5>
+									<hr>
+									<div class="btn-group shadow-lg bg-body-tertiary rounded" role="group" aria-label="Basic example">
+										<a
+											href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
+											class="btn btn-flex">Volver a Comprar <i class="bi bi-credit-card"></i></a>
+									</div>
 
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-	<script src="sidebars.js"></script>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

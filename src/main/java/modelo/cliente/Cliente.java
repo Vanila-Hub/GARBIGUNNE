@@ -1,5 +1,9 @@
 package modelo.cliente;
 
+import java.util.ArrayList;
+
+import modelo.productos.Producto;
+
 public class Cliente {
 	private int id_cliente;
 	private String nombre;
@@ -7,12 +11,23 @@ public class Cliente {
 	private String usuario;
 	private String contrasena;
 	private String rol;
+	private ArrayList<Producto> productosCliente;
 	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
+	public ArrayList<Producto> getProductosCliente() {
+		return productosCliente;
+	}
+
+
+	public void setProductosCliente(ArrayList<Producto> productosCliente) {
+		this.productosCliente = productosCliente;
+	}
+
+
 	public String getRol() {
 		return rol;
 	}

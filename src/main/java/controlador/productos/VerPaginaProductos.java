@@ -17,6 +17,7 @@ import modelo.plantas.ModeloPlanta;
 import modelo.plantas.Planta;
 import modelo.productos.ModeloProducto;
 import modelo.productos.Producto;
+import modelo.ventas.ModeloVenta;
 
 /**
  * Servlet implementation class VerPaginaProductos
@@ -41,12 +42,15 @@ public class VerPaginaProductos extends HttpServlet {
 		
 		//lalam al modelo para inser
 		ModeloCliente modelo_cliente = new ModeloCliente();
-		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
-		
 		ModeloProducto modelo_productos = new ModeloProducto();
+
+		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+		ModeloVenta modelo_venta = new ModeloVenta();
+		
 		
 		ArrayList<Producto> productos = modelo_productos.getProductos();
-		
+		ArrayList<Producto> productosCliente = modelo_productos.getProductosByVenta(id_cliente);
+
 		//Traer las plntas para 'poder crear poductos con plantas
 		ModeloPlanta modelo_planta = new ModeloPlanta();
 		ArrayList<Planta> plantas = modelo_planta.getPlantas();
@@ -54,11 +58,12 @@ public class VerPaginaProductos extends HttpServlet {
 		// pedir materiales
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		ArrayList<Material> materiales = modelo_material.getMateriales();
-		
+		System.out.println(productosCliente);
 		//mandarlo al jsp de Productos
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
+		request.setAttribute("productosCliente", productosCliente);
 		//volvera el /productos  y guardar sus atributos
 		request.setAttribute("nombre", cliente.getNombre());
 		request.setAttribute("apellido", cliente.getApellido());

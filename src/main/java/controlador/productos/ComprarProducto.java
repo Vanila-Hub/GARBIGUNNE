@@ -42,16 +42,13 @@ public class ComprarProducto extends HttpServlet {
 		// Llamada al modelo para obtener el producto por su ID
 		ModeloProducto modeloProducto = new ModeloProducto();
 		Producto producto = modeloProducto.getProductoByID(idProducto);
+		ArrayList<Producto> productosCliente = modeloProducto.getProductosByVenta(id_cliente);
 
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
-
-		/* TRAEMOS LAS PLANTAS */
-		ModeloPlanta modelo_Planta = new ModeloPlanta();
-		ArrayList<Planta> Plantas = modelo_Planta.getPlantas();
-
-		request.setAttribute("plantas", Plantas);
+		
 		request.setAttribute("producto", producto);
+
 		// volvera el /plantas y gfuardar sus atributos
 		request.setAttribute("nombre", cliente.getNombre());
 		request.setAttribute("apellido", cliente.getApellido());

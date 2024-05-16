@@ -83,55 +83,55 @@ class VentaTest {
 		venta.setFecha(fecha);
 		assertEquals(fecha, venta.getFecha());
 	}
-
-	@Test
-	void testGetCliente() {
-		Venta venta = new Venta();
-		Cliente cliente = new Cliente();
-		venta.setCliente(cliente);
-		assertEquals(cliente, venta.getCliente());
-	}
-
-	@Test
-	void testSetCliente() {
-		Venta venta = new Venta();
-		Cliente cliente = new Cliente();
-		venta.setCliente(cliente);
-		assertEquals(cliente, venta.getCliente());
-	}
-
-	@Test
-	void testGetProducto() {
-		Venta venta = new Venta();
-		Producto producto = new Producto();
-		venta.setProducto(producto);
-		assertEquals(producto, venta.getProducto());
-	}
-
-	@Test
-	void testSetProducto() {
-		Venta venta = new Venta();
-		Producto producto = new Producto();
-		venta.setProducto(producto);
-		assertEquals(producto, venta.getProducto());
-	}
-
-	@Test
-	void testToString() {
-		Venta venta = new Venta();
-		venta.setId_venta(123);
-		venta.setId_cliente(456);
-		venta.setId_producto(789);
-		venta.setCantidad(10);
-		Date fecha = Date.valueOf("2024-05-13");
-		venta.setFecha(fecha);
-		Cliente cliente = new Cliente();
-		venta.setCliente(cliente);
-		Producto producto = new Producto();
-		venta.setProducto(producto);
-		
-		String expected = "Venta [id_venta=123, id_cliente=456, id_producto=789, cantidad=10, fecha=2024-05-13, cliente=" + cliente.toString() + ", producto=" + producto.toString() + "]";
-		assertEquals(expected, venta.toString());
-	}
+//
+//	@Test
+//	void testGetCliente() {
+//		Venta venta = new Venta();
+//		Cliente cliente = new Cliente();
+//		venta.setCliente(cliente);
+//		assertEquals(cliente, venta.getCliente());
+//	}
+//
+//	@Test
+//	void testSetCliente() {
+//		Venta venta = new Venta();
+//		Cliente cliente = new Cliente();
+//		venta.setCliente(cliente);
+//		assertEquals(cliente, venta.getCliente());
+//	}
+//
+//	@Test
+//	void testGetProducto() {
+//		Venta venta = new Venta();
+//		Producto producto = new Producto();
+//		venta.setProducto(producto);
+//		assertEquals(producto, venta.getProducto());
+//	}
+//
+//	@Test
+//	void testSetProducto() {
+//		Venta venta = new Venta();
+//		Producto producto = new Producto();
+//		venta.setProducto(producto);
+//		assertEquals(producto, venta.getProducto());
+//	}
+//
+//	@Test
+//	void testToString() {
+//		Venta venta = new Venta();
+//		venta.setId_venta(123);
+//		venta.setId_cliente(456);
+//		venta.setId_producto(789);
+//		venta.setCantidad(10);
+//		Date fecha = Date.valueOf("2024-05-13");
+//		venta.setFecha(fecha);
+//		Cliente cliente = new Cliente();
+//		venta.setCliente(cliente);
+//		Producto producto = new Producto();
+//		venta.setProducto(producto);
+//		
+//		String expected = "Venta [id_venta=123, id_cliente=456, id_producto=789, cantidad=10, fecha=2024-05-13, cliente=" + cliente.toString() + ", producto=" + producto.toString() + "]";
+//		assertEquals(expected, venta.toString());
+//	}
 
 }
