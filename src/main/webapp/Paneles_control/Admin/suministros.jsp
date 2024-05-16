@@ -256,7 +256,7 @@
 											<c:forEach items="${plantas}" var="planta">
 												<li class="list-group-item"><input
 													class="form-check-input me-1" type="checkbox"
-													name="plantas" value="${planta.id}" id="${planta.id}" required>
+													name="plantas" value="${planta.id}" id="${planta.id}">
 													<label class="form-check-label" for="${planta.id}">${planta.nombre}</label>
 												</li>
 											</c:forEach>
