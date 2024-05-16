@@ -57,14 +57,14 @@
 				data-bs-toggle="modal" data-bs-target="#exampleModal">
 				<i class="bi bi-bag-check-fill fs-4 position-relative"><span
 					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus">
-					${productosCliente.get(0).getComprasTotal()}
-					</span></i>
+						${productosCliente.get(0).getComprasTotal()} </span></i>
 			</button>
 			<button class="btn btn-flex plus me-4" type="button"
 				data-bs-toggle="offcanvas" data-bs-target="#demo">
 
 				<i class="bi bi-cart4 fs-4 position-relative"><span
-					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus">4</span></i>
+					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus"
+					id="cantidad_carr">0</span></i>
 			</button>
 
 		</nav>
@@ -106,13 +106,17 @@
 									<strong class="text">${producto.descripcion}</strong>
 									<h5>${producto.precio}$</h5>
 									<hr>
-									<div class="btn-group shadow-lg bg-body-tertiary rounded" role="group" aria-label="Basic example">
+									<div class="btn-group shadow-lg bg-body-tertiary rounded"
+										role="group" aria-label="Basic example">
 										<a
 											href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
-											class="btn btn-flex"> Comprar <i class="bi bi-credit-card"></i></a>
-										<a
-											href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
-											class="btn bg-warning text-white"> Añadir <i class="bi bi-cart-plus"></i></a>
+											class="btn btn-flex"> Comprar <i
+											class="bi bi-credit-card"></i></a>
+										<button id="${producto.id_producto}"
+											onclick="appenCarrito(id,'${id_cliente}')"
+											class="btn bg-warning text-white">
+											Aï¿½adir <i class="bi bi-cart-plus"></i>
+										</button>
 									</div>
 
 								</div>
@@ -124,18 +128,19 @@
 		</div>
 
 	</main>
-	
+
 	<div class="modal fade" id="exampleModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog  modal-dialog-scrollable modal-xl">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Historial de Compras</h1>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Historial
+						de Compras</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body row">
-				<c:forEach items="${productosCliente}" var="producto">
+					<c:forEach items="${productosCliente}" var="producto">
 						<div class="col-sm-12 col-md-6 col-lg-3">
 							<div class="card" id="card">
 								<img src="${producto.ruta_imagen}" class="card-img-top"
@@ -145,10 +150,12 @@
 									<strong class="text">${producto.descripcion}</strong>
 									<h5>${producto.precio}$</h5>
 									<hr>
-									<div class="btn-group shadow-lg bg-body-tertiary rounded" role="group" aria-label="Basic example">
+									<div class="btn-group shadow-lg bg-body-tertiary rounded"
+										role="group" aria-label="Basic example">
 										<a
 											href="/Garbigune_reto/Comprar?id_producto=${producto.id_producto}&id_cliente=${id_cliente}"
-											class="btn btn-flex">Volver a Comprar <i class="bi bi-credit-card"></i></a>
+											class="btn btn-flex">Volver a Comprar <i
+											class="bi bi-credit-card"></i></a>
 									</div>
 
 								</div>
@@ -164,5 +171,32 @@
 		</div>
 	</div>
 </body>
+<script>
+	let producto_recien = 0;
+	let productos_carro = [];
+	let articulos = 0;
+	let existe;
+	let cantidad_carr = document.getElementById('cantidad_carr');
+	function appenCarrito(id_producto, id_cliente) {
+		if (producto_recien !== id_producto) {
+			for (let i = 0; i < productos_carro.length; i++) {
+				if (id_producto==productos_carro[i]) {
+					console.log('nada');
+					existe = true;
+					break;
+				}	
+			}
+			if (existe==true) {
+				console.log('nada');
+			} else {
+							productos_carro.push(id_producto);
+			producto_recien = id_producto;
+			articulos = articulos+1;
+			cantidad_carr.textContent=articulos;
+			}
 
+		}
+		console.log(productos_carro);
+	}
+</script>
 </html>
