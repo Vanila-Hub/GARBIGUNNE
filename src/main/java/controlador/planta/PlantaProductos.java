@@ -40,6 +40,7 @@ public class PlantaProductos extends HttpServlet {
 		
 		ArrayList<Producto> plantaProductos =  modelo_producto.getProductoByPlanta(id_planta);
 	
+		
 		Gson gson = new Gson();
 		String jsonPlantasYsusProductos = gson.toJson(plantaProductos);
 

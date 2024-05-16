@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +90,9 @@
 											</c:forEach>
 										</select>
 										<br>
-										<h5>${producto.precio}$</h5>
+										<h5>${producto.precio}€</h5>
+										<h6 class="card-title">Vendedor:
+											${producto.getPlanta().getNombre()}</h6>
 										<strong class="card-title">Material:
 											${producto.getMaterial().getTipo()}</strong>
 										<hr>
@@ -104,7 +105,7 @@
 									<c:otherwise>
 										<h5 class="card-title agotado">ESTAMOS SIN STOCK</h5>
 										<br>
-										<h5>${producto.precio}$</h5>
+										<h5>${producto.precio}€</h5>
 										<strong class="card-title">Material:
 											${producto.getMaterial().getTipo()}</strong>
 										<hr>

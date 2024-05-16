@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,12 +55,10 @@
 			</div>
 			<button type="button" class="btn btn-flex plus me-3"
 				data-bs-toggle="modal" data-bs-target="#exampleModal">
-				<i class="bi bi-bag-check-fill fs-4 position-relative"><span
-					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus">
-						${productosCliente.get(0).getComprasTotal()} </span></i>
+				<i class="bi bi-bag-check-fill fs-4 position-relative"></i>
 			</button>
 			<button class="btn btn-flex plus me-4" type="button"
-				data-bs-toggle="offcanvas" data-bs-target="#demo">
+				data-bs-toggle="offcanvas" data-bs-target="#demo" id="disdemo">
 
 				<i class="bi bi-cart4 fs-4 position-relative"><span
 					class="position-absolute top-4 start-100 translate-end badge rounded-pill bg-danger plus"
@@ -83,7 +81,7 @@
 			</div>
 			<div class="btn-group shadow-lg bg-body-tertiary rounded"
 				role="group" aria-label="Basic example">
-				<a href="/Garbigune_reto/Comprar?id_producto=43&amp;id_cliente=82"
+				<a href="/Garbigune_reto/VerPaginaProductos?id_cliente=${id_cliente}&msg=compra_realizada"
 					class="btn btn-flex"> Pagar <i class="bi bi-credit-card"></i></a>
 			</div>
 		</div>
@@ -104,13 +102,13 @@
 				<div class="row">
 					<c:forEach items="${productos}" var="producto">
 						<div class="col-sm-12 col-md-6 col-lg-3">
-							<div class="card" id="card">
+							<div class="card shadow-lg" id="card">
 								<img src="${producto.ruta_imagen}" class="card-img-top"
 									alt="{producto.ruta_imagen}">
 								<div class="card-body">
 									<h5 class="card-title">${producto.nombre}</h5>
 									<strong class="text">${producto.descripcion}</strong>
-									<h5>${producto.precio}$</h5>
+									<h5>${producto.precio}€</h5>
 									<hr>
 									<div class="btn-group shadow-lg bg-body-tertiary rounded"
 										role="group" aria-label="Basic example">
@@ -121,7 +119,7 @@
 										<button id="${producto.id_producto}"
 											onclick="appenCarrito(id,'${id_cliente}')"
 											class="btn bg-warning text-white">
-											A�adir <i class="bi bi-cart-plus"></i>
+											Añadir <i class="bi bi-cart-plus"></i>
 										</button>
 									</div>
 
@@ -162,8 +160,8 @@
 									<h6>
 										<c:forEach items="${compras}" var="venta">
 											<c:choose>
-												<c:when test="${venta.id_producto == producto.id_producto}">Pagado: <c:out
-														value="${venta.cantidad * producto.precio}"></c:out>$</c:when>
+												<c:when test="${venta.id_producto == producto.id_producto}">Pagado: 
+													<fmt:formatNumber value="${venta.cantidad * producto.precio}" type="number" maxFractionDigits="2" minFractionDigits="2" />€</c:when>
 											</c:choose>
 										</c:forEach>
 									</h6>
@@ -219,21 +217,23 @@
 	}
 	function CargarProductos(ids_productos) {
 		
-	// Iterar sobre los IDs de productos y realizar la petición para cada uno
+	// Iterar sobre los IDs de productos y realizar la peticiÃ³n para cada uno
+	document.getElementById('container').innerHTML="";
 	ids_productos.forEach(id => {
 		console.log(id);
 		fetchProductData(id);
 	});
-	ids_productos=[];
-	// Función para crear y añadir el elemento al DOM
+	document.getElementById('disdemo').click();
+	// FunciÃ³n para crear y aÃ±adir el elemento al DOM
 function createProductElement(producto) {
+		
 		// Crear el contenedor principal
 		const rowDiv = document.createElement('div');
 		rowDiv.classList.add('row');
 
 		// Crear la tarjeta
 		const cardDiv = document.createElement('div');
-		cardDiv.classList.add('card', 'mb-3');
+		cardDiv.classList.add('card', 'mb-3', 'shadow-lg');
 		cardDiv.style.maxWidth = '340px';
 		cardDiv.style.height= '143px';
 		// Crear la fila interna
@@ -246,7 +246,7 @@ function createProductElement(producto) {
 
 		const img = document.createElement('img');
 		img.src = producto.ruta_imagen;
-		img.classList.add('img-fluid', 'rounded-start');
+		img.classList.add('img-fluid', 'card-img-top');
 		img.alt = 'producto';
 		img.id = 'product_img';
 
@@ -259,13 +259,13 @@ function createProductElement(producto) {
 		const cardBodyDiv = document.createElement('div');
 		cardBodyDiv.classList.add('card-body');
 
-		// Crear el título del producto
+		// Crear el tÃ­tulo del producto
 		const productName = document.createElement('h5');
 		productName.classList.add('card-title');
 		productName.id = 'product_name';
 		productName.textContent = producto.nombre;
 
-		// Crear la descripción del producto
+		// Crear la descripciÃ³n del producto
 		const productDesc = document.createElement('strong');
 		productDesc.classList.add('text');
 		productDesc.id = 'product_desc';
@@ -274,42 +274,42 @@ function createProductElement(producto) {
 		// Crear el precio del producto
 		const productPrice = document.createElement('h5');
 		productPrice.id = 'product_price';
-		productPrice.textContent = producto.precio + "$";
+		productPrice.textContent = producto.precio + "€";
 
 		// Crear el separador
 		const hr = document.createElement('hr');
 
-		// Añadir los elementos al cardBody
+		// AÃ±adir los elementos al cardBody
 		cardBodyDiv.appendChild(productName);
 		cardBodyDiv.appendChild(productDesc);
 		cardBodyDiv.appendChild(productPrice);
 		cardBodyDiv.appendChild(hr);
 
-		// Añadir el cardBody a la columna de contenido
+		// AÃ±adir el cardBody a la columna de contenido
 		colContentDiv.appendChild(cardBodyDiv);
 
-		// Añadir las columnas a la fila interna
+		// AÃ±adir las columnas a la fila interna
 		innerRowDiv.appendChild(colImgDiv);
 		innerRowDiv.appendChild(colContentDiv);
 
-		// Añadir la fila interna a la tarjeta
+		// AÃ±adir la fila interna a la tarjeta
 		cardDiv.appendChild(innerRowDiv);
 
-		// Añadir la tarjeta a la fila principal
+		// AÃ±adir la tarjeta a la fila principal
 		rowDiv.appendChild(cardDiv);
 
 		// Suponiendo que tienes un elemento con id "container" en tu HTML donde insertar el producto
 		document.getElementById('container').appendChild(rowDiv);
 	}
-
-	// Función para realizar la petición AJAX
+	
+	// FunciÃ³n para realizar la peticiÃ³n AJAX
 	function fetchProductData(productId) {
 		fetch(`/Garbigune_reto/getProductoByID?id_producto=` + productId)
-			.then(response => response.json())
-			.then(data => {
-				createProductElement(data);
-			})
-			.catch(error => console.error('Error:', error));
+		.then(response => response.json())
+		.then(data => {
+			createProductElement(data);
+		})
+		.catch(error => console.error('Error:', error));
 	}
 
 

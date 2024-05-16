@@ -46,7 +46,7 @@ public class PagarProducto extends HttpServlet {
 			request.setAttribute("msg", "compra_realizada");
 			request.setAttribute("id_cliente", id_cliente);
 			
-			request.getRequestDispatcher("/VerPaginaProductos").forward(request, response);
+			request.getRequestDispatcher("/VerPaginaProductos?msg=compra_realizada").forward(request, response);
 //			response.sendRedirect("/Garbigune_reto/VerPaginaProductos?id_cliente=" +  + "&msg=");
 		} else {
 			response.sendRedirect("/Garbigune_reto/Comprar?id_producto=" + idProducto + "&" + "id_cliente=" + id_cliente);

@@ -9,7 +9,7 @@ body {
 }
 
 img {
-	object-fit: cover;
+	object-fit: contain !important;
 }
 
 main {
@@ -260,14 +260,15 @@ strong {
 }
 
 .test {
-	display: flex;
-	flex-direction: row;
-	width: 24%;
-	justify-content: space-between;
-	align-self: end;
-	transition: ease-in .2s;
-	box-shadow: rgb(0 0 0/ 6%) 0px 26px 30px -10px, rgb(0 0 0/ 14%) 0px 16px
-		10px -10px;
+    display: flex;
+    flex-direction: row;
+    width: 24%;
+    z-index: 2;
+    position: fixed;
+    justify-content: space-between;
+    align-self: end;
+    transition: ease-in .2s;
+    box-shadow: rgb(0 0 0 / 6%) 0px 26px 30px -10px, rgb(0 0 0 / 14%) 0px 16px 10px -10px;
 }
 
 .plus {

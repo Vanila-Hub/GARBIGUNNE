@@ -41,7 +41,7 @@ public class VerPaginaProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
-		
+		String msg = (String) request.getParameter("msg");
 		//lalam al modelo para inser
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		ModeloProducto modelo_productos = new ModeloProducto();
@@ -75,7 +75,7 @@ public class VerPaginaProductos extends HttpServlet {
 		request.setAttribute("contrasena", cliente.getContrasena());
 		request.setAttribute("id_cliente", cliente.getId_cliente());
 		request.setAttribute("rol", cliente.getRol());
-		
+		request.setAttribute("msg", msg);
 		request.getRequestDispatcher("Paneles_control/clienteProducto/indexProductos.jsp").forward(request, response);
 	}
 

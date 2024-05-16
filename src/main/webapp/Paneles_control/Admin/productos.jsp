@@ -256,7 +256,7 @@
 									</div>
 									<div class="mb-3">
 										<label for="precio" class="form-label">Precio</label> <input
-											type="number" class="form-control" name="precio" required>
+											type="number" class="form-control" name="precio" step="0.01" required>
 									</div>
 									<div class="mb-3">
 										<label for="descripcion" class="form-label">Descripcion</label>
