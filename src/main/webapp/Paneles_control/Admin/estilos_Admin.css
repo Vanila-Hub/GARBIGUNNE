@@ -254,6 +254,11 @@ div.d-flex.flex-column.flex-shrink-0.bg-body-tertiary {
 	div.d-flex.flex-column.flex-shrink-0.bg-body-tertiary {
 		margin-top: -20rem;
 	}
+	div.table-responsive {
+	width: 92%;
+	height: 100vh;
+	margin-top: 3rem;
+}
 }
 
 td>a {
