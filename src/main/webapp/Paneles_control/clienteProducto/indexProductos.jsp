@@ -76,9 +76,15 @@
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
 			</div>
 			<hr></hr>
-			<div class="offcanvas-body">
-				<!-- Modal -->
-
+			<div class="offcanvas-body modal-dialog-scrollable">
+				<div class="container" id="container">
+					<div class="row"></div>
+				</div>
+			</div>
+			<div class="btn-group shadow-lg bg-body-tertiary rounded"
+				role="group" aria-label="Basic example">
+				<a href="/Garbigune_reto/Comprar?id_producto=43&amp;id_cliente=82"
+					class="btn btn-flex"> Pagar <i class="bi bi-credit-card"></i></a>
 			</div>
 		</div>
 		<c:choose>
@@ -126,7 +132,6 @@
 				</div>
 			</div>
 		</div>
-
 	</main>
 
 	<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -157,7 +162,8 @@
 									<h6>
 										<c:forEach items="${compras}" var="venta">
 											<c:choose>
-												<c:when test="${venta.id_producto == producto.id_producto}">Pagado: <c:out value="${venta.cantidad * producto.precio}"></c:out>$</c:when>
+												<c:when test="${venta.id_producto == producto.id_producto}">Pagado: <c:out
+														value="${venta.cantidad * producto.precio}"></c:out>$</c:when>
 											</c:choose>
 										</c:forEach>
 									</h6>
@@ -192,23 +198,121 @@
 	function appenCarrito(id_producto, id_cliente) {
 		if (producto_recien !== id_producto) {
 			for (let i = 0; i < productos_carro.length; i++) {
-				if (id_producto==productos_carro[i]) {
+				if (id_producto == productos_carro[i]) {
 					console.log('nada');
 					existe = true;
 					break;
-				}	
+				}
 			}
-			if (existe==true) {
+			if (existe == true) {
 				console.log('nada');
 			} else {
-							productos_carro.push(id_producto);
-			producto_recien = id_producto;
-			articulos = articulos+1;
-			cantidad_carr.textContent=articulos;
+				productos_carro.push(id_producto);
+				producto_recien = id_producto;
+				articulos = articulos + 1;
+				cantidad_carr.textContent = articulos;
+				CargarProductos(productos_carro);
 			}
 
 		}
 		console.log(productos_carro);
+	}
+	function CargarProductos(ids_productos) {
+		
+	// Iterar sobre los IDs de productos y realizar la petición para cada uno
+	ids_productos.forEach(id => {
+		console.log(id);
+		fetchProductData(id);
+	});
+	ids_productos=[];
+	// Función para crear y añadir el elemento al DOM
+function createProductElement(producto) {
+		// Crear el contenedor principal
+		const rowDiv = document.createElement('div');
+		rowDiv.classList.add('row');
+
+		// Crear la tarjeta
+		const cardDiv = document.createElement('div');
+		cardDiv.classList.add('card', 'mb-3');
+		cardDiv.style.maxWidth = '340px';
+		cardDiv.style.height= '143px';
+		// Crear la fila interna
+		const innerRowDiv = document.createElement('div');
+		innerRowDiv.classList.add('row', 'g-0');
+
+		// Crear la columna de la imagen
+		const colImgDiv = document.createElement('div');
+		colImgDiv.classList.add('col-md-4');
+
+		const img = document.createElement('img');
+		img.src = producto.ruta_imagen;
+		img.classList.add('img-fluid', 'rounded-start');
+		img.alt = 'producto';
+		img.id = 'product_img';
+
+		colImgDiv.appendChild(img);
+
+		// Crear la columna del contenido
+		const colContentDiv = document.createElement('div');
+		colContentDiv.classList.add('col-md-8');
+
+		const cardBodyDiv = document.createElement('div');
+		cardBodyDiv.classList.add('card-body');
+
+		// Crear el título del producto
+		const productName = document.createElement('h5');
+		productName.classList.add('card-title');
+		productName.id = 'product_name';
+		productName.textContent = producto.nombre;
+
+		// Crear la descripción del producto
+		const productDesc = document.createElement('strong');
+		productDesc.classList.add('text');
+		productDesc.id = 'product_desc';
+		productDesc.textContent = producto.descripcion;
+
+		// Crear el precio del producto
+		const productPrice = document.createElement('h5');
+		productPrice.id = 'product_price';
+		productPrice.textContent = producto.precio + "$";
+
+		// Crear el separador
+		const hr = document.createElement('hr');
+
+		// Añadir los elementos al cardBody
+		cardBodyDiv.appendChild(productName);
+		cardBodyDiv.appendChild(productDesc);
+		cardBodyDiv.appendChild(productPrice);
+		cardBodyDiv.appendChild(hr);
+
+		// Añadir el cardBody a la columna de contenido
+		colContentDiv.appendChild(cardBodyDiv);
+
+		// Añadir las columnas a la fila interna
+		innerRowDiv.appendChild(colImgDiv);
+		innerRowDiv.appendChild(colContentDiv);
+
+		// Añadir la fila interna a la tarjeta
+		cardDiv.appendChild(innerRowDiv);
+
+		// Añadir la tarjeta a la fila principal
+		rowDiv.appendChild(cardDiv);
+
+		// Suponiendo que tienes un elemento con id "container" en tu HTML donde insertar el producto
+		document.getElementById('container').appendChild(rowDiv);
+	}
+
+	// Función para realizar la petición AJAX
+	function fetchProductData(productId) {
+		fetch(`/Garbigune_reto/getProductoByID?id_producto=` + productId)
+			.then(response => response.json())
+			.then(data => {
+				createProductElement(data);
+			})
+			.catch(error => console.error('Error:', error));
+	}
+
+
 	}
 </script>
 </html>
