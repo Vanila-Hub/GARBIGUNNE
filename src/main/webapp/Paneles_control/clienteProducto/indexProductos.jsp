@@ -32,7 +32,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid ">
 				<a class="navbar-brand d-flex flex-row justify-between"
-					href="/Garbigune_reto/home">
+					href="/Garbigune_reto/VerPaginaProductos?id_cliente=${id_cliente}">
 					<div class="imgDiv">
 						<img src="Paneles_control/clienteProducto/img/logo_garbigunne.png"
 							alt="logo" class="logo">
@@ -115,7 +115,7 @@
 										<button id="${producto.id_producto}"
 											onclick="appenCarrito(id,'${id_cliente}')"
 											class="btn bg-warning text-white">
-											Aï¿½adir <i class="bi bi-cart-plus"></i>
+											Añadir <i class="bi bi-cart-plus"></i>
 										</button>
 									</div>
 
@@ -147,8 +147,20 @@
 									alt="{producto.ruta_imagen}">
 								<div class="card-body">
 									<h5 class="card-title">${producto.nombre}</h5>
-									<strong class="text">${producto.descripcion}</strong>
-									<h5>${producto.precio}$</h5>
+									<h6>
+										<c:forEach items="${compras}" var="venta">
+											<c:choose>
+												<c:when test="${venta.id_producto == producto.id_producto}">Cantidad Comprada: ${venta.cantidad}</c:when>
+											</c:choose>
+										</c:forEach>
+									</h6>
+									<h6>
+										<c:forEach items="${compras}" var="venta">
+											<c:choose>
+												<c:when test="${venta.id_producto == producto.id_producto}">Pagado: <c:out value="${venta.cantidad * producto.precio}"></c:out>$</c:when>
+											</c:choose>
+										</c:forEach>
+									</h6>
 									<hr>
 									<div class="btn-group shadow-lg bg-body-tertiary rounded"
 										role="group" aria-label="Basic example">

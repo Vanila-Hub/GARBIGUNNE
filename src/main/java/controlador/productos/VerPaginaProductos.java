@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controlador.formValidador.FormValidador;
 import modelo.cliente.Cliente;
 import modelo.cliente.ModeloCliente;
 import modelo.material.Material;
@@ -18,6 +19,7 @@ import modelo.plantas.Planta;
 import modelo.productos.ModeloProducto;
 import modelo.productos.Producto;
 import modelo.ventas.ModeloVenta;
+import modelo.ventas.Venta;
 
 /**
  * Servlet implementation class VerPaginaProductos
@@ -43,27 +45,26 @@ public class VerPaginaProductos extends HttpServlet {
 		//lalam al modelo para inser
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		ModeloProducto modelo_productos = new ModeloProducto();
-
-		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
+		ModeloMaterial modelo_material = new ModeloMaterial();
+		ModeloPlanta modelo_planta = new ModeloPlanta();
 		ModeloVenta modelo_venta = new ModeloVenta();
+		FormValidador valitator = new FormValidador();
+
 		
 		
+		Cliente cliente = modelo_cliente.getClientelByID(id_cliente);
 		ArrayList<Producto> productos = modelo_productos.getProductos();
 		ArrayList<Producto> productosCliente = modelo_productos.getProductosByVenta(id_cliente);
-
-		//Traer las plntas para 'poder crear poductos con plantas
-		ModeloPlanta modelo_planta = new ModeloPlanta();
 		ArrayList<Planta> plantas = modelo_planta.getPlantas();
-		
-		// pedir materiales
-		ModeloMaterial modelo_material = new ModeloMaterial();
+		ArrayList<Venta> ComprasCliente = modelo_venta.getVentasByCliente(id_cliente);
 		ArrayList<Material> materiales = modelo_material.getMateriales();
-		System.out.println(productosCliente);
-		if (productosCliente==null || productosCliente.isEmpty()) {
-		} else {
-			request.setAttribute("productosCliente", productosCliente);
+		
+		//Validamos que tenga productos comprados
+		if (valitator.ComprasClienteValido(productosCliente)) {
+			request.setAttribute("productosCliente", productosCliente);			
 		}
 		//mandarlo al jsp de Productos
+		request.setAttribute("compras", ComprasCliente);
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);

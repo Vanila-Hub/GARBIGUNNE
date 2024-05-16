@@ -78,7 +78,7 @@
 										<option selected>Productos</option>
 										<c:forEach items="${productos}" var="producto">
 											<c:choose>
-												<c:when test="${producto.id_Producto== id_Producto}">
+												<c:when test="${producto.id_producto==id_producto}">
 													<option value="${producto.id_producto}" selected>
 														${cliente.nombre}</option>
 												</c:when>

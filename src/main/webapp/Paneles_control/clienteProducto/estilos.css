@@ -123,11 +123,16 @@ a.nav-link {
 	font-size: 20px;
 }
 
-a>strong, h6 {
+a>strong {
 	color: #013205;
 	font-weight: 800;
 	font-size: 15px;
 	margin-left: 3rem;
+}
+h6{
+	color: #013205;
+	font-weight: 800;
+	font-size: 15px;
 }
 
 .card-img-top {

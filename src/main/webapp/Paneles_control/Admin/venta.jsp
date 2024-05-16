@@ -33,10 +33,10 @@
 							alt="logo" class="logo">
 					</div>
 				</a>
-			<a href="/Garbigune_reto/Login" class="btn btn-flex trash plus"> Cerrar sesion</a>
+			<a href="/Garbigune_reto/Login" class="btn btn-flex trash plus">Cerrar sesion <i class="bi bi-box-arrow-in-right"></i></a>
 			</div>
 		</nav>
-	</header>
+	</header> 	
 	<div class="contenedor">
 		<div class="sidebar aside">
 			<a href="/Garbigune_reto/home"
@@ -214,7 +214,7 @@
 								<form action="/Garbigune_reto/crearVenta" method="post">
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">
-											cliente</label> <select class="form-select"
+											Cliente</label> <select class="form-select"
 											aria-label="Default select example" name="id_cliente">
 											<option selected>Clientes</option>
 											<c:forEach items="${clientes}" var="cliente">
@@ -226,7 +226,7 @@
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">
 											Producto</label> <select class="form-select"
-											aria-label="Default select example" name="id_producto">
+											aria-label="Default select example" name="id_producto" required>
 											<option selected>Productos</option>
 											<c:forEach items="${productos}" var="producto">
 												<option value="${producto.id_producto}">
@@ -237,12 +237,12 @@
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Cantidad</label>
 										<input type="text" class="form-control" id="exampleInput"
-											name="cantidad">
+											name="cantidad" required>
 									</div>
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Fecha</label> <input
 											type="date" class="form-control" id="exampleInput"
-											name="fecha">
+											name="fecha" required>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"

@@ -36,6 +36,7 @@ public class ModeloVenta {
 				// setterar atributos relacionados
 				venta.setCliente(modelo_cliente.getClientelByID(venta.getId_cliente()));
 				venta.setProductos(modelo_pro.getProductosByVenta(venta.getId_cliente()));
+				venta.setProducto(modelo_pro.getProductoByID(venta.getId_producto()));
 				venta.setComprasTotal(getCompraTotalByCliente(venta.getId_cliente()));
 				ventas.add(venta);
 			}
@@ -147,7 +148,7 @@ public class ModeloVenta {
 	}
 
 	public ArrayList<Venta> getVentasByCliente(int id_cliente) {
-		String sql = "SELECT * FROM VENTAS WHERE ID_CLIENTE = ?";
+		String sql = "SELECT V.ID_CLIENTE,V.ID_PRODUCTO,SUM(V.CANTIDAD) AS CANTIDAD, V.FECHA FROM VENTAS V WHERE V.ID_CLIENTE = ? GROUP BY V.ID_CLIENTE, V.ID_PRODUCTO, V.FECHA";
 		ArrayList<Venta> ventas = new ArrayList<Venta>();
 		try {
 			Connection con = Conector.getConexion();
@@ -159,9 +160,8 @@ public class ModeloVenta {
 			
 			ResultSet rst = prst.executeQuery();
 			
-			if(rst.next()) {
+			while(rst.next()) {
 				Venta venta = new Venta();
-				venta.setId_venta(rst.getInt("ID_VENTA"));
 				venta.setId_cliente(rst.getInt("ID_CLIENTE"));
 				venta.setId_producto(rst.getInt("ID_PRODUCTO"));
 				venta.setCantidad(rst.getInt("CANTIDAD"));
@@ -176,8 +176,8 @@ public class ModeloVenta {
 				venta.setCliente(modelo_cliente.getClientelByID(venta.getId_cliente()));
 				venta.setProducto(modelo_pro.getProductoByID(venta.getId_producto()));
 				ventas.add(venta);
-				return ventas;
 				}
+			return ventas;
 			}catch (Exception e) {
 				e.printStackTrace();
 			}

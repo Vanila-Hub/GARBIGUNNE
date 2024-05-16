@@ -1,8 +1,10 @@
 package controlador.formValidador;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import modelo.cliente.Cliente;
+import modelo.productos.Producto;
 
 public class FormValidador {
 
@@ -124,6 +126,14 @@ public class FormValidador {
 
 	public boolean camposSuministroValido(String[] id_Plantas, String[] id_Materiales) {
 		if (id_Plantas == null || id_Materiales == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean ComprasClienteValido(ArrayList<Producto> productosCliente) {
+		if (productosCliente==null || productosCliente.isEmpty()) {
 			return false;
 		} else {
 			return true;
