@@ -262,6 +262,7 @@
 											</c:forEach>
 										</ul>
 									</div>
+									
 									<div class="mb-3">
 										<label for="exampleInput" class="form-label">Materiales</label>
 
