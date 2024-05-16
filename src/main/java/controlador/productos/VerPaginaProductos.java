@@ -59,11 +59,14 @@ public class VerPaginaProductos extends HttpServlet {
 		ModeloMaterial modelo_material = new ModeloMaterial();
 		ArrayList<Material> materiales = modelo_material.getMateriales();
 		System.out.println(productosCliente);
+		if (productosCliente==null || productosCliente.isEmpty()) {
+		} else {
+			request.setAttribute("productosCliente", productosCliente);
+		}
 		//mandarlo al jsp de Productos
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
-		request.setAttribute("productosCliente", productosCliente);
 		//volvera el /productos  y guardar sus atributos
 		request.setAttribute("nombre", cliente.getNombre());
 		request.setAttribute("apellido", cliente.getApellido());

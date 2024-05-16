@@ -218,9 +218,10 @@ public class ModeloProducto {
                 producto.setPlanta(modpla.getPlantaByID(producto.getId_planta()));
                 productos_cliente.add(producto);
             }
+            return productos_cliente;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return productos_cliente;
+		return null;
 	}
 }
