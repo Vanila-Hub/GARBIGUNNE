@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import controlador.formValidador.FormValidador;
 import modelo.cliente.ModeloCliente;
+ /*
+  * Este servlet se encarga de validar los datos del formulario, si son correctos Actualiza al cliente con los nuevos valopres sino devuelve un error indicandoque hay campos sin rellenar
+  * */
 
 /**
  * Servlet implementation class UpdateClientes
@@ -24,7 +27,7 @@ public class UpdateClientes extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -64,7 +67,7 @@ public class UpdateClientes extends HttpServlet {
 			tipo_usuario="usuario";
 		}
 		modelo_cliente.actualizarCliente(nombreCliente,apellido,usuario,contrasena,id_CLiente,tipo_usuario);
-		//volvera el /plantas
+
 		if (request.getParameter("peticion")==null || request.getParameter("peticion") == "") {
 			request.setAttribute("msg", "updated");
 			request.getRequestDispatcher("/VerClientes").forward(request, response);

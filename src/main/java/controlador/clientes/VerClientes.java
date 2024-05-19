@@ -32,7 +32,6 @@ public class VerClientes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FormValidador valitato = new FormValidador();
 		String msg = (String) request.getParameter("msg");
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();

@@ -21,6 +21,7 @@ import modelo.productos.Producto;
 import modelo.ventas.ModeloVenta;
 import modelo.ventas.Venta;
 
+
 /**
  * Servlet implementation class VerPaginaProductos
  */
@@ -41,8 +42,9 @@ public class VerPaginaProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+		//si esque se envia un menjase de Compra hecha el serlet lo recibe como valor y lo envia al JSp de inicio para ver la pagiande prodtctos
 		String msg = (String) request.getParameter("msg");
-		//lalam al modelo para inser
+
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		ModeloProducto modelo_productos = new ModeloProducto();
 		ModeloMaterial modelo_material = new ModeloMaterial();
@@ -59,7 +61,7 @@ public class VerPaginaProductos extends HttpServlet {
 		ArrayList<Venta> ComprasCliente = modelo_venta.getVentasByCliente(id_cliente);
 		ArrayList<Material> materiales = modelo_material.getMateriales();
 		
-		//Validamos que tenga productos comprados
+		//Validamos que tenga productos comprados, para no enviar un ArrayList vacio
 		if (valitator.ComprasClienteValido(productosCliente)) {
 			request.setAttribute("productosCliente", productosCliente);			
 		}
@@ -68,7 +70,6 @@ public class VerPaginaProductos extends HttpServlet {
 		request.setAttribute("materiales", materiales);
 		request.setAttribute("plantas", plantas);
 		request.setAttribute("productos", productos);
-		//volvera el /productos  y guardar sus atributos
 		request.setAttribute("nombre", cliente.getNombre());
 		request.setAttribute("apellido", cliente.getApellido());
 		request.setAttribute("usuario", cliente.getUsuario());

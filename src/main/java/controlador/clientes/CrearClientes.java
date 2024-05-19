@@ -26,6 +26,8 @@ public class CrearClientes extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    /*
+     * Este metodo es el servelt del controlador de la clase cliente, y su trabajo es la de recibir los parametros necesarios para crear en la Base de datos un cliente. */
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

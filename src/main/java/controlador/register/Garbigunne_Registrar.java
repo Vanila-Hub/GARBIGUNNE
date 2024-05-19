@@ -59,7 +59,7 @@ public class Garbigunne_Registrar extends HttpServlet {
 		
 		ModeloCliente modelo_cliente = new ModeloCliente();
 		
-//		response.sendRedirect("/Garbigune_reto/Login?id_cliente=" + 0);
+//		Validamos los datos recibidos por el formulario si esque son correctos
 
 		if (valitator.newUsuarioEsValido(nombreCliente,apellido,usuario,contrasena,rol)) {
 			modelo_cliente.crearCliente(nombreCliente,apellido,usuario,contrasena,rol);

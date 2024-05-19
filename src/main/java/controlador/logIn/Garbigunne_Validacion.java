@@ -13,6 +13,12 @@ import controlador.formValidador.FormValidador;
 import modelo.cliente.Cliente;
 import modelo.cliente.ModeloCliente;
 
+/*
+ * 	Este servlet se encarga de Validar los campos del formulario para cuando hay un intento de de inicio de sesion y si son corectos compra el email y la contraseña recibidos del formulario con 
+ * Los clientes de la base de datos sin no exisate el ciente el Serlet devuelve un error "no_data_found" indicando que no existe el usuario, si el correo es correcro pero la ontraseña no
+ * devielve un error indicando que la contraseña es incorrecta.
+ * */
+
 /**
  * Servlet implementation class Garbigunne_ControlAcesso
  */

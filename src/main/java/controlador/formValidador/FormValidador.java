@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import modelo.cliente.Cliente;
 import modelo.productos.Producto;
 
+/*
+ * Esta clase se usa para validar los campos de los distintos formularios, si hay un valor nullo, vacio o con tipo de dato incorrecto devuelve false indicando que los valores no son validos
+ * */
+
 public class FormValidador {
 
 	public FormValidador() {

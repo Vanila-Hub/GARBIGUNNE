@@ -14,6 +14,10 @@ import com.google.gson.Gson;
 import modelo.productos.ModeloProducto;
 import modelo.productos.Producto;
 
+/*
+ *Este serlvel sive los productos cuyo ID_Planta coincida con la id de planta recibido como parametro en la URl, y con el google Object Notatio (Gson) convierte el objeto de java a un objeto para el lenjuage 
+ * de javaScript (JSON) ya que es de donde se estan haciendo las peticiones asincronas usando AJAX. 
+ * */
 /**
  * Servlet implementation class PlantaProductos
  */

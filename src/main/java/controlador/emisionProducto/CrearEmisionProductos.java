@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import controlador.formValidador.FormValidador;
 import modelo.emisionproducto.ModeloEmisionProducto;
 
+/*
+ * Este servelt se encarga de Validar los campos que se han rellenado del form para crear una Emision de un producto si son correctos los inserta sino devuelve un error Indicando que hay campos sin rellenar
+ * */
 
 
 /**
